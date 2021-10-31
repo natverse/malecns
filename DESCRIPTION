@@ -1,0 +1,31 @@
+Package: malecns
+Type: Package
+Title: Access to the latest 'Janelia FlyEM' datasets
+Version: 0.1.0
+Authors@R:
+    c(person(given = "Gregory",
+           family = "Jefferis",
+           role = c("aut", "cre"),
+           email = "jefferis@gmail.com",
+           comment = c(ORCID = "0000-0002-0587-9355"))
+      )
+Description: Provides access to the latest 'Janelia FlyEM' datasets by providing
+    a thin wrapper around the 'malevnc' package.
+License: GPL (>= 3)
+Encoding: UTF-8
+LazyData: true
+Suggests: 
+    spelling
+Language: en-GB
+Imports: 
+    fafbseg (>= 0.9.4),
+    jsonlite,
+    nat (>= 1.10.2.9000),
+    malevnc (>= 0.1.2),
+    nat.templatebrains (>= 1.0)
+Remotes: 
+    flyconnectome/malevnc,
+    natverse/fafbseg,
+    natverse/nat,
+    natverse/nat.templatebrains
+RoxygenNote: 7.1.1
