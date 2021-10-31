@@ -22,7 +22,8 @@ Imports:
     jsonlite,
     nat (>= 1.10.2.9000),
     malevnc (>= 0.1.2),
-    nat.templatebrains (>= 1.0)
+    nat.templatebrains (>= 1.0),
+    pbapply
 Remotes: 
     flyconnectome/malevnc,
     natverse/fafbseg,
