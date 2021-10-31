@@ -4,7 +4,7 @@
 \alias{read_mcns_meshes}
 \title{Read a mesh for the current segmentation}
 \usage{
-read_mcns_meshes(ids, type = "small", node = "clio", ...)
+read_mcns_meshes(ids, type = "small", node = "neutu", df = NULL, ...)
 }
 \arguments{
 \item{ids}{A set of body ids in any form understandable to
@@ -15,6 +15,10 @@ read_mcns_meshes(ids, type = "small", node = "clio", ...)
 \item{node}{A DVID node as returned by \code{\link[malevnc]{manc_dvid_node}}. The
 default is to return the current active (unlocked) node being used through
 neutu.}
+
+\item{df}{A data.frame containing information about the neurons for which
+meshes will be fetched. Optional and if \code{ids} is a data.frame, then
+that will be used.}
 
 \item{...}{Additional arguments passed to \code{httr::GET}}
 }
