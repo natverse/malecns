@@ -87,8 +87,7 @@ mcns_scene <- function(ids=NULL, open=FALSE, dataset=getOption('malecns.dataset'
   sc=scene4dataset(dataset = dataset)
   dlname=dvidlayer4scene(sc)$name
   if(!is.null(ids)) {
-    ids=with_mcns(malevnc::manc_ids(ids, as_character = T, unique = T),
-                  dataset = dataset)
+    ids=mcns_ids(ids, as_character = T, unique = T, dataset = dataset)
     sc$layers[[dlname]]$segments=ids
   }
   u=fafbseg::ngl_encode_url(sc, baseurl = "https://clio-ng.janelia.org")
