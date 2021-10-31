@@ -29,3 +29,5 @@ Remotes:
     natverse/nat,
     natverse/nat.templatebrains
 RoxygenNote: 7.1.1
+URL: https://github.com/flyconnectome/malecns
+BugReports: https://github.com/flyconnectome/malecns/issues
