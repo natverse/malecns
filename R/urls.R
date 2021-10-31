@@ -1,8 +1,8 @@
-#' Evaluate an expression after temporarily setting malenvnc options
+#' Evaluate an expression after temporarily setting malevnc options
 #'
 #' @description \code{malecns} is a thin wrapper around \code{malevnc} which
 #'   operates by changing the server/dataset options of that package. This
-#'   function temporarily chagnes those options, runs the required expression
+#'   function temporarily changes those options, runs the required expression
 #'   and then sets back again.
 #'
 #' @param expr An expression to evaluate with a default autosegmentation

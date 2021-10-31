@@ -2,7 +2,7 @@
 % Please edit documentation in R/urls.R
 \name{with_mcns}
 \alias{with_mcns}
-\title{Evaluate an expression after temporarily setting malenvnc options}
+\title{Evaluate an expression after temporarily setting malevnc options}
 \usage{
 with_mcns(expr, dataset = getOption("malecns.dataset"))
 }
@@ -14,15 +14,11 @@ with_mcns(expr, dataset = getOption("malecns.dataset"))
 \description{
 \code{malecns} is a thin wrapper around \code{malevnc} which
   operates by changing the server/dataset options of that package. This
-  function temporarily chagnes those options, runs the required expression
+  function temporarily changes those options, runs the required expression
   and then sets back again.
 }
 \examples{
-\donttest{
-with_mcns(fafbseg::flywire_islatest('648518346498254576'))
-}
 \dontrun{
-with_fanc(fafbseg::flywire_latestid('648518346498254576'))
-with_fanc(fafbseg::flywire_latestid('648518346494405175'))
+with_mcns((malevnc::manc_dvid_node(type = 'clio'))
 }
 }
