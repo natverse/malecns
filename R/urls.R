@@ -30,13 +30,17 @@ mcns_dataset <- function(dataset) {
   cds[[dataset]]
 }
 
-choose_malevnc_dataset <- function(set=TRUE, dataset=getOption("malecns.dataset")) {
+choose_malevnc_dataset <- function(set=TRUE,
+                                   dataset=getOption("malecns.dataset")) {
   ds=mcns_dataset(dataset)
   s=servers4dataset(ds)
   r=rootnode4dataset(ds)
   ops=list(malevnc.server=s$dvid,
            malevnc.rootnode=r,
-           malevnc.dataset=dataset)
+           malevnc.dataset=dataset,
+           malevnc.neuprint=ifelse(dataset=="CNS",
+                                   'https://neuprint-cns.janelia.org',
+                                   'https://neuprint-pre.janelia.org'))
   if(set) options(ops) else ops
 }
 
