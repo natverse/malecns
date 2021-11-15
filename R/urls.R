@@ -18,6 +18,12 @@ with_mcns <- function(expr, dataset=getOption("malecns.dataset")) {
   force(expr)
 }
 
+#' @export
+#' @rdname with_mcns
+choose_mcns <- function(dataset=getOption("malecns.dataset")) {
+  choose_malevnc_dataset(set=T, dataset = dataset)
+}
+
 mcns_datasets <- function() {
   js=malevnc:::clio_datasets(json=T)
   # TODO could memoise this, takes a few seconds
