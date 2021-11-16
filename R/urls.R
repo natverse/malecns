@@ -93,13 +93,40 @@ rootnode4dataset <- memoise::memoise(function(dataset=NULL) {
   info$Root
 })
 
-mcns_scene <- function(ids=NULL, open=FALSE, dataset=getOption('malecns.dataset')) {
+
+
+#' Construct a neuroglancer scene for CNS dataset
+#'
+#' @param ids A set of bodyids
+#' @param open Whether to open in your default browser
+#' @param dataset Optional CNS dataset
+#' @param node Optional node specifier e.g. \code{"neuprint"}
+#'
+#' @return character vector containing URL
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#' mcns_scene(4060524874, open=TRUE, node='neuprint')
+#'
+#' }
+mcns_scene <- function(ids=NULL, open=FALSE, dataset=getOption('malecns.dataset'), node=NULL) {
   sc=scene4dataset(dataset = dataset)
   dlname=dvidlayer4scene(sc)$name
   if(!is.null(ids)) {
     ids=mcns_ids(ids, as_character = T, unique = T, dataset = dataset)
     sc$layers[[dlname]]$segments=ids
+    sc$layers[[dlname]]$segmentQuery=paste(ids, collapse = ' ')
   }
+  if(!is.null(node)) {
+    u=sc$layers[[dlname]]$source$url
+    if(is.null(u))
+      stop("Unable to extract segmentation source URL to insert custom DVID node!")
+    node=with_mcns(malevnc:::manc_nodespec(node, several.ok = F))
+    sc$layers[[dlname]]$source$url=
+      sub("(.+org/)([a-f0-9]+)(/segmentation)", paste0("\\1", node, "\\3"), u)
+  }
+
   u=fafbseg::ngl_encode_url(sc, baseurl = "https://clio-ng.janelia.org")
   if(open) {
     utils::browseURL(u)
