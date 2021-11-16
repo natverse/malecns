@@ -21,14 +21,16 @@ Imports:
     fafbseg (>= 0.9.4),
     jsonlite,
     nat (>= 1.10.2.9000),
-    malevnc (>= 0.1.2),
+    malevnc (>= 0.1.2.9000),
     nat.templatebrains (>= 1.0),
-    pbapply
+    pbapply,
+    neuprintr
 Remotes: 
     flyconnectome/malevnc,
     natverse/fafbseg,
     natverse/nat,
-    natverse/nat.templatebrains
+    natverse/nat.templatebrains,
+    natverse/neuprintr
 RoxygenNote: 7.1.1
 URL: https://github.com/flyconnectome/malecns
 BugReports: https://github.com/flyconnectome/malecns/issues
