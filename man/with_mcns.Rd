@@ -2,9 +2,12 @@
 % Please edit documentation in R/urls.R
 \name{with_mcns}
 \alias{with_mcns}
+\alias{choose_mcns}
 \title{Evaluate an expression after temporarily setting malevnc options}
 \usage{
 with_mcns(expr, dataset = getOption("malecns.dataset"))
+
+choose_mcns(dataset = getOption("malecns.dataset"))
 }
 \arguments{
 \item{expr}{An expression to evaluate with a default autosegmentation}

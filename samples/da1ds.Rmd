@@ -1,0 +1,73 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+```{r}
+library(malecns)
+library(dplyr)
+```
+
+
+
+```{r}
+mcnsann=googlesheets4::read_sheet('https://docs.google.com/spreadsheets/d/13e2yboGmSHrkdew0REkqXWrx5PfHrwPbZZArySjIHtA/edit#gid=0')
+
+
+```
+
+```{r}
+mcns_xyz2bodyid(cbind(35802, 10687, 27016), node = 'neutu')
+b1=mcns_xyz2bodyid(mcnsann$position, node = 'clio')
+b2=mcns_xyz2bodyid(mcnsann$position, node = 'neuprint')
+table(b1==b2)
+```
+
+```{r}
+table(mcns_xyz2bodyid(mcnsann$position, node = 'clio')==mcnsann$bodyid)
+table(mcns_xyz2bodyid(mcnsann$position, node = 'neuprint')==mcnsann$bodyid)
+```
+
+```{r}
+mcnsann$bodyid=mcns_xyz2bodyid(mcnsann$position, node = 'neuprint')
+```
+
+
+```{r}
+cnsc <- mcns_neuprint()
+```
+
+
+```{r}
+da1.axons=subset(mcnsann, grepl("DA1",symbol) & grepl("axon", notes))
+da1ds=neuprintr::neuprint_connection_table(da1.axons,partners = 'out', conn = cnsc)
+
+unique(da1ds$bodyid)
+```
+
+```{r}
+table(da1ds$bodyid)
+```
+
+
+
+```{r}
+da1ds %>% 
+  group_by(partner) %>% 
+  summarise(weight=sum(weight), n=n()) %>% 
+  arrange(desc(weight))
+
+```
+
+Or use the new summary arg
+
+
+```{r}
+da1dss=mcns_connection_table(da1.axons,partners = 'out', summary = T)
+da1dss
+```
+```{r, eval=FALSE}
+mcns_scene(da1dss$partner[1:10], open=T, node='neuprint')
+mcns_scene(da1dss$partner[11:20], open=T, node='neuprint')
+```
+
