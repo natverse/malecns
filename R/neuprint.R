@@ -6,7 +6,7 @@
 #' @export
 #' @family manc-neuprint
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' cnsc=mcns_neuprint()
 #' anchorids <- neuprintr::neuprint_ids("status:Anchor", conn=cnsc)
 #' # the last connection will be used by default

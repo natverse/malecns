@@ -16,7 +16,7 @@ a \code{\link{neuprint_connection}} object returned by \code{\link{neuprint_logi
 Login to male CNS neuprint server
 }
 \examples{
-\donttest{
+\dontrun{
 cnsc=mcns_neuprint()
 anchorids <- neuprintr::neuprint_ids("status:Anchor", conn=cnsc)
 # the last connection will be used by default
