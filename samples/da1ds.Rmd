@@ -11,9 +11,8 @@ library(dplyr)
 
 
 ```{r}
-mcnsann=googlesheets4::read_sheet('https://docs.google.com/spreadsheets/d/13e2yboGmSHrkdew0REkqXWrx5PfHrwPbZZArySjIHtA/edit#gid=0')
-
-
+mcnsann.url="https://docs.google.com/spreadsheets/d/13e2yboGmSHrkdew0REkqXWrx5PfHrwPbZZArySjIHtA/edit#gid=0"
+mcnsann=googlesheets4::read_sheet(mcnsann.url)
 ```
 
 ```{r}
@@ -61,13 +60,50 @@ da1ds %>%
 
 Or use the new summary arg
 
-
 ```{r}
 da1dss=mcns_connection_table(da1.axons,partners = 'out', summary = T)
 da1dss
 ```
+
 ```{r, eval=FALSE}
 mcns_scene(da1dss$partner[1:10], open=T, node='neuprint')
 mcns_scene(da1dss$partner[11:20], open=T, node='neuprint')
 ```
 
+
+```{r}
+da1dss %>% 
+  filter(weight>=20) %>% 
+  googlesheets4::write_sheet(., ss = mcnsann.url, sheet = 'DA1DS')
+```
+
+
+## Downstream of other neurons
+
+mAL
+```{r}
+malds=mcns_connection_table(subset(mcnsann, symbol=='mAL'), partners = 'out', summary = T, threshold=10)
+```
+
+```{r, eval=F}
+mcns_scene(malds$partner[1:10], open = T, node = 'neuprint')
+malds %>% 
+  filter(weight>=20) %>% 
+  googlesheets4::write_sheet(., ss = mcnsann.url, sheet = 'mALDS')
+```
+
+lvPNs
+
+```{r}
+lvpnds=mcns_connection_table(subset(mcnsann, grepl('lvPN', symbol)), partners = 'out', summary = T, threshold=10)
+
+```
+
+
+```{r, eval=F}
+mcns_scene(lvpnds$partner[1:10], open = T, node = 'neuprint')
+lvpnds %>% 
+  filter(weight>=20) %>% 
+  googlesheets4::write_sheet(., ss = mcnsann.url, sheet = 'lvPNDS')
+
+```
