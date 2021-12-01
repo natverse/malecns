@@ -2,7 +2,7 @@
 % Please edit documentation in R/neuprint.R
 \name{mcns_connection_table}
 \alias{mcns_connection_table}
-\title{Connnectivity query for CNS neurons}
+\title{Connectivity query for CNS neurons}
 \usage{
 mcns_connection_table(
   ids,
@@ -36,7 +36,7 @@ ensure that query is against the VNC dataset.}
 A data.frame
 }
 \description{
-Connnectivity query for CNS neurons
+Connectivity query for CNS neurons
 }
 \examples{
 \donttest{

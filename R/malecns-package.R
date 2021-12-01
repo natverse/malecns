@@ -2,8 +2,8 @@
 #' @section Package Options: \itemize{
 #'
 #'   \item \code{malecns.dataset} This is to used to keep track of the active
-#'   dataset. At present it is only for expert use and it is not recomended that
-#'   you change this manually.
+#'   dataset. At present it is only for expert use and it is not recommended
+#'   that you change this manually.
 #'
 #'   }
 "_PACKAGE"

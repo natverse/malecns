@@ -35,7 +35,7 @@ mcns_neuprint <- function(token=Sys.getenv("neuprint_token"), Force=FALSE, ...) 
 }
 
 
-#' Connnectivity query for CNS neurons
+#' Connectivity query for CNS neurons
 #'
 #' @param ids
 #' @param partners
