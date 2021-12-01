@@ -25,10 +25,13 @@ Login to male CNS neuprint server
 \details{
 It should be possible to use the same token across public and
   private neuprint servers if you are using the same email address. However
-  this does not seem to work for all users. If you need to pass a specific
-  token you can use the \code{token} argument, also setting \code{Force=T} to
-  ensure that the specified token is used if you have already tried to log in
-  during the current session. See examples for code.
+  this does not seem to work for all users. Before giving up on this, do try
+  using the \emph{most} recently issued token from a private server (e.g. cns
+  dataset) rather than older tokens e.g. for hemibrain dataset. If you need
+  to pass a specific token you can use the \code{token} argument, also
+  setting \code{Force=T} to ensure that the specified token is used if you
+  have already tried to log in during the current session. See examples for
+  code.
 }
 \examples{
 \dontrun{
