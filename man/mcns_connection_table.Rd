@@ -14,8 +14,8 @@ mcns_connection_table(
 )
 }
 \arguments{
-\item{ids}{A set of body ids in any form understandable to
-\code{\link[malevnc]{manc_ids}}}
+\item{ids}{A set of body ids (see \code{\link{manc_ids}} for a range of ways
+to specify these).}
 
 \item{partners}{Either inputs or outputs. Redundant with \code{prepost}, but
 probably clearer.}

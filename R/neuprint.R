@@ -37,8 +37,8 @@ mcns_neuprint <- function(token=Sys.getenv("neuprint_token"), Force=FALSE, ...) 
 
 #' Connectivity query for CNS neurons
 #'
-#' @param ids
-#' @param partners
+#' @param ids A set of body ids (see \code{\link{manc_ids}} for a range of ways
+#'   to specify these).
 #' @param moredetails Not yet implemented
 #' @param summary Whether to summarise results per partner when giving multiple
 #'   query neurons
@@ -62,7 +62,7 @@ mcns_connection_table <- function(ids, partners=c("inputs", "outputs"),
                                   moredetails=TRUE, summary=FALSE,
                                   conn=mcns_neuprint(), ...) {
   # malevnc::manc_connection_table(ids=ids, partners=partners, moredetails = moredetails, conn=conn, summary=summary, ...)
-
+  ids=mcns_ids(ids)
   neuprintr::neuprint_connection_table(ids, partners=partners, details = T, conn=conn, summary=summary, ...)
 
 }
