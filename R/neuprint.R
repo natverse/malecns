@@ -1,13 +1,28 @@
 #' Login to male CNS neuprint server
 #'
+#' @details It should be possible to use the same token across public and
+#'   private neuprint servers if you are using the same email address. However
+#'   this does not seem to work for all users. If you need to pass a specific
+#'   token you can use the \code{token} argument, also setting \code{Force=T} to
+#'   ensure that the specified token is used if you have already tried to log in
+#'   during the current session. See examples for code.
 #' @param ... Additional arguments passed to \code{\link{neuprint_login}}
-#'
-#' @return a \code{\link{neuprint_connection}} object returned by \code{\link{neuprint_login}}
+#' @param token Optional neuprint access token (see details and examples if you
+#'   have trouble with multiple tokens).
+#' @inheritParams neuprintr::neuprint_login
+#' @return a \code{\link{neuprint_connection}} object returned by
+#'   \code{\link{neuprint_login}}
 #' @export
 #' @family manc-neuprint
 #' @examples
 #' \dontrun{
 #' cnsc=mcns_neuprint()
+#'
+#' # log in using specified token rather than the one in the neuprint_token
+#' # environment variable. This should then be cached for the rest of the R
+#' # session.
+#' cnsc=mcns_neuprint(token="XXX", Force=T)
+#'
 #' anchorids <- neuprintr::neuprint_ids("status:Anchor", conn=cnsc)
 #' # the last connection will be used by default
 #' anchormeta <- neuprintr::neuprint_get_meta("status:Anchor")
@@ -15,8 +30,8 @@
 #' plot(cumsum(sort(anchormeta$pre, decreasing = TRUE)), ylab='Cumulative presynapses')
 #' plot(cumsum(sort(anchormeta$post, decreasing = TRUE)), ylab='Cumulative postsynapses')
 #' }
-mcns_neuprint <- function(...) {
-  neuprintr::neuprint_login(server='https://neuprint-cns.janelia.org', dataset = "cns", token=Sys.getenv("neuprint_token"), ...)
+mcns_neuprint <- function(token=Sys.getenv("neuprint_token"), Force=FALSE, ...) {
+  neuprintr::neuprint_login(server='https://neuprint-cns.janelia.org', dataset = "cns", token=token, Force=Force, ...)
 }
 
 

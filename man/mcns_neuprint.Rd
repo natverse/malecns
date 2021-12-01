@@ -4,20 +4,41 @@
 \alias{mcns_neuprint}
 \title{Login to male CNS neuprint server}
 \usage{
-mcns_neuprint(...)
+mcns_neuprint(token = Sys.getenv("neuprint_token"), Force = FALSE, ...)
 }
 \arguments{
+\item{token}{Optional neuprint access token (see details and examples if you
+have trouble with multiple tokens).}
+
+\item{Force}{Whether to force a new login to the CATMAID server (default
+\code{FALSE})}
+
 \item{...}{Additional arguments passed to \code{\link{neuprint_login}}}
 }
 \value{
-a \code{\link{neuprint_connection}} object returned by \code{\link{neuprint_login}}
+a \code{\link{neuprint_connection}} object returned by
+  \code{\link{neuprint_login}}
 }
 \description{
 Login to male CNS neuprint server
 }
+\details{
+It should be possible to use the same token across public and
+  private neuprint servers if you are using the same email address. However
+  this does not seem to work for all users. If you need to pass a specific
+  token you can use the \code{token} argument, also setting \code{Force=T} to
+  ensure that the specified token is used if you have already tried to log in
+  during the current session. See examples for code.
+}
 \examples{
 \dontrun{
 cnsc=mcns_neuprint()
+
+# log in using specified token rather than the one in the neuprint_token
+# environment variable. This should then be cached for the rest of the R
+# session.
+cnsc=mcns_neuprint(token="XXX", Force=T)
+
 anchorids <- neuprintr::neuprint_ids("status:Anchor", conn=cnsc)
 # the last connection will be used by default
 anchormeta <- neuprintr::neuprint_get_meta("status:Anchor")
