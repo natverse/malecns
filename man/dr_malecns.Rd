@@ -6,9 +6,6 @@
 \usage{
 dr_malecns()
 }
-\value{
-
-}
 \description{
 Situation report on your malecns package installation
 }

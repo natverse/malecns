@@ -21,7 +21,8 @@ Provides access to the latest 'Janelia FlyEM' datasets by providing a thin wrapp
 \examples{
 \donttest{
 options()[grepl("^malecns", names(options()))]
-
+}
+\dontrun{
 dr_malecns()
 }
 }
