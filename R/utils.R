@@ -1,0 +1,38 @@
+dr_malecns <- function() {
+
+  message("Dataset/auth status")
+
+  cds=try(mcns_datasets())
+  if(inherits(npds, "try-error"))
+    message("Trouble connecting to clio to list datasets.")
+  else {
+    cat("Successfully connected to clio to list datasets:\n")
+
+    cdsl=sapply(cds, function(x) {
+      cols=c("title", "tag", "description", "uuid")
+      cols2=intersect(cols,names(x))
+      l=x[cols2]
+      l[setdiff(cols, cols2)]=NA
+      as.data.frame(l)
+    }, simplify = F)
+    cdsdf=do.call(rbind, cdsl)
+    print(cdsdf)
+  }
+
+  npds=try(neuprintr::neuprint_datasets(conn=mcns_neuprint()))
+  if(inherits(npds, "try-error"))
+    message("\nTrouble connecting to neuprint for CNS datasets.")
+  else {
+    cat("\nSuccessfully connected to neuprint dataset:\n")
+    cat(names(npds), "with last mod", npds[[1]]$`last-mod`,
+        "and uuid",npds[[1]]$uuid, "\n")
+  }
+
+  message("\nVersions and direct package dependencies:")
+  cat("R:", as.character(getRversion()),"\n")
+  if(!requireNamespace('remotes'))
+    warning("Please install the suggested remotes package to query dependencies")
+  res=remotes::dev_package_deps(find.package("malecns"))
+  print(res)
+
+}
