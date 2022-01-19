@@ -1,12 +1,15 @@
+#' Situation report on your malecns package installation
+#'
+#' @export
+#' @family malecns-package
 dr_malecns <- function() {
 
   message("Dataset/auth status")
-
   cds=try(mcns_datasets())
-  if(inherits(npds, "try-error"))
+  if(inherits(cds, "try-error"))
     message("Trouble connecting to clio to list datasets.")
   else {
-    cat("Successfully connected to clio to list datasets:\n")
+    cat("* Successfully connected to clio to list datasets:\n")
 
     cdsl=sapply(cds, function(x) {
       cols=c("title", "tag", "description", "uuid")
@@ -23,10 +26,15 @@ dr_malecns <- function() {
   if(inherits(npds, "try-error"))
     message("\nTrouble connecting to neuprint for CNS datasets.")
   else {
-    cat("\nSuccessfully connected to neuprint dataset:\n")
+    cat("\n* Successfully connected to neuprint dataset:\n")
+    print(mcns_neuprint())
     cat(names(npds), "with last mod", npds[[1]]$`last-mod`,
         "and uuid",npds[[1]]$uuid, "\n")
   }
+
+  message("\nRelevant malecns/malevnc options")
+  print(options()[grepl("^male(cns|vnc)", names(options()))])
+
 
   message("\nVersions and direct package dependencies:")
   cat("R:", as.character(getRversion()),"\n")

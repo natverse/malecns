@@ -6,6 +6,14 @@
 #'   that you change this manually.
 #'
 #'   }
+#' @family malecns-package
+#' @examples
+#' \donttest{
+#' options()[grepl("^malecns", names(options()))]
+#' }
+#' \dontrun{
+#' dr_malecns()
+#' }
 "_PACKAGE"
 
 # The following block is used by usethis to automatically manage

@@ -1,7 +1,7 @@
 Package: malecns
 Type: Package
 Title: Access to the latest 'Janelia FlyEM' datasets
-Version: 0.1.1
+Version: 0.1.2
 Authors@R:
     c(person(given = "Gregory",
            family = "Jefferis",
@@ -32,6 +32,6 @@ Remotes:
     natverse/nat,
     natverse/nat.templatebrains,
     natverse/neuprintr
-RoxygenNote: 7.1.1
+RoxygenNote: 7.1.2
 URL: https://github.com/flyconnectome/malecns
 BugReports: https://github.com/flyconnectome/malecns/issues

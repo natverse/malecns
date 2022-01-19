@@ -18,6 +18,13 @@ Provides access to the latest 'Janelia FlyEM' datasets by providing a thin wrapp
   }
 }
 
+\examples{
+\donttest{
+options()[grepl("^malecns", names(options()))]
+
+dr_malecns()
+}
+}
 \seealso{
 Useful links:
 \itemize{
@@ -25,9 +32,13 @@ Useful links:
   \item Report bugs at \url{https://github.com/flyconnectome/malecns/issues}
 }
 
+
+Other malecns-package: 
+\code{\link{dr_malecns}()}
 }
 \author{
 \strong{Maintainer}: Gregory Jefferis \email{jefferis@gmail.com} (\href{https://orcid.org/0000-0002-0587-9355}{ORCID})
 
 }
+\concept{malecns-package}
 \keyword{internal}
