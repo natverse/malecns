@@ -20,6 +20,11 @@ dr_malecns <- function() {
     }, simplify = F)
     cdsdf=do.call(rbind, cdsl)
     print(cdsdf)
+
+    ct=malevnc::clio_token()
+    email=attr(ct, 'email')
+
+    message('Clio is authenticated with email: ', email)
   }
 
   npds=try(neuprintr::neuprint_datasets(conn=mcns_neuprint()))
