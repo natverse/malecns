@@ -107,3 +107,49 @@ lvpnds %>%
   googlesheets4::write_sheet(., ss = mcnsann.url, sheet = 'lvPNDS')
 
 ```
+
+Downstream of DA1 PNs and lvPNs
+
+```{r}
+nrow(lvpnds)
+```
+
+
+comparing "half" and whole brain
+
+half brain [xyz](https://tinyurl.com/2rjebtkv): 34184, 22285, 22479
+whole brain [xyz](https://tinyurl.com/yeymbmuk): 38280, 26380, 26575 
+
+```{r}
+hb=cbind(34184, 22285, 22479)
+wb=cbind(38280, 26380, 26575)
+wb-hb
+hb+4096
+```
+
+## Upstream of DA1 axons
+
+```{r}
+da1.in=mcns_connection_table(da1.axons$bodyid, partners = 'in', summary = T)
+```
+
+VA1v downstream
+
+```{r}
+
+```
+
+
+## upstream of aSP-g
+
+```{r}
+aspgs=subset(mcnsann, symbol=='aSP-g')
+aspgs.in=mcns_connection_table(aspgs$bodyid, partners = 'in', summary = T)
+
+```
+
+
+```{r}
+left_join(aspgs.in, mcnsann, by=c("partner"="bodyid"))
+```
+
