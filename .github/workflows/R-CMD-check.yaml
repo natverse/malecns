@@ -20,9 +20,16 @@ jobs:
       - uses: r-lib/actions/setup-r@v1
         with:
           use-public-rspm: true
+      - name: Install dependencies
+        run: |
+          remotes::install_deps(dependencies = TRUE)
+          remotes::install_cran("rcmdcheck")
+          remotes::install_cran("covr")
+          remotes::install_cran("pkgdown")
+        shell: Rscript {0}
 
-      - uses: r-lib/actions/setup-r-dependencies@v1
-        with:
-          extra-packages: rcmdcheck
+        # - uses: r-lib/actions/setup-r-dependencies@v1
+        # with:
+        #   extra-packages: rcmdcheck
 
       - uses: r-lib/actions/check-r-package@v1
