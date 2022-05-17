@@ -14,10 +14,11 @@ malecns_shell.surf
 Surface model of the cortex (rind) of the malecns brain (in nm)
 }
 \examples{
-boundingbox(malecns_shell.surf)
-
-\dontrun{
+\donttest{
 library(nat)
+boundingbox(malecns_shell.surf)
+}
+\dontrun{
 plot3d(malecns_shell.surf, alpha=.2, col='grey')
 # in microns
 plot3d(malecns_shell.surf/1e3, alpha=.2, col='grey')
