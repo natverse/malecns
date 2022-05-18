@@ -30,6 +30,7 @@ dr_malecns()
 Useful links:
 \itemize{
   \item \url{https://github.com/flyconnectome/malecns}
+  \item \url{https://flyconnectome.github.io/malecns/}
   \item Report bugs at \url{https://github.com/flyconnectome/malecns/issues}
 }
 

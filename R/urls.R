@@ -10,7 +10,7 @@
 #' @export
 #' @examples
 #' \dontrun{
-#' with_mcns((malevnc::manc_dvid_node(type = 'clio'))
+#' with_mcns(malevnc::manc_dvid_node(type = 'clio'))
 #' }
 with_mcns <- function(expr, dataset=getOption("malecns.dataset")) {
   oldop <- choose_malevnc_dataset(dataset=dataset, set=T)

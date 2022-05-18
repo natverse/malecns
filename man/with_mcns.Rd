@@ -22,6 +22,6 @@ choose_mcns(dataset = getOption("malecns.dataset"))
 }
 \examples{
 \dontrun{
-with_mcns((malevnc::manc_dvid_node(type = 'clio'))
+with_mcns(malevnc::manc_dvid_node(type = 'clio'))
 }
 }
