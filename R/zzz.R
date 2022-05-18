@@ -6,8 +6,8 @@
   op<-options()
   toset <- !(names(op.malecns) %in% names(op))
   if(any(toset)) options(op.malecns[toset])
-  if(!requireNamespace('malevnc', quietly = T))
-    packageStartupMessage("Unable to load malevnc package.\nTry running dr_malecns() and then ",
+  if(!requireNamespace('jose', quietly = T))
+    packageStartupMessage("Unable to load jose/malevnc package.\nTry running dr_malecns() and then ",
           "ask on #code or file an issue at\n",
           "https://github.com/flyconnectome/malecns/issues")
   else {
