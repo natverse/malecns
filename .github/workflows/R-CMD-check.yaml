@@ -49,6 +49,7 @@ jobs:
           remotes::install_cran("rcmdcheck")
           remotes::install_cran("covr")
           remotes::install_cran("pkgdown")
+          remotes::install_cran("devtools")
         shell: Rscript {0}
 
         # - uses: r-lib/actions/setup-r-dependencies@v1
