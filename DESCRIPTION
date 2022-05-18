@@ -16,7 +16,8 @@ Encoding: UTF-8
 LazyData: true
 Suggests: 
     spelling,
-    remotes
+    remotes,
+    jose
 Language: en-GB
 Imports: 
     fafbseg (>= 0.9.4),
