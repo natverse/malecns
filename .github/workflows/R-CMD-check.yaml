@@ -28,6 +28,24 @@ jobs:
           writeLines(sprintf("R-%i.%i", getRversion()$major, getRversion()$minor), ".github/R-version")
         shell: Rscript {0}
 
+      - name: Install system dependencies/r
+        if: runner.os == 'Linux'
+        run: |
+          install.packages('pak')
+          pak::local_system_requirements(execute = TRUE)
+          pak::pkg_system_requirements("rcmdcheck", execute = TRUE)
+        shell: Rscript {0}
+
+      - name: Install system dependencies/bash
+        run:   |
+         if [ "$RUNNER_OS" == "Linux" ]; then
+              sudo apt-get update -y
+              sudo apt-get install -y libglpk-dev
+         else
+              echo "$RUNNER_OS no specific install required"
+         fi
+        shell: bash
+
       - name: Install dependencies
         run: |
           remotes::install_deps(dependencies = TRUE)
