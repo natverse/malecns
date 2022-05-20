@@ -13,7 +13,7 @@ mcns_ids <- function(ids, ..., dataset=getOption("malecns.dataset")) {
 #' @examples
 #' # the APL
 #' \dontrun{
-#' mcns_xyz2bodyid(cbind(24508, 15674, 26116))
+#' mcns_xyz2bodyid(cbind(24508, 15674, 26116)+4096)
 #' }
 mcns_xyz2bodyid <- function(xyz, node = 'neutu', cache=FALSE) {
   with_mcns(malevnc::manc_xyz2bodyid(xyz, node=node, cache = cache))

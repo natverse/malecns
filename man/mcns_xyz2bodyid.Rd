@@ -25,6 +25,6 @@ Map XYZ locations to bodyids based on the current mcns dataset
 \examples{
 # the APL
 \dontrun{
-mcns_xyz2bodyid(cbind(24508, 15674, 26116))
+mcns_xyz2bodyid(cbind(24508, 15674, 26116)+4096)
 }
 }

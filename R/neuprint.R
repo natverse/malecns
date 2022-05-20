@@ -52,7 +52,7 @@ mcns_neuprint <- function(token=Sys.getenv("neuprint_token"), Force=FALSE, ...) 
 #'
 #' @examples
 #' \donttest{
-#' joffrey.id=mcns_xyz2bodyid(cbind(24590, 13816, 26102), node = 'neuprint')
+#' joffrey.id=mcns_xyz2bodyid(cbind(24590, 13816, 26102)+4096, node = 'neuprint')
 #' joffrey.ds=mcns_connection_table(joffrey.id, partners = 'in')
 #' joffrey.dss=mcns_connection_table(joffrey.id, partners = 'in', summary=TRUE)
 #' }
