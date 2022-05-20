@@ -26,7 +26,8 @@ Imports:
     malevnc (>= 0.1.2.9000),
     nat.templatebrains (>= 1.0),
     pbapply,
-    neuprintr
+    neuprintr,
+    glue
 Remotes: 
     flyconnectome/malevnc,
     natverse/fafbseg,

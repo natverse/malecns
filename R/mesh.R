@@ -39,7 +39,13 @@ read_mcns_meshes <- function(ids, type='small', node='neutu', df=NULL, ...) {
   return(nat::as.neuronlist(res, AddClassToNeurons=F, df=df))
 }
 
+#' @importFrom glue glue
 read_mcns_mesh <- function(id, node, ...) {
-  u=sprintf("https://ngsupport-bmcp5imp6q-uk.a.run.app/small-mesh?dvid=https://emdata6-erivan.janelia.org&uuid=%s&body=%s&decimation=0.5", node, id)
+  ss=servers4dataset(getOption("malecns.dataset", default = "CNS"))
+  u = glue(
+    "{support}/small-mesh?dvid={dvid}&uuid={node}&body={id}&decimation=0.5",
+    dvid = ss$dvid,
+    support = ss$support
+  )
   malevnc:::read_neuroglancer_mesh(u, ...)
 }
