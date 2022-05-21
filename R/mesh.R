@@ -1,8 +1,16 @@
 #' Read a mesh for the current segmentation
 #'
-#' @details \code{small} meshes are low-resolution and generated on demand
+#' @details \code{dvid} meshes are pre-computed but are automatically deleted
+#'   and recomputed after boides are edited. However this process has a
+#'   noticeable lag. \code{small} meshes are generated on demand in a process
+#'   that can be quite slow. \code{auto} will try the \code{dvid} method and
+#'   switch to \code{small} if that fails. See
+#'   \href{https://flyem-cns.slack.com/archives/C01BZB05M8C/p1651719608800039}{slack}
+#'    for details; this is essentially the same behaviour as the flyem clio
+#'   fork.
 #'
-#' @param type Currently only "small" meshes are supported
+#' @param type One of \code{"auto"} (the default), \code{"dvid"} or
+#'   \code{"small"} (see details).
 #' @inheritParams malevnc::manc_dvid_annotations
 #' @param df A data.frame containing information about the neurons for which
 #'   meshes will be fetched. Optional and if \code{ids} is a data.frame, then
@@ -20,10 +28,12 @@
 #' # or if there's just one mesh, you can get more control
 #' wire3d(ml[[1]])
 #' }
-read_mcns_meshes <- function(ids, type='small', node='neutu', df=NULL, ...) {
+read_mcns_meshes <- function(ids, type=c('auto', 'dvid', 'small'),
+                             node='neutu', df=NULL, ...) {
   if(is.data.frame(ids)) {
     df=ids
   }
+  type=match.arg(type)
   # fix default rownames, this should really happen in nat
   # see https://github.com/natverse/nat/pull/467
   if(!is.null(df) && "bodyid" %in% colnames(df)) {
@@ -35,17 +45,25 @@ read_mcns_meshes <- function(ids, type='small', node='neutu', df=NULL, ...) {
   node=with_mcns({
     malevnc:::manc_nodespec(node, several.ok = F)
   })
-  res=pbapply::pbsapply(ids, read_mcns_mesh, node=node, ..., simplify = F)
+  res=pbapply::pbsapply(ids, read_mcns_mesh, node=node, type=type, ..., simplify = F)
   return(nat::as.neuronlist(res, AddClassToNeurons=F, df=df))
 }
 
 #' @importFrom glue glue
-read_mcns_mesh <- function(id, node, ...) {
+read_mcns_mesh <- function(id, node, type, ...) {
   ss=servers4dataset(getOption("malecns.dataset", default = "CNS"))
-  u = glue(
-    "{support}/small-mesh?dvid={dvid}&uuid={node}&body={id}&decimation=0.5",
-    dvid = ss$dvid,
-    support = ss$support
-  )
-  malevnc:::read_neuroglancer_mesh(u, ...)
+  dvid = ss$dvid
+  support = ss$support
+  if(type %in% c("auto", "dvid")) {
+    res <- try(with_mcns(malevnc:::read_manc_neuroglancer_mesh(id, node)))
+    if(inherits(res, 'try-error')) {
+      if(type=='auto') type='small'
+      res=NULL
+    }
+  }
+  if(type=='small') {
+    u = glue("{support}/small-mesh?dvid={dvid}&uuid={node}&body={id}&decimation=0.5")
+    res=malevnc:::read_neuroglancer_mesh(u, ...)
+  }
+  res
 }

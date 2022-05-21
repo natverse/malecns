@@ -4,13 +4,20 @@
 \alias{read_mcns_meshes}
 \title{Read a mesh for the current segmentation}
 \usage{
-read_mcns_meshes(ids, type = "small", node = "neutu", df = NULL, ...)
+read_mcns_meshes(
+  ids,
+  type = c("auto", "dvid", "small"),
+  node = "neutu",
+  df = NULL,
+  ...
+)
 }
 \arguments{
 \item{ids}{A set of body ids in any form understandable to
 \code{\link[malevnc]{manc_ids}}}
 
-\item{type}{Currently only "small" meshes are supported}
+\item{type}{One of \code{"auto"}, \code{"dvid"} or \code{"small"} (see
+details).}
 
 \item{node}{A DVID node as returned by \code{\link[malevnc]{manc_dvid_node}}. The
 default is to return the current active (unlocked) node being used through
@@ -30,7 +37,13 @@ A \code{\link{neuronlist}} containing one or more \code{mesh3d}
 Read a mesh for the current segmentation
 }
 \details{
-\code{small} meshes are low-resolution and generated on demand
+\code{dvid} meshes are pre-computed but are automatically deleted
+  and recomputed after boides are edited. However this process has a
+  noticeable lag. \code{small} meshes are generated on demand in a process
+  that can be quite slow. \code{auto} will try the \code{dvid} method and
+  switch to \code{small} if that fails. See
+  \href{https://flyem-cns.slack.com/archives/C01BZB05M8C/p1651719608800039}{slack}
+  for details.
 }
 \examples{
 \dontrun{
