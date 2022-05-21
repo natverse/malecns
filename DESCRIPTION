@@ -16,14 +16,13 @@ Encoding: UTF-8
 LazyData: true
 Suggests: 
     spelling,
-    remotes,
-    jose
+    remotes
 Language: en-GB
 Imports: 
     fafbseg (>= 0.9.4),
     jsonlite,
     nat (>= 1.10.2.9000),
-    malevnc (>= 0.1.2.9000),
+    malevnc (>= 0.2.1),
     nat.templatebrains (>= 1.0),
     pbapply,
     neuprintr,
