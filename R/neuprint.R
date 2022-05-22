@@ -69,3 +69,27 @@ mcns_connection_table <- function(ids, partners=c("inputs", "outputs"),
   neuprintr::neuprint_connection_table(ids, partners=partners, details = T, conn=conn, summary=summary, ...)
 
 }
+
+
+#' Fetch neuprint metadata for malecns neurons
+#'
+#' @details in contrast to \code{malevnc::\link{manc_neuprint_meta}} we leave
+#'   bodyis as numeric (doubles) since flyem now guarantee them to be less than
+#'   2^53 ie within the range in which doubles can exactly represent numeric
+#'   ids.
+#' @param ids body ids.
+#' @inheritParams malevnc::manc_neuprint_meta
+#' @return A data.frame with one row for each (unique) id and NAs for all
+#'   columns except bodyid when neuprint holds no metadata.
+#' @export
+#' @family annotations
+#' @examples
+#' \donttest{
+#' mm=mcns_neuprint_meta()
+#' }
+mcns_neuprint_meta <- function(ids=NULL, conn=mcns_neuprint(), roiInfo=FALSE) {
+  res=with_mcns(malevnc::manc_neuprint_meta(ids,conn=conn, roiInfo = roiInfo))
+  res$bodyid=as.numeric(res$bodyid)
+  # sort by body if if we were relying on dvid annotations
+  if(is.null(ids)) res[order(res$bodyid), ] else res
+}
