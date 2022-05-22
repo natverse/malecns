@@ -7,16 +7,16 @@ mcns_register_xforms <- function() {
   malehb_fafb14.tpsnm=nat::tpsreg(malehb_fafb14[3:5]*1e3, malehb_fafb14[6:8]*1e3)
 
   f2=system.file("landmarks/maleCNS_brain_FAFB_landmarks_um.csv", package = 'malecns')
-  malecvs_fafb14 = utils::read.csv(f2, header = F,
-                col.names = c("Pt", "good", "X", "Y", "Z", "X1", "Y2", "Z2"))
+  malecns_fafb14 = utils::read.csv(f2, header = T)
 
-  malecns_fafb14.tps=nat::tpsreg(malecns_fafb14[3:5], malecns_fafb14[6:8])
-  malecns_fafb14.tpsnm=nat::tpsreg(malecns_fafb14[3:5]*1e3, malecns_fafb14[6:8]*1e3)
+  malecns_fafb14.tps=nat::tpsreg(malecns_fafb14[2:4], malecns_fafb14[5:7])
+  malecns_fafb14.tpsnm=nat::tpsreg(malecns_fafb14[2:4]*1e3, malecns_fafb14[5:7]*1e3)
 
   nat.templatebrains::add_reglist(malehb_fafb14.tps, sample = 'malehbum', reference = "FAFB14um")
-  nat.templatebrains::add_reglist(malecns_fafb14.tpsnm, sample = 'malehb', reference = "FAFB14")
-  nat.templatebrains::add_reglist(malecns_fafb14.tps, sample = 'malecnsum', reference = "FAFB14um")
-  nat.templatebrains::add_reglist(malecns_fafb14.tpsnm, sample = 'malecns', reference = "FAFB14")
+  nat.templatebrains::add_reglist(malehb_fafb14.tpsnm, sample = 'malehb', reference = "FAFB14")
+  nat.templatebrains::add_reglist(malecns_fafb14.tps, reference = 'malecnsum',
+                                  sample = "FAFB14um", )
+  nat.templatebrains::add_reglist(malecns_fafb14.tpsnm, reference = 'malecns', sample = "FAFB14")
 }
 
 halfbrain2wholebrain <- function(x, units=c("raw", "nm", "microns", "um"), warn=TRUE) {
