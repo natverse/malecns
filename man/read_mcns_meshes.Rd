@@ -6,6 +6,7 @@
 \usage{
 read_mcns_meshes(
   ids,
+  units = c("nm", "raw", "microns"),
   type = c("auto", "dvid", "small"),
   node = "neutu",
   df = NULL,
@@ -15,6 +16,8 @@ read_mcns_meshes(
 \arguments{
 \item{ids}{A set of body ids in any form understandable to
 \code{\link[malevnc]{manc_ids}}}
+
+\item{units}{Units of the returned neurons (default \code{nm})}
 
 \item{type}{One of \code{"auto"} (the default), \code{"dvid"} or
 \code{"small"} (see details).}
@@ -50,7 +53,8 @@ Read a mesh for the current segmentation
 \dontrun{
 ml=read_mcns_meshes(1796013202)
 plot3d(ml)
-# or if there's just one mesh, you can get more control
+# or if there's just one mesh, you can get more control with the rgl commands
+# like wire3d
 wire3d(ml[[1]])
 }
 }

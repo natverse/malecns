@@ -12,6 +12,7 @@
 #' @param type One of \code{"auto"} (the default), \code{"dvid"} or
 #'   \code{"small"} (see details).
 #' @inheritParams malevnc::manc_dvid_annotations
+#' @inheritParams read_mcns_neurons
 #' @param df A data.frame containing information about the neurons for which
 #'   meshes will be fetched. Optional and if \code{ids} is a data.frame, then
 #'   that will be used.
@@ -25,14 +26,18 @@
 #' \dontrun{
 #' ml=read_mcns_meshes(1796013202)
 #' plot3d(ml)
-#' # or if there's just one mesh, you can get more control
+#' # or if there's just one mesh, you can get more control with the rgl commands
+#' # like wire3d
 #' wire3d(ml[[1]])
 #' }
-read_mcns_meshes <- function(ids, type=c('auto', 'dvid', 'small'),
+read_mcns_meshes <- function(ids, units=c("nm", "raw", "microns"),
+                             type=c('auto', 'dvid', 'small'),
                              node='neutu', df=NULL, ...) {
   if(is.data.frame(ids)) {
     df=ids
   }
+  units=match.arg(units)
+
   type=match.arg(type)
   # fix default rownames, this should really happen in nat
   # see https://github.com/natverse/nat/pull/467
@@ -46,7 +51,8 @@ read_mcns_meshes <- function(ids, type=c('auto', 'dvid', 'small'),
     malevnc:::manc_nodespec(node, several.ok = F)
   })
   res=pbapply::pbsapply(ids, read_mcns_mesh, node=node, type=type, ..., simplify = F)
-  return(nat::as.neuronlist(res, AddClassToNeurons=F, df=df))
+  res=nat::as.neuronlist(res, AddClassToNeurons=F, df=df)
+  switch(units, nm=res*8, microns=res*(8/1000), res)
 }
 
 #' @importFrom glue glue
