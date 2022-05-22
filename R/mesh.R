@@ -52,7 +52,7 @@ read_mcns_meshes <- function(ids, units=c("nm", "raw", "microns"),
   })
   res=pbapply::pbsapply(ids, read_mcns_mesh, node=node, type=type, ..., simplify = F)
   res=nat::as.neuronlist(res, AddClassToNeurons=F, df=df)
-  switch(units, nm=res*8, microns=res*(8/1000), res)
+  switch(units, raw=res/8, microns=res/1000, res)
 }
 
 #' @importFrom glue glue
