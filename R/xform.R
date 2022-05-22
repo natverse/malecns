@@ -1,5 +1,5 @@
 mcns_register_xforms <- function() {
-  f=system.file("landmarks/malecns_fafb14_landmarks_um_v2.csv", package = 'malecns')
+  f=system.file("landmarks/malehb_fafb14_landmarks_um_v2.csv", package = 'malecns')
   malehb_fafb14 = utils::read.csv(f, header = F,
     col.names = c("Pt", "good", "X", "Y", "Z", "X1", "Y2", "Z2")
   )
