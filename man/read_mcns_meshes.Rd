@@ -16,8 +16,8 @@ read_mcns_meshes(
 \item{ids}{A set of body ids in any form understandable to
 \code{\link[malevnc]{manc_ids}}}
 
-\item{type}{One of \code{"auto"}, \code{"dvid"} or \code{"small"} (see
-details).}
+\item{type}{One of \code{"auto"} (the default), \code{"dvid"} or
+\code{"small"} (see details).}
 
 \item{node}{A DVID node as returned by \code{\link[malevnc]{manc_dvid_node}}. The
 default is to return the current active (unlocked) node being used through
@@ -43,7 +43,8 @@ Read a mesh for the current segmentation
   that can be quite slow. \code{auto} will try the \code{dvid} method and
   switch to \code{small} if that fails. See
   \href{https://flyem-cns.slack.com/archives/C01BZB05M8C/p1651719608800039}{slack}
-  for details.
+   for details; this is essentially the same behaviour as the flyem clio
+  fork.
 }
 \examples{
 \dontrun{
@@ -53,3 +54,8 @@ plot3d(ml)
 wire3d(ml[[1]])
 }
 }
+\seealso{
+Other neurons: 
+\code{\link{read_mcns_neurons}()}
+}
+\concept{neurons}

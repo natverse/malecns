@@ -20,7 +20,7 @@
 #' @return A \code{\link{neuronlist}} containing one or more \code{mesh3d}
 #'   objects.
 #' @export
-#'
+#' @family neurons
 #' @examples
 #' \dontrun{
 #' ml=read_mcns_meshes(1796013202)
