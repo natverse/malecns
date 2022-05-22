@@ -6,6 +6,12 @@
 #'   that you change this manually.
 #'
 #'   }
+#'
+#' @section Bridging registrations: Philipp Schlegel has made bridging
+#'   registrations using bigwarp and the presynapse predictions for the male
+#'   half brain and male cns. See
+#'   \href{https://flyconnectome.slack.com/archives/C02F6UCCU6B/p1652945492746389?thread_ts=1652423869.552919&cid=C02F6UCCU6B}{slack}
+#'   for details.
 #' @family malecns-package
 #' @examples
 #' \donttest{
@@ -13,6 +19,26 @@
 #' }
 #' \dontrun{
 #' dr_malecns()
+#' }
+#'
+#' \donttest{
+#' library(nat.templatebrains)
+#' xform_brain(cbind(443344, 225172, 44920), sample = 'FAFB14',
+#'   reference = 'malecns')
+#' \dontrun{
+#' library(nat.jrcbrains)
+#' da1.hb=neuprintr::neuprint_read_neurons('/DA1.*lPN',
+#'   conn=neuprintr::neuprint_login(server='https://neuprint.janelia.org',
+#'     dataset = 'hemibrain:v1.2.1'))
+#' # nb hemibrain neurons comes in 8nm raw voxel coordinates not microns
+#' da1.hb.mcns=xform_brain(da1.hb*(8/1000), sample='JRCFIB2018F', reference='malecns')
+#' # read in a male cns DA1 neuron
+#' da1.1=read_mcns_meshes(11996, units='nm')
+#' nclear3d()
+#' plot3d(da1.hb.mcns, col='cyan')
+#' plot3d(da1.1, col='red')
+#' plot3d(malecns.surf, alpha=.1)
+#' }
 #' }
 "_PACKAGE"
 
