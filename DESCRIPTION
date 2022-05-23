@@ -16,7 +16,8 @@ Encoding: UTF-8
 LazyData: true
 Suggests: 
     spelling,
-    remotes
+    remotes,
+    testthat (>= 3.0.0)
 Language: en-GB
 Imports: 
     fafbseg (>= 0.9.4),
@@ -41,3 +42,4 @@ BugReports: https://github.com/flyconnectome/malecns/issues
 Depends: 
     R (>= 2.10),
     nat
+Config/testthat/edition: 3
