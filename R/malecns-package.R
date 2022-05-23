@@ -25,6 +25,10 @@
 #' library(nat.templatebrains)
 #' xform_brain(cbind(443344, 225172, 44920), sample = 'FAFB14',
 #'   reference = 'malecns')
+#'
+#' mcflm=system.file("landmarks/maleCNS_brain_FAFB_landmarks_um.csv", package = 'malecns')
+#' mcflm=read.csv(mcflm)
+#' head(mcflm)
 #' \dontrun{
 #' library(nat.jrcbrains)
 #' da1.hb=neuprintr::neuprint_read_neurons('/DA1.*lPN',
