@@ -42,7 +42,7 @@
 #' @family annotations
 #' @examples
 #' \donttest{
-#' mda=manc_dvid_annotations()
+#' mda=mcns_dvid_annotations()
 #' head(mda)
 #' plot(table(mda$type), ylab='Frequency')
 #'
