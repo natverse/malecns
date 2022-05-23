@@ -4,7 +4,7 @@
 #' @family malecns-package
 dr_malecns <- function() {
 
-  message("Dataset/auth status")
+  message("Dataset/auth status:")
   cds=try(mcns_datasets())
   if(inherits(cds, "try-error"))
     message("Trouble connecting to clio to list datasets.")
@@ -37,9 +37,12 @@ dr_malecns <- function() {
         "and uuid",npds[[1]]$uuid, "\n")
   }
 
-  message("\nRelevant malecns/malevnc options")
+  message("\nRelevant malecns/malevnc options:")
   print(options()[grepl("^male(cns|vnc)", names(options()))])
 
+  message("\nSuggested packages:")
+  if(!requireNamespace('Morpho', quietly=TRUE))
+    message("Please install suggested package Morpho for bridging registrations")
 
   message("\nVersions and direct package dependencies:")
   cat("R:", as.character(getRversion()),"\n")

@@ -17,7 +17,8 @@ LazyData: true
 Suggests: 
     spelling,
     remotes,
-    testthat (>= 3.0.0)
+    testthat (>= 3.0.0),
+    Morpho
 Language: en-GB
 Imports: 
     fafbseg (>= 0.9.4),
