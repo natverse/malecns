@@ -112,6 +112,9 @@ rootnode4dataset <- memoise::memoise(function(dataset=NULL) {
 #' }
 mcns_scene <- function(ids=NULL, open=FALSE, dataset=getOption('malecns.dataset'), node=NULL) {
   sc=scene4dataset(dataset = dataset)
+
+  # make sure these are in xyz order ...
+  sc$dimensions=sc$dimensions[sort(names(sc$dimensions))]
   dlname=dvidlayer4scene(sc)$name
   if(!is.null(ids)) {
     ids=mcns_ids(ids, as_character = T, unique = T, dataset = dataset)
