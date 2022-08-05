@@ -17,6 +17,11 @@ mcns_register_xforms <- function() {
   nat.templatebrains::add_reglist(malecns_fafb14.tps, reference = 'malecnsum',
                                   sample = "FAFB14um", )
   nat.templatebrains::add_reglist(malecns_fafb14.tpsnm, reference = 'malecns', sample = "FAFB14")
+
+  f3=system.file("landmarks/maleCNS_mirror_landmarks_nm.csv", package = 'malecns')
+  maleCNS_mirror_landmarks_nm <- read.csv(f3)[-1]
+  malecns_mirrorreg=nat::tpsreg(maleCNS_mirror_landmarks_nm[1:3], maleCNS_mirror_landmarks_nm[4:6])
+  nat.templatebrains::add_reglist(malecns_mirrorreg, sample = 'malecns_mirror', reference = 'malecns')
 }
 
 halfbrain2wholebrain <- function(x, units=c("raw", "nm", "microns", "um"), warn=TRUE) {
@@ -36,4 +41,30 @@ halfbrain2wholebrain <- function(x, units=c("raw", "nm", "microns", "um"), warn=
     nat::xyzmatrix(x) <- xyz
     x
   }
+}
+
+
+#' Mirror points in malecns space
+#'
+#' @param x Any objects with 3D vertices (calibrated in nm)
+#' @param ... Additional arguments passed to
+#'   \code{nat.templatebrains::xform_brain}
+#'
+#' @return The transformed object
+#' @export
+#' @details This mirroring could of course be improved. I used Philipp
+#'   Schlegel's 69 landmarks to map malecns -> FAFB space followed by the
+#'   \code{nat.jrcbrains::mirror_fafb} function to map those landmarks to the
+#'   opposite side of FAFB and then brought those back to malecns.
+#' @examples
+#' \dontrun{
+#' f3=system.file("landmarks/maleCNS_mirror_landmarks_nm.csv", package = 'malecns')
+#' maleCNS_mirror_landmarks_nm <- read.csv(f3)[-1]
+#' points3d(mirror_malecns(maleCNS_mirror_landmarks_nm[1:3]))
+#' points3d(maleCNS_mirror_landmarks_nm[1:3], col='green')
+#' # almost on top of the black points
+#' points3d(maleCNS_mirror_landmarks_nm[4:6]+500, col='red')
+#' }
+mirror_malecns <- function(x, ...) {
+  nat.templatebrains::xform_brain(x, sample = 'malecns_mirror', ref='malecns', ...)
 }

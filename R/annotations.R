@@ -60,3 +60,7 @@ mcns_dvid_annotations <- function(ids=NULL, node='neutu',
     ids=mcns_ids(ids)
   with_mcns(malevnc::manc_dvid_annotations(ids=ids, node=node, rval=rval,cache=F))
 }
+
+mcns_set_dvid_annotations <- function(ids, annotes) {
+
+}
