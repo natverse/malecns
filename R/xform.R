@@ -19,7 +19,7 @@ mcns_register_xforms <- function() {
   nat.templatebrains::add_reglist(malecns_fafb14.tpsnm, reference = 'malecns', sample = "FAFB14")
 
   f3=system.file("landmarks/maleCNS_mirror_landmarks_nm.csv", package = 'malecns')
-  maleCNS_mirror_landmarks_nm <- read.csv(f3)[-1]
+  maleCNS_mirror_landmarks_nm <- utils::read.csv(f3)[-1]
   malecns_mirrorreg=nat::tpsreg(maleCNS_mirror_landmarks_nm[1:3], maleCNS_mirror_landmarks_nm[4:6])
   nat.templatebrains::add_reglist(malecns_mirrorreg, sample = 'malecns_mirror', reference = 'malecns')
 }
