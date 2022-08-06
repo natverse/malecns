@@ -61,6 +61,33 @@ mcns_dvid_annotations <- function(ids=NULL, node='neutu',
   with_mcns(malevnc::manc_dvid_annotations(ids=ids, node=node, rval=rval,cache=F))
 }
 
-mcns_set_dvid_annotations <- function(ids, annotes) {
-
+#' Set the DVID type (and instance) for some malecns neurons
+#'
+#' @param ids Bodyids
+#' @param type Character vector specifying cell type e.g. "LHAD1g1"
+#' @param side Character vector specifying the side of each neuron (\code{"L",
+#'   "R"} or \code{""} when it cannot be specified)
+#' @param instance Chaaracter vector specifying instances (names) for neurons
+#'   \code{emph} or a logical value where \code{TRUE} (the default) means to
+#'   append the side to the type.
+#' @param user The DVID user. Defaults to \code{options("malevnc.dvid_user")}.
+#' @param ... Additional arguments passed to
+#'   \code{malevnc:::manc_set_dvid_instance} and thence to
+#'   \code{pbapply::pbmapply} when there are multiple body ids.
+#'
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#' mcns_set_dvid_annotations(10297, type = 'LHAD1g1')
+#' }
+mcns_set_dvid_annotations <- function(ids, type=NULL, side=NULL, instance=T, user=getOption("malevnc.dvid_user"), ...) {
+  if(isTRUE(instance)) {
+    if(is.null(side))
+      stop("You must specify side information to set instances")
+    instance=paste0(type, "_", side)
+  } else if(isFALSE(instance)) {
+    instance=NULL
+  }
+  with_mcns(malevnc:::manc_set_dvid_instance(ids, type=type, instance = instance, user=user, ...))
 }
