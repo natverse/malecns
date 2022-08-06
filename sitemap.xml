@@ -43,7 +43,13 @@
     <loc>https://flyconnectome.github.io/malecns/reference/mcns_scene.html</loc>
   </url>
   <url>
+    <loc>https://flyconnectome.github.io/malecns/reference/mcns_set_dvid_annotations.html</loc>
+  </url>
+  <url>
     <loc>https://flyconnectome.github.io/malecns/reference/mcns_xyz2bodyid.html</loc>
+  </url>
+  <url>
+    <loc>https://flyconnectome.github.io/malecns/reference/mirror_malecns.html</loc>
   </url>
   <url>
     <loc>https://flyconnectome.github.io/malecns/reference/read_mcns_meshes.html</loc>
