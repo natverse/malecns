@@ -2,12 +2,12 @@
 % Please edit documentation in R/annotations.R
 \name{mcns_set_dvid_annotations}
 \alias{mcns_set_dvid_annotations}
-\title{Set the DVID type (and instance) for some malecns neurons}
+\title{Set the DVID type, instance or group for some malecns neurons}
 \usage{
 mcns_set_dvid_annotations(
   ids,
   type = NULL,
-  groups = NULL,
+  group = NULL,
   side = NULL,
   instance = T,
   user = getOption("malevnc.dvid_user"),
@@ -15,12 +15,13 @@ mcns_set_dvid_annotations(
 )
 }
 \arguments{
-\item{ids}{Bodyids}
+\item{ids}{Body ids}
 
 \item{type}{Character vector specifying cell type e.g. "LHAD1g1"}
 
-\item{groups}{One or more LR groups (ie candidate cell types) to apply to
-neurons. Must be the same length as ids unless it has length 1.}
+\item{group}{One or more LR groups (ie candidate cell types) to apply. These
+should normally be the lowest bodyid of the group. Must be the same length
+as ids unless it has length 1.}
 
 \item{side}{Character vector specifying the side of each neuron (\code{"L",
 "R"} or \code{""} when it cannot be specified)}
@@ -29,17 +30,36 @@ neurons. Must be the same length as ids unless it has length 1.}
 \code{emph} or a logical value where \code{TRUE} (the default) means to
 append the side to the type.}
 
-\item{user}{The DVID user. Defaults to \code{options("malevnc.dvid_user")}.}
+\item{user}{The DVID user. Defaults to \code{options("malevnc.dvid_user")}.
+neurons.}
 
 \item{...}{Additional arguments passed to
 \code{malevnc:::manc_set_dvid_instance} and thence to
 \code{pbapply::pbmapply} when there are multiple body ids.}
 }
 \description{
-Set the DVID type (and instance) for some malecns neurons
+Set the DVID type, instance or group for some malecns neurons
+}
+\details{
+For the male CNS, the evolving standard seems to be to record the
+  following fields (examples given for APL) \itemize{
+
+  \item \code{type='APL'}
+
+  \item \code{instance='APL_R'}
+
+  \item \code{group='APL_R'}
+
+  \item \code{type_user, instance_user, group_user='jefferisg'} to accompany
+  all of those.
+
+  }
 }
 \examples{
 \dontrun{
 mcns_set_dvid_annotations(10297, type = 'LHAD1g1')
+mcns_set_dvid_annotations(10977, type='APL', side='L', group = 10540)
+# only set the LR group
+mcns_set_dvid_annotations(ids=c(13115, 14424), group = 13115)
 }
 }

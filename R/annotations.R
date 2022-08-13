@@ -61,18 +61,33 @@ mcns_dvid_annotations <- function(ids=NULL, node='neutu',
   with_mcns(malevnc::manc_dvid_annotations(ids=ids, node=node, rval=rval,cache=F))
 }
 
-#' Set the DVID type (and instance) for some malecns neurons
+#' Set the DVID type, instance or group for some malecns neurons
 #'
-#' @param ids Bodyids
+#' @details For the male CNS, the evolving standard seems to be to record the
+#'   following fields (examples given for APL) \itemize{
+#'
+#'   \item \code{type='APL'}
+#'
+#'   \item \code{instance='APL_R'}
+#'
+#'   \item \code{group='APL_R'}
+#'
+#'   \item \code{type_user, instance_user, group_user='jefferisg'} to accompany
+#'   all of those.
+#'
+#'   }
+#' @param ids Body ids
 #' @param type Character vector specifying cell type e.g. "LHAD1g1"
 #' @param side Character vector specifying the side of each neuron (\code{"L",
 #'   "R"} or \code{""} when it cannot be specified)
 #' @param instance Character vector specifying instances (names) for neurons
 #'   \code{emph} or a logical value where \code{TRUE} (the default) means to
 #'   append the side to the type.
+#' @param group One or more LR groups (ie candidate cell types) to apply. These
+#'   should normally be the lowest bodyid of the group. Must be the same length
+#'   as ids unless it has length 1.
 #' @param user The DVID user. Defaults to \code{options("malevnc.dvid_user")}.
-#' @param groups One or more LR groups (ie candidate cell types) to apply to
-#'   neurons. Must be the same length as ids unless it has length 1.
+#'   neurons.
 #' @param ... Additional arguments passed to
 #'   \code{malevnc:::manc_set_dvid_instance} and thence to
 #'   \code{pbapply::pbmapply} when there are multiple body ids.
@@ -82,8 +97,17 @@ mcns_dvid_annotations <- function(ids=NULL, node='neutu',
 #' @examples
 #' \dontrun{
 #' mcns_set_dvid_annotations(10297, type = 'LHAD1g1')
+#' mcns_set_dvid_annotations(10977, type='APL', side='L', group = 10540)
+#' # only set the LR group
+#' mcns_set_dvid_annotations(ids=c(13115, 14424), group = 13115)
 #' }
-mcns_set_dvid_annotations <- function(ids, type=NULL, groups=NULL, side=NULL, instance=T, user=getOption("malevnc.dvid_user"), ...) {
+mcns_set_dvid_annotations <- function(ids, type=NULL, group=NULL, side=NULL, instance=T, user=getOption("malevnc.dvid_user"), ...) {
+  if((isTRUE(instance) || isFALSE(instance)) &&
+     is.null(type) && is.null(group))
+    stop("You must specify one of type, group or instance")
+  # don't try and autoset instance if we have no type information
+  if(isTRUE(instance) && is.null(type))
+    instance=FALSE
   if(isTRUE(instance)) {
     if(is.null(side))
       stop("You must specify side information to set instances")
@@ -91,14 +115,17 @@ mcns_set_dvid_annotations <- function(ids, type=NULL, groups=NULL, side=NULL, in
   } else if(isFALSE(instance)) {
     instance=NULL
   }
-  with_mcns(malevnc:::manc_set_dvid_instance(ids, type=type, instance = instance, user=user, ...))
-  if(!is.null(groups)) {
-    if(length(groups)!=length(ids)) {
-      if(length(groups)!=1)
-        stop("groups must have length 1 or the same length as ids!")
-      groups=rep(groups, length(ids))
+  if(length(type)>0 || length(instance)>0) {
+    with_mcns(malevnc:::manc_set_dvid_instance(ids, type=type, instance = instance, user=user, ...))
+  }
+  if(!is.null(group)) {
+    if(length(group)!=length(ids)) {
+      if(length(group)!=1)
+        stop("group must have length 1 or the same length as ids!")
+      group=rep(group, length(ids))
     }
-    with_mcns(pbapply::pbmapply(mcns_set_group, id=ids, group=groups, user=user))
+    invisible(with_mcns(pbapply::pbmapply(
+      mcns_set_group, id=ids, group=group, user=user)))
   }
 }
 
