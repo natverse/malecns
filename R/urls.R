@@ -121,6 +121,13 @@ mcns_scene <- function(ids=NULL, open=FALSE, dataset=getOption('malecns.dataset'
     sc$layers[[dlname]]$segments=ids
     sc$layers[[dlname]]$segmentQuery=paste(ids, collapse = ' ')
   }
+  # turn off skeletons by default as they seem to display slower than meshes
+  if(isTRUE(sc$layers[[dlname]]$source$subsources$skeletons))
+    sc$layers[[dlname]]$source$subsources$skeletons=FALSE
+  # typically we are looking at neurons
+  sc$layout='3d'
+  sc$position=c(47592.9453125, 26679.951171875, 13109.5)
+  sc$projectionScale=55000
   if(!is.null(node)) {
     u=sc$layers[[dlname]]$source$url
     if(is.null(u))
