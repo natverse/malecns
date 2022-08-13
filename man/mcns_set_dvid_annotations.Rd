@@ -7,6 +7,7 @@
 mcns_set_dvid_annotations(
   ids,
   type = NULL,
+  groups = NULL,
   side = NULL,
   instance = T,
   user = getOption("malevnc.dvid_user"),
@@ -18,10 +19,13 @@ mcns_set_dvid_annotations(
 
 \item{type}{Character vector specifying cell type e.g. "LHAD1g1"}
 
+\item{groups}{One or more LR groups (ie candidate cell types) to apply to
+neurons. Must be the same length as ids unless it has length 1.}
+
 \item{side}{Character vector specifying the side of each neuron (\code{"L",
 "R"} or \code{""} when it cannot be specified)}
 
-\item{instance}{Chaaracter vector specifying instances (names) for neurons
+\item{instance}{Character vector specifying instances (names) for neurons
 \code{emph} or a logical value where \code{TRUE} (the default) means to
 append the side to the type.}
 

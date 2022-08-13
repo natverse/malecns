@@ -67,10 +67,12 @@ mcns_dvid_annotations <- function(ids=NULL, node='neutu',
 #' @param type Character vector specifying cell type e.g. "LHAD1g1"
 #' @param side Character vector specifying the side of each neuron (\code{"L",
 #'   "R"} or \code{""} when it cannot be specified)
-#' @param instance Chaaracter vector specifying instances (names) for neurons
+#' @param instance Character vector specifying instances (names) for neurons
 #'   \code{emph} or a logical value where \code{TRUE} (the default) means to
 #'   append the side to the type.
 #' @param user The DVID user. Defaults to \code{options("malevnc.dvid_user")}.
+#' @param groups One or more LR groups (ie candidate cell types) to apply to
+#'   neurons. Must be the same length as ids unless it has length 1.
 #' @param ... Additional arguments passed to
 #'   \code{malevnc:::manc_set_dvid_instance} and thence to
 #'   \code{pbapply::pbmapply} when there are multiple body ids.
@@ -81,7 +83,7 @@ mcns_dvid_annotations <- function(ids=NULL, node='neutu',
 #' \dontrun{
 #' mcns_set_dvid_annotations(10297, type = 'LHAD1g1')
 #' }
-mcns_set_dvid_annotations <- function(ids, type=NULL, side=NULL, instance=T, user=getOption("malevnc.dvid_user"), ...) {
+mcns_set_dvid_annotations <- function(ids, type=NULL, groups=NULL, side=NULL, instance=T, user=getOption("malevnc.dvid_user"), ...) {
   if(isTRUE(instance)) {
     if(is.null(side))
       stop("You must specify side information to set instances")
@@ -90,4 +92,19 @@ mcns_set_dvid_annotations <- function(ids, type=NULL, side=NULL, instance=T, use
     instance=NULL
   }
   with_mcns(malevnc:::manc_set_dvid_instance(ids, type=type, instance = instance, user=user, ...))
+  if(!is.null(groups)) {
+    if(length(groups)!=length(ids)) {
+      if(length(groups)!=1)
+        stop("groups must have length 1 or the same length as ids!")
+      groups=rep(groups, length(ids))
+    }
+    with_mcns(pbapply::pbmapply(mcns_set_group, id=ids, group=groups, user=user))
+  }
+}
+
+mcns_set_group <- function(id, group, user) {
+  checkmate::checkInt(id, lower=10000L)
+  id=as.integer(id)
+  l=list(group=group, group_user=user)
+  malevnc::manc_set_dvid_annotations(bodyid = id, annlist = l)
 }
