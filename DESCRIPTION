@@ -28,7 +28,8 @@ Imports:
     nat.templatebrains (>= 1.0),
     pbapply,
     neuprintr (>= 1.3),
-    glue
+    glue,
+    checkmate
 Remotes: 
     flyconnectome/malevnc,
     natverse/fafbseg,
