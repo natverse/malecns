@@ -8,7 +8,7 @@ mcns_scene(
   ids = NULL,
   open = FALSE,
   dataset = getOption("malecns.dataset"),
-  node = NULL
+  node = "neutu"
 )
 }
 \arguments{
@@ -18,7 +18,10 @@ mcns_scene(
 
 \item{dataset}{Optional CNS dataset}
 
-\item{node}{Optional node specifier e.g. \code{"neuprint"}}
+\item{node}{Optional node specifier e.g. \code{"neutu", "neuprint"}. The
+default is to use the latest neutu node since the malecns node specified in
+Clio is rarely updated and nodes are used for longer periods compared with
+the male vnc.}
 }
 \value{
 character vector containing URL

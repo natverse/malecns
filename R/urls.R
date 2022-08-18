@@ -100,7 +100,10 @@ rootnode4dataset <- memoise::memoise(function(dataset=NULL) {
 #' @param ids A set of bodyids
 #' @param open Whether to open in your default browser
 #' @param dataset Optional CNS dataset
-#' @param node Optional node specifier e.g. \code{"neuprint"}
+#' @param node Optional node specifier e.g. \code{"neutu", "neuprint"}. The
+#'   default is to use the latest neutu node since the malecns node specified in
+#'   Clio is rarely updated and nodes are used for longer periods compared with
+#'   the male vnc.
 #'
 #' @return character vector containing URL
 #' @export
@@ -110,7 +113,7 @@ rootnode4dataset <- memoise::memoise(function(dataset=NULL) {
 #' mcns_scene(4060524874, open=TRUE, node='neuprint')
 #'
 #' }
-mcns_scene <- function(ids=NULL, open=FALSE, dataset=getOption('malecns.dataset'), node=NULL) {
+mcns_scene <- function(ids=NULL, open=FALSE, dataset=getOption('malecns.dataset'), node='neutu') {
   sc=scene4dataset(dataset = dataset)
 
   # make sure these are in xyz order ...
