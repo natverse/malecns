@@ -5,12 +5,51 @@
 [![R-CMD-check](https://github.com/flyconnectome/malecns/workflows/R-CMD-check/badge.svg)](https://github.com/flyconnectome/malecns/actions)
 <!-- badges: end -->
 
+## Quick start
+
+```r
+install.packages("natmanager")
+natmanager::check_pat()
+natmanager::install(pkgs="flyconnectome/malecns")
+
+usethis::edit_r_profile()
+# paste in this text appropriately edited
+options(malevnc.dvid_user="myuser@gmail.com")
+options(malevnc.dvid_user="<surname><firstinitial>")
+
+# will open your browser
+# collect token by clicking on your account icon top right and then Account
+browseURL('https://neuprint-cns.janelia.org')
+# back in R
+usethis::edit_r_environ()
+# paste in this text replacing with your neuprint token
+# make sure you have a new lined at the end of the file
+neuprint_token="eyJhbGci..."
+
+# check everything's configured ok
+dr_malecns()
+
+# get some data
+pnmeta=mcns_neuprint_meta('/.+_[adl]+PN')
+table(pnmeta$type)
+vm6=read_mcns_meshes('VM6_adPN')
+plot3d(malecns.surf, alpha=.1)
+```
+## Introduction
+
 The goal of malecns is to provide http://natverse.org/ style access to the
 latest datasets from Janelia FlyEM. It is presently a very thin wrapper around the 
-[malevnc](https://github.com/flyconnectome/malevnc) package. The goal in due
-course would be to provide a slightly more flexible setup to cope with 
+[malevnc](https://github.com/flyconnectome/malevnc) package. 
+Although in due course we would hope to separate out some of the more generic
+functionality from the *malevnc* package, 
+the current arrangement means that some of the configuration for using the *malecns* package is handled by the *malevnc*.
 
 ## Installation
+
+This package points to private resources
+made available by the male CNS project led by the FlyEM team at Janelia.
+You will therefore need appropriate authorisation both to install the package
+from github and access the data.
 
 You can install the released version of malecns from GitHub
 
@@ -19,6 +58,40 @@ install.packages("natmanager")
 natmanager::install(pkgs="flyconnectome/malecns")
 
 ```
+
+Note that you must have been given access to the [github repository](https://github.com/flyconnectome/malecns/) and have a GitHub Personal Access Token (PAT) set up in order
+to install the library for as long as it remains private. Do :
+
+```
+natmanager::check_pat()
+```
+
+to check and follow the instructions if necessary to create. Should you run into any errors with that (there have been some significant changes at 
+github recently), you can also try:
+
+```
+usethis::create_github_token()
+```
+
+### Authentication
+
+Access to neuprint / Clio then depends on authentication. For neuprint, please
+see https://github.com/natverse/neuprintr#authentication; you only need to set
+a `neuprint_token` R environment variable. You can display your neuprint token after logging into the neuprint website. For Clio, you will prompted to 
+authenticate via a Google OAuth "dance" in your web browser. 
+Note that the Clio and neuprint tokens look similar, but are *not* the same.
+neuprint token appears to be indefinite while the clio token
+currently lasts 3 weeks.
+
+### Configuration
+
+For interaction with the Clio/DVID annotation systems you may need to tell R+malecns about the emails that you used to sign up for Clio/neuprint.
+
+```r
+options(malevnc.dvid_user="myuser@gmail.com")
+options(malevnc.dvid_user="<surname><firstinitial>")
+```
+These should be set in your `.Rprofile` file.
 
 ## Example
 
