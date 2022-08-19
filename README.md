@@ -13,7 +13,7 @@ natmanager::check_pat()
 natmanager::install(pkgs="flyconnectome/malecns")
 
 usethis::edit_r_profile()
-# paste in this text appropriately edited
+# paste in this text, appropriately edited, and close the file
 options(malevnc.dvid_user="myuser@gmail.com")
 options(malevnc.dvid_user="<surname><firstinitial>")
 
