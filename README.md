@@ -5,6 +5,9 @@
 [![R-CMD-check](https://github.com/flyconnectome/malecns/workflows/R-CMD-check/badge.svg)](https://github.com/flyconnectome/malecns/actions)
 <!-- badges: end -->
 
+The goal of **malecns** is to provide [natverse](https://natverse.org) 
+access to the whole male central nervous system dataset from Janelia FlyEM.
+
 ## Quick start
 
 ```r
@@ -37,12 +40,10 @@ plot3d(malecns.surf, alpha=.1)
 ```
 ## Introduction
 
-The goal of malecns is to provide http://natverse.org/ style access to the
-latest datasets from Janelia FlyEM. It is presently a very thin wrapper around the 
+**malecns** is presently a very thin wrapper around the 
 [malevnc](https://github.com/flyconnectome/malevnc) package. 
-Although in due course we would hope to separate out some of the more generic
-functionality from the *malevnc* package, 
-the current arrangement means that some of the configuration for using the *malecns* package is handled by the *malevnc*.
+In due course we would hope to separate out some of the more generic
+functionality from the **malevnc** package. However, the current arrangement means that some of the configuration for using the **malecns** package is handled by the **malevnc** package.
 
 ## Installation
 
