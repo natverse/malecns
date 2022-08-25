@@ -76,18 +76,25 @@ mcns_dvid_annotations <- function(ids=NULL, node='neutu',
 #'   all of those.
 #'
 #'   }
+#'
+#'   Note that \code{type_user, instance_user, group_user} will be set
+#'   automatically using the \code{user} argument. Regrettably you cannot
+#'   currently specify different users for different different fields (e.g. one
+#'   user for \code{instance} and a different user for \code{type}). Should you
+#'   need to do this (e.g. when making annotations on behalf of other users)
+#'   then you will need to make separate calls to
+#'   \code{mcns_set_dvid_annotations} for each field you need set.
 #' @param ids Body ids
 #' @param type Character vector specifying cell type e.g. "LHAD1g1"
 #' @param side Character vector specifying the side of each neuron (\code{"L",
 #'   "R"} or \code{""} when it cannot be specified)
 #' @param instance Character vector specifying instances (names) for neurons
-#'   \code{emph} or a logical value where \code{TRUE} (the default) means to
-#'   append the side to the type.
-#' @param group One or more LR groups (ie candidate cell types) to apply. These
-#'   should normally be the lowest bodyid of the group. Must be the same length
-#'   as ids unless it has length 1.
+#'   (see details) \code{emph} or a logical value where \code{TRUE} (the
+#'   default) means to append the side to the type.
+#' @param group One or more LR groups (i.e. candidate cell types) to apply.
+#'   These should normally be the lowest bodyid of the group. Must be the same
+#'   length as \code{ids} unless it has length 1.
 #' @param user The DVID user. Defaults to \code{options("malevnc.dvid_user")}.
-#'   neurons.
 #' @param ... Additional arguments passed to
 #'   \code{malevnc:::manc_set_dvid_instance} and thence to
 #'   \code{pbapply::pbmapply} when there are multiple body ids.
@@ -100,6 +107,9 @@ mcns_dvid_annotations <- function(ids=NULL, node='neutu',
 #' mcns_set_dvid_annotations(10977, type='APL', side='L', group = 10540)
 #' # only set the LR group
 #' mcns_set_dvid_annotations(ids=c(13115, 14424), group = 13115)
+#'
+#' # unset a type (careful!)
+#' mcns_set_dvid_annotations(18987, type = "", user = "becketti")
 #' }
 mcns_set_dvid_annotations <- function(ids, type=NULL, group=NULL, side=NULL, instance=T, user=getOption("malevnc.dvid_user"), ...) {
   if((isTRUE(instance) || isFALSE(instance)) &&
