@@ -17,9 +17,11 @@ natmanager::install(pkgs="flyconnectome/malecns")
 
 usethis::edit_r_profile()
 # paste in this text, appropriately edited, and close the file
-options(malevnc.dvid_user="myuser@gmail.com")
+options(malevnc.clio_email="myuser@gmail.com")
+# e.g. "jefferisg"
 options(malevnc.dvid_user="<surname><firstinitial>")
 
+## Set your Neuprint token
 # will open your browser
 # collect token by clicking on your account icon top right and then Account
 browseURL('https://neuprint-cns.janelia.org')
