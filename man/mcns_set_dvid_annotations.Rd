@@ -33,7 +33,7 @@ default) means to append the side to the type.}
 \item{user}{The DVID user. Defaults to \code{options("malevnc.dvid_user")}.}
 
 \item{...}{Additional arguments passed to
-\code{malevnc:::manc_set_dvid_instance} and thence to
+\code{malevnc::manc_set_dvid_instance} and thence to
 \code{pbapply::pbmapply} when there are multiple body ids.}
 }
 \description{

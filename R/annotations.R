@@ -96,7 +96,7 @@ mcns_dvid_annotations <- function(ids=NULL, node='neutu',
 #'   length as \code{ids} unless it has length 1.
 #' @param user The DVID user. Defaults to \code{options("malevnc.dvid_user")}.
 #' @param ... Additional arguments passed to
-#'   \code{malevnc:::manc_set_dvid_instance} and thence to
+#'   \code{malevnc::manc_set_dvid_instance} and thence to
 #'   \code{pbapply::pbmapply} when there are multiple body ids.
 #'
 #' @export
@@ -126,7 +126,7 @@ mcns_set_dvid_annotations <- function(ids, type=NULL, group=NULL, side=NULL, ins
     instance=NULL
   }
   if(length(type)>0 || length(instance)>0) {
-    with_mcns(malevnc:::manc_set_dvid_instance(ids, type=type, instance = instance, user=user, ...))
+    with_mcns(malevnc::manc_set_dvid_instance(ids, type=type, instance = instance, user=user, ...))
   }
   if(!is.null(group)) {
     if(length(group)!=length(ids)) {
