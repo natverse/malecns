@@ -89,8 +89,8 @@ mcns_dvid_annotations <- function(ids=NULL, node='neutu',
 #' @param side Character vector specifying the side of each neuron (\code{"L",
 #'   "R"} or \code{""} when it cannot be specified)
 #' @param instance Character vector specifying instances (names) for neurons
-#'   (see details) \code{emph} or a logical value where \code{TRUE} (the
-#'   default) means to append the side to the type.
+#'   (see details) \emph{or} a logical value where \code{TRUE} (the default)
+#'   means to append the side to the type.
 #' @param group One or more LR groups (i.e. candidate cell types) to apply.
 #'   These should normally be the lowest bodyid of the group. Must be the same
 #'   length as \code{ids} unless it has length 1.

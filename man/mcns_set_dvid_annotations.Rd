@@ -27,8 +27,8 @@ length as \code{ids} unless it has length 1.}
 "R"} or \code{""} when it cannot be specified)}
 
 \item{instance}{Character vector specifying instances (names) for neurons
-(see details) \code{emph} or a logical value where \code{TRUE} (the
-default) means to append the side to the type.}
+(see details) \emph{or} a logical value where \code{TRUE} (the default)
+means to append the side to the type.}
 
 \item{user}{The DVID user. Defaults to \code{options("malevnc.dvid_user")}.}
 
