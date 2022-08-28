@@ -44,7 +44,7 @@
     </div>
 
     <div class="section level2">
-      <h2 id="all-functions">All functions<a class="anchor" aria-label="anchor" href="#all-functions"></a></h2>
+      <h2 id="package-overview-setup-and-general-functions">Package overview, setup and general functions<a class="anchor" aria-label="anchor" href="#package-overview-setup-and-general-functions"></a></h2>
       
       
 
@@ -56,25 +56,41 @@
 
       <dl><dt>
           
+          <code><a href="malecns-package.html">malecns</a></code> <code><a href="malecns-package.html">malecns-package</a></code> 
+        </dt>
+        <dd>malecns: Access to the latest 'Janelia FlyEM' datasets</dd>
+      </dl><dl><dt>
+          
           <code><a href="dr_malecns.html">dr_malecns()</a></code> 
         </dt>
         <dd>Situation report on your malecns package installation</dd>
       </dl><dl><dt>
           
-          <code><a href="malecns.html">malecns_shell.surf</a></code> <code><a href="malecns.html">malecns.surf</a></code> <code><a href="malecns.html">JRCFIB2022M.surf</a></code> 
+          <code><a href="with_mcns.html">with_mcns()</a></code> <code><a href="with_mcns.html">choose_mcns()</a></code> 
         </dt>
-        <dd>Surface models of the malecns brain (in nm)</dd>
+        <dd>Evaluate an expression after temporarily setting malevnc options</dd>
       </dl><dl><dt>
           
-          <code><a href="mcns_connection_table.html">mcns_connection_table()</a></code> 
+          <code><a href="mcns_scene.html">mcns_scene()</a></code> 
         </dt>
-        <dd>Connectivity query for CNS neurons</dd>
+        <dd>Construct a neuroglancer scene for CNS dataset</dd>
       </dl><dl><dt>
           
-          <code><a href="mcns_dvid_annotations.html">mcns_dvid_annotations()</a></code> 
+          <code><a href="mcns_xyz2bodyid.html">mcns_xyz2bodyid()</a></code> 
         </dt>
-        <dd>Return all DVID body annotations</dd>
-      </dl><dl><dt>
+        <dd>Map XYZ locations to bodyids based on the current mcns dataset</dd>
+      </dl></div><div class="section level2">
+      <h2 id="neuprint-queries-including-connectivity">Neuprint queries including connectivity<a class="anchor" aria-label="anchor" href="#neuprint-queries-including-connectivity"></a></h2>
+      
+      
+
+      
+    </div><div id="" class="section level2">
+      
+      
+      
+
+      <dl><dt>
           
           <code><a href="mcns_neuprint.html">mcns_neuprint()</a></code> 
         </dt>
@@ -86,25 +102,21 @@
         <dd>Fetch neuprint metadata for malecns neurons</dd>
       </dl><dl><dt>
           
-          <code><a href="mcns_scene.html">mcns_scene()</a></code> 
+          <code><a href="mcns_connection_table.html">mcns_connection_table()</a></code> 
         </dt>
-        <dd>Construct a neuroglancer scene for CNS dataset</dd>
-      </dl><dl><dt>
-          
-          <code><a href="mcns_set_dvid_annotations.html">mcns_set_dvid_annotations()</a></code> 
-        </dt>
-        <dd>Set the DVID type, instance or group for some malecns neurons</dd>
-      </dl><dl><dt>
-          
-          <code><a href="mcns_xyz2bodyid.html">mcns_xyz2bodyid()</a></code> 
-        </dt>
-        <dd>Map XYZ locations to bodyids based on the current mcns dataset</dd>
-      </dl><dl><dt>
-          
-          <code><a href="mirror_malecns.html">mirror_malecns()</a></code> 
-        </dt>
-        <dd>Mirror points in malecns space</dd>
-      </dl><dl><dt>
+        <dd>Connectivity query for CNS neurons</dd>
+      </dl></div><div class="section level2">
+      <h2 id="neuron-skeletons-and-meshes">Neuron skeletons and meshes<a class="anchor" aria-label="anchor" href="#neuron-skeletons-and-meshes"></a></h2>
+      
+      
+
+      
+    </div><div id="" class="section level2">
+      
+      
+      
+
+      <dl><dt>
           
           <code><a href="read_mcns_meshes.html">read_mcns_meshes()</a></code> 
         </dt>
@@ -114,13 +126,51 @@
           <code><a href="read_mcns_neurons.html">read_mcns_neurons()</a></code> 
         </dt>
         <dd>Read neuronal skeletons via neuprint</dd>
+      </dl></div><div class="section level2">
+      <h2 id="dvid-annotations">DVID Annotations<a class="anchor" aria-label="anchor" href="#dvid-annotations"></a></h2>
+      
+      
+
+      
+    </div><div id="" class="section level2">
+      
+      
+      
+
+      <dl><dt>
+          
+          <code><a href="mcns_dvid_annotations.html">mcns_dvid_annotations()</a></code> 
+        </dt>
+        <dd>Return all DVID body annotations</dd>
       </dl><dl><dt>
           
-          <code><a href="with_mcns.html">with_mcns()</a></code> <code><a href="with_mcns.html">choose_mcns()</a></code> 
+          <code><a href="mcns_set_dvid_annotations.html">mcns_set_dvid_annotations()</a></code> 
         </dt>
-        <dd>Evaluate an expression after temporarily setting malevnc options</dd>
+        <dd>Set the DVID type, instance or group for some malecns neurons</dd>
+      </dl></div><div class="section level2">
+      <h2 id="geometry-and-neuropil-meshes">Geometry and neuropil meshes<a class="anchor" aria-label="anchor" href="#geometry-and-neuropil-meshes"></a></h2>
+      
+      
+
+      
+    </div><div id="" class="section level2">
+      
+      
+      
+
+      <dl><dt>
+          
+          <code><a href="mirror_malecns.html">mirror_malecns()</a></code> 
+        </dt>
+        <dd>Mirror points in malecns space</dd>
+      </dl><dl><dt>
+          
+          <code><a href="malecns.html">malecns_shell.surf</a></code> <code><a href="malecns.html">malecns.surf</a></code> <code><a href="malecns.html">JRCFIB2022M.surf</a></code> 
+        </dt>
+        <dd>Surface models of the malecns brain (in nm)</dd>
       </dl></div>
-  </main></div>
+  </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
+    </nav></aside></div>
 
 
     <footer><div class="pkgdown-footer-left">
