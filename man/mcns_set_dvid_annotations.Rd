@@ -8,6 +8,7 @@ mcns_set_dvid_annotations(
   ids,
   type = NULL,
   group = NULL,
+  synonyms = NULL,
   side = NULL,
   instance = T,
   user = getOption("malevnc.dvid_user"),
@@ -17,11 +18,14 @@ mcns_set_dvid_annotations(
 \arguments{
 \item{ids}{Body ids}
 
-\item{type}{Character vector specifying cell type e.g. "LHAD1g1"}
+\item{type}{Character vector specifying an authoritative cell type e.g.
+"LHAD1g1" from the hemibrain.}
 
 \item{group}{One or more LR groups (i.e. candidate cell types) to apply.
 These should normally be the lowest bodyid of the group. Must be the same
 length as \code{ids} unless it has length 1.}
+
+\item{synonyms}{Character vector specifying cell type e.g. "LHAD1g1"}
 
 \item{side}{Character vector specifying the side of each neuron (\code{"L",
 "R"} or \code{""} when it cannot be specified)}
@@ -61,6 +65,9 @@ For the male CNS, the evolving standard seems to be to record the
   need to do this (e.g. when making annotations on behalf of other users)
   then you will need to make separate calls to
   \code{mcns_set_dvid_annotations} for each field you need set.
+
+  To delete an annotation set e.g. \code{instance=""}. \bold{Be very
+  careful!}.
 }
 \examples{
 \dontrun{
@@ -69,7 +76,7 @@ mcns_set_dvid_annotations(10977, type='APL', side='L', group = 10540)
 # only set the LR group
 mcns_set_dvid_annotations(ids=c(13115, 14424), group = 13115)
 
-# unset a type (careful!)
+# unset i.e. remove a type (careful!)
 mcns_set_dvid_annotations(18987, type = "", user = "becketti")
 }
 }

@@ -84,13 +84,18 @@ mcns_dvid_annotations <- function(ids=NULL, node='neutu',
 #'   need to do this (e.g. when making annotations on behalf of other users)
 #'   then you will need to make separate calls to
 #'   \code{mcns_set_dvid_annotations} for each field you need set.
+#'
+#'   To delete an annotation set e.g. \code{instance=""}. \bold{Be very
+#'   careful!}.
 #' @param ids Body ids
-#' @param type Character vector specifying cell type e.g. "LHAD1g1"
+#' @param type Character vector specifying an authoritative cell type e.g.
+#'   "LHAD1g1" from the hemibrain.
 #' @param side Character vector specifying the side of each neuron (\code{"L",
 #'   "R"} or \code{""} when it cannot be specified)
 #' @param instance Character vector specifying instances (names) for neurons
 #'   (see details) \emph{or} a logical value where \code{TRUE} (the default)
 #'   means to append the side to the type.
+#' @param synonyms Character vector specifying cell type e.g. "LHAD1g1"
 #' @param group One or more LR groups (i.e. candidate cell types) to apply.
 #'   These should normally be the lowest bodyid of the group. Must be the same
 #'   length as \code{ids} unless it has length 1.
@@ -108,12 +113,14 @@ mcns_dvid_annotations <- function(ids=NULL, node='neutu',
 #' # only set the LR group
 #' mcns_set_dvid_annotations(ids=c(13115, 14424), group = 13115)
 #'
-#' # unset a type (careful!)
+#' # unset i.e. remove a type (careful!)
 #' mcns_set_dvid_annotations(18987, type = "", user = "becketti")
 #' }
-mcns_set_dvid_annotations <- function(ids, type=NULL, group=NULL, side=NULL, instance=T, user=getOption("malevnc.dvid_user"), ...) {
+mcns_set_dvid_annotations <- function(ids, type=NULL, group=NULL,
+                                      synonyms=NULL,  side=NULL, instance=T,
+                                      user=getOption("malevnc.dvid_user"), ...) {
   if((isTRUE(instance) || isFALSE(instance)) &&
-     is.null(type) && is.null(group))
+     is.null(type) && is.null(group) && is.null(synonyms))
     stop("You must specify one of type, group or instance")
   # don't try and autoset instance if we have no type information
   if(isTRUE(instance) && is.null(type))
@@ -125,8 +132,8 @@ mcns_set_dvid_annotations <- function(ids, type=NULL, group=NULL, side=NULL, ins
   } else if(isFALSE(instance)) {
     instance=NULL
   }
-  if(length(type)>0 || length(instance)>0) {
-    with_mcns(malevnc::manc_set_dvid_instance(ids, type=type, instance = instance, user=user, ...))
+  if(length(type)>0 || length(instance)>0 || length(synonyms)>0) {
+    with_mcns(malevnc::manc_set_dvid_instance(ids, type=type, instance = instance, synonyms=synonyms, user=user, ...))
   }
   if(!is.null(group)) {
     if(length(group)!=length(ids)) {
