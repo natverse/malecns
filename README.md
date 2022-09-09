@@ -121,3 +121,11 @@ library(fafbseg)
 clipr::write_clip(xform_brain(cbind(109953, 50450, 1660)*c(4,4,40), 
   reference = 'malecns',   sample = 'FlyWire')/8)
 ```
+
+## Updating
+
+If you need to update your malecns install, I recommend:
+
+```
+natmanager::install(pkgs="flyconnectome/malecns")
+```
