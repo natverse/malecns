@@ -23,7 +23,7 @@ Language: en-GB
 Imports: 
     fafbseg (>= 0.9.4),
     jsonlite,
-    malevnc (>= 0.2.2),
+    malevnc (>= 0.2.4),
     nat.templatebrains (>= 1.0),
     pbapply,
     neuprintr (>= 1.3),
