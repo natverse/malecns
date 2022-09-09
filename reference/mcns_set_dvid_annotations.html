@@ -55,6 +55,7 @@
 <span>  <span class="va">ids</span>,</span>
 <span>  type <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  group <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  synonyms <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  side <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  instance <span class="op">=</span> <span class="cn">T</span>,</span>
 <span>  user <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">getOption</a></span><span class="op">(</span><span class="st">"malevnc.dvid_user"</span><span class="op">)</span>,</span>
@@ -69,13 +70,18 @@
 
 
 <dt>type</dt>
-<dd><p>Character vector specifying cell type e.g. "LHAD1g1"</p></dd>
+<dd><p>Character vector specifying an authoritative cell type e.g.
+"LHAD1g1" from the hemibrain.</p></dd>
 
 
 <dt>group</dt>
 <dd><p>One or more LR groups (i.e. candidate cell types) to apply.
 These should normally be the lowest bodyid of the group. Must be the same
 length as <code>ids</code> unless it has length 1.</p></dd>
+
+
+<dt>synonyms</dt>
+<dd><p>Character vector specifying cell type e.g. "LHAD1g1"</p></dd>
 
 
 <dt>side</dt>
@@ -114,6 +120,8 @@ means to append the side to the type.</p></dd>
   need to do this (e.g. when making annotations on behalf of other users)
   then you will need to make separate calls to
   <code>mcns_set_dvid_annotations</code> for each field you need set.</p>
+<p>To delete an annotation set e.g. <code>instance=""</code>. <b>Be very
+  careful!</b>.</p>
     </div>
 
     <div class="section level2">
@@ -124,7 +132,7 @@ means to append the side to the type.</p></dd>
 <span class="r-in"><span><span class="co"># only set the LR group</span></span></span>
 <span class="r-in"><span><span class="fu">mcns_set_dvid_annotations</span><span class="op">(</span>ids<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">13115</span>, <span class="fl">14424</span><span class="op">)</span>, group <span class="op">=</span> <span class="fl">13115</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="co"># unset a type (careful!)</span></span></span>
+<span class="r-in"><span><span class="co"># unset i.e. remove a type (careful!)</span></span></span>
 <span class="r-in"><span><span class="fu">mcns_set_dvid_annotations</span><span class="op">(</span><span class="fl">18987</span>, type <span class="op">=</span> <span class="st">""</span>, user <span class="op">=</span> <span class="st">"becketti"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">}</span></span></span>
 </code></pre></div>
