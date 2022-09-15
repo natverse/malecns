@@ -41,7 +41,7 @@ Read a mesh for the current segmentation
 }
 \details{
 \code{dvid} meshes are pre-computed but are automatically deleted
-  and recomputed after boides are edited. However this process has a
+  and recomputed after bodies are edited. However this process has a
   noticeable lag. \code{small} meshes are generated on demand in a process
   that can be quite slow. \code{auto} will try the \code{dvid} method and
   switch to \code{small} if that fails. See

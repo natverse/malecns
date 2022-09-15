@@ -19,7 +19,7 @@ mcns_set_dvid_annotations(
 \item{ids}{Body ids}
 
 \item{type}{Character vector specifying an authoritative cell type e.g.
-"LHAD1g1" from the hemibrain.}
+\code{"LHAD1g1"} from the hemibrain.}
 
 \item{group}{One or more LR groups (i.e. candidate cell types) to apply.
 These should normally be the lowest bodyid of the group. Must be the same

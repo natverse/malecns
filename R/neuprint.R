@@ -74,8 +74,8 @@ mcns_connection_table <- function(ids, partners=c("inputs", "outputs"),
 #' Fetch neuprint metadata for malecns neurons
 #'
 #' @details in contrast to \code{malevnc::\link{manc_neuprint_meta}} we leave
-#'   bodyis as numeric (doubles) since flyem now guarantee them to be less than
-#'   2^53 ie within the range in which doubles can exactly represent numeric
+#'   bodyids as numeric (doubles) since flyem now guarantee them to be less than
+#'   2^53 i.e. within the range in which doubles can exactly represent numeric
 #'   ids.
 #' @param ids body ids.
 #' @inheritParams malevnc::manc_neuprint_meta

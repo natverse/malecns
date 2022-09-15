@@ -89,7 +89,7 @@ mcns_dvid_annotations <- function(ids=NULL, node='neutu',
 #'   careful!}.
 #' @param ids Body ids
 #' @param type Character vector specifying an authoritative cell type e.g.
-#'   "LHAD1g1" from the hemibrain.
+#'   \code{"LHAD1g1"} from the hemibrain.
 #' @param side Character vector specifying the side of each neuron (\code{"L",
 #'   "R"} or \code{""} when it cannot be specified)
 #' @param instance Character vector specifying instances (names) for neurons
