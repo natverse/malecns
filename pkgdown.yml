@@ -2,7 +2,7 @@ pandoc: '2.5'
 pkgdown: 2.0.6
 pkgdown_sha: ~
 articles: {}
-last_built: 2022-09-15T10:54Z
+last_built: 2022-11-07T14:12Z
 urls:
   reference: https://flyconnectome.github.io/malecns/reference
   article: https://flyconnectome.github.io/malecns/articles
