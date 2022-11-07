@@ -8,6 +8,7 @@ mcns_dvid_annotations(
   ids = NULL,
   node = "neutu",
   rval = c("data.frame", "list"),
+  columns_show = NULL,
   cache = FALSE
 )
 }
@@ -22,6 +23,9 @@ neutu.}
 \item{rval}{Whether to return a fully parsed data.frame (the default) or an R
 list. The data.frame is easier to work with but typically includes NAs for
 many values that would be missing in the list.}
+
+\item{columns_show}{Whether to show all columns, or just with '_user', or '_time'
+suffix. Accepted options are: 'user', 'time', 'all'.}
 
 \item{cache}{Whether to cache the result of this call for 5 minutes.}
 }

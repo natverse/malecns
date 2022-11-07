@@ -16,6 +16,8 @@
 #'   default is to return the current active (unlocked) node being used through
 #'   neutu.
 #' @param cache Whether to cache the result of this call for 5 minutes.
+#' @param columns_show Whether to show all columns, or just with '_user', or '_time'
+#' suffix. Accepted options are: 'user', 'time', 'all'.
 #'
 #' @return A \code{tibble} containing with columns including \itemize{
 #'
@@ -53,12 +55,15 @@
 #' }
 mcns_dvid_annotations <- function(ids=NULL, node='neutu',
                                   rval=c("data.frame", "list"),
+                                  columns_show = NULL,
                                   cache=FALSE) {
   # because malevnc::manc_dvid_annotations does not pass a connection on to
   # manc_ids
   if(!is.null(ids))
     ids=mcns_ids(ids)
-  with_mcns(malevnc::manc_dvid_annotations(ids=ids, node=node, rval=rval,cache=F))
+  with_mcns(malevnc::manc_dvid_annotations(ids=ids, node=node,
+                                           columns_show=columns_show,
+                                           rval=rval,cache=F))
 }
 
 #' Set the DVID type, instance or group for some malecns neurons
