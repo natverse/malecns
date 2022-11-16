@@ -62,12 +62,22 @@ mcns_neuprint <- function(token=Sys.getenv("neuprint_token"), Force=FALSE, ...) 
 #' mcns_scene(joffrey.dss$partner[1:10], open = TRUE, node='neuprint')
 #' }
 mcns_connection_table <- function(ids, partners=c("inputs", "outputs"),
-                                  moredetails=TRUE, summary=FALSE,
+                                  moredetails=c("group"), summary=FALSE,
                                   conn=mcns_neuprint(), ...) {
   # malevnc::manc_connection_table(ids=ids, partners=partners, moredetails = moredetails, conn=conn, summary=summary, ...)
   ids=mcns_ids(ids)
-  neuprintr::neuprint_connection_table(ids, partners=partners, details = T, conn=conn, summary=summary, ...)
-
+  res=neuprintr::neuprint_connection_table(ids, partners=partners, details = T, conn=conn, summary=summary, ...)
+  if(!is.logical(moredetails)) {
+    extrafields=moredetails;  moredetails=T
+  } else extrafields=NULL
+  if(moredetails) {
+    dets=mcns_neuprint_meta(unique(res$partner), conn=conn)
+    if(is.null(extrafields))
+      extrafields=setdiff(colnames(dets), colnames(res))
+    dets=dets[union('bodyid', extrafields)]
+    res=dplyr::left_join(res, dets, by=c("partner"="bodyid"))
+  }
+  res
 }
 
 
