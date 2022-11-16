@@ -54,7 +54,7 @@
     <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">mcns_connection_table</span><span class="op">(</span></span>
 <span>  <span class="va">ids</span>,</span>
 <span>  partners <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"inputs"</span>, <span class="st">"outputs"</span><span class="op">)</span>,</span>
-<span>  moredetails <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  moredetails <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"group"</span><span class="op">)</span>,</span>
 <span>  summary <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>  conn <span class="op">=</span> <span class="fu"><a href="mcns_neuprint.html">mcns_neuprint</a></span><span class="op">(</span><span class="op">)</span>,</span>
 <span>  <span class="va">...</span></span>
@@ -74,7 +74,10 @@ probably clearer.</p></dd>
 
 
 <dt>moredetails</dt>
-<dd><p>Not yet implemented</p></dd>
+<dd><p>Either a logical (to add all fields when <code>TRUE</code>) or a
+character vector naming additional fields returned by
+<code><a href="mcns_neuprint_meta.html">mcns_neuprint_meta</a></code> that will be added to the results
+data.frame.</p></dd>
 
 
 <dt>summary</dt>
