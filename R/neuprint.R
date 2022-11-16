@@ -42,7 +42,10 @@ mcns_neuprint <- function(token=Sys.getenv("neuprint_token"), Force=FALSE, ...) 
 #'
 #' @param ids A set of body ids (see \code{\link{manc_ids}} for a range of ways
 #'   to specify these).
-#' @param moredetails Not yet implemented
+#' @param moredetails Either a logical (to add all fields when \code{TRUE}) or a
+#'   character vector naming additional fields returned by
+#'   \code{\link{mcns_neuprint_meta}} that will be added to the results
+#'   data.frame.
 #' @param summary Whether to summarise results per partner when giving multiple
 #'   query neurons
 #' @inheritParams malevnc::manc_connection_table

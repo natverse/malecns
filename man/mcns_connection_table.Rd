@@ -20,7 +20,10 @@ to specify these).}
 \item{partners}{Either inputs or outputs. Redundant with \code{prepost}, but
 probably clearer.}
 
-\item{moredetails}{Not yet implemented}
+\item{moredetails}{Either a logical (to add all fields when \code{TRUE}) or a
+character vector naming additional fields returned by
+\code{\link{mcns_neuprint_meta}} that will be added to the results
+data.frame.}
 
 \item{summary}{Whether to summarise results per partner when giving multiple
 query neurons}
