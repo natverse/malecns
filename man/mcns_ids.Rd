@@ -50,5 +50,5 @@ mcns_ids("/VL2a.+")
 mcns_ids("rhubarb")
 }
 # returns a length 0 vector
-mcns_ids("rhubarb", mustWork = F)
+mcns_ids("rhubarb", mustWork = FALSE)
 }
