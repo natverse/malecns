@@ -9,6 +9,7 @@ reference:
   - '`with_mcns`'
   - '`mcns_scene`'
   - '`mcns_xyz2bodyid`'
+  - '`mcns_ids`'
 - title: Neuprint queries including connectivity
   contents:
   - '`mcns_neuprint`'
