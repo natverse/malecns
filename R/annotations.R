@@ -157,3 +157,137 @@ mcns_set_group <- function(id, group, user) {
   l=list(group=group, group_user=user)
   malevnc::manc_set_dvid_annotations(bodyid = id, annlist = l)
 }
+
+#' Set Clio body annotations
+#'
+#' @details Clio body annotations are stored in a
+#'   \href{https://cloud.google.com/firestore}{Google Firestore} database.
+#'   Further details are provided in
+#'   \href{https://docs.google.com/document/d/14wzFX6cMf0JcR0ozf7wmufNoUcVtlruzUo5BdAgdM-g/edit}{basic
+#'    docs from Bill Katz}. Each body has an associated JSON list containing a
+#'   set of standard user visible fields. Some of these are constrained. See
+#'   \href{https://docs.google.com/spreadsheets/d/1v8AltqyPCVNIC_m6gDNy6IDK10R6xcGkKWFxhmvCpCs/edit?usp=sharing}{Clio
+#'    fields Google sheet} for details.
+#'
+#'   It can take some time to apply annotations, so requests are chunked by
+#'   default in groups of 50.
+#'
+#'   A single column called \code{position} or 3 columns names x, y, z or X, Y,
+#'   Z in any form accepted by \code{\link{xyzmatrix}} will be converted to a
+#'   position stored with each record. This is recommended when creating
+#'   records.
+#'
+#'   When \code{protect=TRUE} no data in Clio will be overwritten - only new
+#'   data will be added. When \code{protect=FALSE} all fields will overwritten
+#'   by new data for each non-empty value in \code{x}. If
+#'   \code{write_empty_fields=TRUE} then even empty fields in \code{x} will
+#'   overwrite fields in the database. Note that these conditions apply per
+#'   record i.e. per neuron not per column of data.
+#'
+#' @section Validation: Validation depends on how you provide your input data.
+#'   If \code{x} is a data.frame then each row is checked for some basics
+#'   including the presence of a bodyid, and empty fields are removed. In future
+#'   we will also check fields which are only allowed to take certain values.
+#'
+#'   When \code{x} is a character vector, it is checked to see that it is valid
+#'   JSON and that there is a bodyid field for each record. This intended
+#'   principally for developer use or to confirm that a specific JSON payload
+#'   has been applied. You probably should not be using it regularly or for bulk
+#'   upload.
+#'
+#'   When \code{x} is a list, no further validation occurs.
+#'
+#'   For these reasons, \bold{it is strongly recommended that end users provide
+#'   \code{data.frame} input}.
+#'
+#' @section Users: You should record users with the email address that they use
+#'   to authenticate to Clio. At present you are responsible for choosing how to
+#'   set the two user fields: \itemize{
+#'
+#'   \item \code{user} This is intended to be the user that first created the
+#'   annotation record for a body. At some point they may have some control over
+#'   edits.
+#'
+#'   \item \code{last_modified_by} This is intended to be the user who provided
+#'   the last change to a record; in the case of bulk uploads, this should be
+#'   the user providing (or at least guaranteeing) the biological insight if at
+#'   all possible.
+#'
+#'   }
+#'
+#' @param x A data.frame, list or JSON string containing body annotations.
+#'   \bold{End users are strongly recommended to use data.frames.}
+#' @param version Optional clio version to associate with this annotation. The
+#'   default \code{NULL} uses the current version returned by the API.
+#' @param test Whether to use the test clio store (recommended until you are
+#'   sure you know what you are doing).
+#' @param protect Vector of fields that will not be overwritten if they already
+#'   have a value in clio store. Set to \code{TRUE} to protect all fields and to
+#'   \code{FALSE} to overwrite all fields for which you provide data. See
+#'   details for the rational behind the default value of "user"
+#' @param write_empty_fields When \code{x} is a data.frame, this controls
+#'   whether empty fields in \code{x} (i.e. \code{NA} or \code{""}) overwrite
+#'   fields in the clio-store database (when they are not protected by the
+#'   \code{protect} argument). The (conservative) default
+#'   \code{write_empty_fields=FALSE} does not overwrite. If you do want to set
+#'   fields to an empty value (usually the empty string) then you must set
+#'   \code{write_empty_fields=TRUE}.
+#' @param chunksize When you have many bodies to annotate the request will by
+#'   default be sent 50 records at a time to avoid any issue with timeouts. You
+#'   can increase for a small speed up if you find your setup is fast enough.
+#'   Set to \code{Inf} to insist that all records are sent in a single request.
+#'   \bold{NB only applies when \code{x} is a data.frame}.
+#'   @param check_types Whether it should verift allowed types or not.
+#' @param ... Additional parameters passed to \code{pbapply::\link{pbsapply}}
+#'
+#' @return \code{NULL} invisibly on success. Errors out on failure.
+#' @family manc-annotation
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#' # note use of test server
+#' mcns_annotate_body(data.frame(bodyid=10005, group=10005), test=TRUE)
+#' }
+mcns_annotate_body <- function(x, test=TRUE, version=NULL, write_empty_fields=FALSE,
+                               protect=c("user"), chunksize=50, check_types = TRUE, ...) {
+  if (isTRUE(check_types))
+    schema_compare(x)
+  with_mcns(
+    manc_annotate_body(x, test=test, version=version,
+                       write_empty_fields=write_empty_fields,
+                       protect=protect, chunksize=chunksize, query=FALSE, ...)
+  )
+}
+
+#Clio/dvid DB schema endpoint
+URL_CLIO_SCHEMA = "https://emdata6-novran.janelia.org/api/node/:master/segmentation_annotations/json_schema"
+
+# allowed types for columns according do Clio schema
+TYPES_MAPPING <- list(
+  "integer" = c("numeric", "integer"),
+  "string" = c("character", "factor"),
+  "array" = c("list"),
+  "boolean" = c("logical")
+)
+
+#' verifies if data schema is the right type
+schema_compare <- function(x) {
+  types = malevnc:::clio_fetch(URL_CLIO_SCHEMA)
+  types = sapply(types$properties, function(x) x$type)
+  col_types  = sapply(x, class)
+  check_types <- sapply(
+    names(col_types),
+    function(nm) {
+      if (!is.na(types[nm])) {
+        col_types[[nm]] %in% TYPES_MAPPING[[types[nm]]]
+      } else
+        return(TRUE)
+    }
+  )
+  if (isFALSE(all(check_types)))
+    stop(
+      paste("Wrong types of columns:",
+            paste(names(check_types[check_types == FALSE]), collapse = ", "))
+    )
+}
