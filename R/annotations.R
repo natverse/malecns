@@ -265,7 +265,7 @@ URL_CLIO_SCHEMA = "https://emdata6-novran.janelia.org/api/node/:master/segmentat
 
 # allowed types for columns according do Clio schema
 TYPES_MAPPING <- list(
-  "integer" = c("numeric", "integer"),
+  "integer" = c("numeric", "integer", "integer64"),
   "string" = c("character", "factor"),
   "array" = c("list"),
   "boolean" = c("logical")
