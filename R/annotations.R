@@ -260,7 +260,7 @@ mcns_annotate_body <- function(x, test=TRUE, version=NULL, write_empty_fields=FA
   )
 }
 
-#Clio/dvid DB schema endpoint
+# Clio/Dvid DB schema endpoint
 URL_CLIO_SCHEMA = "https://emdata6-novran.janelia.org/api/node/:master/segmentation_annotations/json_schema"
 
 # allowed types for columns according do Clio schema
@@ -271,7 +271,8 @@ TYPES_MAPPING <- list(
   "boolean" = c("logical")
 )
 
-#' verifies if data schema is the right type
+# verifies whether data schema has the right type and throws an informative 
+# exception if it doesn't
 schema_compare <- function(x) {
   types = malevnc:::clio_fetch(URL_CLIO_SCHEMA)
   types = sapply(types$properties, function(x) x$type)
@@ -282,7 +283,7 @@ schema_compare <- function(x) {
       if (!is.na(types[nm])) {
         col_types[[nm]] %in% TYPES_MAPPING[[types[nm]]]
       } else
-        return(TRUE)
+        TRUE
     }
   )
   if (isFALSE(all(check_types)))
