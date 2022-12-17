@@ -160,9 +160,7 @@ mcns_set_group <- function(id, group, user) {
 
 #' Set Clio body annotations
 #'
-#' @details Clio body annotations are stored in a
-#'   \href{https://cloud.google.com/firestore}{Google Firestore} database.
-#'   Further details are provided in
+#' @details Details of Clio body annotation system are provided in
 #'   \href{https://docs.google.com/document/d/14wzFX6cMf0JcR0ozf7wmufNoUcVtlruzUo5BdAgdM-g/edit}{basic
 #'    docs from Bill Katz}. Each body has an associated JSON list containing a
 #'   set of standard user visible fields. Some of these are constrained. See
@@ -261,7 +259,10 @@ mcns_annotate_body <- function(x, test=TRUE, version=NULL, write_empty_fields=FA
 }
 
 # Clio/Dvid DB schema endpoint
-URL_CLIO_SCHEMA = "https://emdata6-novran.janelia.org/api/node/:master/segmentation_annotations/json_schema"
+.url_clio_schema = function() {
+  paste0(servers4dataset('CNS')$dvid,
+         "/api/node/:master/segmentation_annotations/json_schema")
+}
 
 # allowed types for columns according do Clio schema
 TYPES_MAPPING <- list(
@@ -271,10 +272,10 @@ TYPES_MAPPING <- list(
   "boolean" = c("logical")
 )
 
-# verifies whether data schema has the right type and throws an informative 
+# verifies whether data schema has the right type and throws an informative
 # exception if it doesn't
 schema_compare <- function(x) {
-  types = malevnc:::clio_fetch(URL_CLIO_SCHEMA)
+  types = malevnc:::clio_fetch(.url_clio_schema)
   types = sapply(types$properties, function(x) x$type)
   col_types  = sapply(x, class)
   check_types <- sapply(

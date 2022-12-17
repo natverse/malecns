@@ -2,6 +2,7 @@
 
 export(choose_mcns)
 export(dr_malecns)
+export(mcns_annotate_body)
 export(mcns_connection_table)
 export(mcns_dvid_annotations)
 export(mcns_neuprint)
