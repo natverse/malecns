@@ -73,7 +73,7 @@ mcns_connection_table <- function(ids, partners=c("inputs", "outputs"),
   if(!is.logical(moredetails)) {
     extrafields=moredetails;  moredetails=T
   } else extrafields=NULL
-  if(moredetails) {
+  if(moredetails && nrow(res)>0) {
     dets=mcns_neuprint_meta(unique(res$partner), conn=conn)
     if(is.null(extrafields))
       extrafields=setdiff(colnames(dets), colnames(res))
