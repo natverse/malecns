@@ -9,7 +9,8 @@ mcns_dvid_annotations(
   node = "neutu",
   rval = c("data.frame", "list"),
   columns_show = NULL,
-  cache = FALSE
+  cache = FALSE,
+  ...
 )
 }
 \arguments{
@@ -28,6 +29,8 @@ many values that would be missing in the list.}
 suffix. Accepted options are: 'user', 'time', 'all'.}
 
 \item{cache}{Whether to cache the result of this call for 5 minutes.}
+
+\item{...}{Additional arguments passed to \code{pbapply::\link{pblapply}}}
 }
 \value{
 A \code{tibble} containing with columns including \itemize{

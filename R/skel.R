@@ -39,5 +39,5 @@ read_mcns_neurons <- function(ids, connectors = F,
                                connectors = connectors,
                                heal.threshold = heal.threshold, ...)
     )
-  switch(units, nm=res*8, microns=res*(8/1000), res)
+  switch(units, nm=res*rep(8,4), microns=res*rep(8/1000, 4), res)
 }

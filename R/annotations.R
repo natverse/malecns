@@ -56,7 +56,7 @@
 mcns_dvid_annotations <- function(ids=NULL, node='neutu',
                                   rval=c("data.frame", "list"),
                                   columns_show = NULL,
-                                  cache=FALSE) {
+                                  cache=FALSE, ...) {
   # because malevnc::manc_dvid_annotations does not pass a connection on to
   # manc_ids
   if(!is.null(ids))
