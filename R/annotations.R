@@ -277,7 +277,7 @@ TYPES_MAPPING <- list(
 # verifies whether data schema has the right type and throws an informative
 # exception if it doesn't
 schema_compare <- function(x) {
-  types = malevnc:::clio_fetch(.url_clio_schema)
+  types = malevnc:::clio_fetch(.url_clio_schema())
   types = sapply(types$properties, function(x) x$type)
   col_types  = sapply(x, class)
   check_types <- sapply(
