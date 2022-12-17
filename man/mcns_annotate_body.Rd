@@ -42,8 +42,9 @@ details for the rational behind the default value of "user"}
 default be sent 50 records at a time to avoid any issue with timeouts. You
 can increase for a small speed up if you find your setup is fast enough.
 Set to \code{Inf} to insist that all records are sent in a single request.
-\bold{NB only applies when \code{x} is a data.frame}.
-@param check_types Whether it should verift allowed types or not.}
+\bold{NB only applies when \code{x} is a data.frame}.}
+
+\item{check_types}{Whether or not it should verify types of columns.}
 
 \item{...}{Additional parameters passed to \code{pbapply::\link{pbsapply}}}
 }

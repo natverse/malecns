@@ -235,11 +235,13 @@ mcns_set_group <- function(id, group, user) {
 #'   can increase for a small speed up if you find your setup is fast enough.
 #'   Set to \code{Inf} to insist that all records are sent in a single request.
 #'   \bold{NB only applies when \code{x} is a data.frame}.
-#'   @param check_types Whether it should verift allowed types or not.
+#' @param check_types Whether or not it should verify types of columns.
 #' @param ... Additional parameters passed to \code{pbapply::\link{pbsapply}}
 #'
 #' @return \code{NULL} invisibly on success. Errors out on failure.
 #' @family manc-annotation
+#'
+#' @importFrom malevnc manc_annotate_body
 #' @export
 #'
 #' @examples
