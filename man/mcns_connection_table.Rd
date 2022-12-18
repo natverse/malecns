@@ -44,12 +44,12 @@ Connectivity query for CNS neurons
 \examples{
 \donttest{
 joffrey.id=mcns_xyz2bodyid(cbind(24590, 13816, 26102)+4096, node = 'neuprint')
-joffrey.ds=mcns_connection_table(joffrey.id, partners = 'in')
-joffrey.dss=mcns_connection_table(joffrey.id, partners = 'in', summary=TRUE)
+joffrey.us=mcns_connection_table(joffrey.id, partners = 'in')
+joffrey.uss=mcns_connection_table(joffrey.id, partners = 'in', summary=TRUE)
 }
 \dontrun{
 # open top 10 partners in neuroglancer,
 # NB segmentation / meshes to match neuprint
-mcns_scene(joffrey.dss$partner[1:10], open = TRUE, node='neuprint')
+mcns_scene(joffrey.uss$partner[1:10], open = TRUE, node='neuprint')
 }
 }
