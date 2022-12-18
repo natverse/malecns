@@ -9,7 +9,6 @@ reference:
   - '`with_mcns`'
   - '`mcns_scene`'
   - '`mcns_xyz2bodyid`'
-  - '`mcns_annotate_body`'
   - '`mcns_ids`'
 - title: Neuprint queries including connectivity
   contents:
@@ -20,8 +19,9 @@ reference:
   contents:
   - '`read_mcns_meshes`'
   - '`read_mcns_neurons`'
-- title: DVID Annotations
+- title: Clio/DVID Annotations
   contents:
+  - '`mcns_annotate_body`'
   - '`mcns_dvid_annotations`'
   - '`mcns_set_dvid_annotations`'
 - title: Geometry and neuropil meshes
