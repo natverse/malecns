@@ -96,7 +96,7 @@ mcns_dvid_annotations <- function(ids=NULL, node='neutu',
 #' @param type Character vector specifying an authoritative cell type e.g.
 #'   \code{"LHAD1g1"} from the hemibrain.
 #' @param side Character vector specifying the side of each neuron (\code{"L",
-#'   "R"} or \code{""} when it cannot be specified)
+#'   "R"}, \code{"M"} for midline, or \code{""} when it cannot be specified).
 #' @param instance Character vector specifying instances (names) for neurons
 #'   (see details) \emph{or} a logical value where \code{TRUE} (the default)
 #'   means to append the side to the type.
@@ -133,6 +133,8 @@ mcns_set_dvid_annotations <- function(ids, type=NULL, group=NULL,
   if(isTRUE(instance)) {
     if(is.null(side))
       stop("You must specify side information to set instances")
+    checkmate::check_character(side, max.chars = 1, any.missing = F, len=1L,
+                               ignore.case = F, pattern="^(L|R|M|)$")
     instance=paste0(type, "_", side)
   } else if(isFALSE(instance)) {
     instance=NULL

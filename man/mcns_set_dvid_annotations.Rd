@@ -28,7 +28,7 @@ length as \code{ids} unless it has length 1.}
 \item{synonyms}{Character vector specifying cell type e.g. "LHAD1g1"}
 
 \item{side}{Character vector specifying the side of each neuron (\code{"L",
-"R"} or \code{""} when it cannot be specified)}
+"R"}, \code{"M"} for midline, or \code{""} when it cannot be specified).}
 
 \item{instance}{Character vector specifying instances (names) for neurons
 (see details) \emph{or} a logical value where \code{TRUE} (the default)
