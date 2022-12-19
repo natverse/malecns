@@ -6,7 +6,9 @@
   op<-options()
   toset <- !(names(op.malecns) %in% names(op))
   if(any(toset)) options(op.malecns[toset])
-  res=try(choose_mcns(), silent = F)
+  res=try(choose_malevnc_dataset(set=FALSE,
+                                 dataset = getOption('malecns.dataset')),
+          silent = F)
   if (inherits(res, 'try-error'))
     warning(
       "Trouble choosing default malecns dataset.\nTry running dr_malecns() and then ",

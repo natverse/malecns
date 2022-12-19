@@ -20,8 +20,13 @@ with_mcns <- function(expr, dataset=getOption("malecns.dataset")) {
 
 #' @export
 #' @rdname with_mcns
+#' @description code{choose_mcns} swaps out the male vnc dataset for the male
+#'   cns. This means that all functions from the \code{malevnc} package should
+#'   target the male cns instead. It is recommended that you use the
+#'   \code{with_mcns} function to do this temporarily unless you have no
+#'   intention of using the male vnc dataset.
 choose_mcns <- function(dataset=getOption("malecns.dataset")) {
-  choose_malevnc_dataset(set=T, dataset = dataset)
+  choose_malevnc_dataset(set=TRUE, dataset = dataset)
 }
 
 mcns_datasets <- function() {
