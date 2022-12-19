@@ -19,6 +19,12 @@ choose_mcns(dataset = getOption("malecns.dataset"))
   operates by changing the server/dataset options of that package. This
   function temporarily changes those options, runs the required expression
   and then sets back again.
+
+code{choose_mcns} swaps out the male vnc dataset for the male
+  cns. This means that all functions from the \code{malevnc} package should
+  target the male cns instead. It is recommended that you use the
+  \code{with_mcns} function to do this temporarily unless you have no
+  intention of using the male vnc dataset.
 }
 \examples{
 \dontrun{

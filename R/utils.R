@@ -38,7 +38,9 @@ dr_malecns <- function() {
   }
 
   message("\nRelevant malecns/malevnc options:")
-  print(options()[grepl("^male(cns|vnc)", names(options()))])
+  with_mcns({
+    print(options()[grepl("^male(cns|vnc)", names(options()))])
+  })
 
   message("\nSuggested packages:")
   if(!requireNamespace('Morpho', quietly=TRUE))
