@@ -18,7 +18,9 @@ Suggests:
     spelling,
     remotes,
     testthat (>= 3.0.0),
-    Morpho
+    Morpho,
+    nat.h5reg,
+    rappdirs
 Language: en-GB
 Imports: 
     fafbseg (>= 0.9.4),
@@ -36,7 +38,8 @@ Remotes:
     natverse/nat,
     natverse/nat.templatebrains,
     natverse/neuprintr,
-    natverse/rcatmaid
+    natverse/rcatmaid,
+    natverse/nat.h5reg
 RoxygenNote: 7.2.2
 URL: https://github.com/flyconnectome/malecns,
     https://flyconnectome.github.io/malecns/

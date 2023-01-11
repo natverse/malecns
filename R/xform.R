@@ -45,6 +45,8 @@ halfbrain2wholebrain <- function(x, units=c("raw", "nm", "microns", "um"), warn=
 
 # register John Bogovic transforms
 mcns_register_xforms2 <- function() {
+  check_package_available("nat.h5reg")
+  check_package_available("rappdirs")
   jdata='/Volumes/JData5/JPeople/Common/Neuroanatomy/BridgingRegistrations/malecns'
   f="CNSnm_JRC2018MumALPHA.h5"
   p=path.expand(file.path(rappdirs::user_data_dir(appname = NULL), "R/malecns", f))
