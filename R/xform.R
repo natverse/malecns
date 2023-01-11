@@ -15,7 +15,7 @@ mcns_register_xforms <- function() {
   nat.templatebrains::add_reglist(malehb_fafb14.tps, sample = 'malehbum', reference = "FAFB14um")
   nat.templatebrains::add_reglist(malehb_fafb14.tpsnm, sample = 'malehb', reference = "FAFB14")
   nat.templatebrains::add_reglist(malecns_fafb14.tps, reference = 'malecnsum',
-                                  sample = "FAFB14um", )
+                                  sample = "FAFB14um")
   nat.templatebrains::add_reglist(malecns_fafb14.tpsnm, reference = 'malecns', sample = "FAFB14")
 
   f3=system.file("landmarks/maleCNS_mirror_landmarks_nm.csv", package = 'malecns')
@@ -43,6 +43,28 @@ halfbrain2wholebrain <- function(x, units=c("raw", "nm", "microns", "um"), warn=
   }
 }
 
+# register John Bogovic transforms
+mcns_register_xforms2 <- function() {
+  jdata='/Volumes/JData5/JPeople/Common/Neuroanatomy/BridgingRegistrations/malecns'
+  f="CNSnm_JRC2018MumALPHA.h5"
+  p=path.expand(file.path(rappdirs::user_data_dir(appname = NULL), "R/malecns", f))
+  if(!file.exists(p))
+    stop("Cannot find h5 file at: ", p, '. You can get it from:\n',
+         jdata)
+  h5p=nat.h5reg::h5reg(p)
+  nat.templatebrains::add_reglist(h5p, sample = 'malecns',
+                                  reference = "JRC2018M")
+
+  f2='JRC2018U_JRC2018M.h5'
+  p2=path.expand(file.path(rappdirs::user_data_dir(appname = NULL), "R/malecns", f2))
+  if(!file.exists(p2))
+    stop("Cannot find h5 file at: ", p2, '. You can get it from:\n',
+         jdata)
+  h5p=nat.h5reg::h5reg(p2)
+  nat.templatebrains::add_reglist(h5p, sample = 'JRC2018U',
+                                  reference = "JRC2018M")
+  invisible(c(p,p2))
+}
 
 #' Mirror points in malecns space
 #'
