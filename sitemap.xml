@@ -34,6 +34,9 @@
     <loc>https://flyconnectome.github.io/malecns/reference/mcns_connection_table.html</loc>
   </url>
   <url>
+    <loc>https://flyconnectome.github.io/malecns/reference/mcns_cosine_plot.html</loc>
+  </url>
+  <url>
     <loc>https://flyconnectome.github.io/malecns/reference/mcns_dvid_annotations.html</loc>
   </url>
   <url>
@@ -44,6 +47,9 @@
   </url>
   <url>
     <loc>https://flyconnectome.github.io/malecns/reference/mcns_neuprint_meta.html</loc>
+  </url>
+  <url>
+    <loc>https://flyconnectome.github.io/malecns/reference/mcns_predict_group.html</loc>
   </url>
   <url>
     <loc>https://flyconnectome.github.io/malecns/reference/mcns_scene.html</loc>

@@ -28,7 +28,7 @@
     
     <a class="navbar-brand me-2" href="index.html">malecns</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.0.9000</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -120,14 +120,14 @@
 <div class="section level3">
 <h3 id="authentication">Authentication<a class="anchor" aria-label="anchor" href="#authentication"></a>
 </h3>
-<p>Access to neuprint / Clio then depends on authentication. For neuprint, please see <a href="https://github.com/natverse/neuprintr#authentication" class="external-link uri">https://github.com/natverse/neuprintr#authentication</a>; you only need to set a <code>neuprint_token</code> R environment variable. You can display your neuprint token after logging into the neuprint website. For Clio, you will prompted to authenticate via a Google OAuth “dance” in your web browser. Note that the Clio and neuprint tokens look similar, but are <em>not</em> the same. neuprint token appears to be indefinite while the clio token currently lasts 3 weeks.</p>
+<p>Access to neuprint / Clio then depends on authentication. For neuprint, please see <a href="https://github.com/natverse/neuprintr#authentication" class="external-link uri">https://github.com/natverse/neuprintr#authentication</a>; you only need to set a <code>NEUPRINT_TOKEN</code> R environment variable. You can display your neuprint token after logging into the neuprint website. For Clio, you will prompted to authenticate via a Google OAuth “dance” in your web browser. Note that the Clio and neuprint tokens look similar, but are <em>not</em> the same. Your neuprint token appears to be indefinite while the clio token currently lasts 3 weeks.</p>
 </div>
 <div class="section level3">
 <h3 id="configuration">Configuration<a class="anchor" aria-label="anchor" href="#configuration"></a>
 </h3>
 <p>For interaction with the Clio/DVID annotation systems you may need to tell R+malecns about the emails that you used to sign up for Clio/neuprint.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span>malevnc.dvid_user<span class="op">=</span><span class="st">"myuser@gmail.com"</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span>malevnc.clio_email<span class="op">=</span><span class="st">"myuser@gmail.com"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span>malevnc.dvid_user<span class="op">=</span><span class="st">"&lt;surname&gt;&lt;firstinitial&gt;"</span><span class="op">)</span></span></code></pre></div>
 <p>These should be set in your <code>.Rprofile</code> file.</p>
 </div>
@@ -135,7 +135,7 @@
 <div class="section level2">
 <h2 id="example">Example<a class="anchor" aria-label="anchor" href="#example"></a>
 </h2>
-<p>This is example shows you how to read some meshes, look up ids by position and transform positions from FlyWire/FAFB14.</p>
+<p>This example shows you how to read some meshes, look up ids by position and transform positions from FlyWire/FAFB14.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/flyconnectome/malecns" class="external-link">malecns</a></span><span class="op">)</span></span>
 <span><span class="co">## read meshes for some annotated neurons</span></span>
