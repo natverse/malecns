@@ -41,7 +41,8 @@ Remotes:
     natverse/nat.templatebrains,
     natverse/neuprintr,
     natverse/rcatmaid,
-    natverse/nat.h5reg
+    natverse/nat.h5reg,
+    natverse/coconat
 RoxygenNote: 7.2.3
 URL: https://github.com/flyconnectome/malecns,
     https://flyconnectome.github.io/malecns/
