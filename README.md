@@ -80,10 +80,10 @@ usethis::create_github_token()
 
 Access to neuprint / Clio then depends on authentication. For neuprint, please
 see https://github.com/natverse/neuprintr#authentication; you only need to set
-a `neuprint_token` R environment variable. You can display your neuprint token after logging into the neuprint website. For Clio, you will prompted to 
+a `NEUPRINT_TOKEN` R environment variable. You can display your neuprint token after logging into the neuprint website. For Clio, you will prompted to 
 authenticate via a Google OAuth "dance" in your web browser. 
 Note that the Clio and neuprint tokens look similar, but are *not* the same.
-neuprint token appears to be indefinite while the clio token
+Your neuprint token appears to be indefinite while the clio token
 currently lasts 3 weeks.
 
 ### Configuration
@@ -91,14 +91,14 @@ currently lasts 3 weeks.
 For interaction with the Clio/DVID annotation systems you may need to tell R+malecns about the emails that you used to sign up for Clio/neuprint.
 
 ```r
-options(malevnc.dvid_user="myuser@gmail.com")
+options(malevnc.clio_email="myuser@gmail.com")
 options(malevnc.dvid_user="<surname><firstinitial>")
 ```
 These should be set in your `.Rprofile` file.
 
 ## Example
 
-This is example shows you how to read some meshes, look up ids by position
+This example shows you how to read some meshes, look up ids by position
 and transform positions from FlyWire/FAFB14.
 
 ``` r
