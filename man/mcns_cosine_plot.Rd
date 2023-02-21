@@ -51,4 +51,9 @@ Cosine plot
 # cosine clustering based on grouped output partners (mainly DNs right now)
 r=mcns_cosine_plot("/name:LAL.+", partners='out', group=TRUE)
 }
+\dontrun{
+# fancier labelling of rows including soma side of neurons
+r=mcns_cosine_plot("/name:LAL.+", partners='out', group=TRUE,
+  labRow = '{name}_{group}_{mcns_soma_side(data.frame(bodyid, name, somaLocation))}'
+}
 }
