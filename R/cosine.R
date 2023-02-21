@@ -26,7 +26,7 @@
 #' \dontrun{
 #' # fancier labelling of rows including soma side of neurons
 #' r=mcns_cosine_plot("/name:LAL.+", partners='out', group=TRUE,
-#'   labRow = '{name}_{group}_{mcns_soma_side(data.frame(bodyid, name, somaLocation))}'
+#'   labRow = '{name}_{group}_{mcns_soma_side(data.frame(bodyid, name, somaLocation))}')
 #' }
 mcns_cosine_plot <- function(ids, partners=c("output", "input"), group=FALSE,
                              groupfun=NULL,
