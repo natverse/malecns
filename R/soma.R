@@ -8,8 +8,9 @@
 #' @param method Whether to use the side recorded in the instance field, the
 #'   soma position or each of those in turn to predict.
 #'
-#' @return A vector of sides (L, R, M, U or NA). Midline or unpaired neurons
-#'   should be indicated with an M although I have seen U in the past.
+#' @return For \code{mcns_soma_side} a vector of sides (L, R, M, U or NA).
+#'   Midline or unpaired neurons should be indicated with an M although I have
+#'   seen U in the past.
 #' @export
 #'
 #' @examples
@@ -37,18 +38,46 @@ mcns_soma_side <- function(ids, method=c("auto", "position", "instance")) {
   } else if(method=='instance') {
     res=stringr::str_match(meta$name, '_([LRMU])$')[,2]
   } else {
-    longform=grepl("^list", meta$somaLocation)
-    if(any(longform)) {
-      meta$somaLocation[longform]=sub("list\\(([0-9 ,]+)\\).*", "\\1", meta$somaLocation[longform])
-      stillbad=grepl("^list", meta$somaLocation[longform])
-      if(any(stillbad)) {
-        warning("failed to parse ", sum(stillbad), " soma locations. Setting to NA.")
-        meta$somaLocation[longform][stillbad]=NA
-      }
-    }
-    somapos=xyzmatrix(meta$somaLocation)*8
+    somapos=mcns_somapos(meta, units="nm")
     somaposm=mirror_malecns(somapos)
     res=ifelse((somaposm[,1]-somapos[,1])>0, 'R', "L")
   }
   res
+}
+
+#'
+#' @description \code{mcns_somapos} returns the XYZ location (in nm, microns or
+#'   raw voxel space) of the soma position for neurons. When no valid soma
+#'   position is available, then a \code{NA} value is returned.
+#' @param units For \code{mcns_somapos} the units of returned 3D positions.
+#' @export
+#' @rdname mcns_soma_side
+#' @examples
+#' sp=mcns_somapos('/LAL04.*', units='um')
+#' plot(sp[,1:2])
+mcns_somapos <- function(ids, units=c("nm", "microns", "um", "raw")) {
+  units=match.arg(units)
+  if(is.data.frame(ids)){
+    if(!'somaLocation' %in% colnames(ids))
+      stop("data.frame must contatin somaLocation fields to define soma position")
+    meta=ids
+    ids=mcns_ids(ids)
+  } else meta=mcns_neuprint_meta(ids)
+
+  longform=grepl("^list", meta$somaLocation)
+  if(any(longform)) {
+    meta$somaLocation[longform]=sub("list\\(([0-9 ,]+)\\).*", "\\1", meta$somaLocation[longform])
+    stillbad=grepl("^list", meta$somaLocation[longform])
+    if(any(stillbad)) {
+      warning("failed to parse ", sum(stillbad), " soma locations. Setting to NA.")
+      meta$somaLocation[longform][stillbad]=NA
+    }
+  }
+  somapos <- xyzmatrix(meta$somaLocation)
+
+  if(units=='nm')
+    somapos <- somapos*8
+  else if(units %in% c("um", "microns"))
+    somapos <- somapos*8/1000
+  somapos
 }

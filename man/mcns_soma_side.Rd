@@ -2,9 +2,12 @@
 % Please edit documentation in R/soma.R
 \name{mcns_soma_side}
 \alias{mcns_soma_side}
+\alias{mcns_somapos}
 \title{Find/predict the soma side of male cns neurons.}
 \usage{
 mcns_soma_side(ids, method = c("auto", "position", "instance"))
+
+mcns_somapos(ids, units = c("nm", "microns", "um", "raw"))
 }
 \arguments{
 \item{ids}{A set of bodyids or a dataframe containing the name and
@@ -12,13 +15,18 @@ somaLocation fields}
 
 \item{method}{Whether to use the side recorded in the instance field, the
 soma position or each of those in turn to predict.}
+
+\item{units}{For \code{mcns_somapos} the units of returned 3D positions.}
 }
 \value{
-A vector of sides (L, R, M, U or NA). Midline or unpaired neurons
-  should be indicated with an M although I have seen U in the past.
+For \code{mcns_soma_side} a vector of sides (L, R, M, U or NA).
+  Midline or unpaired neurons should be indicated with an M although I have
+  seen U in the past.
 }
 \description{
-Find/predict the soma side of male cns neurons.
+\code{mcns_somapos} returns the XYZ location (in nm, microns or
+  raw voxel space) of the soma position for neurons. When no valid soma
+  position is available, then a \code{NA} value is returned.
 }
 \details{
 this should soon be overtaken by an actual recorded somaSide column
@@ -32,4 +40,6 @@ mcns_soma_side('/LAL04.*')
 # All neurons with a type
 table(mcns_soma_side('/.*'), useNA='if')
 }
+sp=mcns_somapos('/LAL04.*', units='um')
+plot(sp[,1:2])
 }
