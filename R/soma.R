@@ -50,6 +50,7 @@ mcns_soma_side <- function(ids, method=c("auto", "position", "instance")) {
 #'   raw voxel space) of the soma position for neurons. When no valid soma
 #'   position is available, then a \code{NA} value is returned.
 #' @param units For \code{mcns_somapos} the units of returned 3D positions.
+#'   Defaults to \epmh{nm}.
 #' @export
 #' @rdname mcns_soma_side
 #' @examples
@@ -63,21 +64,5 @@ mcns_somapos <- function(ids, units=c("nm", "microns", "um", "raw")) {
     meta=ids
     ids=mcns_ids(ids)
   } else meta=mcns_neuprint_meta(ids)
-
-  longform=grepl("^list", meta$somaLocation)
-  if(any(longform)) {
-    meta$somaLocation[longform]=sub("list\\(([0-9 ,]+)\\).*", "\\1", meta$somaLocation[longform])
-    stillbad=grepl("^list", meta$somaLocation[longform])
-    if(any(stillbad)) {
-      warning("failed to parse ", sum(stillbad), " soma locations. Setting to NA.")
-      meta$somaLocation[longform][stillbad]=NA
-    }
-  }
-  somapos <- xyzmatrix(meta$somaLocation)
-
-  if(units=='nm')
-    somapos <- somapos*8
-  else if(units %in% c("um", "microns"))
-    somapos <- somapos*8/1000
-  somapos
+  mcns_xyz(meta$somaLocation, outunits=units)
 }

@@ -16,7 +16,8 @@ somaLocation fields}
 \item{method}{Whether to use the side recorded in the instance field, the
 soma position or each of those in turn to predict.}
 
-\item{units}{For \code{mcns_somapos} the units of returned 3D positions.}
+\item{units}{For \code{mcns_somapos} the units of returned 3D positions.
+Defaults to \epmh{nm}.}
 }
 \value{
 For \code{mcns_soma_side} a vector of sides (L, R, M, U or NA).
