@@ -3,6 +3,7 @@
 export(choose_mcns)
 export(dr_malecns)
 export(mcns_annotate_body)
+export(mcns_body_annotations)
 export(mcns_connection_table)
 export(mcns_cosine_plot)
 export(mcns_dvid_annotations)

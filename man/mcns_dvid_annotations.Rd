@@ -81,6 +81,7 @@ head(mbons)
 }
 \seealso{
 Other annotations: 
+\code{\link{mcns_body_annotations}()},
 \code{\link{mcns_neuprint_meta}()}
 }
 \concept{annotations}

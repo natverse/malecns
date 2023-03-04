@@ -297,3 +297,21 @@ schema_compare <- function(x) {
             paste(names(check_types[check_types == FALSE]), collapse = ", "))
     )
 }
+
+
+#' Return neurojson body annotations via the Clio interface
+#'
+#' @details In comparison with \code{\link{mcns_dvid_annotations}}, this allows queries for specific bodies. In comparison with \code{\link{mcns_neuprint_meta}}, it allows many
+#'
+#' @inheritParams malevnc::manc_body_annotations
+#' @return A data.frame with metadata
+#' @export
+#' @family annotations
+#' @examples
+#' \donttest{
+#' mcns_body_annotations("AOTU019")
+#' }
+mcns_body_annotations <- function(ids=NULL, query=NULL, json=FALSE, config=NULL,
+                                  cache=FALSE, test=FALSE, ...) {
+  with_mcns(malevnc::manc_body_annotations(ids=ids, query=query, json=json, config=config, cache = cache, test=test, ...))
+}
