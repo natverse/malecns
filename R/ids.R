@@ -40,19 +40,28 @@ mcns_ids <- function(ids,
   )
 }
 
-#' Map XYZ locations to bodyids based on the current mcns dataset
+#' Map XYZ locations to bodyids for the male cns dataset
 #'
-#' @param xyz	location in raw dataset pixels
+#' @param xyz xyz	location (by default in raw malecns pixels)
+#' @param units The Optional units of the incoming 3D positions. Defaults to
+#'   \epmh{raw}.
 #' @inheritParams malevnc::manc_xyz2bodyid
+#'
 #' @return A character vector of body ids (0 is missing somas / missing
 #'   locations)
 #' @export
 #'
 #' @examples
+#' \donttest{
+#' # find the bodyids corresponding to set of soma positions
+#' mcns_xyz2bodyid(mcns_somapos("/LAL04[12]", units='raw'), units='raw')
+#' }
 #' # the APL
 #' \dontrun{
 #' mcns_xyz2bodyid(cbind(24508, 15674, 26116)+4096)
 #' }
-mcns_xyz2bodyid <- function(xyz, node = 'neutu', cache=FALSE) {
-  with_mcns(malevnc::manc_xyz2bodyid(xyz, node=node, cache = cache))
+mcns_xyz2bodyid <- function(xyz, units=c("raw", "nm", "microns", "um"),
+                            node = "neutu", cache = FALSE) {
+  xyzraw=mcns_xyz(xyz, inunits=units, outunits='raw')
+  with_mcns(malevnc::manc_xyz2bodyid(xyzraw, node = "neutu", cache = FALSE))
 }

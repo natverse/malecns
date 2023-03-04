@@ -2,12 +2,20 @@
 % Please edit documentation in R/ids.R
 \name{mcns_xyz2bodyid}
 \alias{mcns_xyz2bodyid}
-\title{Map XYZ locations to bodyids based on the current mcns dataset}
+\title{Map XYZ locations to bodyids for the male cns dataset}
 \usage{
-mcns_xyz2bodyid(xyz, node = "neutu", cache = FALSE)
+mcns_xyz2bodyid(
+  xyz,
+  units = c("raw", "nm", "microns", "um"),
+  node = "neutu",
+  cache = FALSE
+)
 }
 \arguments{
-\item{xyz}{location in raw dataset pixels}
+\item{xyz}{xyz    location (by default in raw malecns pixels)}
+
+\item{units}{The Optional units of the incoming 3D positions. Defaults to
+\epmh{raw}.}
 
 \item{node}{A DVID node as returned by \code{\link[malevnc]{manc_dvid_node}}. The
 default is to return the current active (unlocked) node being used through
@@ -20,9 +28,13 @@ A character vector of body ids (0 is missing somas / missing
   locations)
 }
 \description{
-Map XYZ locations to bodyids based on the current mcns dataset
+Map XYZ locations to bodyids for the male cns dataset
 }
 \examples{
+\donttest{
+# find the bodyids corresponding to set of soma positions
+mcns_xyz2bodyid(mcns_somapos("/LAL04[12]", units='raw'), units='raw')
+}
 # the APL
 \dontrun{
 mcns_xyz2bodyid(cbind(24508, 15674, 26116)+4096)
