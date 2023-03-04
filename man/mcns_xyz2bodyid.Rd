@@ -15,7 +15,7 @@ mcns_xyz2bodyid(
 \item{xyz}{xyz    location (by default in raw malecns pixels)}
 
 \item{units}{The Optional units of the incoming 3D positions. Defaults to
-\epmh{raw}.}
+\emph{raw}.}
 
 \item{node}{A DVID node as returned by \code{\link[malevnc]{manc_dvid_node}}. The
 default is to return the current active (unlocked) node being used through

@@ -44,7 +44,7 @@ mcns_ids <- function(ids,
 #'
 #' @param xyz xyz	location (by default in raw malecns pixels)
 #' @param units The Optional units of the incoming 3D positions. Defaults to
-#'   \epmh{raw}.
+#'   \emph{raw}.
 #' @inheritParams malevnc::manc_xyz2bodyid
 #'
 #' @return A character vector of body ids (0 is missing somas / missing
