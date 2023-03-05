@@ -58,10 +58,61 @@ soma_sides.csv3 %>%
 
 # What about the ones that we didn't record because of updates?
 
-soma_sides.csv2 %>%
+soma_sides.csv2.updated <- soma_sides.csv2 %>%
   filter(!islatest) %>%
   filter(!is.na(soma_side)) %>%
   rename(bodyid.old=body_id) %>%
-  mutate(bodyid=with_mcns(malevnc::manc_xyz2bodyid()))
-  select(body_id, soma_side) %>%
+  mutate(bodyid=mcns_xyz2bodyid(cbind(nx,ny,nz), units='raw')) %>%
+  mutate(status=mcns_dvid_annotations(bodyid)$status)
 
+table(soma_sides.csv2.updated$status)
+
+
+soma_sides.csv2.updated %>%
+  filter(!status %in% c("Anchor", "Prelim Roughly traced", "Primary Anchor", "Roughly traced" ) & !is.na(status)) %>%
+  filter(!duplicated(bodyid)) %>%
+  mcns_scene(open=T)
+
+soma_sides.csv2.updated %>%
+  count(islatest=with_mcns(malevnc::manc_islatest(bodyid)))
+
+soma_sides.csv2.updated %>%
+  select(bodyid, soma_side) %>%
+  filter(!duplicated(bodyid)) %>%
+  mcns_annotate_body(chunksize = 30, test = F)
+
+# what about the ones that were up to date but had a bad status
+soma_sides.csv3.badstatus <- soma_sides.csv3 %>%
+  filter(!status %in% c("Anchor", "Prelim Roughly traced", "Primary Anchor", "Roughly traced" )) %>%
+  select(body_id, soma_side) %>%
+  rename(bodyid=body_id)
+myfun <- function(x,...) {
+  sc=mcns_scene(x$bodyid, open = F)
+  sc2=fafbseg::ngl_decode_scene(sc)
+  sc3=fafbseg::ngl_add_colours(sc2,colours = x, layer = 'seg-v0.3.4')
+  browseURL(as.character(sc3))
+}
+
+soma_sides.csv3.badstatus %>%
+  mutate(col=ifelse(soma_side=='R', 'red', 'green')) %>%
+  select(bodyid, col) %>%
+  slice_sample(n = 100) %>%
+  myfun
+
+# keep the ones with a somaLocation
+
+soma_sides.csv3.badstatus.mnp <-
+  soma_sides.csv3.badstatus %>%
+  filter(!duplicated(bodyid)) %>%
+  with(left_join(., mcns_neuprint_meta(.), by='bodyid')) %>%
+  filter(!is.na(somaLocation))
+
+soma_sides.csv3.badstatus.mnp %>% head
+
+soma_sides.csv3.badstatus.mnp %>%
+  mutate(islatest=with_mcns(malevnc::manc_islatest(bodyid))) %>%
+  count(islatest)
+
+soma_sides.csv3.badstatus.mnp %>%
+  select(bodyid, soma_side) %>%
+  mcns_annotate_body(chunksize = 100, test = F)
