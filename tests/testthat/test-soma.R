@@ -13,4 +13,6 @@ test_that("multiplication works", {
        "L", "R", "R", "R", "R", "R", "R", "R", "R", "R")
 
   expect_equal(mcns_soma_side(bids), bl)
+  # turns out number 7 is missing a soma (although we know which side it must be ...)
+  expect_equal(mcns_soma_side(bids[1:6], method = 'manual'), bl[1:6])
 })

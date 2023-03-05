@@ -3,9 +3,9 @@
 \name{mcns_soma_side}
 \alias{mcns_soma_side}
 \alias{mcns_somapos}
-\title{Find/predict the soma side of male cns neurons.}
+\title{Find/predict the soma side or position of male cns neurons.}
 \usage{
-mcns_soma_side(ids, method = c("auto", "position", "instance"))
+mcns_soma_side(ids, method = c("auto", "position", "instance", "manual"))
 
 mcns_somapos(ids, units = c("nm", "microns", "um", "raw"))
 }
@@ -14,7 +14,8 @@ mcns_somapos(ids, units = c("nm", "microns", "um", "raw"))
 somaLocation fields}
 
 \item{method}{Whether to use the side recorded in the instance field, the
-soma position or each of those in turn to predict.}
+soma position or each of those in turn to predict. The method manual
+returns manually curated positions recorded via Clio (see details).}
 
 \item{units}{For \code{mcns_somapos} the units of returned 3D positions.
 Defaults to \emph{nm}.}
@@ -31,7 +32,12 @@ For \code{mcns_soma_side} a vector of sides (L, R, M, U or NA).
 }
 \details{
 this should soon be overtaken by an actual recorded somaSide column
-  but will likely still be helpful beyond this for new neurons.
+  in neuPrint but will likely still be helpful beyond this for new neurons.
+  As of 2023-03-05 soma side data
+  \href{https://flyem-cns.slack.com/archives/C02QFC68HPX/p1677872879992079}{have
+  been added to clio but is not yet present in neuprint}. You can access this
+  soma side information by using \code{method="clio"} which calls
+  \code{\link{mcns_body_annotations}}.
 }
 \examples{
 \donttest{
@@ -40,7 +46,31 @@ mcns_soma_side('/LAL04.*')
 \dontrun{
 # All neurons with a type
 table(mcns_soma_side('/.*'), useNA='if')
+
+# compare manual with predictions
+mcnswsoma=mcns_body_annotations(query=list(soma_side="exists/1"))
+mcnswsoma$pside=mcns_soma_side(mcnswsoma$bodyid)
+with(mcnswsoma, table(soma_side, pside))
+
+# compare manual with instance
+mcnswsoma=mcns_body_annotations(query=list(soma_side="exists/1"))
+mcnswsoma$iside=mcns_soma_side(mcnswsoma$bodyid, method='instance')
+with(mcnswsoma, table(soma_side, iside, useNA = 'i'))
+
+# converse: compare instance with manual
+mcns_instance=mcns_neuprint_meta('/name:.+')
+if(!"somaSide" \%in\% colnames(mcns_instance))
+  mcns_instance$somaSide=mcns_soma_side(mcns_instance, method='manual')
+mcns_instance$iside=mcns_soma_side(mcns_instance, method='instance')
+with(mcns_instance, table(somaSide, iside, useNA = 'i'))
 }
 sp=mcns_somapos('/LAL04.*', units='um')
 plot(sp[,1:2])
 }
+\seealso{
+Other annotations: 
+\code{\link{mcns_body_annotations}()},
+\code{\link{mcns_dvid_annotations}()},
+\code{\link{mcns_neuprint_meta}()}
+}
+\concept{annotations}

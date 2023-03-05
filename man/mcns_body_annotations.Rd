@@ -51,6 +51,7 @@ mcns_body_annotations("AOTU019")
 \seealso{
 Other annotations: 
 \code{\link{mcns_dvid_annotations}()},
-\code{\link{mcns_neuprint_meta}()}
+\code{\link{mcns_neuprint_meta}()},
+\code{\link{mcns_soma_side}()}
 }
 \concept{annotations}

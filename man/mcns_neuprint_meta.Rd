@@ -50,6 +50,7 @@ mnm.soma=mcns_neuprint_meta("where:exists(n.somaLocation)")
 \seealso{
 Other annotations: 
 \code{\link{mcns_body_annotations}()},
-\code{\link{mcns_dvid_annotations}()}
+\code{\link{mcns_dvid_annotations}()},
+\code{\link{mcns_soma_side}()}
 }
 \concept{annotations}
