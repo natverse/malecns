@@ -90,19 +90,32 @@ mcns_connection_table <- function(ids, partners=c("inputs", "outputs"),
 #'   bodyids as numeric (doubles) since flyem now guarantee them to be less than
 #'   2^53 i.e. within the range in which doubles can exactly represent numeric
 #'   ids.
-#' @param ids body ids.
+#' @param ids body ids. When missing all bodies known to DVID are returned.
+#' @param simplify.xyz Whether to simplify columns containing XYZ locations to a
+#'   simple \code{"x,y,z"} format rather than a longer form referencing a schema
+#'   at \code{spatialreference.org}. Defaults to \code{TRUE}.
 #' @inheritParams malevnc::manc_neuprint_meta
-#' @return A data.frame with one row for each (unique) id and NAs for all
+#' @return A data.frame with one row for each (unique) input id and NAs for all
 #'   columns except bodyid when neuprint holds no metadata.
 #' @export
 #' @family annotations
 #' @examples
 #' \donttest{
-#' mm=mcns_neuprint_meta()
+#' # fetch metatada for all bodies in neuprint
+#' mnm=mcns_neuprint_meta()
+#' # fetch metadata for all bodies with a somaLocation
+#' mnm.soma=mcns_neuprint_meta("where:exists(n.somaLocation)")
 #' }
-mcns_neuprint_meta <- function(ids=NULL, conn=mcns_neuprint(), roiInfo=FALSE) {
+mcns_neuprint_meta <- function(ids=NULL, conn=mcns_neuprint(), roiInfo=FALSE,
+                               simplify.xyz=TRUE) {
   res=with_mcns(malevnc::manc_neuprint_meta(ids,conn=conn, roiInfo = roiInfo))
   res$bodyid=as.numeric(res$bodyid)
   # sort by body if if we were relying on dvid annotations
+  if(simplify.xyz) {
+    loc_cols=grep("Location$", colnames(res))
+    for(col in loc_cols) {
+      res[[col]]=neuprint_simplify_xyz(res[[col]])
+    }
+  }
   if(is.null(ids)) res[order(res$bodyid), ] else res
 }

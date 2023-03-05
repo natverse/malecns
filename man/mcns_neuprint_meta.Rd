@@ -4,10 +4,15 @@
 \alias{mcns_neuprint_meta}
 \title{Fetch neuprint metadata for malecns neurons}
 \usage{
-mcns_neuprint_meta(ids = NULL, conn = mcns_neuprint(), roiInfo = FALSE)
+mcns_neuprint_meta(
+  ids = NULL,
+  conn = mcns_neuprint(),
+  roiInfo = FALSE,
+  simplify.xyz = TRUE
+)
 }
 \arguments{
-\item{ids}{body ids.}
+\item{ids}{body ids. When missing all bodies known to DVID are returned.}
 
 \item{conn}{Optional, a \code{\link{neuprint_connection}} object, which also
 specifies the neuPrint server. Defaults to \code{\link[malevnc]{manc_neuprint}()} to
@@ -16,9 +21,13 @@ ensure that query is against the VNC dataset.}
 \item{roiInfo}{whether to include the \code{roiInfo} field detailing synapse
 numbers in different locations. This is omitted by default as it is
 returned as a character vector of unprocessed JSON.}
+
+\item{simplify.xyz}{Whether to simplify columns containing XYZ locations to a
+simple \code{"x,y,z"} format rather than a longer form referencing a schema
+at \code{spatialreference.org}. Defaults to \code{TRUE}.}
 }
 \value{
-A data.frame with one row for each (unique) id and NAs for all
+A data.frame with one row for each (unique) input id and NAs for all
   columns except bodyid when neuprint holds no metadata.
 }
 \description{
@@ -34,8 +43,9 @@ in contrast to \code{malevnc::\link{manc_neuprint_meta}} we leave
 \donttest{
 # fetch metatada for all bodies in neuprint
 mnm=mcns_neuprint_meta()
-}
+# fetch metadata for all bodies with a somaLocation
 mnm.soma=mcns_neuprint_meta("where:exists(n.somaLocation)")
+}
 }
 \seealso{
 Other annotations: 
