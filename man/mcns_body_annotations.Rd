@@ -47,6 +47,11 @@ In comparison with \code{\link{mcns_dvid_annotations}}, this allows queries for 
 \donttest{
 mcns_body_annotations("AOTU019")
 }
+\dontrun{
+mcns.class=mcns_body_annotations(query=list(class="exists/1"))
+mcns.class \%>\%
+  count(class)
+}
 }
 \seealso{
 Other annotations: 

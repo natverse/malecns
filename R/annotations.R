@@ -311,6 +311,11 @@ schema_compare <- function(x) {
 #' \donttest{
 #' mcns_body_annotations("AOTU019")
 #' }
+#' \dontrun{
+#' mcns.class=mcns_body_annotations(query=list(class="exists/1"))
+#' mcns.class %>%
+#'   count(class)
+#' }
 mcns_body_annotations <- function(ids=NULL, query=NULL, json=FALSE, config=NULL,
                                   cache=FALSE, test=FALSE, ...) {
   with_mcns(malevnc::manc_body_annotations(ids=ids, query=query, json=json, config=config, cache = cache, test=test, ...))

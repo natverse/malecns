@@ -62,7 +62,12 @@ mcns_instance=mcns_neuprint_meta('/name:.+')
 if(!"somaSide" \%in\% colnames(mcns_instance))
   mcns_instance$somaSide=mcns_soma_side(mcns_instance, method='manual')
 mcns_instance$iside=mcns_soma_side(mcns_instance, method='instance')
+# many mismatches e.g. due to neurons without a soma including truncated
+# sensory neurons, ascending neurons etc
 with(mcns_instance, table(somaSide, iside, useNA = 'i'))
+
+# we can parse that a bit by doing
+mcns_instance \%>\% filter(soma) \%>\% with(table(somaSide, iside, useNA = 'i'))
 }
 sp=mcns_somapos('/LAL04.*', units='um')
 plot(sp[,1:2])
