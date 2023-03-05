@@ -50,7 +50,7 @@ mcns_soma_side <- function(ids, method=c("auto", "position", "instance")) {
 #'   raw voxel space) of the soma position for neurons. When no valid soma
 #'   position is available, then a \code{NA} value is returned.
 #' @param units For \code{mcns_somapos} the units of returned 3D positions.
-#'   Defaults to \epmh{nm}.
+#'   Defaults to \emph{nm}.
 #' @export
 #' @rdname mcns_soma_side
 #' @examples
