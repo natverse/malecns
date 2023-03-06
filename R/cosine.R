@@ -43,6 +43,9 @@ mcns_cosine_plot <- function(ids, partners=c("output", "input"), group=FALSE,
   }
   xt.cm <- neuprintr::neuprint_cosine_matrix(ids, group = group, groupfun=groupfun, partners = partners, threshold = 10, conn = mcns_neuprint())
   xt.cm=coconat::prepare_cosine_matrix(xt.cm, partners=partners, action=action)
-  meta=mcns_neuprint_meta(rownames(xt.cm))
-  neuprintr::neuprint_cosine_plot(xt.cm, labRow = glue::glue(labRow, .envir=meta), conn = mcns_neuprint(), ...)
+  if(is.character(labRow) && length(labRow)==1 && any(grepl("\\{", labRow))) {
+    meta=mcns_neuprint_meta(rownames(xt.cm))
+    labRow <- glue::glue(labRow, .envir = meta)
+  }
+  neuprintr::neuprint_cosine_plot(xt.cm, labRow = labRow, conn = mcns_neuprint(), ...)
 }
