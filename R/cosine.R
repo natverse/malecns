@@ -8,6 +8,7 @@
 #' @param group Optional character vector specifying the grouping column for the
 #'   partner neurons when constructing the cosine similarity matrix. \code{TRUE}
 #'   implies to \code{'group'}.
+#' @param metadata.source Whether to use neuprint (\code{\link{mcns_neuprint_meta}}) and clio ()
 #' @param ... additional arguments passed to \code{\link{neuprint_cosine_plot}}
 #'   and eventually to \code{heatmap}.
 #' @inheritParams neuprintr::neuprint_cosine_plot
@@ -27,10 +28,14 @@
 #' # fancier labelling of rows including soma side of neurons
 #' r=mcns_cosine_plot("/name:LAL.+", partners='out', group=TRUE,
 #'   labRow = '{name}_{group}_{mcns_soma_side(data.frame(bodyid, name, somaLocation))}')
+#'
+#' r2=mcns_cosine_plot("/name:LAL.+", partners='out', group=TRUE,
+#'   labRow = '{instance}_{group}_{soma_side}', metadata.source='clio')
 #' }
 mcns_cosine_plot <- function(ids, partners=c("output", "input"), group=FALSE,
-                             groupfun=NULL,
-                             labRow='{name}_{group}', action=NULL, ...) {
+                             groupfun=NULL, labRow='{name}_{group}',
+                             metadata.source=c("neuprint", "clio"), action=NULL,
+                             ...) {
   if(isTRUE(group)) {
     group='group' # this ensures that we fetch the group column (+ type, name)
     groupfun=function(df) {
@@ -44,7 +49,10 @@ mcns_cosine_plot <- function(ids, partners=c("output", "input"), group=FALSE,
   xt.cm <- neuprintr::neuprint_cosine_matrix(ids, group = group, groupfun=groupfun, partners = partners, threshold = 10, conn = mcns_neuprint())
   xt.cm=coconat::prepare_cosine_matrix(xt.cm, partners=partners, action=action)
   if(is.character(labRow) && length(labRow)==1 && any(grepl("\\{", labRow))) {
-    meta=mcns_neuprint_meta(rownames(xt.cm))
+    metadata.source=match.arg(metadata.source)
+    ids2=rownames(xt.cm)
+    meta <- if(metadata.source=='clio')
+      mcns_body_annotations(ids2) else mcns_neuprint_meta(ids2)
     labRow <- glue::glue(labRow, .envir = meta)
   }
   neuprintr::neuprint_cosine_plot(xt.cm, labRow = labRow, conn = mcns_neuprint(), ...)
