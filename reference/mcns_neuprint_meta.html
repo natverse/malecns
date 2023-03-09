@@ -51,13 +51,18 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">mcns_neuprint_meta</span><span class="op">(</span>ids <span class="op">=</span> <span class="cn">NULL</span>, conn <span class="op">=</span> <span class="fu"><a href="mcns_neuprint.html">mcns_neuprint</a></span><span class="op">(</span><span class="op">)</span>, roiInfo <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">mcns_neuprint_meta</span><span class="op">(</span></span>
+<span>  ids <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  conn <span class="op">=</span> <span class="fu"><a href="mcns_neuprint.html">mcns_neuprint</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>  roiInfo <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  simplify.xyz <span class="op">=</span> <span class="cn">TRUE</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
     <dl><dt>ids</dt>
-<dd><p>body ids.</p></dd>
+<dd><p>body ids. When missing all bodies known to DVID are returned.</p></dd>
 
 
 <dt>conn</dt>
@@ -71,12 +76,18 @@ ensure that query is against the VNC dataset.</p></dd>
 numbers in different locations. This is omitted by default as it is
 returned as a character vector of unprocessed JSON.</p></dd>
 
+
+<dt>simplify.xyz</dt>
+<dd><p>Whether to simplify columns containing XYZ locations to a
+simple <code>"x,y,z"</code> format rather than a longer form referencing a schema
+at <code>spatialreference.org</code>. Defaults to <code>TRUE</code>.</p></dd>
+
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
     
 
-<p>A data.frame with one row for each (unique) id and NAs for all
+<p>A data.frame with one row for each (unique) input id and NAs for all
   columns except bodyid when neuprint holds no metadata.</p>
     </div>
     <div class="section level2">
@@ -89,13 +100,18 @@ returned as a character vector of unprocessed JSON.</p></dd>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
     <div class="dont-index"><p>Other annotations: 
-<code><a href="mcns_dvid_annotations.html">mcns_dvid_annotations</a>()</code></p></div>
+<code><a href="mcns_body_annotations.html">mcns_body_annotations</a>()</code>,
+<code><a href="mcns_dvid_annotations.html">mcns_dvid_annotations</a>()</code>,
+<code><a href="mcns_soma_side.html">mcns_soma_side</a>()</code></p></div>
     </div>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
-<span class="r-in"><span><span class="va">mm</span><span class="op">=</span><span class="fu">mcns_neuprint_meta</span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="co"># fetch metatada for all bodies in neuprint</span></span></span>
+<span class="r-in"><span><span class="va">mnm</span><span class="op">=</span><span class="fu">mcns_neuprint_meta</span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="co"># fetch metadata for all bodies with a somaLocation</span></span></span>
+<span class="r-in"><span><span class="va">mnm.soma</span><span class="op">=</span><span class="fu">mcns_neuprint_meta</span><span class="op">(</span><span class="st">"where:exists(n.somaLocation)"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>
