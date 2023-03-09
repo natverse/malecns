@@ -46,6 +46,8 @@ mcns_predict_group <- function(ids, method=c("auto", "group", "instance", "type"
                                           "Dm", "DNp", "FC", "OL", "T", "Y")) {
   method=match.arg(method)
   if(is.data.frame(ids)){
+    if('instance' %in% colnames(ids))
+      colnames(ids)[colnames(ids)=='instance']='name'
     if(!all(c('name', "group", "type") %in% colnames(ids)))
       stop("Dataframe must contain group and name/instance fields to define group")
     meta=ids
