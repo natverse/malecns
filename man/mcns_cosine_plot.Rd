@@ -10,6 +10,7 @@ mcns_cosine_plot(
   group = FALSE,
   groupfun = NULL,
   labRow = "{name}_{group}",
+  metadata.source = c("neuprint", "clio"),
   action = NULL,
   ...
 )
@@ -33,6 +34,8 @@ of metadata fetched by \code{\link{mcns_neuprint_meta}}. Alternatively a
 character vector with as many elements as \code{ids} directly specifying
 the rows.}
 
+\item{metadata.source}{Whether to use neuprint (\code{\link{mcns_neuprint_meta}}) and clio ()}
+
 \item{action}{Whether to zero out or drop any NA values in the cosine matrix
 (these may be present when some columns have no entries)}
 
@@ -55,5 +58,8 @@ r=mcns_cosine_plot("/name:LAL.+", partners='out', group=TRUE)
 # fancier labelling of rows including soma side of neurons
 r=mcns_cosine_plot("/name:LAL.+", partners='out', group=TRUE,
   labRow = '{name}_{group}_{mcns_soma_side(data.frame(bodyid, name, somaLocation))}')
+
+r2=mcns_cosine_plot("/name:LAL.+", partners='out', group=TRUE,
+  labRow = '{instance}_{group}_{soma_side}', metadata.source='clio')
 }
 }
