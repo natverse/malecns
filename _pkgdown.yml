@@ -25,6 +25,7 @@ reference:
 - title: Clio/DVID Annotations
   contents:
   - '`mcns_annotate_body`'
+  - '`mcns_body_annotations`'
   - '`mcns_dvid_annotations`'
   - '`mcns_set_dvid_annotations`'
 - title: Geometry and neuropil meshes
