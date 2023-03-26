@@ -11,6 +11,7 @@ mcns_cosine_plot(
   groupfun = NULL,
   labRow = "{name}_{group}",
   metadata.source = c("neuprint", "clio"),
+  interactive = FALSE,
   action = NULL,
   ...
 )
@@ -35,6 +36,9 @@ character vector with as many elements as \code{ids} directly specifying
 the rows.}
 
 \item{metadata.source}{Whether to use neuprint (\code{\link{mcns_neuprint_meta}}) and clio ()}
+
+\item{interactive}{Whether to plot an interactive heatmap (allowing zooming
+and id selection). See details.}
 
 \item{action}{Whether to zero out or drop any NA values in the cosine matrix
 (these may be present when some columns have no entries)}
@@ -61,5 +65,8 @@ r=mcns_cosine_plot("/name:LAL.+", partners='out', group=TRUE,
 
 r2=mcns_cosine_plot("/name:LAL.+", partners='out', group=TRUE,
   labRow = '{instance}_{group}_{soma_side}', metadata.source='clio')
+
+# interactive version (open in browser)
+mcns_cosine_plot('/name:Pm2.*R', group=T, interactive = T)
 }
 }

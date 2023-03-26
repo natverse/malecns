@@ -31,10 +31,14 @@
 #'
 #' r2=mcns_cosine_plot("/name:LAL.+", partners='out', group=TRUE,
 #'   labRow = '{instance}_{group}_{soma_side}', metadata.source='clio')
+#'
+#' # interactive version (open in browser)
+#' mcns_cosine_plot('/name:Pm2.*R', group=T, interactive = T)
 #' }
 mcns_cosine_plot <- function(ids, partners=c("output", "input"), group=FALSE,
                              groupfun=NULL, labRow='{name}_{group}',
-                             metadata.source=c("neuprint", "clio"), action=NULL,
+                             metadata.source=c("neuprint", "clio"),
+                             interactive=FALSE, action=NULL,
                              ...) {
   if(isTRUE(group)) {
     group='group' # this ensures that we fetch the group column (+ type, name)
@@ -55,5 +59,11 @@ mcns_cosine_plot <- function(ids, partners=c("output", "input"), group=FALSE,
       mcns_body_annotations(ids2) else mcns_neuprint_meta(ids2)
     labRow <- glue::glue(labRow, .envir = meta)
   }
-  neuprintr::neuprint_cosine_plot(xt.cm, labRow = labRow, conn = mcns_neuprint(), ...)
+  if(interactive) {
+    try(cv <- requireNamespace('coconat', versionCheck=list(op='>', version='0.1.0')))
+    if(inherits(cv, 'try-error'))
+      stop("Please install/update suggested package coconat.\n",
+           "natmanager::install(pkgs = 'coconat')\n","is a good way to do this")
+    coconat:::cosine_heatmap(xt.cm, interactive = interactive, labRow = labRow, ...)
+  } else neuprintr::neuprint_cosine_plot(xt.cm, labRow = labRow, conn = mcns_neuprint(), ...)
 }
