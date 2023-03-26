@@ -7,7 +7,7 @@
 mcns_connection_table(
   ids,
   partners = c("inputs", "outputs"),
-  moredetails = c("group", "class"),
+  moredetails = c("group", "class", "somaSide"),
   summary = FALSE,
   conn = mcns_neuprint(),
   ...
