@@ -109,7 +109,7 @@ mcns_connection_table <- function(ids, partners=c("inputs", "outputs"),
 #' }
 mcns_neuprint_meta <- function(ids=NULL, conn=mcns_neuprint(), roiInfo=FALSE,
                                simplify.xyz=TRUE) {
-  res=with_mcns(malevnc::manc_neuprint_meta(ids,conn=conn, roiInfo = roiInfo))
+  res=with_mcns(malevnc::manc_neuprint_meta(ids,conn=conn, roiInfo = roiInfo, fields.regex.exclude='^col_[0-9]+'))
   res$bodyid=as.numeric(res$bodyid)
   # sort by body if if we were relying on dvid annotations
   if(simplify.xyz) {
