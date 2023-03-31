@@ -58,6 +58,7 @@
 <span>  groupfun <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  labRow <span class="op">=</span> <span class="st">"{name}_{group}"</span>,</span>
 <span>  metadata.source <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"neuprint"</span>, <span class="st">"clio"</span><span class="op">)</span>,</span>
+<span>  interactive <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>  action <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  <span class="va">...</span></span>
 <span><span class="op">)</span></span></code></pre></div>
@@ -97,6 +98,11 @@ the rows.</p></dd>
 <dd><p>Whether to use neuprint (<code><a href="mcns_neuprint_meta.html">mcns_neuprint_meta</a></code>) and clio ()</p></dd>
 
 
+<dt>interactive</dt>
+<dd><p>Whether to plot an interactive heatmap (allowing zooming
+and id selection). See details.</p></dd>
+
+
 <dt>action</dt>
 <dd><p>Whether to zero out or drop any NA values in the cosine matrix
 (these may be present when some columns have no entries)</p></dd>
@@ -120,7 +126,7 @@ and eventually to <code>heatmap</code>.</p></dd>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span><span class="co"># cosine clustering based on grouped output partners (mainly DNs right now)</span></span></span>
 <span class="r-in"><span><span class="va">r</span><span class="op">=</span><span class="fu">mcns_cosine_plot</span><span class="op">(</span><span class="st">"/name:LAL.+"</span>, partners<span class="op">=</span><span class="st">'out'</span>, group<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span></span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Dropping: 3017/7160 neurons representing 83969/277880 synapses due to missing ids!</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Dropping: 2774/7160 neurons representing 76621/277953 synapses due to missing ids!</span>
 <span class="r-plt img"><img src="mcns_cosine_plot-1.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 <span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
@@ -130,6 +136,9 @@ and eventually to <code>heatmap</code>.</p></dd>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">r2</span><span class="op">=</span><span class="fu">mcns_cosine_plot</span><span class="op">(</span><span class="st">"/name:LAL.+"</span>, partners<span class="op">=</span><span class="st">'out'</span>, group<span class="op">=</span><span class="cn">TRUE</span>,</span></span>
 <span class="r-in"><span>  labRow <span class="op">=</span> <span class="st">'{instance}_{group}_{soma_side}'</span>, metadata.source<span class="op">=</span><span class="st">'clio'</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># interactive version (open in browser)</span></span></span>
+<span class="r-in"><span><span class="fu">mcns_cosine_plot</span><span class="op">(</span><span class="st">'/name:Pm2.*R'</span>, group<span class="op">=</span><span class="cn">T</span>, interactive <span class="op">=</span> <span class="cn">T</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">}</span></span></span>
 </code></pre></div>
     </div>

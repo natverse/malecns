@@ -119,58 +119,126 @@ bad values or because the types are too broad to be very useful.</p></dd>
 <span class="r-in"><span><span class="va">allg</span><span class="op">=</span><span class="fu">mcns_predict_group</span><span class="op">(</span><span class="va">tig_ids</span>, method <span class="op">=</span> <span class="st">'all'</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="co"># neurons where the recorded group and instance group disagree</span></span></span>
 <span class="r-in"><span><span class="va">allg</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html" class="external-link">is.na</a></span><span class="op">(</span><span class="va">group</span><span class="op">)</span> <span class="op">&amp;</span> <span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html" class="external-link">is.na</a></span><span class="op">(</span><span class="va">instance_group</span><span class="op">)</span> <span class="op">&amp;</span> <span class="va">group</span><span class="op">!=</span><span class="va">instance_group</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    bodyid  pre post upstream downstream synweight status           statusLabel</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1   11211 1051 5936     5936       6355     12291 Anchor        Primary Anchor</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2   11803  992 4404     4404       6047     10451 Anchor        Primary Anchor</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3   27083 1212 2047     2047      12146     14193 Anchor        Primary Anchor</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4  524150  944 4665     4665       8028     12693 Anchor        Primary Anchor</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5   13837  957 3965     3965       8138     12103 Anchor        Primary Anchor</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6  521738  494 1176     1176       3903      5079 Anchor        Primary Anchor</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7   17554  530 1507     1507       4322      5829 Anchor        Primary Anchor</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8   19176  490 1310     1310       3924      5234 Anchor        Primary Anchor</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9   23242  832  386      386       7799      8185 Anchor        Primary Anchor</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10  22047  868  397      397       8283      8680 Anchor        Primary Anchor</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11  57240 1708 3131     3131      16351     19482 Traced Prelim Roughly traced</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12 513129  550 1626     1626       4704      6330 Traced Prelim Roughly traced</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    cropped    name                  type      somaLocation halfbrainBodyId</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1    FALSE 11211_R                  &lt;NA&gt; 45404,48928,28412              NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2    FALSE 11211_L                  &lt;NA&gt; 52290,47120,31620              NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3    FALSE 27083_L                  &lt;NA&gt; 55314,20366,38448              NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4    FALSE 13837_R                  &lt;NA&gt; 47814,18265,35894              NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5    FALSE 13837_L                  &lt;NA&gt; 52000,18403,35249              NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6    FALSE 11568_R Ascending Interneuron                NA              NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7    FALSE 11568_L Ascending Interneuron                NA              NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8    FALSE 11568_L Ascending Interneuron                NA              NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9    FALSE 22047_R Ascending Interneuron                NA              NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10   FALSE 22047_L Ascending Interneuron                NA              NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11   FALSE 57240_R                  &lt;NA&gt;                NA              NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12   FALSE 30391_L        P1_L candidate 55388,14978,35062              NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>        voxels nucleusVoxels somaSide                 class group</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1  2286457771     103840368     &lt;NA&gt;                  &lt;NA&gt; 11803</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2  1915409289     112753856     &lt;NA&gt;                  &lt;NA&gt; 11803</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3   991224730     106673824     &lt;NA&gt;                  &lt;NA&gt; 12724</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4  1706719281     104159464     &lt;NA&gt;                  &lt;NA&gt; 13165</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5  1401551880      90686240     &lt;NA&gt;                  &lt;NA&gt; 13165</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6   731940166            NA     &lt;NA&gt; Ascending Interneuron 17554</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7   850842573            NA     &lt;NA&gt; Ascending Interneuron 17554</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8   723243083            NA     &lt;NA&gt; Ascending Interneuron 17554</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9   574930629            NA     &lt;NA&gt; Ascending Interneuron 21958</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10  585137398            NA     &lt;NA&gt; Ascending Interneuron 21958</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11 1295461283            NA     &lt;NA&gt;                  &lt;NA&gt; 24136</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12  629491986      82900288        L                  &lt;NA&gt; 25542</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    bodyid  pre  post upstream downstream synweight status           statusLabel</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1   10333 2004 11514    11514      16549     28063 Anchor        Primary Anchor</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2  581131 1908 11794    11794      15654     27448 Assign             0.5assign</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3   13975  949  2684     2684       9466     12150 Traced Prelim Roughly traced</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4   13161 1123  3127     3127      11509     14636 Traced Prelim Roughly traced</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5   11211 1051  5936     5936       6355     12291 Anchor        Primary Anchor</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6   11803  992  4404     4404       6047     10451 Anchor        Primary Anchor</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7   27083 1212  2047     2047      12146     14193 Anchor        Primary Anchor</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8   17153  565  5048     5048       5131     10179 Traced Prelim Roughly traced</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9  513506  642  4767     4767       5722     10489 Traced Prelim Roughly traced</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10 513117  673  4482     4482       5836     10318 Traced Prelim Roughly traced</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11 524150  944  4665     4665       8028     12693 Anchor        Primary Anchor</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12  13837  957  3965     3965       8138     12103 Anchor        Primary Anchor</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13 524005  813  3771     3771       6694     10465 Traced Prelim Roughly traced</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14  13501 1001  5644     5644      10177     15821 Anchor        Primary Anchor</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15  15753  816  3398     3398       7717     11115 Traced Prelim Roughly traced</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16  15699  563  4175     4175       4587      8762 Traced Prelim Roughly traced</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 17  18186  660  1714     1714       5915      7629 Traced Prelim Roughly traced</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 18 521738  494  1176     1176       3903      5079 Anchor        Primary Anchor</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 19  17554  530  1507     1507       4322      5829 Anchor        Primary Anchor</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 20  19176  490  1310     1310       3924      5234 Anchor        Primary Anchor</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 21  23242  832   386      386       7799      8185 Anchor        Primary Anchor</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 22  22047  868   397      397       8283      8680 Anchor        Primary Anchor</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 23  57240 1708  3131     3131      16351     19482 Traced Prelim Roughly traced</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 24 513129  550  1626     1626       4704      6330 Traced Prelim Roughly traced</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 25 522809 1108  3799     3799       9172     12971 Anchor        Primary Anchor</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 26 523919 1439  3685     3685      16387     20072 Anchor        Primary Anchor</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 27 529570 1597  4405     4405      18177     22582 Anchor        Primary Anchor</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 28 574984 1998  2615     2615      18325     20940 Anchor                Anchor</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 29 555309 2116  2658     2658      19575     22233 Anchor        Primary Anchor</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    cropped     name                  type somaSide                 class</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1    FALSE  10133_R                  &lt;NA&gt;        R                  &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2       NA  10133_L                  &lt;NA&gt;     &lt;NA&gt;                  &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3    FALSE  13161_R                  &lt;NA&gt;        R                  &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4    FALSE  13161_L                  &lt;NA&gt;        L                  &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5    FALSE  11211_R                  &lt;NA&gt;        R                  &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6    FALSE  11211_L                  &lt;NA&gt;        L                  &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7    FALSE  27083_L                  &lt;NA&gt;        L                  &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8    FALSE  16251_R                  &lt;NA&gt;        R                  &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9    FALSE  16251_L                  &lt;NA&gt;        L                  &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10   FALSE  16251_L                  &lt;NA&gt;        L                  &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11   FALSE  13837_R                  &lt;NA&gt;        R                  &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12   FALSE  13837_L                  &lt;NA&gt;        L                  &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13   FALSE 513691_L                  &lt;NA&gt;        L                  &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14   FALSE  13501_R                  &lt;NA&gt;        R                  &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15   FALSE  13095_L                  &lt;NA&gt;        L                  &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16   FALSE  10962_R                  &lt;NA&gt;        R                  &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 17   FALSE  13160_L                  &lt;NA&gt;        L                  &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 18   FALSE  11568_R Ascending Interneuron     &lt;NA&gt; Ascending Interneuron</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 19   FALSE  11568_L Ascending Interneuron     &lt;NA&gt; Ascending Interneuron</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 20   FALSE  11568_L Ascending Interneuron     &lt;NA&gt; Ascending Interneuron</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 21   FALSE  22047_R Ascending Interneuron     &lt;NA&gt; Ascending Interneuron</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 22   FALSE  22047_L Ascending Interneuron     &lt;NA&gt; Ascending Interneuron</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 23   FALSE  57240_R                  &lt;NA&gt;     &lt;NA&gt;                  &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 24   FALSE  30391_L        P1_L candidate        L               central</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 25   FALSE 575975_R                  &lt;NA&gt;        R                  &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 26   FALSE  13357_R                  &lt;NA&gt;        R                  &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 27   FALSE  13357_L                  &lt;NA&gt;        L                  &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 28   FALSE  12229_L                  &lt;NA&gt;        L                  &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 29   FALSE  12229_L                  &lt;NA&gt;        L                  &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         somaLocation nucleusVoxels     voxels halfbrainBodyId  group</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1  36916,39560,22678     133710248 4207313634      4999824097  10333</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2  60844,37386,20894     132889584 3710867625              NA  10333</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3  33335,18589,36094      98358120 1538548394              NA  10983</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4  64646,18676,35154     113251784 1752970686              NA  10983</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5  45404,48928,28412     103840368 2286457771              NA  11803</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6  52290,47120,31620     112753856 1915409289              NA  11803</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7  55314,20366,38448     106673824  991224730              NA  12724</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8  22596,26628,20862      82156824  914373442              NA  12980</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9  72396,20028,18998      66791336 1015480220              NA  12980</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10 73100,21418,18478      64357224 1073210280              NA  12980</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11 47814,18265,35894     104159464 1706719281              NA  13165</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12 52000,18403,35249      90686240 1401551880              NA  13165</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13 56828,15422,13200      84447920 1436832278              NA  13240</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14 34240,38982,23488     116267800 2038019649              NA  13289</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15 72434,19340,20556      80977056 1062035690              NA  14893</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16 36706,15734,14854      81391648 1079221910              NA  15699</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 17 63162,16752,34430      79477112  801247330              NA  16767</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 18                NA            NA  731940166              NA  17554</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 19                NA            NA  850842573              NA  17554</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 20                NA            NA  723243083              NA  17554</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 21                NA            NA  574930629              NA  21958</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 22                NA            NA  585137398              NA  21958</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 23                NA            NA 1295461283              NA  24136</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 24 55388,14978,35062      82900288  629491986              NA  25542</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 25 45910,12914,29880      91371200 1260804377              NA 383941</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 26 33460,38390,22566     103695616 1585448215              NA 523919</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 27 62019,35233,17014      93284040 1537129301              NA 523919</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 28 65336,38724,24508     101708160 2229159941              NA 555309</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 29 64894,39068,25218     102306560 1973140010              NA 555309</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           neckLocation cellBodyFiber  soma instance_group type_group</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                   NA          &lt;NA&gt;  TRUE          11211         NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                   NA          &lt;NA&gt;  TRUE          11211         NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                   NA          &lt;NA&gt;  TRUE          27083         NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                   NA          &lt;NA&gt;  TRUE          13837         NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5                   NA          &lt;NA&gt;  TRUE          13837         NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6  48899, 47171, 43456          &lt;NA&gt; FALSE          11568         NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7  48961, 47253, 43456          &lt;NA&gt; FALSE          11568         NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8  48980, 47381, 43456          &lt;NA&gt; FALSE          11568         NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9  48394, 45011, 43456          &lt;NA&gt; FALSE          22047         NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10 49244, 45755, 43456          &lt;NA&gt; FALSE          22047         NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11                  NA          &lt;NA&gt; FALSE          57240         NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12                  NA          &lt;NA&gt;  TRUE          30391         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1                   NA          &lt;NA&gt;  TRUE          10133         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2                   NA          &lt;NA&gt;  TRUE          10133         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3                   NA          &lt;NA&gt;  TRUE          13161         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4                   NA          &lt;NA&gt;  TRUE          13161         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5                   NA          &lt;NA&gt;  TRUE          11211         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6                   NA          &lt;NA&gt;  TRUE          11211         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7                   NA          &lt;NA&gt;  TRUE          27083         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8                   NA          &lt;NA&gt;  TRUE          16251         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9                   NA          &lt;NA&gt;  TRUE          16251         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10                  NA          &lt;NA&gt;  TRUE          16251         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11                  NA          &lt;NA&gt;  TRUE          13837         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12                  NA          &lt;NA&gt;  TRUE          13837         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13                  NA          &lt;NA&gt;  TRUE         513691         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14                  NA          &lt;NA&gt;  TRUE          13501         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15                  NA          &lt;NA&gt;  TRUE          13095         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16                  NA          &lt;NA&gt;  TRUE          10962         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 17                  NA          &lt;NA&gt;  TRUE          13160         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 18 48899, 47171, 43456          &lt;NA&gt; FALSE          11568         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 19 48961, 47253, 43456          &lt;NA&gt; FALSE          11568         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 20 48980, 47381, 43456          &lt;NA&gt; FALSE          11568         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 21 48394, 45011, 43456          &lt;NA&gt; FALSE          22047         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 22 49244, 45755, 43456          &lt;NA&gt; FALSE          22047         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 23                  NA          &lt;NA&gt; FALSE          57240         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 24                  NA          &lt;NA&gt;  TRUE          30391         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 25                  NA          &lt;NA&gt;  TRUE         575975         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 26                  NA          &lt;NA&gt;  TRUE          13357         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 27                  NA          &lt;NA&gt;  TRUE          13357         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 28                  NA          &lt;NA&gt;  TRUE          12229         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 29                  NA          &lt;NA&gt;  TRUE          12229         NA</span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 <span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
 <span class="r-in"><span><span class="co"># neurons where the recorded group and type group disagree</span></span></span>
