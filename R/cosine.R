@@ -34,9 +34,14 @@
 #'
 #' # interactive version (open in browser)
 #' mcns_cosine_plot('/name:Pm2.*R', group=T, interactive = T)
+#'
+#' # just return an hclust (dendrogram) object without plotting anything
+#' pm2.hc=mcns_cosine_plot('/name:Pm2.*R', group=T, heatmap=FALSE)
+#' plot(pm2.hc)
 #' }
 mcns_cosine_plot <- function(ids, partners=c("output", "input"), group=FALSE,
                              groupfun=NULL, labRow='{name}_{group}',
+                             heatmap=TRUE,
                              metadata.source=c("neuprint", "clio"),
                              interactive=FALSE, action=NULL,
                              ...) {
@@ -59,11 +64,7 @@ mcns_cosine_plot <- function(ids, partners=c("output", "input"), group=FALSE,
       mcns_body_annotations(ids2) else mcns_neuprint_meta(ids2)
     labRow <- glue::glue(labRow, .envir = meta)
   }
-  if(interactive) {
-    try(cv <- requireNamespace('coconat', versionCheck=list(op='>', version='0.1.0')))
-    if(inherits(cv, 'try-error'))
-      stop("Please install/update suggested package coconat.\n",
-           "natmanager::install(pkgs = 'coconat')\n","is a good way to do this")
-    coconat:::cosine_heatmap(xt.cm, interactive = interactive, labRow = labRow, ...)
-  } else neuprintr::neuprint_cosine_plot(xt.cm, labRow = labRow, conn = mcns_neuprint(), ...)
+
+  coconat:::cosine_heatmap(xt.cm, interactive = interactive, labRow = labRow, heatmap=heatmap, ...)
 }
+

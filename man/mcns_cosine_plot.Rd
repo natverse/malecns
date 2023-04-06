@@ -10,6 +10,7 @@ mcns_cosine_plot(
   group = FALSE,
   groupfun = NULL,
   labRow = "{name}_{group}",
+  heatmap = TRUE,
   metadata.source = c("neuprint", "clio"),
   interactive = FALSE,
   action = NULL,
@@ -34,6 +35,12 @@ section).}
 of metadata fetched by \code{\link{mcns_neuprint_meta}}. Alternatively a
 character vector with as many elements as \code{ids} directly specifying
 the rows.}
+
+\item{heatmap}{A logical indicating whether or not to plot the heatmap
+\emph{OR} a function to plot the heatmap whose argument names are
+compatible with \code{stats::\link{heatmap}}. \code{gplots::heatmap.2} is a
+good example. Defaults to \code{TRUE} therefore plotting the full heatmap
+with \code{stats::\link{heatmap}}.}
 
 \item{metadata.source}{Whether to use neuprint (\code{\link{mcns_neuprint_meta}}) and clio ()}
 
@@ -68,5 +75,9 @@ r2=mcns_cosine_plot("/name:LAL.+", partners='out', group=TRUE,
 
 # interactive version (open in browser)
 mcns_cosine_plot('/name:Pm2.*R', group=T, interactive = T)
+
+# just return an hclust (dendrogram) object without plotting anything
+pm2.hc=mcns_cosine_plot('/name:Pm2.*R', group=T, heatmap=FALSE)
+plot(pm2.hc)
 }
 }
