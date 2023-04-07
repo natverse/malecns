@@ -56,6 +56,7 @@
 <span>  query <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  json <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>  config <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  show.extra <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"none"</span>, <span class="st">"user"</span>, <span class="st">"time"</span>, <span class="st">"all"</span><span class="op">)</span>,</span>
 <span>  cache <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>  test <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>  <span class="va">...</span></span>
@@ -82,6 +83,10 @@ with field names as elements.</p></dd>
 <dt>config</dt>
 <dd><p>An optional httr::config (expert use only, must include a
 bearer token)</p></dd>
+
+
+<dt>show.extra</dt>
+<dd><p>Extra columns to show with user/timestamp information.</p></dd>
 
 
 <dt>cache</dt>
