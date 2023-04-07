@@ -9,6 +9,7 @@ mcns_connection_table(
   partners = c("inputs", "outputs"),
   moredetails = c("group", "class", "somaSide"),
   summary = FALSE,
+  threshold = 1L,
   conn = mcns_neuprint(),
   ...
 )
@@ -27,6 +28,10 @@ data.frame.}
 
 \item{summary}{Whether to summarise results per partner when giving multiple
 query neurons}
+
+\item{threshold}{Only return partners >= to an integer value. Default of 1
+returns all partners. This threshold will be applied to the ROI weight when
+the \code{roi} argument is specified, otherwise to the whole neuron.}
 
 \item{conn}{Optional, a \code{\link{neuprint_connection}} object, which also
 specifies the neuPrint server. Defaults to \code{\link[malevnc]{manc_neuprint}()} to

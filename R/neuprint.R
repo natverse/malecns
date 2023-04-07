@@ -49,6 +49,7 @@ mcns_neuprint <- function(token=Sys.getenv("neuprint_token"), Force=FALSE, ...) 
 #' @param summary Whether to summarise results per partner when giving multiple
 #'   query neurons
 #' @inheritParams malevnc::manc_connection_table
+#' @inheritParams neuprintr::neuprint_connection_table
 #'
 #' @return A data.frame
 #' @export
@@ -66,11 +67,13 @@ mcns_neuprint <- function(token=Sys.getenv("neuprint_token"), Force=FALSE, ...) 
 #' }
 mcns_connection_table <- function(ids, partners=c("inputs", "outputs"),
                                   moredetails=c("group", "class", "somaSide"),
-                                  summary=FALSE,
+                                  summary=FALSE, threshold = 1L,
                                   conn=mcns_neuprint(), ...) {
   # malevnc::manc_connection_table(ids=ids, partners=partners, moredetails = moredetails, conn=conn, summary=summary, ...)
   ids=mcns_ids(ids)
-  res=neuprintr::neuprint_connection_table(ids, partners=partners, details = T, conn=conn, summary=summary, ...)
+  res=neuprintr::neuprint_connection_table(ids, partners=partners, details = T,
+                                           threshold = threshold, conn=conn,
+                                           summary=summary, ...)
   if(!is.logical(moredetails)) {
     extrafields=moredetails;  moredetails=T
   } else extrafields=NULL
