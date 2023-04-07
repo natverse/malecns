@@ -9,6 +9,7 @@ mcns_body_annotations(
   query = NULL,
   json = FALSE,
   config = NULL,
+  show.extra = c("none", "user", "time", "all"),
   cache = FALSE,
   test = FALSE,
   ...
@@ -26,6 +27,8 @@ with field names as elements.}
 
 \item{config}{An optional httr::config (expert use only, must include a
 bearer token)}
+
+\item{show.extra}{Extra columns to show with user/timestamp information.}
 
 \item{cache}{Whether to cache the result of this call for 5 minutes.}
 

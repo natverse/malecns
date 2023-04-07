@@ -317,6 +317,7 @@ schema_compare <- function(x) {
 #'   count(class)
 #' }
 mcns_body_annotations <- function(ids=NULL, query=NULL, json=FALSE, config=NULL,
+                                  show.extra = c("none", "user", "time", "all"),
                                   cache=FALSE, test=FALSE, ...) {
   with_mcns(malevnc::manc_body_annotations(ids=ids, query=query, json=json, config=config, cache = cache, test=test, ...))
 }
