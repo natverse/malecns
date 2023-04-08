@@ -109,6 +109,9 @@ mcns_connection_table <- function(ids, partners=c("inputs", "outputs"),
 #' mnm=mcns_neuprint_meta()
 #' # fetch metadata for all bodies with a somaLocation
 #' mnm.soma=mcns_neuprint_meta("where:exists(n.somaLocation)")
+#'
+#' # type or instance present
+#' mnm.ti <- mcns_neuprint_meta('where:exists(n.type) OR exists(n.instance)')
 #' }
 mcns_neuprint_meta <- function(ids=NULL, conn=mcns_neuprint(), roiInfo=FALSE,
                                simplify.xyz=TRUE) {

@@ -17,6 +17,7 @@ reference:
   - '`mcns_connection_table`'
   - '`mcns_cosine_plot`'
   - '`mcns_predict_group`'
+  - '`mcns_predict_type`'
   - '`mcns_soma_side`'
 - title: Neuron skeletons and meshes
   contents:

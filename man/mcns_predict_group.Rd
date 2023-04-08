@@ -58,3 +58,6 @@ allg \%>\%
  arrange(type, group) \%>\% View
 }
 }
+\seealso{
+\code{\link{mcns_predict_type}}
+}

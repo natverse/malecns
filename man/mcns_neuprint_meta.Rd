@@ -45,6 +45,9 @@ in contrast to \code{malevnc::\link{manc_neuprint_meta}} we leave
 mnm=mcns_neuprint_meta()
 # fetch metadata for all bodies with a somaLocation
 mnm.soma=mcns_neuprint_meta("where:exists(n.somaLocation)")
+
+# type or instance present
+mnm.ti <- mcns_neuprint_meta('where:exists(n.type) OR exists(n.instance)')
 }
 }
 \seealso{

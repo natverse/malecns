@@ -21,6 +21,7 @@
 #'   \code{instance_group} and \code{type_group}. Otherwise a numeric vector.
 #' @export
 #' @importFrom dplyr ungroup mutate group_by filter %>% .data
+#' @seealso \code{\link{mcns_predict_type}}
 #' @examples
 #' \donttest{
 #' library(dplyr)
