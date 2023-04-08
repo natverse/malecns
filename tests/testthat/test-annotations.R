@@ -15,3 +15,9 @@ test_that("schema_compare works", {
   )
 
 })
+
+
+test_that("mcns_body_annotations works", {
+  expect_silent(dns.u <- mcns_body_annotations(query = list(class='Descending'), show.extra = 'user'))
+  expect_true(all(c("class_user", "group_user", "type_user") %in% names(dns.u)))
+})
