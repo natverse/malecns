@@ -301,7 +301,13 @@ schema_compare <- function(x) {
 
 #' Return neurojson body annotations via the Clio interface
 #'
-#' @details In comparison with \code{\link{mcns_dvid_annotations}}, this allows queries for specific bodies. In comparison with \code{\link{mcns_neuprint_meta}}, it allows many
+#' @details In comparison with \code{\link{mcns_dvid_annotations}}, this allows
+#'   queries for specific bodies. In comparison with
+#'   \code{\link{mcns_neuprint_meta}}, it provides access to up to the second
+#'   annotations; it is also presently faster than these other two calls.
+#'   Compared with \code{\link{mcns_neuprint_meta}}, it does not produce a
+#'   stable set of columns, only returning those that exist for the given query
+#'   ids.
 #'
 #' @inheritParams malevnc::manc_body_annotations
 #' @return A data.frame with metadata
