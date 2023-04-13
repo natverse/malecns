@@ -44,6 +44,7 @@ mcns_cosine_plot <- function(ids, partners=c("output", "input"), group=FALSE,
                              heatmap=TRUE,
                              metadata.source=c("neuprint", "clio"),
                              interactive=FALSE, action=NULL,
+                             threshold = 10,
                              ...) {
   if(isTRUE(group)) {
     group='group' # this ensures that we fetch the group column (+ type, name)
@@ -55,7 +56,7 @@ mcns_cosine_plot <- function(ids, partners=c("output", "input"), group=FALSE,
       mcns_predict_group(df, method = 'auto')
     }
   }
-  xt.cm <- neuprintr::neuprint_cosine_matrix(ids, group = group, groupfun=groupfun, partners = partners, threshold = 10, conn = mcns_neuprint())
+  xt.cm <- neuprintr::neuprint_cosine_matrix(ids, group = group, groupfun=groupfun, partners = partners, threshold = threshold, conn = mcns_neuprint())
   xt.cm=coconat::prepare_cosine_matrix(xt.cm, partners=partners, action=action)
   if(is.character(labRow) && length(labRow)==1 && any(grepl("\\{", labRow))) {
     metadata.source=match.arg(metadata.source)

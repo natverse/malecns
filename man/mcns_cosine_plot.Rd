@@ -14,6 +14,7 @@ mcns_cosine_plot(
   metadata.source = c("neuprint", "clio"),
   interactive = FALSE,
   action = NULL,
+  threshold = 10,
   ...
 )
 }
@@ -49,6 +50,8 @@ and id selection). See details.}
 
 \item{action}{Whether to zero out or drop any NA values in the cosine matrix
 (these may be present when some columns have no entries)}
+
+\item{threshold}{An integer threshold (connections >= this will be returned)}
 
 \item{...}{additional arguments passed to \code{\link{neuprint_cosine_plot}}
 and eventually to \code{heatmap}.}
