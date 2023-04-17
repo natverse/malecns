@@ -10,12 +10,12 @@ mcns_soma_side(ids, method = c("auto", "position", "instance", "manual"))
 mcns_somapos(ids, units = c("nm", "microns", "um", "raw"))
 }
 \arguments{
-\item{ids}{A set of bodyids or a dataframe containing the name and
-somaLocation fields}
+\item{ids}{A set of bodyids or a dataframe containing the \code{name} and
+\code{somaLocation} fields}
 
 \item{method}{Whether to use the side recorded in the instance field, the
 soma position or each of those in turn to predict. The method manual
-returns manually curated positions recorded via Clio (see details).}
+returns manually curated soma sides recorded via Clio (see details).}
 
 \item{units}{For \code{mcns_somapos} the units of returned 3D positions.
 Defaults to \emph{nm}.}
@@ -31,13 +31,10 @@ For \code{mcns_soma_side} a vector of sides (L, R, M, U or NA).
   position is available, then a \code{NA} value is returned.
 }
 \details{
-this should soon be overtaken by an actual recorded somaSide column
-  in neuPrint but will likely still be helpful beyond this for new neurons.
-  As of 2023-03-05 soma side data
-  \href{https://flyem-cns.slack.com/archives/C02QFC68HPX/p1677872879992079}{have
-  been added to clio but is not yet present in neuprint}. You can access this
-  soma side information by using \code{method="clio"} which calls
-  \code{\link{mcns_body_annotations}}.
+the recorded \code{somaSide} column in neuPrint / \code{soma_side}
+  in clio should be preferred but is not always available.
+  \code{method='auto'} will prefer those columns but then cascade through
+  instance and somaLocation to define the rest.
 }
 \examples{
 \donttest{
