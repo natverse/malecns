@@ -93,86 +93,78 @@ containing the results of each of the other methods.</p></dd>
 <span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>ptype<span class="op">=</span><span class="fu">mcns_predict_type</span><span class="op">(</span><span class="va">.</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/grep.html" class="external-link">grepl</a></span><span class="op">(</span><span class="st">"DN[abdgpx]"</span>, <span class="va">ptype</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">class</span><span class="op">!=</span><span class="st">'Descending'</span> <span class="op">|</span> <span class="fu"><a href="https://rdrr.io/r/base/NA.html" class="external-link">is.na</a></span><span class="op">(</span><span class="va">class</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       bodyid  pre post upstream downstream synweight status    statusLabel</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1      11693 1823 4106     4106      11835     15941 Anchor Primary Anchor</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2      40623  138  578      578       1205      1783 Anchor Primary Anchor</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3  451851712   40  262      262        150       412 Anchor Primary Anchor</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4     383627   54   42       42        267       309 Anchor Primary Anchor</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5      11442  142  789      789        672      1461 Anchor Primary Anchor</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6      11756  135  631      631        628      1259 Anchor Primary Anchor</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7      17373  750 2310     2310       6582      8892 Anchor Primary Anchor</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8      13432  163 1932     1932        818      2750 Anchor Primary Anchor</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9     517881  482 1847     1847       3161      5008 Anchor Primary Anchor</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10     13277  987 4413     4413       4830      9243 Anchor Primary Anchor</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11     16731  198 1559     1559       1091      2650 Anchor Primary Anchor</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12     15569  611  156      156       5877      6033 Anchor Primary Anchor</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13     15430  546  187      187       5329      5516 Anchor Primary Anchor</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14     15303  549  260      260       5308      5568 Anchor Primary Anchor</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15     14707  619  245      245       6011      6256 Anchor Primary Anchor</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16     30465  574  814      814       4312      5126 Anchor Primary Anchor</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17     10447 2250 5987     5987      13067     19054 Anchor Primary Anchor</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18     12151 1863 5368     5368      10738     16106 Anchor Primary Anchor</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19     12675  804 4293     4293       4671      8964 Anchor Primary Anchor</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>        voxels cropped         name type somaSide                 class</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1  4226774471   FALSE      DNd03_R &lt;NA&gt;        R                  &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2   293449447   FALSE DNg18_EM_2_R &lt;NA&gt;        R                  &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3  1549631143   FALSE      DNg28_L &lt;NA&gt;        L Ascending Interneuron</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4   688849981   FALSE      DNg28_L &lt;NA&gt;        L                  &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5  2666944137   FALSE      DNg28_R &lt;NA&gt;        R                  &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6  2543722078   FALSE      DNg28_R &lt;NA&gt;        R                  &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7   886506689   FALSE      DNg58_L &lt;NA&gt;        L                  &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8  1636270805   FALSE      DNg66_M &lt;NA&gt;        M                  &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9   708934341   FALSE      DNg77_R &lt;NA&gt;        R                  &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10 1692960301   FALSE      DNg86_R &lt;NA&gt;        R                  &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11  948589582   FALSE      DNg94_R &lt;NA&gt;        R                  &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12 1513951639   FALSE DNg_EM_276_L &lt;NA&gt;        L                  &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13 1206871763   FALSE DNg_EM_276_L &lt;NA&gt;        L                  &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14 1234442574   FALSE DNg_EM_276_R &lt;NA&gt;        R                  &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15 1280181024   FALSE DNg_EM_276_R &lt;NA&gt;        R                  &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16  889919740   FALSE DNg_EM_287_L &lt;NA&gt;        L Ascending Interneuron</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17 3648240832   FALSE DNg_EM_291_M &lt;NA&gt;        M                  &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18 2888765899   FALSE DNg_EM_291_M &lt;NA&gt;        M                  &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19 2254912041   FALSE DNg_EM_296_L &lt;NA&gt;        L                  &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         somaLocation nucleusVoxels halfbrainBodyId group        neckLocation</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1  33076,34860,19466     202714968              NA 11486 46086, 44690, 43456</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2  44506,47110,33696      56527240              NA 40623                  NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3  58594,37438,18188     469034040              NA 11442 47696, 49760, 43456</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4  60600,38112,19198     336024768              NA 11442                  NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5  36362,39666,17786     278243408              NA 11442                  NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6                 NA            NA              NA 11442                  NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7                 NA            NA              NA 15454                  NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8  48562,46304,33743     149630784              NA 13432 49019, 45627, 43456</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9  38287,41225,24025      97670360              NA 18122                  NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10 47344,46898,34262     135066416              NA 13277                  NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11 36972,41000,30842     104085912              NA 16731 51587, 44740, 43456</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12                NA            NA              NA 14707 50698, 42125, 43456</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13                NA            NA              NA 14707 50173, 44612, 43456</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14                NA            NA              NA 14707 47661, 44451, 43456</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15                NA            NA              NA 14707 47484, 44750, 43456</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16 48699,47814,27930      88680384              NA 16856 47675, 42026, 43456</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17 47540,38029,41426     168864872              NA 10447 48393, 44141, 43456</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18 48922,43966,36072     140183488              NA 10447 48428, 44204, 43456</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19 52456,43014,18570     156314488              NA 11173 49043, 49491, 43456</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    cellBodyFiber  soma      ptype</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1           &lt;NA&gt;  TRUE      DNd03</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2           &lt;NA&gt;  TRUE DNg18_EM_2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3           &lt;NA&gt;  TRUE      DNg28</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4           &lt;NA&gt;  TRUE      DNg28</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5           &lt;NA&gt;  TRUE      DNg28</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6           &lt;NA&gt; FALSE      DNg28</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7           &lt;NA&gt; FALSE      DNg58</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8           &lt;NA&gt;  TRUE      DNg66</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9           &lt;NA&gt;  TRUE      DNg77</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10          &lt;NA&gt;  TRUE      DNg86</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11          &lt;NA&gt;  TRUE      DNg94</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12          &lt;NA&gt; FALSE DNg_EM_276</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13          &lt;NA&gt; FALSE DNg_EM_276</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14          &lt;NA&gt; FALSE DNg_EM_276</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15          &lt;NA&gt; FALSE DNg_EM_276</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16          &lt;NA&gt;  TRUE DNg_EM_287</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17          &lt;NA&gt;  TRUE DNg_EM_291</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18          &lt;NA&gt;  TRUE DNg_EM_291</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19          &lt;NA&gt;  TRUE DNg_EM_296</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    bodyid  pre post upstream downstream synweight status    statusLabel cropped</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1   11693 1823 4106     4106      11835     15941 Anchor Primary Anchor   FALSE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2   40623  138  578      578       1205      1783 Anchor Primary Anchor   FALSE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3  383627   54   42       42        267       309 Anchor Primary Anchor   FALSE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4   11442  142  789      789        672      1461 Anchor Primary Anchor   FALSE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5   11756  135  631      631        628      1259 Anchor Primary Anchor   FALSE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6   17373  750 2310     2310       6582      8892 Anchor Primary Anchor   FALSE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7   13432  163 1932     1932        818      2750 Anchor Primary Anchor   FALSE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8  517881  482 1847     1847       3161      5008 Anchor Primary Anchor   FALSE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9   13277  987 4413     4413       4830      9243 Anchor Primary Anchor   FALSE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10  16731  198 1559     1559       1091      2650 Anchor Primary Anchor   FALSE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11  15569  611  156      156       5877      6033 Anchor Primary Anchor   FALSE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12  15430  546  187      187       5329      5516 Anchor Primary Anchor   FALSE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13  15303  549  260      260       5308      5568 Anchor Primary Anchor   FALSE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14  14707  619  245      245       6011      6256 Anchor Primary Anchor   FALSE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15  10447 2250 5987     5987      13067     19054 Anchor Primary Anchor   FALSE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16  12151 1863 5368     5368      10738     16106 Anchor Primary Anchor   FALSE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 17  12675  804 4293     4293       4671      8964 Anchor Primary Anchor   FALSE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>            name type somaSide class        somaLocation nucleusVoxels</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1       DNd03_R &lt;NA&gt;        R  &lt;NA&gt; 33076, 34860, 19466     202714968</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2  DNg18_EM_2_R &lt;NA&gt;        R  &lt;NA&gt; 44506, 47110, 33696      56527240</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3       DNg28_L &lt;NA&gt;        L  &lt;NA&gt; 60600, 38112, 19198     336024768</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4       DNg28_R &lt;NA&gt;        R  &lt;NA&gt; 36362, 39666, 17786     278243408</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5       DNg28_R &lt;NA&gt;        R  &lt;NA&gt;                  NA            NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6       DNg58_L &lt;NA&gt;        L  &lt;NA&gt;                  NA            NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7       DNg66_M &lt;NA&gt;        M  &lt;NA&gt; 48562, 46304, 33743     149630784</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8       DNg77_R &lt;NA&gt;        R  &lt;NA&gt; 38287, 41225, 24025      97670360</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9       DNg86_R &lt;NA&gt;        R  &lt;NA&gt; 47344, 46898, 34262     135066416</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10      DNg94_R &lt;NA&gt;        R  &lt;NA&gt; 36972, 41000, 30842     104085912</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11 DNg_EM_276_L &lt;NA&gt;        L  &lt;NA&gt;                  NA            NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12 DNg_EM_276_L &lt;NA&gt;        L  &lt;NA&gt;                  NA            NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13 DNg_EM_276_R &lt;NA&gt;        R  &lt;NA&gt;                  NA            NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14 DNg_EM_276_R &lt;NA&gt;        R  &lt;NA&gt;                  NA            NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15 DNg_EM_291_M &lt;NA&gt;        M  &lt;NA&gt; 47540, 38029, 41426     168864872</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16 DNg_EM_291_M &lt;NA&gt;        M  &lt;NA&gt; 48922, 43966, 36072     140183488</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 17 DNg_EM_296_L &lt;NA&gt;        L  &lt;NA&gt; 52456, 43014, 18570     156314488</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>        voxels halfbrainBodyId group        neckLocation cellBodyFiber  soma</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1  4226774471              NA 11486 46086, 44690, 43456          &lt;NA&gt;  TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2   293449447              NA 40623                  NA          &lt;NA&gt;  TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3   688849981              NA 11442                  NA          &lt;NA&gt;  TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4  2666944137              NA 11442                  NA          &lt;NA&gt;  TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5  2543722078              NA 11442                  NA          &lt;NA&gt; FALSE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6   886506689              NA 15454                  NA          &lt;NA&gt; FALSE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7  1636270805              NA 13432 49019, 45627, 43456          &lt;NA&gt;  TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8   708934341              NA 18122                  NA          &lt;NA&gt;  TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9  1692960301              NA 13277                  NA          &lt;NA&gt;  TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10  948589582              NA 16731 51587, 44740, 43456          &lt;NA&gt;  TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11 1513951639              NA 14707 50698, 42125, 43456          &lt;NA&gt; FALSE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12 1206871763              NA 14707 50173, 44612, 43456          &lt;NA&gt; FALSE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13 1234442574              NA 14707 47661, 44451, 43456          &lt;NA&gt; FALSE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14 1280181024              NA 14707 47484, 44750, 43456          &lt;NA&gt; FALSE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15 3648240832              NA 10447 48393, 44141, 43456          &lt;NA&gt;  TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16 2888765899              NA 10447 48428, 44204, 43456          &lt;NA&gt;  TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 17 2254912041              NA 11173 49043, 49491, 43456          &lt;NA&gt;  TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         ptype</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1       DNd03</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2  DNg18_EM_2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3       DNg28</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4       DNg28</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5       DNg28</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6       DNg58</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7       DNg66</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8       DNg77</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9       DNg86</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10      DNg94</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11 DNg_EM_276</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12 DNg_EM_276</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13 DNg_EM_276</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14 DNg_EM_276</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15 DNg_EM_291</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16 DNg_EM_291</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 17 DNg_EM_296</span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>
