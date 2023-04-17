@@ -65,7 +65,12 @@ mcns_soma_side <- function(ids, method=c("auto", "position", "instance", "manual
   }
 
   if(is.data.frame(ids)){
-    if(!all(c('somaLocation', 'name') %in% colnames(ids)))
+
+    if(method %in% c("auto", "position") &&
+      !'somaLocation' %in% colnames(ids))
+      stop("Data.frame must have somaLocation and name/instance fields to define soma side")
+    if(method %in% c("auto", 'instance') &&
+       !'name' %in% colnames(ids))
       stop("Data.frame must have somaLocation and name/instance fields to define soma side")
     meta=ids
     ids=mcns_ids(ids)
