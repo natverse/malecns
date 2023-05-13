@@ -8,7 +8,8 @@ mcns_neuprint_meta(
   ids = NULL,
   conn = mcns_neuprint(),
   roiInfo = FALSE,
-  simplify.xyz = TRUE
+  simplify.xyz = TRUE,
+  ...
 )
 }
 \arguments{
@@ -25,6 +26,8 @@ returned as a character vector of unprocessed JSON.}
 \item{simplify.xyz}{Whether to simplify columns containing XYZ locations to a
 simple \code{"x,y,z"} format rather than a longer form referencing a schema
 at \code{spatialreference.org}. Defaults to \code{TRUE}.}
+
+\item{...}{Additional arguments passed to \code{\link{neuprint_get_meta}}}
 }
 \value{
 A data.frame with one row for each (unique) input id and NAs for all
