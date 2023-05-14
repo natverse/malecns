@@ -1,3 +1,5 @@
+# malecns (development version)
+
 # malecns 0.3
 
 * add `mcns_cosine_plot()` for within dataset connectivity clustering (works nicely across hemispheres)
