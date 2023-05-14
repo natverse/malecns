@@ -1,4 +1,5 @@
 # malecns (development version)
+* add `mcns_islatest()`
 
 # malecns 0.3
 
