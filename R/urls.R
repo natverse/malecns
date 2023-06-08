@@ -48,11 +48,11 @@ choose_mcns <- function(dataset=getOption("malecns.dataset")) {
 #'
 #' }
 mcns_scene <- function(ids=NULL, open=FALSE, dataset=getOption('malecns.dataset'), node='neutu') {
-  sc=scene4dataset(dataset = dataset)
+  sc=malevnc:::flyem_scene4dataset(dataset = dataset)
 
   # make sure these are in xyz order ...
   sc$dimensions=sc$dimensions[sort(names(sc$dimensions))]
-  dlname=dvidlayer4scene(sc)$name
+  dlname=malevnc:::flyem_dvidlayer4scene(sc)$name
   if(!is.null(ids)) {
     ids=mcns_ids(ids, as_character = T, unique = T, dataset = dataset)
     sc$layers[[dlname]]$segments=ids
@@ -96,7 +96,7 @@ open_mcns <- function(x, s = rgl::select3d(), coords.only=FALSE,
       xyz = matrix(xyz, ncol = 3)
     }
   }
-  j=scene4dataset(dataset)
+  j=malevnc:::flyem_scene4dataset(dataset)
   if(is.null(j$position))
     stop("Sorry, this scene URL does not seem to have any navigation information!")
 
