@@ -57,7 +57,7 @@ read_mcns_meshes <- function(ids, units=c("nm", "raw", "microns"),
 
 #' @importFrom glue glue
 read_mcns_mesh <- function(id, node, type, ...) {
-  ss=servers4dataset(getOption("malecns.dataset", default = "CNS"))
+  ss=malevnc:::flyem_servers4dataset(getOption("malecns.dataset", default = "CNS"))
   dvid = ss$dvid
   support = ss$support
   if(type %in% c("auto", "dvid")) {
