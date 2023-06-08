@@ -20,7 +20,8 @@ Suggests:
     testthat (>= 3.0.0),
     Morpho,
     nat.h5reg,
-    rappdirs
+    rappdirs,
+    rgl
 Language: en-GB
 Imports: 
     fafbseg (>= 0.9.4),
