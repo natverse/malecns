@@ -25,7 +25,6 @@ Suggests:
 Language: en-GB
 Imports: 
     fafbseg (>= 0.9.4),
-    jsonlite,
     malevnc (> 0.2.8),
     nat.templatebrains (>= 1.0),
     pbapply,
