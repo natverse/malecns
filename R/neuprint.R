@@ -105,6 +105,7 @@ mcns_connection_table <- function(ids, partners=c("inputs", "outputs"),
 #' @family annotations
 #' @examples
 #' \donttest{
+#' library(dplyr)
 #' # fetch metatada for all bodies in neuprint
 #' mnm=mcns_neuprint_meta()
 #' # fetch metadata for all bodies with a somaLocation

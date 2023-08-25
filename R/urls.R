@@ -13,7 +13,7 @@
 #' with_mcns(malevnc::manc_dvid_node(type = 'clio'))
 #' }
 with_mcns <- function(expr, dataset=getOption("malecns.dataset")) {
-  oldop <- choose_malevnc_dataset(dataset=dataset, set=T)
+  oldop <- malevnc:::choose_flyem_dataset(dataset=dataset, set=T)
   on.exit(options(oldop))
   force(expr)
 }
@@ -26,79 +26,8 @@ with_mcns <- function(expr, dataset=getOption("malecns.dataset")) {
 #'   \code{with_mcns} function to do this temporarily unless you have no
 #'   intention of using the male vnc dataset.
 choose_mcns <- function(dataset=getOption("malecns.dataset")) {
-  choose_malevnc_dataset(set=TRUE, dataset = dataset)
+  malevnc:::choose_flyem_dataset(set=TRUE, dataset = dataset)
 }
-
-mcns_datasets <- function() {
-  js=malevnc:::clio_datasets(json=T)
-  # TODO could memoise this, takes a few seconds
-  jsonlite::fromJSON(js, simplifyVector = T, simplifyDataFrame = F)
-}
-
-mcns_dataset <- function(dataset) {
-  cds=mcns_datasets()
-  dataset=match.arg(dataset, names(cds))
-  cds[[dataset]]
-}
-
-choose_malevnc_dataset <- function(set=TRUE,
-                                   dataset=getOption("malecns.dataset")) {
-  ds=mcns_dataset(dataset)
-  s=servers4dataset(ds)
-  r=rootnode4dataset(ds)
-  ops=list(malevnc.server=s$dvid,
-           malevnc.rootnode=r,
-           malevnc.dataset=dataset,
-           malevnc.neuprint=ifelse(dataset=="CNS",
-                                   'https://neuprint-cns.janelia.org',
-                                   'https://neuprint-pre.janelia.org'))
-  if(set) options(ops) else ops
-}
-
-scene4dataset <- memoise::memoise(function(dataset=NULL) {
-  ds <- if(is.character(dataset)) mcns_dataset(dataset) else dataset
-  stopifnot(!is.null(ds$neuroglancer))
-  sc=fafbseg::ngl_decode_scene(ds$neuroglancer)
-
-  # there are some key layers here
-  sc2=fafbseg::ngl_decode_scene(ds$versions[[1]]$neuroglancer)
-  ll=c(sc$layers[1], sc2$layers[1], sc$layers[-1], sc2$layers[-1])
-  fafbseg::ngl_layers(sc) <- ll
-  sc
-})
-
-servers4dataset <- memoise::memoise(function(dataset=NULL) {
-  sc=scene4dataset(dataset)
-  dl=dvidlayer4scene(sc)
-  u=dl$source$url
-  dvid=sub("dvid-service=.*", "", u)
-  dvid=sub("dvid://", "", dvid)
-  dvid=sub("(https://[^/]+).*", "\\1", dvid)
-  list(
-    dvid=dvid,
-    support=sub("&.*", "", sub(".*dvid-service=", "", u))
-  )
-})
-
-dvidlayer4scene <- function(sc) {
-  dvidlayer <- sapply(sc$layers, function(x) isTRUE(try(grepl("dvid", x$source$url), silent = T)))
-  # if(sum(dvidlayer)!=1)
-  #   warning("Unable to extract a unique DVID layer!")
-  dl=sc$layers[[min(which(dvidlayer))]]
-  dl
-}
-
-rootnode4dataset <- memoise::memoise(function(dataset=NULL) {
-  ds <- if(is.character(dataset)) mcns_dataset(dataset) else dataset
-  stopifnot(!is.null(ds$uuid))
-  servers=servers4dataset(ds)
-  u=sprintf("%s/api/repo/%s/info", servers$dvid, ds$uuid)
-  info = try(jsonlite::fromJSON(readLines(u, warn = F)))
-  stopifnot(!is.null(info$Root))
-  info$Root
-})
-
-
 
 #' Construct a neuroglancer scene for CNS dataset
 #'
@@ -119,11 +48,11 @@ rootnode4dataset <- memoise::memoise(function(dataset=NULL) {
 #'
 #' }
 mcns_scene <- function(ids=NULL, open=FALSE, dataset=getOption('malecns.dataset'), node='neutu') {
-  sc=scene4dataset(dataset = dataset)
+  sc=malevnc:::flyem_scene4dataset(dataset = dataset)
 
   # make sure these are in xyz order ...
   sc$dimensions=sc$dimensions[sort(names(sc$dimensions))]
-  dlname=dvidlayer4scene(sc)$name
+  dlname=malevnc:::flyem_dvidlayer4scene(sc)$name
   if(!is.null(ids)) {
     ids=mcns_ids(ids, as_character = T, unique = T, dataset = dataset)
     sc$layers[[dlname]]$segments=ids
@@ -167,7 +96,7 @@ open_mcns <- function(x, s = rgl::select3d(), coords.only=FALSE,
       xyz = matrix(xyz, ncol = 3)
     }
   }
-  j=scene4dataset(dataset)
+  j=malevnc:::flyem_scene4dataset(dataset)
   if(is.null(j$position))
     stop("Sorry, this scene URL does not seem to have any navigation information!")
 

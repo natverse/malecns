@@ -44,6 +44,7 @@ in contrast to \code{malevnc::\link{manc_neuprint_meta}} we leave
 }
 \examples{
 \donttest{
+library(dplyr)
 # fetch metatada for all bodies in neuprint
 mnm=mcns_neuprint_meta()
 # fetch metadata for all bodies with a somaLocation

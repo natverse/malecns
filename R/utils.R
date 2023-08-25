@@ -5,7 +5,7 @@
 dr_malecns <- function() {
 
   message("Dataset/auth status:")
-  cds=try(mcns_datasets())
+  cds=try(with_mcns(malevnc:::clio_datasets()))
   if(inherits(cds, "try-error"))
     message("Trouble connecting to clio to list datasets.")
   else {

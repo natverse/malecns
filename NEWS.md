@@ -1,5 +1,6 @@
 # malecns (development version)
 * add `mcns_islatest()`
+* move dataset choice to malevnc 
 
 # malecns 0.3
 
