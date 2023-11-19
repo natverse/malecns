@@ -3,7 +3,7 @@
 #' @description \code{malecns_shell.surf} is a surface model of the cortex
 #'   (rind) of the malecns brain (in nm). It was downloaded from a link provided
 #'   by Stuart Berg (of FlyEM).
-#' @rdname malecns
+#' @rdname malecns.surf
 #' @docType data
 #' @examples
 #' \donttest{
@@ -29,7 +29,7 @@
 #'   for details.
 #'
 #' @docType data
-#' @rdname malecns
+#' @rdname malecns.surf
 #' @examples
 #' \donttest{
 #' library(nat)
@@ -49,5 +49,24 @@
 
 #' @docType data
 #' @description \code{JRCFIB2022M.surf} and \code{malecns.surf} are aliases
-#' @rdname malecns
+#' @rdname malecns.surf
 "JRCFIB2022M.surf"
+
+
+#' @description \code{malecnsvnc_shell.surf} is a surface model of the cortex
+#'   (rind) of the malecns ventral nerve cord (in nm). It was downloaded from a
+#'   link provided by Stuart Berg (of FlyEM) on 2023-11-18.
+#' @rdname malecns.surf
+#' @docType data
+#' @examples
+#' \donttest{
+#' library(nat)
+#' boundingbox(malecnsvnc_shell.surf)
+#' }
+#' \dontrun{
+#' nclear3d()
+#' plot3d(malecns.surf, col='blue')
+#' wire3d(malecns_shell.surf, col='grey')
+#' plot3d(malecnsvnc_shell.surf, alpha=.2, col='green')
+#' }
+"malecnsvnc_shell.surf"
