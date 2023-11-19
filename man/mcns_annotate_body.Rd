@@ -105,7 +105,9 @@ Details of Clio body annotation system are provided in
   to the fields in a record. For example if you edit the \code{type} field
   then then a \code{type_user} field will be filled with the email address
   that you use to authenticate to Clio. By default \emph{your} email address
-  will be used since this is contained within your clio token. At present
+  will be used since this is contained within your clio token. You can also
+  specify an alternate user with the \code{designated_user} argument. See the
+  \code{\link{manc_annotate_body}} documentation for further details.
 }
 
 \examples{
