@@ -6,7 +6,7 @@
   op<-options()
   toset <- !(names(op.malecns) %in% names(op))
   if(any(toset)) options(op.malecns[toset])
-  res=try(malevnc:::choose_flyem_dataset(set=FALSE,
+  res=try(malevnc::choose_flyem_dataset(set=FALSE,
                                  dataset = getOption('malecns.dataset')),
           silent = F)
   if (inherits(res, 'try-error'))

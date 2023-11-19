@@ -13,7 +13,7 @@
 #' with_mcns(malevnc::manc_dvid_node(type = 'clio'))
 #' }
 with_mcns <- function(expr, dataset=getOption("malecns.dataset")) {
-  oldop <- malevnc:::choose_flyem_dataset(dataset=dataset, set=T)
+  oldop <- malevnc::choose_flyem_dataset(dataset=dataset, set=T)
   on.exit(options(oldop))
   force(expr)
 }
@@ -26,7 +26,7 @@ with_mcns <- function(expr, dataset=getOption("malecns.dataset")) {
 #'   \code{with_mcns} function to do this temporarily unless you have no
 #'   intention of using the male vnc dataset.
 choose_mcns <- function(dataset=getOption("malecns.dataset")) {
-  malevnc:::choose_flyem_dataset(set=TRUE, dataset = dataset)
+  malevnc::choose_flyem_dataset(set=TRUE, dataset = dataset)
 }
 
 #' Construct a neuroglancer scene for CNS dataset
