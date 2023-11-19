@@ -9,6 +9,7 @@ mcns_annotate_body(
   test = TRUE,
   version = NULL,
   write_empty_fields = FALSE,
+  designated_user = NULL,
   protect = c("user"),
   chunksize = 50,
   check_types = TRUE,
@@ -32,6 +33,10 @@ fields in the clio-store database (when they are not protected by the
 \code{write_empty_fields=FALSE} does not overwrite. If you do want to set
 fields to an empty value (usually the empty string) then you must set
 \code{write_empty_fields=TRUE}.}
+
+\item{designated_user}{Optional email address when one person is uploading
+annotations on behalf of another user. See \bold{Users} section for
+details.}
 
 \item{protect}{Vector of fields that will not be overwritten if they already
 have a value in clio store. Set to \code{TRUE} to protect all fields and to
@@ -96,20 +101,11 @@ Details of Clio body annotation system are provided in
 }
 
 \section{Users}{
- You should record users with the email address that they use
-  to authenticate to Clio. At present you are responsible for choosing how to
-  set the two user fields: \itemize{
-
-  \item \code{user} This is intended to be the user that first created the
-  annotation record for a body. At some point they may have some control over
-  edits.
-
-  \item \code{last_modified_by} This is intended to be the user who provided
-  the last change to a record; in the case of bulk uploads, this should be
-  the user providing (or at least guaranteeing) the biological insight if at
-  all possible.
-
-  }
+ Clio now records a user and timestamp for every modification
+  to the fields in a record. For example if you edit the \code{type} field
+  then then a \code{type_user} field will be filled with the email address
+  that you use to authenticate to Clio. By default \emph{your} email address
+  will be used since this is contained within your clio token. At present
 }
 
 \examples{

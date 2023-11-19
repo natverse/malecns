@@ -200,20 +200,12 @@ mcns_set_group <- function(id, group, user) {
 #'   For these reasons, \bold{it is strongly recommended that end users provide
 #'   \code{data.frame} input}.
 #'
-#' @section Users: You should record users with the email address that they use
-#'   to authenticate to Clio. At present you are responsible for choosing how to
-#'   set the two user fields: \itemize{
+#' @section Users: Clio now records a user and timestamp for every modification
+#'   to the fields in a record. For example if you edit the \code{type} field
+#'   then then a \code{type_user} field will be filled with the email address
+#'   that you use to authenticate to Clio. By default \emph{your} email address
+#'   will be used since this is contained within your clio token. At present
 #'
-#'   \item \code{user} This is intended to be the user that first created the
-#'   annotation record for a body. At some point they may have some control over
-#'   edits.
-#'
-#'   \item \code{last_modified_by} This is intended to be the user who provided
-#'   the last change to a record; in the case of bulk uploads, this should be
-#'   the user providing (or at least guaranteeing) the biological insight if at
-#'   all possible.
-#'
-#'   }
 #'
 #' @param x A data.frame, list or JSON string containing body annotations.
 #'   \bold{End users are strongly recommended to use data.frames.}
@@ -239,6 +231,7 @@ mcns_set_group <- function(id, group, user) {
 #'   \bold{NB only applies when \code{x} is a data.frame}.
 #' @param check_types Whether or not it should verify types of columns.
 #' @param ... Additional parameters passed to \code{pbapply::\link{pbsapply}}
+#' @inheritParams malevnc::manc_annotate_body
 #'
 #' @return \code{NULL} invisibly on success. Errors out on failure.
 #' @family manc-annotation
@@ -251,12 +244,15 @@ mcns_set_group <- function(id, group, user) {
 #' # note use of test server
 #' mcns_annotate_body(data.frame(bodyid=10005, group=10005), test=TRUE)
 #' }
-mcns_annotate_body <- function(x, test=TRUE, version=NULL, write_empty_fields=FALSE,
+mcns_annotate_body <- function(x, test=TRUE, version=NULL,
+                               write_empty_fields=FALSE,
+                               designated_user=NULL,
                                protect=c("user"), chunksize=50, check_types = TRUE, ...) {
   if (isTRUE(check_types))
     schema_compare(x)
   with_mcns(
     manc_annotate_body(x, test=test, version=version,
+                       designated_user=designated_user,
                        write_empty_fields=write_empty_fields,
                        protect=protect, chunksize=chunksize, query=FALSE, ...)
   )
