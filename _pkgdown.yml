@@ -8,8 +8,11 @@ reference:
   - '`dr_malecns`'
   - '`with_mcns`'
   - '`mcns_scene`'
-  - '`mcns_xyz2bodyid`'
+- title: Specify and check body ids
+  contents:
   - '`mcns_ids`'
+  - '`mcns_islatest`'
+  - '`mcns_xyz2bodyid`'
 - title: Neuprint queries including connectivity
   contents:
   - '`mcns_neuprint`'
