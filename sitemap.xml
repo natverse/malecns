@@ -25,7 +25,7 @@
     <loc>https://flyconnectome.github.io/malecns/reference/malecns-package.html</loc>
   </url>
   <url>
-    <loc>https://flyconnectome.github.io/malecns/reference/malecns.html</loc>
+    <loc>https://flyconnectome.github.io/malecns/reference/malecns.surf.html</loc>
   </url>
   <url>
     <loc>https://flyconnectome.github.io/malecns/reference/mcns_annotate_body.html</loc>
@@ -44,6 +44,9 @@
   </url>
   <url>
     <loc>https://flyconnectome.github.io/malecns/reference/mcns_ids.html</loc>
+  </url>
+  <url>
+    <loc>https://flyconnectome.github.io/malecns/reference/mcns_islatest.html</loc>
   </url>
   <url>
     <loc>https://flyconnectome.github.io/malecns/reference/mcns_neuprint.html</loc>
