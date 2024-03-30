@@ -6,7 +6,7 @@
 \usage{
 mcns_predict_group(
   ids,
-  method = c("auto", "group", "instance", "type", "all"),
+  method = c("auto", "fullauto", "group", "manc", "instance", "type", "pmanc", "all"),
   badtypes = c(NA, "", "Lamina_R1-R6", "Descending", "KC", "ER", "LC", "PB",
     "Ascending Interneuron", "Delta", "P1_L candidate", "LT", "MeMe", "PFGs", "Mi", "VT",
     "ML", "EL", "FB", "Dm", "DNp", "FC", "OL", "T", "Y")
@@ -17,10 +17,11 @@ mcns_predict_group(
 have a metadata dataframe as returned by \code{\link{mcns_neuprint_meta}}
 then this is ideal as that function is called under the hood.}
 
-\item{method}{A string specifying which of 3 methods to use to identify the
-group. \code{"all"} means to return all 3, while \code{"auto"} (the
-default) means to look at each method in turn successively filling in
-missing group values.}
+\item{method}{A string specifying which of 5 methods to use to identify the
+group. \code{"all"} means to return all 5, while \code{"fullauto"} means to
+look at each method in turn successively filling in missing group values.
+Method \code{"auto"} (the default) excludes predicted manc matches (see
+details).}
 
 \item{badtypes}{Values of the type column which should be ignored for the
 purposes of defining cell type groups. This will be because they contain
@@ -38,7 +39,23 @@ Predict the group of neurons using instance or type information
 Grouping information for neurons in the male cns is presently
   scattered in several locations. These include the numeric group field, the
   type field or the instance field. If the type field has the same value, the
-  neurons should form a group. However there are some values
+  neurons should form a group. However there are some values that are known
+  to be bad and these are excluded.
+
+  An additional source of group information comes from matches of VNC neurons
+  to the MANC dataset. These either come as curated matches (where the
+  \code{manc_group} column has been entered in Clio, \code{method="manc"}) or
+  as predicted matches (based on the \code{manc_bodyid} column,
+  \code{method="pmanc"}).
+
+  \code{method="pmanc"} should be used with caution since a significant
+  percentage of these matches are wrong. However, since the majority should
+  be correct, they may still be a useful source of group information e.g. for
+  connectivity clustering which is typically not that sensitive to errors.
+
+  Given this situation \code{method='auto'} (the default) only uses curated
+  matches (\code{method="manc"}). Select \code{method='fullauto'} to use the
+  predicted MANC matches as a fall-back.
 }
 \examples{
 \donttest{
