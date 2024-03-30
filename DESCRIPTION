@@ -21,7 +21,8 @@ Suggests:
     Morpho,
     nat.h5reg,
     rappdirs,
-    rgl
+    rgl,
+    snakecase
 Language: en-GB
 Imports: 
     fafbseg (>= 0.9.4),
