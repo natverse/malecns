@@ -43,7 +43,7 @@ Remotes:
     catmaid=natverse/rcatmaid,
     natverse/nat.h5reg,
     natverse/coconat
-RoxygenNote: 7.2.3
+RoxygenNote: 7.3.1
 URL: https://github.com/flyconnectome/malecns,
     https://flyconnectome.github.io/malecns/
 BugReports: https://github.com/flyconnectome/malecns/issues

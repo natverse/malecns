@@ -11,6 +11,6 @@ Situation report on your malecns package installation
 }
 \seealso{
 Other malecns-package: 
-\code{\link{malecns}}
+\code{\link{malecns-package}}
 }
 \concept{malecns-package}
