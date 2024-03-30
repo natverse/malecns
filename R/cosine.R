@@ -8,7 +8,12 @@
 #' @param group Optional character vector specifying the grouping column for the
 #'   partner neurons when constructing the cosine similarity matrix. \code{TRUE}
 #'   implies to \code{'group'}.
-#' @param metadata.source Whether to use neuprint (\code{\link{mcns_neuprint_meta}}) and clio ()
+#' @param predict.manc whether to use \code{manc_bodyid} \emph{predicted}
+#'   matches to define grouping information in addition to curated
+#'   \code{manc_group} matches. See \code{\link{mcns_predict_group}} for
+#'   details.
+#' @param metadata.source Whether to use neuprint
+#'   (\code{\link{mcns_neuprint_meta}}) and clio ()
 #' @param ... additional arguments passed to \code{\link{neuprint_cosine_plot}}
 #'   and eventually to \code{heatmap}.
 #' @inheritParams neuprintr::neuprint_cosine_plot
@@ -41,6 +46,7 @@
 #' }
 mcns_cosine_plot <- function(ids, partners=c("output", "input"), group=FALSE,
                              groupfun=NULL, labRow='{name}_{group}',
+                             predict.manc=FALSE,
                              heatmap=TRUE,
                              metadata.source=c("neuprint", "clio"),
                              interactive=FALSE, action=NULL,
@@ -53,10 +59,13 @@ mcns_cosine_plot <- function(ids, partners=c("output", "input"), group=FALSE,
       # in the partner column not the bodyid column
       df$bodyid=df$partner
       df$partner=NULL
-      mcns_predict_group(df, method = 'auto')
+      mcns_predict_group(df, method = ifelse(predict.manc, 'fullauto', 'auto'))
     }
   }
-  xt.cm <- neuprintr::neuprint_cosine_matrix(ids, group = group, groupfun=groupfun, partners = partners, threshold = threshold, conn = mcns_neuprint())
+  xt.cm <- neuprintr::neuprint_cosine_matrix(ids, group = group, groupfun=groupfun,
+                                             partners = partners, threshold = threshold,
+                                             conn = mcns_neuprint(),
+                                             details=c("instance","type", "group","mancGroup", "mancBodyid"))
   xt.cm=coconat::prepare_cosine_matrix(xt.cm, partners=partners, action=action)
   if(is.character(labRow) && length(labRow)==1 && any(grepl("\\{", labRow))) {
     metadata.source=match.arg(metadata.source)
