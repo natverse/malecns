@@ -138,6 +138,31 @@ mcns_predict_group <- function(ids,
   as.numeric(res)
 }
 
+# bodyids for groups
+# having trouble getting this query to work
+manc_bodyid_groups2 <- function(groups, all_segments=FALSE, ...) {
+  conn=malevnc::manc_neuprint()
+  cypher = glue::glue("WITH {neuprintr:::id2json(groups)} AS groups UNWIND groups AS group",
+                      " MATCH (n:`{node}`) WHERE n.group=group",
+                      "RETURN n.group , n.bodyId",
+                      node = ifelse(all_segments, "Segment", "Neuron"))
+  nc <- neuprintr::neuprint_fetch_custom(cypher = cypher, conn = conn,
+                                         include_headers = FALSE, ...)
+  meta <- neuprintr::neuprint_list2df(nc, return_empty_df = TRUE)
+  meta <- neuprintr::neuprint_fix_column_types(meta, conn = conn)
+  meta
+}
+
+manc_bodyid_groups <- function(groupids=NULL) {
+  conn=malevnc::manc_neuprint()
+  nc <- neuprintr::neuprint_fetch_custom('MATCH (n:Neuron) WHERE exists(n.group) RETURN n.group , n.bodyId', conn = conn)
+  meta <- neuprintr::neuprint_list2df(nc, return_empty_df = TRUE)
+  meta <- neuprintr:::neuprint_fix_column_types(meta, conn = conn)
+  colnames(meta)=c("group", 'bodyid')
+  if(is.null(groupids)) return(meta)
+  left_join(data.frame(group=malevnc::manc_ids(groupids, as_character = F)), meta, by='group')
+}
+
 mcns_predict_manc <- function(ids, join=FALSE) {
   if(is.data.frame(ids)){
     meta=normalise_meta(ids, add_missing = T)
@@ -187,3 +212,4 @@ mcns_predict_group_manc <- function(ids) {
   res=meta2$newgroup[match(ids, meta2$bodyid)]
   res
 }
+
