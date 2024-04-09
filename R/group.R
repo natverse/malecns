@@ -77,7 +77,7 @@ mcns_predict_group <- function(ids,
           instance_group=mcns_predict_group(meta, method = 'instance'),
           type_group=mcns_predict_group(meta, method = 'type'),
           mancGroup_group=mcns_predict_group(meta, method = 'manc'),
-          pmanc_group=mcns_predict_group(meta, method = 'pmanc'),
+          pmanc_group=mcns_predict_group(meta, method = 'pmanc')
           )
     return(res)
   }
