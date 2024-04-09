@@ -37,7 +37,7 @@
 #'   \code{\link{mcns_neuprint_meta}} with additional columns
 #'   \code{instance_group} and \code{type_group}. Otherwise a numeric vector.
 #' @export
-#' @importFrom dplyr ungroup mutate group_by filter %>% .data
+#' @importFrom dplyr ungroup mutate group_by filter %>% .data rename
 #' @seealso \code{\link{mcns_predict_type}}
 #' @examples
 #' \donttest{
