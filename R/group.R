@@ -95,7 +95,7 @@ mcns_predict_group <- function(ids,
     meta2 <- meta %>%
       filter(!duplicated(.data$bodyid)) %>%
       filter(!is.na(.data$mancGroup)) %>%
-      group_by(.data$type) %>%
+      group_by(.data$mancGroup) %>%
       mutate(newgroup=suppressWarnings(min(as.numeric(.data$bodyid)))) %>%
       ungroup()
     res=meta2$newgroup[match(ids, meta2$bodyid)]
