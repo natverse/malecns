@@ -149,7 +149,7 @@ manc_bodyid_groups2 <- function(groups, all_segments=FALSE, ...) {
   nc <- neuprintr::neuprint_fetch_custom(cypher = cypher, conn = conn,
                                          include_headers = FALSE, ...)
   meta <- neuprintr::neuprint_list2df(nc, return_empty_df = TRUE)
-  meta <- neuprintr::neuprint_fix_column_types(meta, conn = conn)
+  meta <- neuprintr:::neuprint_fix_column_types(meta, conn = conn)
   meta
 }
 
@@ -163,6 +163,7 @@ manc_bodyid_groups <- function(groupids=NULL) {
   left_join(data.frame(group=malevnc::manc_ids(groupids, as_character = F)), meta, by='group')
 }
 
+#' @importFrom stats na.omit
 mcns_predict_manc <- function(ids, join=FALSE) {
   if(is.data.frame(ids)){
     meta=normalise_meta(ids, add_missing = T)
