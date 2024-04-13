@@ -4,9 +4,10 @@ mcns_xyz <- function(xyzin, outunits=c("nm", "microns", "um", "raw"),
   inunits=match.arg(inunits)
   if(is.character(xyzin))
     xyzin <- neuprint_simplify_xyz(xyzin)
-  # special case when we just get NA inputs - maybe we should do this in nat ...
-  if(is.vector(xyzin) && all(is.na(xyzin)))
-    return(xyzmatrix(rep('', length(xyzin))))
+  # special case NA inputs so that xyzmatrix works ok
+  # maybe we should do this in nat ...
+  if(is.vector(xyzin) && any(is.na(xyzin)))
+    xyzin[is.na(xyzin)]=""
   xyz=xyzmatrix(xyzin)
   if(isTRUE(outunits==inunits))
     return(xyz)
