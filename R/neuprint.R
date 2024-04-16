@@ -127,3 +127,41 @@ mcns_neuprint_meta <- function(ids=NULL, conn=mcns_neuprint(), roiInfo=FALSE,
   }
   if(is.null(ids)) res[order(res$bodyid), ] else res
 }
+
+
+# normalise metadata column (names)
+normalise_meta <- function(x, drop_bad=F, add_missing=F,
+                           conn = malecns::mcns_neuprint()) {
+  cx <- if(is.data.frame(x)) colnames(x)
+  else if(is.character(x)) x
+  else stop("x must be a character vector or dataframe")
+  npFields.orig=malevnc:::mnp_fields(conn = conn)
+  npFields.corr <- neuprintr:::dfFields(npFields.orig)
+
+  # camelCase names (but omit those with dashes like vnc-shell)
+  check_package_available('snakecase')
+  ncx=snakecase::to_lower_camel_case(cx)
+  dashed=grepl("-", cx)
+  ncx[dashed]=cx[dashed]
+  # rename some special cols
+  ncx2=neuprintr:::dfFields(ncx)
+
+  if(!is.data.frame(x)) {
+    names(ncx2)=cx
+    return(ncx2)
+  }
+  colnames(x)=ncx2
+  if(drop_bad)
+    x=x[intersect(npFields.corr, ncx2)]
+  if(add_missing) {
+    missing_fields=setdiff(npFields.corr, ncx2)
+    if(length(missing_fields)>0) {
+      x[missing_fields]=NA
+      # reorder columns to match standard order
+      if(drop_bad)
+        x=x[intersect(npFields.corr, colnames(x))]
+    }
+  }
+  neuprintr:::neuprint_fix_column_types(x, conn=conn)
+}
+

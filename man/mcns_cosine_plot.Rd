@@ -10,6 +10,7 @@ mcns_cosine_plot(
   group = FALSE,
   groupfun = NULL,
   labRow = "{name}_{group}",
+  predict.manc = FALSE,
   heatmap = TRUE,
   metadata.source = c("neuprint", "clio"),
   interactive = FALSE,
@@ -37,13 +38,19 @@ of metadata fetched by \code{\link{mcns_neuprint_meta}}. Alternatively a
 character vector with as many elements as \code{ids} directly specifying
 the rows.}
 
+\item{predict.manc}{whether to use \code{manc_bodyid} \emph{predicted}
+matches to define grouping information in addition to curated
+\code{manc_group} matches. See \code{\link{mcns_predict_group}} for
+details.}
+
 \item{heatmap}{A logical indicating whether or not to plot the heatmap
 \emph{OR} a function to plot the heatmap whose argument names are
 compatible with \code{stats::\link{heatmap}}. \code{gplots::heatmap.2} is a
 good example. Defaults to \code{TRUE} therefore plotting the full heatmap
 with \code{stats::\link{heatmap}}.}
 
-\item{metadata.source}{Whether to use neuprint (\code{\link{mcns_neuprint_meta}}) and clio ()}
+\item{metadata.source}{Whether to use neuprint
+(\code{\link{mcns_neuprint_meta}}) and clio ()}
 
 \item{interactive}{Whether to plot an interactive heatmap (allowing zooming
 and id selection). See details.}
