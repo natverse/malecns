@@ -1,87 +1,31 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://flyconnectome.github.io/malecns/404.html</loc>
-  </url>
-  <url>
-    <loc>https://flyconnectome.github.io/malecns/LICENSE.html</loc>
-  </url>
-  <url>
-    <loc>https://flyconnectome.github.io/malecns/authors.html</loc>
-  </url>
-  <url>
-    <loc>https://flyconnectome.github.io/malecns/index.html</loc>
-  </url>
-  <url>
-    <loc>https://flyconnectome.github.io/malecns/news/index.html</loc>
-  </url>
-  <url>
-    <loc>https://flyconnectome.github.io/malecns/reference/dr_malecns.html</loc>
-  </url>
-  <url>
-    <loc>https://flyconnectome.github.io/malecns/reference/index.html</loc>
-  </url>
-  <url>
-    <loc>https://flyconnectome.github.io/malecns/reference/malecns-package.html</loc>
-  </url>
-  <url>
-    <loc>https://flyconnectome.github.io/malecns/reference/malecns.surf.html</loc>
-  </url>
-  <url>
-    <loc>https://flyconnectome.github.io/malecns/reference/mcns_annotate_body.html</loc>
-  </url>
-  <url>
-    <loc>https://flyconnectome.github.io/malecns/reference/mcns_body_annotations.html</loc>
-  </url>
-  <url>
-    <loc>https://flyconnectome.github.io/malecns/reference/mcns_connection_table.html</loc>
-  </url>
-  <url>
-    <loc>https://flyconnectome.github.io/malecns/reference/mcns_cosine_plot.html</loc>
-  </url>
-  <url>
-    <loc>https://flyconnectome.github.io/malecns/reference/mcns_dvid_annotations.html</loc>
-  </url>
-  <url>
-    <loc>https://flyconnectome.github.io/malecns/reference/mcns_ids.html</loc>
-  </url>
-  <url>
-    <loc>https://flyconnectome.github.io/malecns/reference/mcns_islatest.html</loc>
-  </url>
-  <url>
-    <loc>https://flyconnectome.github.io/malecns/reference/mcns_neuprint.html</loc>
-  </url>
-  <url>
-    <loc>https://flyconnectome.github.io/malecns/reference/mcns_neuprint_meta.html</loc>
-  </url>
-  <url>
-    <loc>https://flyconnectome.github.io/malecns/reference/mcns_predict_group.html</loc>
-  </url>
-  <url>
-    <loc>https://flyconnectome.github.io/malecns/reference/mcns_predict_type.html</loc>
-  </url>
-  <url>
-    <loc>https://flyconnectome.github.io/malecns/reference/mcns_scene.html</loc>
-  </url>
-  <url>
-    <loc>https://flyconnectome.github.io/malecns/reference/mcns_set_dvid_annotations.html</loc>
-  </url>
-  <url>
-    <loc>https://flyconnectome.github.io/malecns/reference/mcns_soma_side.html</loc>
-  </url>
-  <url>
-    <loc>https://flyconnectome.github.io/malecns/reference/mcns_xyz2bodyid.html</loc>
-  </url>
-  <url>
-    <loc>https://flyconnectome.github.io/malecns/reference/mirror_malecns.html</loc>
-  </url>
-  <url>
-    <loc>https://flyconnectome.github.io/malecns/reference/read_mcns_meshes.html</loc>
-  </url>
-  <url>
-    <loc>https://flyconnectome.github.io/malecns/reference/read_mcns_neurons.html</loc>
-  </url>
-  <url>
-    <loc>https://flyconnectome.github.io/malecns/reference/with_mcns.html</loc>
-  </url>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>https://flyconnectome.github.io/malecns/404.html</loc></url>
+<url><loc>https://flyconnectome.github.io/malecns/LICENSE.html</loc></url>
+<url><loc>https://flyconnectome.github.io/malecns/authors.html</loc></url>
+<url><loc>https://flyconnectome.github.io/malecns/index.html</loc></url>
+<url><loc>https://flyconnectome.github.io/malecns/news/index.html</loc></url>
+<url><loc>https://flyconnectome.github.io/malecns/reference/dr_malecns.html</loc></url>
+<url><loc>https://flyconnectome.github.io/malecns/reference/index.html</loc></url>
+<url><loc>https://flyconnectome.github.io/malecns/reference/malecns-package.html</loc></url>
+<url><loc>https://flyconnectome.github.io/malecns/reference/malecns.surf.html</loc></url>
+<url><loc>https://flyconnectome.github.io/malecns/reference/mcns_annotate_body.html</loc></url>
+<url><loc>https://flyconnectome.github.io/malecns/reference/mcns_body_annotations.html</loc></url>
+<url><loc>https://flyconnectome.github.io/malecns/reference/mcns_connection_table.html</loc></url>
+<url><loc>https://flyconnectome.github.io/malecns/reference/mcns_cosine_plot.html</loc></url>
+<url><loc>https://flyconnectome.github.io/malecns/reference/mcns_dvid_annotations.html</loc></url>
+<url><loc>https://flyconnectome.github.io/malecns/reference/mcns_ids.html</loc></url>
+<url><loc>https://flyconnectome.github.io/malecns/reference/mcns_islatest.html</loc></url>
+<url><loc>https://flyconnectome.github.io/malecns/reference/mcns_neuprint.html</loc></url>
+<url><loc>https://flyconnectome.github.io/malecns/reference/mcns_neuprint_meta.html</loc></url>
+<url><loc>https://flyconnectome.github.io/malecns/reference/mcns_predict_group.html</loc></url>
+<url><loc>https://flyconnectome.github.io/malecns/reference/mcns_predict_type.html</loc></url>
+<url><loc>https://flyconnectome.github.io/malecns/reference/mcns_scene.html</loc></url>
+<url><loc>https://flyconnectome.github.io/malecns/reference/mcns_set_dvid_annotations.html</loc></url>
+<url><loc>https://flyconnectome.github.io/malecns/reference/mcns_soma_side.html</loc></url>
+<url><loc>https://flyconnectome.github.io/malecns/reference/mcns_xyz2bodyid.html</loc></url>
+<url><loc>https://flyconnectome.github.io/malecns/reference/mirror_malecns.html</loc></url>
+<url><loc>https://flyconnectome.github.io/malecns/reference/read_mcns_meshes.html</loc></url>
+<url><loc>https://flyconnectome.github.io/malecns/reference/read_mcns_neurons.html</loc></url>
+<url><loc>https://flyconnectome.github.io/malecns/reference/with_mcns.html</loc></url>
 </urlset>
+
