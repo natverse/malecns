@@ -170,8 +170,14 @@ mcns_predict_manc <- function(ids, join=FALSE) {
     ids=mcns_ids(ids)
   } else meta=mcns_neuprint_meta(ids)
   # find the rows with mancBodyid
+  # FIXME we still haven't implemented looking for
   rows_to_join=!is.na(meta$mancBodyid) | !is.na(meta$mancGroup)
-  mm=malevnc::manc_neuprint_meta(unique(na.omit(meta$mancBodyid)))
+  manc_ids=unique(na.omit(meta$mancBodyid))
+  if(!length(manc_ids)>0) {
+    warning("No matching MANC ids are recorded for those malecns ids")
+    if(join) return(meta) else return(NULL)
+  }
+  mm=malevnc::manc_neuprint_meta()
   if(!join) return(mm)
 
   if(is.character(meta$mancBodyid)) mm$bodyid=malevnc::manc_ids(mm$bodyid, as_character=T)
