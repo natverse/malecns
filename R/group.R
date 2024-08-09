@@ -207,15 +207,19 @@ mcns_predict_group_manc <- function(ids) {
       is.na(mancGroup) ~ newgroup,
       T ~ suppressWarnings(min(as.numeric(.data$bodyid)))
     )) %>%
-    ungroup() %>%
-    # predicted manc group
-    group_by(.data$group.m) %>%
-    mutate(newgroup=case_when(
-      !is.na(newgroup) ~ newgroup,
-      is.na(group.m) ~ newgroup,
-      T ~ suppressWarnings(min(as.numeric(.data$bodyid)))
-    )) %>%
     ungroup()
+  # if we found some manc body ids use those to define groups
+  if('group.m' %in% colnames(meta2)) {
+    meta2 <- meta2 %>%
+      # predicted manc group
+      group_by(.data$group.m) %>%
+      mutate(newgroup=case_when(
+        !is.na(newgroup) ~ newgroup,
+        is.na(group.m) ~ newgroup,
+        T ~ suppressWarnings(min(as.numeric(.data$bodyid)))
+      )) %>%
+      ungroup()
+  }
   res=meta2$newgroup[match(ids, meta2$bodyid)]
   res
 }
