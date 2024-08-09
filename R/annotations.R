@@ -249,6 +249,10 @@ mcns_annotate_body <- function(x, test=TRUE, version=NULL,
                                write_empty_fields=FALSE,
                                designated_user=NULL,
                                protect=c("user"), chunksize=50, check_types = TRUE, ...) {
+  # we need numeric ids
+  if(is.data.frame(x) && "bodyid" %in% colnames(x)) {
+    x$bodyid=manc_ids(x$bodyid, as_character=F, unique=F)
+  }
   if (isTRUE(check_types))
     schema_compare(x)
   with_mcns(
