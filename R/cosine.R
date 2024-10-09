@@ -72,7 +72,7 @@ mcns_cosine_plot <- function(ids, partners=c("output", "input"), group=FALSE,
     ids2=rownames(xt.cm)
     meta <- if(metadata.source=='clio')
       mcns_body_annotations(ids2) else mcns_neuprint_meta(ids2)
-    labRow <- glue::glue(labRow, .envir = meta)
+    labRow <- glue::glue_data(labRow, .x = meta)
   }
 
   coconat:::cosine_heatmap(xt.cm, interactive = interactive, labRow = labRow, heatmap=heatmap, ...)
