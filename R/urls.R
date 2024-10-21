@@ -20,7 +20,7 @@ with_mcns <- function(expr, dataset=getOption("malecns.dataset")) {
 
 #' @export
 #' @rdname with_mcns
-#' @description code{choose_mcns} swaps out the male vnc dataset for the male
+#' @description \code{choose_mcns} swaps out the male vnc dataset for the male
 #'   cns. This means that all functions from the \code{malevnc} package should
 #'   target the male cns instead. It is recommended that you use the
 #'   \code{with_mcns} function to do this temporarily unless you have no
