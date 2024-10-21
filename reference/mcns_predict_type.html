@@ -39,7 +39,11 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">mcns_predict_type</span><span class="op">(</span><span class="va">ids</span>, method <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"auto"</span>, <span class="st">"instance"</span>, <span class="st">"type"</span>, <span class="st">"all"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">mcns_predict_type</span><span class="op">(</span></span>
+<span>  <span class="va">ids</span>,</span>
+<span>  method <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"auto"</span>, <span class="st">"instance"</span>, <span class="st">"type"</span>, <span class="st">"foreign_type"</span>, <span class="st">"all"</span><span class="op">)</span>,</span>
+<span>  prefer.foreign <span class="op">=</span> <span class="cn">FALSE</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -55,6 +59,12 @@
 uses type when available, instance otherwise). The special value of all
 adds 3 columns to the metadata data.frame <code>type_t, type_i, type_a</code>
 containing the results of each of the other methods.</p></dd>
+
+
+<dt id="arg-prefer-foreign">prefer.foreign<a class="anchor" aria-label="anchor" href="#arg-prefer-foreign"></a></dt>
+<dd><p>Whether to prefer a foreign type (flywire, manc,
+hemibrain) when available. This may be useful for integration across
+datasets.</p></dd>
 
 </dl></div>
     <div class="section level2">
@@ -84,7 +94,22 @@ containing the results of each of the other methods.</p></dd>
 <span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/grep.html" class="external-link">grepl</a></span><span class="op">(</span><span class="st">"DN[abdgpx]"</span>, <span class="va">ptype</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">class</span><span class="op">!=</span><span class="st">'Descending'</span> <span class="op">|</span> <span class="fu"><a href="https://rdrr.io/r/base/NA.html" class="external-link">is.na</a></span><span class="op">(</span><span class="va">class</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> object 'mnm.ti' not found</span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># report all the different types available for these two VPNs</span></span></span>
+<span class="r-in"><span><span class="fu">mcns_predict_type</span><span class="op">(</span><span class="st">"LoVP106"</span>, method <span class="op">=</span> <span class="st">'all'</span><span class="op">)</span> <span class="op">|&gt;</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html" class="external-link">matches</a></span><span class="op">(</span><span class="st">'.ype'</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in clio_auth():</span> Clio/Google auth failure. Do you have access rights to VNC clio?</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> Try specifying the email linked to clio in a call to `clio_auth` or setting `options(malevnc.clio_email)`!</span>
+<span class="r-in"><span><span class="co"># report just one type, preferring malecns type (the default)</span></span></span>
+<span class="r-in"><span><span class="fu">mcns_predict_type</span><span class="op">(</span><span class="st">"LoVP106"</span><span class="op">)</span></span></span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in clio_auth():</span> Clio/Google auth failure. Do you have access rights to VNC clio?</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> Try specifying the email linked to clio in a call to `clio_auth` or setting `options(malevnc.clio_email)`!</span>
+<span class="r-in"><span><span class="co"># ... or preferring the foreign type (flywire in this case)</span></span></span>
+<span class="r-in"><span><span class="fu">mcns_predict_type</span><span class="op">(</span><span class="st">"LoVP106"</span>, prefer.foreign<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span></span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in clio_auth():</span> Clio/Google auth failure. Do you have access rights to VNC clio?</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> Try specifying the email linked to clio in a call to `clio_auth` or setting `options(malevnc.clio_email)`!</span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
+<span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
