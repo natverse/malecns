@@ -4,12 +4,14 @@
 #'   12345 will be returned as the type. This obviously isn't very useful for
 #'   most purposes (use \code{\link{mcns_predict_group}} if you want the group).
 #'
-#'
 #' @param ids Body ids in any form understandable by \code{\link{mcns_ids}}
 #' @param method The prediction method to use (type, instance or auto, which
 #'   uses type when available, instance otherwise). The special value of all
 #'   adds 3 columns to the metadata data.frame \code{type_t, type_i, type_a}
 #'   containing the results of each of the other methods.
+#' @param prefer.foreign Whether to prefer a foreign type (flywire, manc,
+#'   hemibrain) when available. This may be useful for integration across
+#'   datasets.
 #'
 #' @return A data.frame when \code{type='all'}, a character vector otherwise.
 #' @export
@@ -22,9 +24,20 @@
 #'   mutate(ptype=mcns_predict_type(.)) %>%
 #'   filter(grepl("DN[abdgpx]", ptype)) %>%
 #'   filter(class!='Descending' | is.na(class))
+#'
+#' # report all the different types available for these two VPNs
+#' mcns_predict_type("LoVP106", method = 'all') |>
+#'   select(matches('.ype'))
+#' # report just one type, preferring malecns type (the default)
+#' mcns_predict_type("LoVP106")
+#' # ... or preferring the foreign type (flywire in this case)
+#' mcns_predict_type("LoVP106", prefer.foreign=TRUE)
 #' }
+#'
 #' @importFrom dplyr case_when mutate filter
-mcns_predict_type <- function(ids, method=c("auto", "instance", "type", "all")) {
+mcns_predict_type <- function(ids, method=c("auto", "instance", "type",
+                                            "foreign_type", "all"),
+                              prefer.foreign=FALSE) {
   badtypes=c(NA, "", "Lamina_R1-R6", "Descending", "KC",
              "ER", "LC", "PB",  "Ascending Interneuron",
              "Delta", "P1_L candidate", "LT", "MeMe",
@@ -45,6 +58,7 @@ mcns_predict_type <- function(ids, method=c("auto", "instance", "type", "all")) 
   if(method=='all') {
     res=cbind(meta,
               type_t=mcns_predict_type(meta, method = 'type'),
+              type_f=mcns_predict_type(meta, method = 'foreign_type'),
               type_i=mcns_predict_type(meta, method = 'instance'),
               type_a=mcns_predict_type(meta, method = 'auto'))
     return(res)
@@ -74,15 +88,36 @@ mcns_predict_type <- function(ids, method=c("auto", "instance", "type", "all")) 
       filter(!.data$type %in% badtypes) %>%
       mutate(type=gsub("[()]", "", type))
     res=meta2$type[match(ids, meta2$bodyid)]
+  } else if(method=='foreign_type') {
+    meta=normalise_meta(meta)
+    if(!all(c("flywireType", "mancType", "hemibrainType") %in% colnames(meta)))
+      meta=mcns_neuprint_meta(meta$bodyid)
+    meta2 <- meta %>%
+      mutate(type=case_when(
+        !is.na(.data$flywireType) & nzchar(.data$flywireType) ~ .data$flywireType,
+        !is.na(.data$mancType) & nzchar(.data$mancType) ~ .data$mancType,
+        !is.na(.data$hemibrainType) & nzchar(.data$hemibrainType) ~ .data$hemibrainType,
+        T ~ .data$type
+      )) %>%
+      filter(!duplicated(.data$bodyid)) %>%
+      mutate(type=gsub("[()]", "", type))
+    res=meta2$type[match(ids, meta2$bodyid)]
+
   } else {
     # if we've got this far we have auto
-    res=mcns_predict_type(meta, method = 'type')
-    # because in clio we might have the empty string stored
-    res[nchar(res)==0]=NA
-    missing=is.na(res)
-    # try instance pairs
-    if(any(missing))
-      res[missing]=mcns_predict_type(meta[missing,,drop=F], method = 'instance')
+    methods=c('type', 'foreign_type', 'instance')
+    if(prefer.foreign)
+      methods=c('foreign_type', 'type', 'instance')
+
+    missing=rep(TRUE, nrow(meta))
+    res=rep(NA_character_, nrow(meta))
+    for(meth in methods) {
+      if(!any(missing)) break
+      res[missing]=mcns_predict_type(meta[missing,,drop=F], method=meth)
+      # because in clio we might have the empty string stored
+      res[nchar(res)==0]=NA
+      missing=is.na(res)
+    }
   }
   res
 }

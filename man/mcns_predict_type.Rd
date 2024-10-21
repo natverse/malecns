@@ -4,7 +4,11 @@
 \alias{mcns_predict_type}
 \title{Predict the cell type of male cns neurons from type and name/instance fields}
 \usage{
-mcns_predict_type(ids, method = c("auto", "instance", "type", "all"))
+mcns_predict_type(
+  ids,
+  method = c("auto", "instance", "type", "foreign_type", "all"),
+  prefer.foreign = FALSE
+)
 }
 \arguments{
 \item{ids}{Body ids in any form understandable by \code{\link{mcns_ids}}}
@@ -13,6 +17,10 @@ mcns_predict_type(ids, method = c("auto", "instance", "type", "all"))
 uses type when available, instance otherwise). The special value of all
 adds 3 columns to the metadata data.frame \code{type_t, type_i, type_a}
 containing the results of each of the other methods.}
+
+\item{prefer.foreign}{Whether to prefer a foreign type (flywire, manc,
+hemibrain) when available. This may be useful for integration across
+datasets.}
 }
 \value{
 A data.frame when \code{type='all'}, a character vector otherwise.
@@ -33,7 +41,16 @@ mnm.ti \%>\%
   mutate(ptype=mcns_predict_type(.)) \%>\%
   filter(grepl("DN[abdgpx]", ptype)) \%>\%
   filter(class!='Descending' | is.na(class))
+
+# report all the different types available for these two VPNs
+mcns_predict_type("LoVP106", method = 'all') |>
+  select(matches('.ype'))
+# report just one type, preferring malecns type (the default)
+mcns_predict_type("LoVP106")
+# ... or preferring the foreign type (flywire in this case)
+mcns_predict_type("LoVP106", prefer.foreign=TRUE)
 }
+
 }
 \seealso{
 \code{\link{mcns_predict_group}}
