@@ -1,6 +1,25 @@
-# malecns (development version)
-* add `mcns_islatest()`
-* move dataset choice to malevnc 
+# malecns 0.3.1
+
+* add `mcns_islatest()` (dbe8243)
+* give `mcns_predict_type()` an option to predict/prefer a foreign type e.g. 
+  flywireType (390e1b5)
+* move dataset choice to malevnc (ba01be5)
+* Updates as malevnc package supports manc:v1.0 by @jefferis in 
+  https://github.com/flyconnectome/malecns/pull/15
+* Define malecns groups from manc matches (and use this for clustering) by 
+  @jefferis in https://github.com/flyconnectome/malecns/pull/18
+* fix bug introduced by changes in glue v1.8.0 (c30d8a7)
+* fix mcns_predict_group_manc when no matched bodyids (#20)
+* fix: use mcns_ids not manc_ids in mcns_annotate_body (aa252e9)
+* fix stop mcns_predict_manc failing when no matches (b3252a1)
+* fix: bodyids in mcns_annotate_body must be numeric (957adb34)
+* support manc_ids > 32 bit ints (f8cf90de)
+* fix: Pass on ... in mcns_neuprint_meta (3c7e72d)
+* Update support for recording clio user information (c4951002)
+* add cns vnc mesh (5ce3af8, 93f5294)
+* harden schema check fn to fix `mcns_annotate_body()` (fc79d2d)
+
+**Full Changelog**: https://github.com/flyconnectome/malecns/compare/v0.3.0...v0.3.1
 
 # malecns 0.3
 
