@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">malecns</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.3.0.9900</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.3.1</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -33,11 +33,26 @@
     </div>
 
     <div class="section level2">
-<h2 class="pkg-version" data-toc-text="development version" id="malecns-development-version">malecns (development version)<a class="anchor" aria-label="anchor" href="#malecns-development-version"></a></h2>
-<ul><li>add <code><a href="../reference/mcns_islatest.html">mcns_islatest()</a></code>
+<h2 class="pkg-version" data-toc-text="0.3.1" id="malecns-031">malecns 0.3.1<a class="anchor" aria-label="anchor" href="#malecns-031"></a></h2>
+<ul><li>add <code><a href="../reference/mcns_islatest.html">mcns_islatest()</a></code> (dbe8243)</li>
+<li>give <code><a href="../reference/mcns_predict_type.html">mcns_predict_type()</a></code> an option to predict/prefer a foreign type e.g.  flywireType (390e1b5)</li>
+<li>move dataset choice to malevnc (ba01be5)</li>
+<li>Updates as malevnc package supports manc:v1.0 by <a href="https://github.com/jefferis" class="external-link">@jefferis</a> in <a href="https://github.com/flyconnectome/malecns/pull/15" class="external-link uri">https://github.com/flyconnectome/malecns/pull/15</a>
 </li>
-<li>move dataset choice to malevnc</li>
-</ul></div>
+<li>Define malecns groups from manc matches (and use this for clustering) by <a href="https://github.com/jefferis" class="external-link">@jefferis</a> in <a href="https://github.com/flyconnectome/malecns/pull/18" class="external-link uri">https://github.com/flyconnectome/malecns/pull/18</a>
+</li>
+<li>fix bug introduced by changes in glue v1.8.0 (c30d8a7)</li>
+<li>fix mcns_predict_group_manc when no matched bodyids (<a href="https://github.com/flyconnectome/malecns/issues/20" class="external-link">#20</a>)</li>
+<li>fix: use mcns_ids not manc_ids in mcns_annotate_body (aa252e9)</li>
+<li>fix stop mcns_predict_manc failing when no matches (b3252a1)</li>
+<li>fix: bodyids in mcns_annotate_body must be numeric (957adb34)</li>
+<li>support manc_ids &gt; 32 bit ints (f8cf90de)</li>
+<li>fix: Pass on … in mcns_neuprint_meta (3c7e72d)</li>
+<li>Update support for recording clio user information (c4951002)</li>
+<li>add cns vnc mesh (5ce3af8, 93f5294)</li>
+<li>harden schema check fn to fix <code><a href="../reference/mcns_annotate_body.html">mcns_annotate_body()</a></code> (fc79d2d)</li>
+</ul><p><strong>Full Changelog</strong>: <a href="https://github.com/flyconnectome/malecns/compare/v0.3.0" class="external-link uri">https://github.com/flyconnectome/malecns/compare/v0.3.0</a>…v0.3.1</p>
+</div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.3" id="malecns-03">malecns 0.3<a class="anchor" aria-label="anchor" href="#malecns-03"></a></h2>
 <ul><li>add <code><a href="../reference/mcns_cosine_plot.html">mcns_cosine_plot()</a></code> for within dataset connectivity clustering (works nicely across hemispheres)</li>

@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">malecns</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.3.0.9900</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.3.1</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -119,22 +119,46 @@ suffix. Accepted options are: 'user', 'time', 'all'.</p></dd>
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span><span class="va">mda</span><span class="op">=</span><span class="fu">mcns_dvid_annotations</span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in clio_auth():</span> Clio/Google auth failure. Do you have access rights to VNC clio?</span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> Try specifying the email linked to clio in a call to `clio_auth` or setting `options(malevnc.clio_email)`!</span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">mda</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> object 'mda' not found</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 6 × 40</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   bodyid birthtime class  flywire_type group hemibrain_type hemilineage instance</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span>  <span style="text-decoration: underline;">10</span>001 early     desce… DNp01        <span style="text-decoration: underline;">10</span>001 Giant Fiber    putative_p… GF_R    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span>  <span style="text-decoration: underline;">10</span>002 <span style="color: #BB0000;">NA</span>        visua… OCG01d       <span style="text-decoration: underline;">10</span>002 OCG01          <span style="color: #BB0000;">NA</span>          OCG01d_L</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span>  <span style="text-decoration: underline;">10</span>003 early     visua… VCH          <span style="text-decoration: underline;">10</span>003 VCH            putative_p… VCH_R   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span>  <span style="text-decoration: underline;">10</span>005 early     centr… <span style="color: #BB0000;">NA</span>           <span style="text-decoration: underline;">10</span>005 AOTU019        putative_p… AOTU019…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">5</span>  <span style="text-decoration: underline;">10</span>006 <span style="color: #BB0000;">NA</span>        visua… <span style="color: #BB0000;">NA</span>               0 VS             <span style="color: #BB0000;">NA</span>          VS_L    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">6</span>  <span style="text-decoration: underline;">10</span>009 <span style="color: #BB0000;">NA</span>        optic  CT1          <span style="text-decoration: underline;">10</span>009 CT1            <span style="color: #BB0000;">NA</span>          CT1_L   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 32 more variables: itolee_hl &lt;chr&gt;, manc_bodyid &lt;dbl&gt;, manc_group &lt;int&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   manc_type &lt;chr&gt;, soma_side &lt;chr&gt;, status &lt;chr&gt;, synonyms &lt;chr&gt;, type &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   notes &lt;chr&gt;, user &lt;chr&gt;, halfbrain_body &lt;dbl&gt;, old_type &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   dimorphism &lt;chr&gt;, soma_neuromere &lt;chr&gt;, truman_hl &lt;chr&gt;, cell_class &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   mcns_serial &lt;int&gt;, exit_nerve &lt;chr&gt;, hemibrain_bodyid &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   matching_notes &lt;chr&gt;, serial_motif &lt;chr&gt;, entry_nerve &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   root_side &lt;chr&gt;, flywire_id &lt;chr&gt;, cell_body_fiber &lt;chr&gt;, fru_dsx &lt;chr&gt;, …</span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/table.html" class="external-link">table</a></span><span class="op">(</span><span class="va">mda</span><span class="op">$</span><span class="va">type</span><span class="op">)</span>, ylab<span class="op">=</span><span class="st">'Frequency'</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> object 'mda' not found</span>
+<span class="r-plt img"><img src="mcns_dvid_annotations-1.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">kcs</span><span class="op">=</span><span class="fu">mcns_dvid_annotations</span><span class="op">(</span><span class="st">"/KC.*"</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in clio_auth():</span> Clio/Google auth failure. Do you have access rights to VNC clio?</span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> Try specifying the email linked to clio in a call to `clio_auth` or setting `options(malevnc.clio_email)`!</span>
 <span class="r-in"><span><span class="va">mbons</span><span class="op">=</span><span class="fu">mcns_dvid_annotations</span><span class="op">(</span><span class="st">"/MBON.+"</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in clio_auth():</span> Clio/Google auth failure. Do you have access rights to VNC clio?</span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> Try specifying the email linked to clio in a call to `clio_auth` or setting `options(malevnc.clio_email)`!</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">mbons</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> object 'mbons' not found</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 6 × 40</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   bodyid birthtime class flywire_type  group hemibrain_type hemilineage instance</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> <span style="text-decoration: underline;">520</span>151 early     cent… <span style="color: #BB0000;">NA</span>            <span style="text-decoration: underline;">10</span>013 MBON01         putative_p… MBON01(…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span>  <span style="text-decoration: underline;">10</span>013 early     cent… <span style="color: #BB0000;">NA</span>            <span style="text-decoration: underline;">10</span>013 MBON01         putative_p… MBON01(…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span> <span style="text-decoration: underline;">522</span>749 early     cent… <span style="color: #BB0000;">NA</span>           <span style="text-decoration: underline;">522</span>444 MBON02         putative_p… MBON02(…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span> <span style="text-decoration: underline;">522</span>444 early     cent… <span style="color: #BB0000;">NA</span>           <span style="text-decoration: underline;">522</span>444 MBON02         putative_p… MBON02(…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">5</span> <span style="text-decoration: underline;">519</span>373 early     cent… <span style="color: #BB0000;">NA</span>           <span style="text-decoration: underline;">519</span>373 MBON03         putative_p… MBON03(…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">6</span> <span style="text-decoration: underline;">521</span>526 early     cent… <span style="color: #BB0000;">NA</span>           <span style="text-decoration: underline;">519</span>373 MBON03         putative_p… MBON03(…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 32 more variables: itolee_hl &lt;chr&gt;, manc_bodyid &lt;dbl&gt;, manc_group &lt;int&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   manc_type &lt;chr&gt;, soma_side &lt;chr&gt;, status &lt;chr&gt;, synonyms &lt;chr&gt;, type &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   notes &lt;chr&gt;, user &lt;chr&gt;, halfbrain_body &lt;dbl&gt;, old_type &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   dimorphism &lt;chr&gt;, soma_neuromere &lt;chr&gt;, truman_hl &lt;chr&gt;, cell_class &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   mcns_serial &lt;int&gt;, exit_nerve &lt;chr&gt;, hemibrain_bodyid &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   matching_notes &lt;chr&gt;, serial_motif &lt;chr&gt;, entry_nerve &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   root_side &lt;chr&gt;, flywire_id &lt;chr&gt;, cell_body_fiber &lt;chr&gt;, fru_dsx &lt;chr&gt;, …</span></span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>
