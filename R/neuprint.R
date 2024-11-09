@@ -66,7 +66,7 @@ mcns_neuprint <- function(token=Sys.getenv("neuprint_token"), Force=FALSE, ...) 
 #' mcns_scene(joffrey.uss$partner[1:10], open = TRUE, node='neuprint')
 #' }
 mcns_connection_table <- function(ids, partners=c("inputs", "outputs"),
-                                  moredetails=c("group", "class", "somaSide"),
+                                  moredetails=c("group", "superclass", "somaSide"),
                                   summary=FALSE, threshold = 1L,
                                   conn=mcns_neuprint(), ...) {
   # malevnc::manc_connection_table(ids=ids, partners=partners, moredetails = moredetails, conn=conn, summary=summary, ...)
