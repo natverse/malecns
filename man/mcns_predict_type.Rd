@@ -36,11 +36,11 @@ For the time being when the instance is of the form 12345_L then
 \examples{
 \donttest{
 mnm.ti <- mcns_neuprint_meta('where:exists(n.type) OR exists(n.instance)')
-# Descending neurons with the wrong class
+# Descending neurons with the wrong superclass
 mnm.ti \%>\%
   mutate(ptype=mcns_predict_type(.)) \%>\%
   filter(grepl("DN[abdgpx]", ptype)) \%>\%
-  filter(class!='Descending' | is.na(class))
+  filter(superclass!='Descending' | is.na(superclass))
 
 # report all the different types available for these two VPNs
 mcns_predict_type("LoVP106", method = 'all') |>

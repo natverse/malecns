@@ -320,9 +320,9 @@ schema_compare <- function(x) {
 #' mcns_body_annotations("AOTU019")
 #' }
 #' \dontrun{
-#' mcns.class=mcns_body_annotations(query=list(class="exists/1"))
-#' mcns.class %>%
-#'   count(class)
+#' mcns.superclass=mcns_body_annotations(query=list(superclass="exists/1"))
+#' mcns.superclass %>%
+#'   count(superclass)
 #' }
 mcns_body_annotations <- function(ids=NULL, query=NULL, json=FALSE, config=NULL,
                                   show.extra = c("none", "user", "time", "all"),
