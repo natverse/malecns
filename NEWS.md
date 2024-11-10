@@ -1,3 +1,10 @@
+# malecns 0.3.2
+
+* updates to reflect renaming of class field to superclass 
+  by @jefferis in https://github.com/flyconnectome/malecns/pull/25
+* fix schema validation error due to format change 
+  by @jefferis in https://github.com/flyconnectome/malecns/pull/24
+
 # malecns 0.3.1
 
 * add `mcns_islatest()` (dbe8243)
