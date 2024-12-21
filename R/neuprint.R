@@ -145,6 +145,10 @@ normalise_meta <- function(x, drop_bad=F, add_missing=F,
   ncx[dashed]=cx[dashed]
   # rename some special cols
   ncx2=neuprintr:::dfFields(ncx)
+  if(any(duplicated(ncx2))) {
+    warning("There are duplicate columns in input metadata!",
+            "Please check column:", paste(cx[duplicated(ncx2)],collapse = ', '))
+  }
 
   if(!is.data.frame(x)) {
     names(ncx2)=cx
