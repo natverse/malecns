@@ -4,4 +4,6 @@ test_that("multiplication works", {
   expect_equal(mcns_xyz2bodyid(mcns_somapos(mm, units='raw'), units='raw'),
                mm$bodyid)
   expect_equal(mcns_xyz(NA_character_), mcns_xyz(""))
+
+  expect_type(mcns_somapos(mm, as_character = TRUE), 'character')
 })

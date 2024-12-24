@@ -7,7 +7,11 @@
 \usage{
 mcns_soma_side(ids, method = c("auto", "position", "instance", "manual"))
 
-mcns_somapos(ids, units = c("nm", "microns", "um", "raw"))
+mcns_somapos(
+  ids,
+  units = c("nm", "microns", "um", "raw"),
+  as_character = FALSE
+)
 }
 \arguments{
 \item{ids}{A set of bodyids or a dataframe containing the \code{name} and
@@ -19,11 +23,17 @@ returns manually curated soma sides recorded via Clio (see details).}
 
 \item{units}{For \code{mcns_somapos} the units of returned 3D positions.
 Defaults to \emph{nm}.}
+
+\item{as_character}{Whether to return the positions as Nx3 matrix (the
+default) or as comma separated strings.}
 }
 \value{
 For \code{mcns_soma_side} a vector of sides (L, R, M, U or NA).
   Midline or unpaired neurons should be indicated with an M although I have
   seen U in the past.
+
+For \code{mcns_somapos} a matrix or a character vector depending on
+  the value of \code{as_character}
 }
 \description{
 \code{mcns_somapos} returns the XYZ location (in nm, microns or
@@ -68,6 +78,7 @@ mcns_instance \%>\% filter(soma) \%>\% with(table(somaSide, iside, useNA = 'i'))
 }
 sp=mcns_somapos('/LAL04.*', units='um')
 plot(sp[,1:2])
+mcns_somapos('LAL042', units='um', as_character=TRUE)
 }
 \seealso{
 Other annotations: 

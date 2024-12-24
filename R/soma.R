@@ -97,12 +97,19 @@ mcns_soma_side <- function(ids, method=c("auto", "position", "instance", "manual
 #'   position is available, then a \code{NA} value is returned.
 #' @param units For \code{mcns_somapos} the units of returned 3D positions.
 #'   Defaults to \emph{nm}.
+#' @param as_character Whether to return the positions as Nx3 matrix (the
+#'   default) or as comma separated strings.
+#' @return For \code{mcns_somapos} a matrix or a character vector depending on
+#'   the value of \code{as_character}
+
 #' @export
 #' @rdname mcns_soma_side
 #' @examples
 #' sp=mcns_somapos('/LAL04.*', units='um')
 #' plot(sp[,1:2])
-mcns_somapos <- function(ids, units=c("nm", "microns", "um", "raw")) {
+#' mcns_somapos('LAL042', units='um', as_character=TRUE)
+mcns_somapos <- function(ids, units=c("nm", "microns", "um", "raw"),
+                         as_character=FALSE) {
   units=match.arg(units)
   if(is.data.frame(ids)){
     if(!'somaLocation' %in% colnames(ids))
@@ -110,5 +117,5 @@ mcns_somapos <- function(ids, units=c("nm", "microns", "um", "raw")) {
     meta=ids
     ids=mcns_ids(ids)
   } else meta=mcns_neuprint_meta(ids)
-  mcns_xyz(meta$somaLocation, outunits=units)
+  mcns_xyz(meta$somaLocation, outunits=units, as_character=as_character)
 }

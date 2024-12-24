@@ -34,7 +34,8 @@ Imports:
     checkmate,
     dplyr,
     coconat (> 0.1.1),
-    stringr
+    stringr,
+    nat
 Remotes: 
     natverse/malevnc,
     natverse/fafbseg,

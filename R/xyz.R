@@ -1,5 +1,6 @@
 mcns_xyz <- function(xyzin, outunits=c("nm", "microns", "um", "raw"),
-                     inunits=c("raw", "nm", "microns", "um")) {
+                     inunits=c("raw", "nm", "microns", "um"),
+                     as_character=FALSE) {
   outunits=match.arg(outunits)
   inunits=match.arg(inunits)
   if(is.character(xyzin))
@@ -9,8 +10,10 @@ mcns_xyz <- function(xyzin, outunits=c("nm", "microns", "um", "raw"),
   if(is.vector(xyzin) && any(is.na(xyzin)))
     xyzin[is.na(xyzin)]=""
   xyz=xyzmatrix(xyzin)
-  if(isTRUE(outunits==inunits))
-    return(xyz)
+  if(isTRUE(outunits==inunits)) {
+    if(as_character) return(nat::xyzmatrix2str(xyz))
+    else return(xyz)
+  }
   if(inunits=='nm')
       xyz <- xyz/8
   else if(inunits %in% c("um", "microns"))
@@ -20,7 +23,7 @@ mcns_xyz <- function(xyzin, outunits=c("nm", "microns", "um", "raw"),
     xyz <- xyz*8
   else if(outunits %in% c("um", "microns"))
     xyz <- xyz*8/1000
-  xyz
+  if(as_character) nat::xyzmatrix2str(xyz) else xyz
 }
 
 neuprint_simplify_xyz <- function(x) {
