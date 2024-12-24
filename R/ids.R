@@ -16,7 +16,7 @@
 #' # You can also do more complex queries using regular expressions
 # introduced by a slash and specifying the field to be searched
 #' mcns_ids("/VL2a.+")
-#' dns=manc_ids("/type:DN.+")
+#' dns=mcns_ids("/type:DN.+")
 #'
 #' # you can also use Neo4J cypher queries by using the where: prefix
 #' # note that each field of the neuron must prefixed with "n."
