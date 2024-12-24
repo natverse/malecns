@@ -124,26 +124,51 @@ ensure that query is against the VNC dataset.</p></dd>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>     intersect, setdiff, setequal, union</span>
 <span class="r-in"><span><span class="fu">mcns_connection_table</span><span class="op">(</span><span class="st">'DNa02'</span>, partners <span class="op">=</span> <span class="st">'out'</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in clio_auth():</span> Clio/Google auth failure. Do you have access rights to VNC clio?</span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> Try specifying the email linked to clio in a call to `clio_auth` or setting `options(malevnc.clio_email)`!</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   bodyid partner prepost weight      name     type  group        superclass</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 523769  800561       1    228      &lt;NA&gt; IN08A006 800561  intrinsic_neuron</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 523769  523769       1    214   DNa02_L    DNa02  10360 descending_neuron</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3  10360  801437       1    208      &lt;NA&gt; IN08A006 800561  intrinsic_neuron</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4 523769  800511       1    171      &lt;NA&gt; IN08A006 800511  intrinsic_neuron</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5  10360  800687       1    168      &lt;NA&gt; IN19A003 800461  intrinsic_neuron</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6  10360   11158       1    168 DNge026_R  DNge026  11158 descending_neuron</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   somaSide</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1        L</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2        L</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3        R</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4        L</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5        R</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6        R</span>
 <span class="r-in"><span><span class="fu">mcns_connection_table</span><span class="op">(</span><span class="st">'DNa02'</span>, partners <span class="op">=</span> <span class="st">'out'</span>, summary <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in clio_auth():</span> Clio/Google auth failure. Do you have access rights to VNC clio?</span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> Try specifying the email linked to clio in a call to `clio_auth` or setting `options(malevnc.clio_email)`!</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 6 × 9</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   partner prepost weight name      type         n  group superclass     somaSide</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span>  <span style="text-decoration: underline;">800</span>561       1    228 <span style="color: #BB0000;">NA</span>        IN08A006     1 <span style="text-decoration: underline;">800</span>561 intrinsic_neu… L       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span>  <span style="text-decoration: underline;">523</span>769       1    214 DNa02_L   DNa02        1  <span style="text-decoration: underline;">10</span>360 descending_ne… L       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span>  <span style="text-decoration: underline;">801</span>437       1    208 <span style="color: #BB0000;">NA</span>        IN08A006     1 <span style="text-decoration: underline;">800</span>561 intrinsic_neu… R       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span>  <span style="text-decoration: underline;">800</span>511       1    171 <span style="color: #BB0000;">NA</span>        IN08A006     1 <span style="text-decoration: underline;">800</span>511 intrinsic_neu… L       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">5</span>  <span style="text-decoration: underline;">800</span>687       1    168 <span style="color: #BB0000;">NA</span>        IN19A003     1 <span style="text-decoration: underline;">800</span>461 intrinsic_neu… R       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">6</span>   <span style="text-decoration: underline;">11</span>158       1    168 DNge026_R DNge026      1  <span style="text-decoration: underline;">11</span>158 descending_ne… R       </span>
 <span class="r-in"><span><span class="co"># return weight of outputs in the brain specifically (see ROIweight column)</span></span></span>
 <span class="r-in"><span><span class="fu">mcns_connection_table</span><span class="op">(</span><span class="st">'DNa02'</span>, partners <span class="op">=</span> <span class="st">'out'</span>, roi<span class="op">=</span><span class="st">'CentralBrain'</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in clio_auth():</span> Clio/Google auth failure. Do you have access rights to VNC clio?</span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> Try specifying the email linked to clio in a call to `clio_auth` or setting `options(malevnc.clio_email)`!</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   bodyid partner prepost weight            name    type ROIweight          roi</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 523769  523769       1    214         DNa02_L   DNa02         6 CentralBrain</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2  10360   11158       1    168       DNge026_R DNge026       168 CentralBrain</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3  10360  524150       1    140         PS137_R   PS137       140 CentralBrain</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4  10360   10101       1    107         PS100_R   PS100       107 CentralBrain</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5 523769   11424       1    100       DNge026_L DNge026       100 CentralBrain</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6 523769  519896       1     90 (DNa06,PS039)_L   DNa06        86 CentralBrain</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    group        superclass somaSide</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1  10360 descending_neuron        L</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2  11158 descending_neuron        R</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3  13165           central        R</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4     NA           central        R</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5  11158 descending_neuron        L</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6 519896 descending_neuron        L</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span><span class="va">joffrey.id</span><span class="op">=</span><span class="fu"><a href="mcns_xyz2bodyid.html">mcns_xyz2bodyid</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">cbind</a></span><span class="op">(</span><span class="fl">24590</span>, <span class="fl">13816</span>, <span class="fl">26102</span><span class="op">)</span><span class="op">+</span><span class="fl">4096</span>, node <span class="op">=</span> <span class="st">'neuprint'</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in clio_auth():</span> Clio/Google auth failure. Do you have access rights to VNC clio?</span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> Try specifying the email linked to clio in a call to `clio_auth` or setting `options(malevnc.clio_email)`!</span>
 <span class="r-in"><span><span class="va">joffrey.us</span><span class="op">=</span><span class="fu">mcns_connection_table</span><span class="op">(</span><span class="va">joffrey.id</span>, partners <span class="op">=</span> <span class="st">'in'</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in clio_auth():</span> Clio/Google auth failure. Do you have access rights to VNC clio?</span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> Try specifying the email linked to clio in a call to `clio_auth` or setting `options(malevnc.clio_email)`!</span>
 <span class="r-in"><span><span class="va">joffrey.uss</span><span class="op">=</span><span class="fu">mcns_connection_table</span><span class="op">(</span><span class="va">joffrey.id</span>, partners <span class="op">=</span> <span class="st">'in'</span>, summary<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in clio_auth():</span> Clio/Google auth failure. Do you have access rights to VNC clio?</span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> Try specifying the email linked to clio in a call to `clio_auth` or setting `options(malevnc.clio_email)`!</span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 <span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span> <span class="co"># \dontrun{</span></span></span>
 <span class="r-in"><span><span class="co"># open top 10 partners in neuroglancer,</span></span></span>
