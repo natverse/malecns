@@ -113,7 +113,20 @@ mcns_connection_table <- function(ids, partners=c("inputs", "outputs"),
 #'
 #' # type or instance present
 #' mnm.ti <- mcns_neuprint_meta('where:exists(n.type) OR exists(n.instance)')
+#'
+#' # neurons without a superclass but quite a few synapses
+#' mnm.nc=mcns_neuprint_meta("where:NOT exists(n.superclass) AND n.synweight>2000")
+#' mnm.nc |> arrange(desc(synweight))
+#'
 #' }
+#'
+#' # Which neurons don't have a superclass, but possibly should
+#' mnm.nsc=mcns_neuprint_meta("where:NOT exists(n.superclass)")
+#' mnm.nsc |> count(statusLabel)
+#'
+#' # neurons that are RT or PRT should probably have a superclass
+#' mnm.nscprt=mcns_neuprint_meta("where:NOT exists(n.superclass) AND n.statusLabel CONTAINS 'Roughly'")
+#' mnm.nscprt |> count()
 mcns_neuprint_meta <- function(ids=NULL, conn=mcns_neuprint(), roiInfo=FALSE,
                                simplify.xyz=TRUE, ...) {
   res=with_mcns(malevnc::manc_neuprint_meta(ids,conn=conn, roiInfo = roiInfo, fields.regex.exclude='^col_[0-9]+', ...))

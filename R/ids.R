@@ -10,11 +10,26 @@
 #' @export
 #'
 #' @examples
+#' # exact matches for cell types
 #' mcns_ids("DA2_lPN")
 #' mcns_ids("DA2_lPN", integer64=TRUE)
+#' # You can also do more complex queries using regular expressions
+# introduced by a slash and specifying the field to be searched
 #' mcns_ids("/VL2a.+")
+#' dns=manc_ids("/type:DN.+")
+#'
+#' # you can also use Neo4J cypher queries by using the where: prefix
+#' # note that each field of the neuron must prefixed with "n."
+#' bigneurons_nosuperclass <-
+#' mcns_ids("where:NOT exists(n.superclass) AND n.synweight>5000")
+#'
+#' bignogroupids <-
+#' mcns_ids("where:NOT exists(n.group) AND n.synweight>5000 AND n.superclass CONTAINS 'neuron'")
 #'
 #' \dontrun{
+#' # you can paste ids onto the clipboard for inspection
+#' clipr::write_clip(bignogroupids)
+#'
 #' # throws an error
 #' mcns_ids("rhubarb")
 #' }
