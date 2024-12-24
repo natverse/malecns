@@ -55,6 +55,12 @@ mcns_neuprint <- function(token=Sys.getenv("neuprint_token"), Force=FALSE, ...) 
 #' @export
 #'
 #' @examples
+#' library(dplyr)
+#' mcns_connection_table('DNa02', partners = 'out') |> head()
+#' mcns_connection_table('DNa02', partners = 'out', summary = TRUE) |> head()
+#' # return weight of outputs in the brain specifically (see ROIweight column)
+#' mcns_connection_table('DNa02', partners = 'out', roi='CentralBrain') |> head()
+#'
 #' \donttest{
 #' joffrey.id=mcns_xyz2bodyid(cbind(24590, 13816, 26102)+4096, node = 'neuprint')
 #' joffrey.us=mcns_connection_table(joffrey.id, partners = 'in')
@@ -68,12 +74,14 @@ mcns_neuprint <- function(token=Sys.getenv("neuprint_token"), Force=FALSE, ...) 
 mcns_connection_table <- function(ids, partners=c("inputs", "outputs"),
                                   moredetails=c("group", "superclass", "somaSide"),
                                   summary=FALSE, threshold = 1L,
+                                  roi=NULL, by.roi=FALSE,
                                   conn=mcns_neuprint(), ...) {
   # malevnc::manc_connection_table(ids=ids, partners=partners, moredetails = moredetails, conn=conn, summary=summary, ...)
   ids=mcns_ids(ids)
   res=neuprintr::neuprint_connection_table(ids, partners=partners, details = T,
                                            threshold = threshold, conn=conn,
-                                           summary=summary, ...)
+                                           summary=summary,
+                                           roi=roi, by.roi=by.roi, ...)
   if(!is.logical(moredetails)) {
     extrafields=moredetails;  moredetails=T
   } else extrafields=NULL

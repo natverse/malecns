@@ -10,6 +10,8 @@ mcns_connection_table(
   moredetails = c("group", "superclass", "somaSide"),
   summary = FALSE,
   threshold = 1L,
+  roi = NULL,
+  by.roi = FALSE,
   conn = mcns_neuprint(),
   ...
 )
@@ -33,6 +35,11 @@ query neurons}
 returns all partners. This threshold will be applied to the ROI weight when
 the \code{roi} argument is specified, otherwise to the whole neuron.}
 
+\item{roi}{a single ROI. Use \code{neuprint_ROIs} to see what is available.}
+
+\item{by.roi}{logical, whether or not to break neurons' connectivity down by
+region of interest (ROI)}
+
 \item{conn}{Optional, a \code{\link{neuprint_connection}} object, which also
 specifies the neuPrint server. Defaults to \code{\link[malevnc]{manc_neuprint}()} to
 ensure that query is against the VNC dataset.}
@@ -47,6 +54,12 @@ A data.frame
 Connectivity query for CNS neurons
 }
 \examples{
+library(dplyr)
+mcns_connection_table('DNa02', partners = 'out') |> head()
+mcns_connection_table('DNa02', partners = 'out', summary = TRUE) |> head()
+# return weight of outputs in the brain specifically (see ROIweight column)
+mcns_connection_table('DNa02', partners = 'out', roi='CentralBrain') |> head()
+
 \donttest{
 joffrey.id=mcns_xyz2bodyid(cbind(24590, 13816, 26102)+4096, node = 'neuprint')
 joffrey.us=mcns_connection_table(joffrey.id, partners = 'in')
