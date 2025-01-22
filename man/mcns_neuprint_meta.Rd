@@ -43,8 +43,8 @@ in contrast to \code{malevnc::\link{manc_neuprint_meta}} we leave
   ids.
 }
 \examples{
-\donttest{
 library(dplyr)
+\donttest{
 # fetch metatada for all bodies in neuprint
 mnm=mcns_neuprint_meta()
 # fetch metadata for all bodies with a somaLocation
@@ -56,7 +56,6 @@ mnm.ti <- mcns_neuprint_meta('where:exists(n.type) OR exists(n.instance)')
 # neurons without a superclass but quite a few synapses
 mnm.nc=mcns_neuprint_meta("where:NOT exists(n.superclass) AND n.synweight>2000")
 mnm.nc |> arrange(desc(synweight))
-
 }
 
 # Which neurons don't have a superclass, but possibly should
