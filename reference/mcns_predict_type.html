@@ -64,7 +64,7 @@ containing the results of each of the other methods.</p></dd>
 <dt id="arg-prefer-foreign">prefer.foreign<a class="anchor" aria-label="anchor" href="#arg-prefer-foreign"></a></dt>
 <dd><p>Whether to prefer a foreign type (flywire, manc,
 hemibrain) when available. This may be useful for integration across
-datasets.</p></dd>
+datasets (see details).</p></dd>
 
 </dl></div>
     <div class="section level2">
@@ -76,6 +76,12 @@ datasets.</p></dd>
     <p>For the time being when the instance is of the form 12345_L then
   12345 will be returned as the type. This obviously isn't very useful for
   most purposes (use <code><a href="mcns_predict_group.html">mcns_predict_group</a></code> if you want the group).</p>
+<p>Note that when <code>prefer.foreign=TRUE</code> or
+  <code>method='foreign_type'</code>, if both flywire and manc types are available,
+  the flywire type will be preferred <em>except</em> for (sensory) ascending
+  neurons. The thinking behind this exception is that the types given in
+  flywire for the truncated axons of the ascending neurons are unlikely to be
+  canonical.</p>
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
