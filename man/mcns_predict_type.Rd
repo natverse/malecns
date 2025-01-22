@@ -20,7 +20,7 @@ containing the results of each of the other methods.}
 
 \item{prefer.foreign}{Whether to prefer a foreign type (flywire, manc,
 hemibrain) when available. This may be useful for integration across
-datasets.}
+datasets (see details).}
 }
 \value{
 A data.frame when \code{type='all'}, a character vector otherwise.
@@ -32,6 +32,13 @@ Predict the cell type of male cns neurons from type and name/instance fields
 For the time being when the instance is of the form 12345_L then
   12345 will be returned as the type. This obviously isn't very useful for
   most purposes (use \code{\link{mcns_predict_group}} if you want the group).
+
+Note that when \code{prefer.foreign=TRUE} or
+  \code{method='foreign_type'}, if both flywire and manc types are available,
+  the flywire type will be preferred \emph{except} for (sensory) ascending
+  neurons. The thinking behind this exception is that the types given in
+  flywire for the truncated axons of the ascending neurons are unlikely to be
+  canonical.
 }
 \examples{
 \donttest{
