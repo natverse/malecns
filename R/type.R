@@ -11,7 +11,14 @@
 #'   containing the results of each of the other methods.
 #' @param prefer.foreign Whether to prefer a foreign type (flywire, manc,
 #'   hemibrain) when available. This may be useful for integration across
-#'   datasets.
+#'   datasets (see details).
+#'
+#' @details Note that when \code{prefer.foreign=TRUE} or
+#'   \code{method='foreign_type'}, if both flywire and manc types are available,
+#'   the flywire type will be preferred \emph{except} for (sensory) ascending
+#'   neurons. The thinking behind this exception is that the types given in
+#'   flywire for the truncated axons of the ascending neurons are unlikely to be
+#'   canonical.
 #'
 #' @return A data.frame when \code{type='all'}, a character vector otherwise.
 #' @export
@@ -93,9 +100,11 @@ mcns_predict_type <- function(ids, method=c("auto", "instance", "type",
     if(!all(c("flywireType", "mancType", "hemibrainType") %in% colnames(meta)))
       meta=mcns_neuprint_meta(meta$bodyid)
     meta2 <- meta %>%
+      # nb if both manc and flywire types exist, we will prefer manc for ascendings
       mutate(type=case_when(
-        !is.na(.data$flywireType) & nzchar(.data$flywireType) ~ .data$flywireType,
+        !is.na(.data$flywireType) & nzchar(.data$flywireType) & !grepl('ascending', superclass) ~ .data$flywireType,
         !is.na(.data$mancType) & nzchar(.data$mancType) ~ .data$mancType,
+        !is.na(.data$flywireType) & nzchar(.data$flywireType) ~ .data$flywireType,
         !is.na(.data$hemibrainType) & nzchar(.data$hemibrainType) ~ .data$hemibrainType,
         T ~ .data$type
       )) %>%
