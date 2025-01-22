@@ -100,8 +100,8 @@ at <code>spatialreference.org</code>. Defaults to <code>TRUE</code>.</p></dd>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
-<span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span><span class="co"># fetch metatada for all bodies in neuprint</span></span></span>
 <span class="r-in"><span><span class="va">mnm</span><span class="op">=</span><span class="fu">mcns_neuprint_meta</span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="co"># fetch metadata for all bodies with a somaLocation</span></span></span>
@@ -489,7 +489,6 @@ at <code>spatialreference.org</code>. Defaults to <code>TRUE</code>.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 44             NA             NA         &lt;NA&gt;          &lt;NA&gt; FALSE</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 45             NA             NA         &lt;NA&gt;          &lt;NA&gt; FALSE</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 46             NA             NA         &lt;NA&gt;          &lt;NA&gt; FALSE</span>
-<span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Which neurons don't have a superclass, but possibly should</span></span></span>
@@ -497,7 +496,7 @@ at <code>spatialreference.org</code>. Defaults to <code>TRUE</code>.</p></dd>
 <span class="r-in"><span><span class="va">mnm.nsc</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html" class="external-link">count</a></span><span class="op">(</span><span class="va">statusLabel</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>              statusLabel    n</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1              0.5assign   60</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                 Anchor  298</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2                 Anchor  300</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 3                   Glia  516</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 4          Hard to trace    1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 5                 Leaves  222</span>
@@ -506,7 +505,7 @@ at <code>spatialreference.org</code>. Defaults to <code>TRUE</code>.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 8        Orphan-artifact 1729</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 9           Out of scope 1300</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 10            PRT Orphan   42</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11 Prelim Roughly traced   71</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11 Prelim Roughly traced   69</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 12        Primary Anchor  155</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 13        Roughly traced    3</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 14        Sensory Anchor  139</span>
@@ -518,7 +517,7 @@ at <code>spatialreference.org</code>. Defaults to <code>TRUE</code>.</p></dd>
 <span class="r-in"><span><span class="va">mnm.nscprt</span><span class="op">=</span><span class="fu">mcns_neuprint_meta</span><span class="op">(</span><span class="st">"where:NOT exists(n.superclass) AND n.statusLabel CONTAINS 'Roughly'"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">mnm.nscprt</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html" class="external-link">count</a></span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    n</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 74</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 72</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
