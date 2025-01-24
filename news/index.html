@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">malecns</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.3.2</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.3.3</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -29,9 +29,23 @@
   <main id="main" class="col-md-9"><div class="page-header">
 
       <h1>Changelog</h1>
-      <small>Source: <a href="https://github.com/flyconnectome/malecns/blob/v0.3.2/NEWS.md" class="external-link"><code>NEWS.md</code></a></small>
+      <small>Source: <a href="https://github.com/flyconnectome/malecns/blob/master/NEWS.md" class="external-link"><code>NEWS.md</code></a></small>
     </div>
 
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="0.3.3" id="malecns-033">malecns 0.3.3<a class="anchor" aria-label="anchor" href="#malecns-033"></a></h2>
+<ul><li>prefer manc types for ANs + SAs by <a href="https://github.com/jefferis" class="external-link">@jefferis</a> in <a href="https://github.com/flyconnectome/malecns/pull/28" class="external-link uri">https://github.com/flyconnectome/malecns/pull/28</a>
+</li>
+<li>Give <code><a href="../reference/mcns_soma_side.html">mcns_somapos()</a></code> an <code>as_character</code> argument (closes <a href="https://github.com/flyconnectome/malecns/issues/27" class="external-link">#27</a>)</li>
+<li>Specify roi args for <code><a href="../reference/mcns_connection_table.html">mcns_connection_table()</a></code> (ccfb930b79692fb268243f9b759f8cf360f98476)</li>
+<li>more examples for <code><a href="../reference/mcns_ids.html">mcns_ids()</a></code> &amp; <code><a href="../reference/mcns_neuprint_meta.html">mcns_neuprint_meta()</a></code>
+</li>
+<li>extra protection against duplicate columns (b58f6ca730a3cbac6c7e8c50b804bf1dff65eb50)
+<ul><li>some functions don’t like these</li>
+<li>managed to get this with a <code>fru/dsx</code> and <code>fru_dsx</code> column in clio</li>
+</ul></li>
+</ul><p><strong>Full Changelog</strong>: <a href="https://github.com/flyconnectome/malecns/compare/v0.3.2" class="external-link uri">https://github.com/flyconnectome/malecns/compare/v0.3.2</a>…v0.3.3</p>
+</div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.3.2" id="malecns-032">malecns 0.3.2<a class="anchor" aria-label="anchor" href="#malecns-032"></a></h2>
 <ul><li>updates to reflect renaming of class field to superclass by <a href="https://github.com/jefferis" class="external-link">@jefferis</a> in <a href="https://github.com/flyconnectome/malecns/pull/25" class="external-link uri">https://github.com/flyconnectome/malecns/pull/25</a>
