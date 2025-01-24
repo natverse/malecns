@@ -29,7 +29,7 @@
   <main id="main" class="col-md-9"><div class="page-header">
 
       <h1>Get Male CNS ids in standard formats</h1>
-      <small class="dont-index">Source: <a href="https://github.com/flyconnectome/malecns/blob/master/R/ids.R" class="external-link"><code>R/ids.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/flyconnectome/malecns/blob/v0.3.2/R/ids.R" class="external-link"><code>R/ids.R</code></a></small>
       <div class="d-none name"><code>mcns_ids.Rd</code></div>
     </div>
 
@@ -94,30 +94,16 @@ numeric vector (the default is character for safety).</p></dd>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># exact matches for cell types</span></span></span>
-<span class="r-in"><span><span class="fu">mcns_ids</span><span class="op">(</span><span class="st">"DA2_lPN"</span><span class="op">)</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">mcns_ids</span><span class="op">(</span><span class="st">"DA2_lPN"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "18776" "20105" "20995" "26423" "18416" "23958" "34301" "20311" "21876"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [10] "19339"</span>
 <span class="r-in"><span><span class="fu">mcns_ids</span><span class="op">(</span><span class="st">"DA2_lPN"</span>, integer64<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> integer64</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [1] 18776 20105 20995 26423 18416 23958 34301 20311 21876 19339</span>
-<span class="r-in"><span><span class="co"># You can also do more complex queries using regular expressions</span></span></span>
 <span class="r-in"><span><span class="fu">mcns_ids</span><span class="op">(</span><span class="st">"/VL2a.+"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "10039" "10134" "22977" "33165" "52616" "22224" "25927" "32815"</span>
-<span class="r-in"><span><span class="va">dns</span><span class="op">=</span><span class="fu">mcns_ids</span><span class="op">(</span><span class="st">"/type:DN.+"</span><span class="op">)</span></span></span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="co"># you can also use Neo4J cypher queries by using the where: prefix</span></span></span>
-<span class="r-in"><span><span class="co"># note that each field of the neuron must prefixed with "n."</span></span></span>
-<span class="r-in"><span><span class="va">bigneurons_nosuperclass</span> <span class="op">&lt;-</span></span></span>
-<span class="r-in"><span><span class="fu">mcns_ids</span><span class="op">(</span><span class="st">"where:NOT exists(n.superclass) AND n.synweight&gt;5000"</span><span class="op">)</span></span></span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="va">bignogroupids</span> <span class="op">&lt;-</span></span></span>
-<span class="r-in"><span><span class="fu">mcns_ids</span><span class="op">(</span><span class="st">"where:NOT exists(n.group) AND n.synweight&gt;5000 AND n.superclass CONTAINS 'neuron'"</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span> <span class="co"># \dontrun{</span></span></span>
-<span class="r-in"><span><span class="co"># you can paste ids onto the clipboard for inspection</span></span></span>
-<span class="r-in"><span><span class="fu">clipr</span><span class="fu">::</span><span class="fu"><a href="http://matthewlincoln.net/clipr/reference/write_clip.html" class="external-link">write_clip</a></span><span class="op">(</span><span class="va">bignogroupids</span><span class="op">)</span></span></span>
-<span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># throws an error</span></span></span>
 <span class="r-in"><span><span class="fu">mcns_ids</span><span class="op">(</span><span class="st">"rhubarb"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">}</span> <span class="co"># }</span></span></span>
