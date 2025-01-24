@@ -1,3 +1,15 @@
+# malecns 0.3.3
+
+* prefer manc types for ANs + SAs by @jefferis in https://github.com/flyconnectome/malecns/pull/28
+* Give `mcns_somapos()` an `as_character` argument (closes #27)
+* Specify roi args for `mcns_connection_table()` (ccfb930b79692fb268243f9b759f8cf360f98476)
+* more examples for `mcns_ids()` & `mcns_neuprint_meta()`
+* extra protection against duplicate columns (b58f6ca730a3cbac6c7e8c50b804bf1dff65eb50)
+    * some functions don't like these
+    * managed to get this with a `fru/dsx` and `fru_dsx` column in clio
+
+**Full Changelog**: https://github.com/flyconnectome/malecns/compare/v0.3.2...v0.3.3
+
 # malecns 0.3.2
 
 * updates to reflect renaming of class field to superclass 
