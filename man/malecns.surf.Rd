@@ -6,8 +6,11 @@
 \alias{malecns.surf}
 \alias{JRCFIB2022M.surf}
 \alias{malecnsvnc_shell.surf}
+\alias{malecnsvnc.surf}
 \title{Surface models of the malecns brain (in nm)}
 \format{
+An object of class \code{hxsurf} (inherits from \code{list}) of length 4.
+
 An object of class \code{hxsurf} (inherits from \code{list}) of length 4.
 
 An object of class \code{hxsurf} (inherits from \code{list}) of length 4.
@@ -24,6 +27,8 @@ malecns.surf
 JRCFIB2022M.surf
 
 malecnsvnc_shell.surf
+
+malecnsvnc.surf
 }
 \description{
 \code{malecns_shell.surf} is a surface model of the cortex
@@ -41,6 +46,10 @@ malecnsvnc_shell.surf
 \code{malecnsvnc_shell.surf} is a surface model of the cortex
   (rind) of the malecns ventral nerve cord (in nm). It was downloaded from a
   link provided by Stuart Berg (of FlyEM) on 2023-11-18.
+
+\code{malecnsvnc.surf} is a surface model of the neuropil
+  of the malecns ventral nerve cord (in nm). It was downloaded from a
+  link provided by Stuart Berg (of FlyEM) on 2025-05-09.
 }
 \examples{
 \donttest{
@@ -77,7 +86,12 @@ boundingbox(malecnsvnc_shell.surf)
 nclear3d()
 plot3d(malecns.surf, col='blue')
 wire3d(malecns_shell.surf, col='grey')
-plot3d(malecnsvnc_shell.surf, alpha=.2, col='green')
+plot3d(malecnsvnc.surf, col='blue')
+wire3d(malecnsvnc_shell.surf, alpha=.2, col='green')
+}
+\donttest{
+library(nat)
+boundingbox(malecnsvnc.surf)
 }
 }
 \keyword{datasets}

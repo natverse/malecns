@@ -67,6 +67,20 @@
 #' nclear3d()
 #' plot3d(malecns.surf, col='blue')
 #' wire3d(malecns_shell.surf, col='grey')
-#' plot3d(malecnsvnc_shell.surf, alpha=.2, col='green')
+#' plot3d(malecnsvnc.surf, col='blue')
+#' wire3d(malecnsvnc_shell.surf, alpha=.2, col='green')
 #' }
 "malecnsvnc_shell.surf"
+
+
+#' @description \code{malecnsvnc.surf} is a surface model of the neuropil
+#'   of the malecns ventral nerve cord (in nm). It was downloaded from a
+#'   link provided by Stuart Berg (of FlyEM) on 2025-05-09.
+#' @rdname malecns.surf
+#' @docType data
+#' @examples
+#' \donttest{
+#' library(nat)
+#' boundingbox(malecnsvnc.surf)
+#' }
+"malecnsvnc.surf"
