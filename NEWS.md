@@ -1,3 +1,8 @@
+# malecns 0.3.4
+
+* add malecns vnc neuropil surface
+* fix soma side test
+
 # malecns 0.3.3
 
 * prefer manc types for ANs + SAs by @jefferis in https://github.com/flyconnectome/malecns/pull/28
