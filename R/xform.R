@@ -24,6 +24,17 @@ mcns_register_xforms <- function() {
   nat.templatebrains::add_reglist(malecns_mirrorreg, sample = 'malecns_mirror', reference = 'malecns')
 }
 
+# this two component registration needs special handling
+register_manc_malecns <- function() {
+  reg=try(nat.templatebrains::shortest_bridging_seq(reference = "MANC", sample = 'JRCFIB2022M'))
+  if(inherits(reg, 'try-error'))
+    return(NULL)
+  ureg=unlist(reg)
+  post_reg=file.path(ureg, "post_registration")
+  compound_reg <- nat::reglist(post_reg, ureg, swap=c(F,F))
+  nat.templatebrains::add_reglist(compound_reg, reference = 'MANC', sample = 'malecnsum')
+}
+
 halfbrain2wholebrain <- function(x, units=c("raw", "nm", "microns", "um"), warn=TRUE) {
   units=match.arg(units)
   xyz=xyzmatrix(x)
