@@ -112,8 +112,8 @@ mcns_connection_table <- function(ids, partners=c("inputs", "outputs"),
 #' @export
 #' @family annotations
 #' @examples
-#' library(dplyr)
 #' \donttest{
+#' library(dplyr)
 #' # fetch metatada for all bodies in neuprint
 #' mnm=mcns_neuprint_meta()
 #' # fetch metadata for all bodies with a somaLocation
@@ -126,7 +126,7 @@ mcns_connection_table <- function(ids, partners=c("inputs", "outputs"),
 #' mnm.nc=mcns_neuprint_meta("where:NOT exists(n.superclass) AND n.synweight>2000")
 #' mnm.nc |> arrange(desc(synweight))
 #' }
-#'
+#' library(dplyr)
 #' # Which neurons don't have a superclass, but possibly should
 #' mnm.nsc=mcns_neuprint_meta("where:NOT exists(n.superclass)")
 #' mnm.nsc |> count(statusLabel)
