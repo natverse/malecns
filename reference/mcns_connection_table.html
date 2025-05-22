@@ -126,11 +126,11 @@ ensure that query is against the VNC dataset.</p></dd>
 <span class="r-in"><span><span class="fu">mcns_connection_table</span><span class="op">(</span><span class="st">'DNa02'</span>, partners <span class="op">=</span> <span class="st">'out'</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   bodyid partner prepost weight      name     type  group        superclass</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1 523769  800561       1    209      &lt;NA&gt; IN08A006 800561     vnc_intrinsic</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2  10360  801437       1    183      &lt;NA&gt; IN08A006 800561     vnc_intrinsic</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2  10360  801437       1    195      &lt;NA&gt; IN08A006 800561     vnc_intrinsic</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 3  10360   11158       1    168 DNge026_R  DNge026  11158 descending_neuron</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4 523769  800511       1    153      &lt;NA&gt; IN08A006 800511     vnc_intrinsic</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5  10360  905009       1    149      &lt;NA&gt; IN08A006 800511     vnc_intrinsic</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6  10360  800687       1    148      &lt;NA&gt; IN19A003 800461     vnc_intrinsic</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4 523769  800511       1    156      &lt;NA&gt; IN08A006 800511     vnc_intrinsic</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5  10360  800687       1    150      &lt;NA&gt; IN19A003 800461     vnc_intrinsic</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6  10360  524150       1    150   PS137_R    PS137  13165      cb_intrinsic</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   somaSide</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1        L</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2        R</span>
@@ -143,27 +143,27 @@ ensure that query is against the VNC dataset.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   partner prepost weight name      type         n  group superclass     somaSide</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span>  <span style="text-decoration: underline;">800</span>561       1    209 <span style="color: #BB0000;">NA</span>        IN08A006     1 <span style="text-decoration: underline;">800</span>561 vnc_intrinsic  L       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span>  <span style="text-decoration: underline;">801</span>437       1    183 <span style="color: #BB0000;">NA</span>        IN08A006     1 <span style="text-decoration: underline;">800</span>561 vnc_intrinsic  R       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span>  <span style="text-decoration: underline;">801</span>437       1    195 <span style="color: #BB0000;">NA</span>        IN08A006     1 <span style="text-decoration: underline;">800</span>561 vnc_intrinsic  R       </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span>   <span style="text-decoration: underline;">11</span>158       1    168 DNge026_R DNge026      1  <span style="text-decoration: underline;">11</span>158 descending_ne… R       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span>  <span style="text-decoration: underline;">800</span>511       1    153 <span style="color: #BB0000;">NA</span>        IN08A006     1 <span style="text-decoration: underline;">800</span>511 vnc_intrinsic  L       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">5</span>  <span style="text-decoration: underline;">905</span>009       1    149 <span style="color: #BB0000;">NA</span>        IN08A006     1 <span style="text-decoration: underline;">800</span>511 vnc_intrinsic  R       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">6</span>  <span style="text-decoration: underline;">800</span>687       1    148 <span style="color: #BB0000;">NA</span>        IN19A003     1 <span style="text-decoration: underline;">800</span>461 vnc_intrinsic  R       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span>  <span style="text-decoration: underline;">800</span>511       1    156 <span style="color: #BB0000;">NA</span>        IN08A006     1 <span style="text-decoration: underline;">800</span>511 vnc_intrinsic  L       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">5</span>  <span style="text-decoration: underline;">800</span>687       1    150 <span style="color: #BB0000;">NA</span>        IN19A003     1 <span style="text-decoration: underline;">800</span>461 vnc_intrinsic  R       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">6</span>  <span style="text-decoration: underline;">524</span>150       1    150 PS137_R   PS137        1  <span style="text-decoration: underline;">13</span>165 cb_intrinsic   R       </span>
 <span class="r-in"><span><span class="co"># return weight of outputs in the brain specifically (see ROIweight column)</span></span></span>
 <span class="r-in"><span><span class="fu">mcns_connection_table</span><span class="op">(</span><span class="st">'DNa02'</span>, partners <span class="op">=</span> <span class="st">'out'</span>, roi<span class="op">=</span><span class="st">'CentralBrain'</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   bodyid partner prepost weight      name    type ROIweight          roi group</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1  10360   11158       1    168 DNge026_R DNge026       168 CentralBrain 11158</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2  10360  524150       1    140   PS137_R   PS137       140 CentralBrain 13165</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3  10360   10101       1    107   PS100_R   PS100       107 CentralBrain    NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4 523769   11424       1    100 DNge026_L DNge026       100 CentralBrain 11158</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5 523769  531928       1     88   PS137_L   PS137        88 CentralBrain 13837</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6  10360   13324       1     86   PS060_R   PS060        86 CentralBrain 13324</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>          superclass somaSide</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 descending_neuron        R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2      cb_intrinsic        R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3      cb_intrinsic        R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4 descending_neuron        L</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5      cb_intrinsic        L</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6      cb_intrinsic        R</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   bodyid partner prepost weight           name    type ROIweight          roi</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1  10360   11158       1    168      DNge026_R DNge026       168 CentralBrain</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2  10360  524150       1    150        PS137_R   PS137       150 CentralBrain</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3  10360   10101       1    107        PS100_R   PS100       107 CentralBrain</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4 523769   11424       1    106      DNge026_L DNge026       106 CentralBrain</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5  10360   13165       1     91        PS137_R   PS137        91 CentralBrain</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6 523769  519896       1     89 DNa06(PS039)_L   DNa06        85 CentralBrain</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    group        superclass somaSide</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1  11158 descending_neuron        R</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2  13165      cb_intrinsic        R</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3     NA      cb_intrinsic        R</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4  11158 descending_neuron        L</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5  13165      cb_intrinsic        R</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6 519896 descending_neuron        L</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span><span class="va">joffrey.id</span><span class="op">=</span><span class="fu"><a href="mcns_xyz2bodyid.html">mcns_xyz2bodyid</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">cbind</a></span><span class="op">(</span><span class="fl">24590</span>, <span class="fl">13816</span>, <span class="fl">26102</span><span class="op">)</span><span class="op">+</span><span class="fl">4096</span>, node <span class="op">=</span> <span class="st">'neuprint'</span><span class="op">)</span></span></span>

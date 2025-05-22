@@ -113,305 +113,491 @@ bad values or because the types are too broad to be very useful.</p></dd>
 <span class="r-in"><span><span class="co"># neurons where the recorded group and instance group disagree</span></span></span>
 <span class="r-in"><span><span class="va">allg</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html" class="external-link">is.na</a></span><span class="op">(</span><span class="va">group</span><span class="op">)</span> <span class="op">&amp;</span> <span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html" class="external-link">is.na</a></span><span class="op">(</span><span class="va">instance_group</span><span class="op">)</span> <span class="op">&amp;</span> <span class="va">group</span><span class="op">!=</span><span class="va">instance_group</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    bodyid post  pre downstream upstream synweight           statusLabel</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1   12625 3225 1757      13718     3225     16943        Roughly traced</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2   11333 4127 1777      13965     4127     18092        Roughly traced</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3   60067  798  517       4842      798      5640        Roughly traced</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4   76888  802  636       5625      802      6427        Roughly traced</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5  521004 1121  763       6659     1121      7780        Roughly traced</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6  514232 1017  695       6093     1017      7110        Roughly traced</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7  519340  701  823       5726      701      6427        Roughly traced</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8   25945  931  846       5830      931      6761        Roughly traced</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9  513506 3929  641       4743     3929      8672        Roughly traced</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10  17153 4317  612       4655     4317      8972        Roughly traced</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11 513117 3708  667       4879     3708      8587        Roughly traced</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12  16485 1324  683       4493     1324      5817        Roughly traced</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13  15221 1139  655       4295     1139      5434        Roughly traced</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14  13405 1063  664       4263     1063      5326        Roughly traced</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15  91275 2986  182       1259     2986      4245        Roughly traced</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16  19302 3568  253       1569     3568      5137        Roughly traced</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17 527536 4267  213       1418     4267      5685 Prelim Roughly traced</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18 542962 1673  171       1229     1673      2902 Prelim Roughly traced</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19  18628 3794  259       1651     3794      5445        Roughly traced</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1   12625 3350 1770      13799     3350     17149        Roughly traced</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2   11333 4214 1781      13995     4214     18209        Roughly traced</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3   60067  898  519       4852      898      5750        Roughly traced</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4  514232 1060  700       6135     1060      7195        Roughly traced</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5   76888  859  639       5641      859      6500        Roughly traced</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6  521004 1164  768       6691     1164      7855        Roughly traced</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7  519340  764  823       5726      764      6490        Roughly traced</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8   25945  943  846       5830      943      6773        Roughly traced</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9  513506 3990  643       4756     3990      8746        Roughly traced</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10  17153 4392  625       4754     4392      9146        Roughly traced</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11 513117 3744  669       4889     3744      8633        Roughly traced</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12  16485 1333  688       4517     1333      5850        Roughly traced</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13  15221 1188  655       4295     1188      5483        Roughly traced</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14  13405 1124  666       4271     1124      5395        Roughly traced</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15  91275 3000  182       1259     3000      4259        Roughly traced</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16  19302 3606  253       1569     3606      5175        Roughly traced</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 17 542962 1700  171       1229     1700      2929 Prelim Roughly traced</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 18 527536 4335  213       1418     4335      5753 Prelim Roughly traced</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 19  18628 3804  259       1651     3804      5455        Roughly traced</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 20  16520 3323  228       1486     3323      4809        Roughly traced</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 21  17246 2507  188       1226     2507      3733        Roughly traced</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 21  17246 2507  190       1241     2507      3748        Roughly traced</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 22  18906 2494  193       1258     2494      3752        Roughly traced</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 23  16831  462  309       2618      462      3080        Roughly traced</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 23  16831  491  310       2622      491      3113        Roughly traced</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 24  39737  700  498       4609      700      5309        Roughly traced</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 25 133449  618  377       3757      618      4375        Roughly traced</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 26 193257  572  327       3433      572      4005        Roughly traced</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 25 133449  679  381       3801      679      4480        Roughly traced</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 26 193257  590  339       3554      590      4144        Roughly traced</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 27  18292 1639  662       5095     1639      6734        Roughly traced</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 28  19281 1569  447       4021     1569      5590        Roughly traced</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 29  57048 1409  454       4137     1409      5546        Roughly traced</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 28  19281 1642  449       4037     1642      5679        Roughly traced</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 29  57048 1475  457       4160     1475      5635        Roughly traced</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 30  22653  935  383       3054      935      3989        Roughly traced</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 31 512416  849  427       3293      849      4142        Roughly traced</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 31 512416  871  428       3301      871      4172        Roughly traced</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 32  24390  848  327       2408      848      3256        Roughly traced</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 33 125137  655  289       1989      655      2644        Roughly traced</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 34  27359  612  340       2523      612      3135        Roughly traced</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 35 124680  782  385       2812      782      3594        Roughly traced</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 36 515254 1483  549       4495     1483      5978        Roughly traced</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 37  28195  581  130        961      581      1542        Roughly traced</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 38  52953  741  137        981      741      1722        Roughly traced</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 39 129990  708  140       1089      708      1797        Roughly traced</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 40  41250  850  157       1115      850      1965        Roughly traced</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 41  46029  723  143        993      723      1716        Roughly traced</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 42 525548  869  344       2536      869      3405        Roughly traced</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 43  34160  789  380       2496      789      3285        Roughly traced</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 44  40930 1027  456       4464     1027      5491        Roughly traced</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 45  45498 1147  555       4919     1147      6066        Roughly traced</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 46  48918  747  434       3227      747      3974        Roughly traced</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 47  49406  741  471       3117      741      3858        Roughly traced</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 48  64607  228  627       5172      228      5400 Prelim Roughly traced</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 49  69544  243  609       4857      243      5100 Prelim Roughly traced</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       subclass         superclass     class entryNerve rootSide status</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1         &lt;NA&gt;       cb_intrinsic      &lt;NA&gt;       &lt;NA&gt;     &lt;NA&gt; Traced</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2         &lt;NA&gt;       cb_intrinsic      &lt;NA&gt;       &lt;NA&gt;     &lt;NA&gt; Traced</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3         &lt;NA&gt;       cb_intrinsic      &lt;NA&gt;       &lt;NA&gt;     &lt;NA&gt; Traced</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4         &lt;NA&gt;       cb_intrinsic      &lt;NA&gt;       &lt;NA&gt;     &lt;NA&gt; Traced</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5         &lt;NA&gt;       cb_intrinsic      &lt;NA&gt;       &lt;NA&gt;     &lt;NA&gt; Traced</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6         &lt;NA&gt;       cb_intrinsic      &lt;NA&gt;       &lt;NA&gt;     &lt;NA&gt; Traced</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7         &lt;NA&gt;       cb_intrinsic      &lt;NA&gt;       &lt;NA&gt;     &lt;NA&gt; Traced</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8         &lt;NA&gt;       cb_intrinsic      &lt;NA&gt;       &lt;NA&gt;     &lt;NA&gt; Traced</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9         &lt;NA&gt;       cb_intrinsic      &lt;NA&gt;       &lt;NA&gt;     &lt;NA&gt; Traced</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10        &lt;NA&gt;       cb_intrinsic      &lt;NA&gt;       &lt;NA&gt;     &lt;NA&gt; Traced</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11        &lt;NA&gt;       cb_intrinsic      &lt;NA&gt;       &lt;NA&gt;     &lt;NA&gt; Traced</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12        &lt;NA&gt;       cb_intrinsic      &lt;NA&gt;       &lt;NA&gt;     &lt;NA&gt; Traced</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13        &lt;NA&gt;       cb_intrinsic      &lt;NA&gt;       &lt;NA&gt;     &lt;NA&gt; Traced</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14        &lt;NA&gt; visual_centrifugal      &lt;NA&gt;       &lt;NA&gt;     &lt;NA&gt; Traced</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15        &lt;NA&gt;       cb_intrinsic      &lt;NA&gt;       &lt;NA&gt;     &lt;NA&gt; Traced</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16        &lt;NA&gt;       cb_intrinsic      &lt;NA&gt;       &lt;NA&gt;     &lt;NA&gt; Traced</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17        &lt;NA&gt;       cb_intrinsic      &lt;NA&gt;       &lt;NA&gt;     &lt;NA&gt; Traced</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18        &lt;NA&gt;       cb_intrinsic      &lt;NA&gt;       &lt;NA&gt;     &lt;NA&gt; Traced</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19        &lt;NA&gt;       cb_intrinsic      &lt;NA&gt;       &lt;NA&gt;     &lt;NA&gt; Traced</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 20        &lt;NA&gt;       cb_intrinsic      &lt;NA&gt;       &lt;NA&gt;     &lt;NA&gt; Traced</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 21        &lt;NA&gt;       cb_intrinsic      &lt;NA&gt;       &lt;NA&gt;     &lt;NA&gt; Traced</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 22        &lt;NA&gt;       cb_intrinsic      &lt;NA&gt;       &lt;NA&gt;     &lt;NA&gt; Traced</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 23        &lt;NA&gt;       cb_intrinsic      &lt;NA&gt;       &lt;NA&gt;     &lt;NA&gt; Traced</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 24        &lt;NA&gt;       cb_intrinsic      &lt;NA&gt;       &lt;NA&gt;     &lt;NA&gt; Traced</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 25        &lt;NA&gt;       cb_intrinsic      &lt;NA&gt;       &lt;NA&gt;     &lt;NA&gt; Traced</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 26        &lt;NA&gt;       cb_intrinsic      &lt;NA&gt;       &lt;NA&gt;     &lt;NA&gt; Traced</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 27        &lt;NA&gt;       cb_intrinsic      &lt;NA&gt;       &lt;NA&gt;     &lt;NA&gt; Traced</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 28        &lt;NA&gt;       cb_intrinsic      &lt;NA&gt;       &lt;NA&gt;     &lt;NA&gt; Traced</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 29        &lt;NA&gt;       cb_intrinsic      &lt;NA&gt;       &lt;NA&gt;     &lt;NA&gt; Traced</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 30        &lt;NA&gt;       cb_intrinsic      &lt;NA&gt;       &lt;NA&gt;     &lt;NA&gt; Traced</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 31        &lt;NA&gt;       cb_intrinsic      &lt;NA&gt;       &lt;NA&gt;     &lt;NA&gt; Traced</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 32        &lt;NA&gt;       cb_intrinsic      &lt;NA&gt;       &lt;NA&gt;     &lt;NA&gt; Traced</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 33        &lt;NA&gt;       cb_intrinsic      &lt;NA&gt;       &lt;NA&gt;     &lt;NA&gt; Traced</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 34        &lt;NA&gt;       cb_intrinsic      &lt;NA&gt;       &lt;NA&gt;     &lt;NA&gt; Traced</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 35        &lt;NA&gt;       cb_intrinsic      &lt;NA&gt;       &lt;NA&gt;     &lt;NA&gt; Traced</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 36        &lt;NA&gt;       cb_intrinsic      &lt;NA&gt;       &lt;NA&gt;     &lt;NA&gt; Traced</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 37        &lt;NA&gt;       cb_intrinsic      &lt;NA&gt;       &lt;NA&gt;     &lt;NA&gt; Traced</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 38        &lt;NA&gt;       cb_intrinsic      &lt;NA&gt;       &lt;NA&gt;     &lt;NA&gt; Traced</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 39        &lt;NA&gt;       cb_intrinsic      &lt;NA&gt;       &lt;NA&gt;     &lt;NA&gt; Traced</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 40        &lt;NA&gt;       cb_intrinsic      &lt;NA&gt;       &lt;NA&gt;     &lt;NA&gt; Traced</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 41        &lt;NA&gt;       cb_intrinsic      &lt;NA&gt;       &lt;NA&gt;     &lt;NA&gt; Traced</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 42        &lt;NA&gt;       cb_intrinsic      &lt;NA&gt;       &lt;NA&gt;     &lt;NA&gt; Traced</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 43        &lt;NA&gt;       cb_intrinsic      &lt;NA&gt;       &lt;NA&gt;     &lt;NA&gt; Traced</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 44        &lt;NA&gt;       cb_intrinsic      &lt;NA&gt;       &lt;NA&gt;     &lt;NA&gt; Traced</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 45        &lt;NA&gt;       cb_intrinsic      &lt;NA&gt;       &lt;NA&gt;     &lt;NA&gt; Traced</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 46        &lt;NA&gt;       cb_intrinsic      &lt;NA&gt;       &lt;NA&gt;     &lt;NA&gt; Traced</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 47        &lt;NA&gt;       cb_intrinsic      &lt;NA&gt;       &lt;NA&gt;     &lt;NA&gt; Traced</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 48 leg bristle  sensory_ascending gustatory     MesoLN        R Traced</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 49 leg bristle  sensory_ascending gustatory     MesoLN        L Traced</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    totalNtPredictions predictedNtConfidence   predictedNt</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                1757             0.4061204       unclear</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                1777             0.3840946       unclear</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                 517             0.5522274 acetylcholine</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                 636             0.4904166       unclear</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5                 763             0.5087805 acetylcholine</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6                 695             0.4679810       unclear</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7                 823             0.3806903       unclear</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8                 846             0.3099462       unclear</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9                 641             0.5115857 acetylcholine</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10                612             0.5177988 acetylcholine</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11                667             0.5966367 acetylcholine</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12                683             0.8310862          gaba</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13                655             0.8281442          gaba</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14                664             0.8158842          gaba</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15                182             0.6744195 acetylcholine</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16                253             0.6954423 acetylcholine</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17                213             0.6724347 acetylcholine</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18                171             0.7193909 acetylcholine</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19                259             0.6724870 acetylcholine</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 20                228             0.6984453 acetylcholine</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 21                188             0.6670385 acetylcholine</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 22                193             0.6898121 acetylcholine</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 23                309             0.3198509       unclear</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 24                498             0.3789065       unclear</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 25                377             0.4121628       unclear</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 26                327             0.3929632       unclear</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 27                662             0.6532249 acetylcholine</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 28                447             0.3335215       unclear</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 29                454             0.3495905       unclear</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 30                383             0.7082799 acetylcholine</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 31                427             0.7077918 acetylcholine</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 32                327             0.6384776 acetylcholine</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 33                289             0.5455726 acetylcholine</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 34                340             0.5889929 acetylcholine</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 35                385             0.6839691 acetylcholine</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 36                549             0.3670848       unclear</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 37                130             0.7496181          gaba</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 38                137             0.7561803          gaba</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 39                140             0.7827361          gaba</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 40                157             0.7280456          gaba</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 41                143             0.6478092          gaba</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 42                344             0.4478273       unclear</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 43                380             0.5102190     serotonin</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 44                456             0.8137870          gaba</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 45                555             0.8015587          gaba</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 46                434             0.4292940       unclear</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 47                471             0.3586793       unclear</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 48                627             0.5426974 acetylcholine</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 49                609             0.5163991 acetylcholine</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    celltypeTotalNtPredictions celltypePredictedNt   consensusNt     voxels</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                        1757             unclear       unclear 2277163574</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                        1777             unclear       unclear 2612872280</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                         517             unclear acetylcholine  557337387</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                         636             unclear       unclear  524098245</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5                         763             unclear acetylcholine  729060679</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6                         695             unclear       unclear  658384659</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7                         823             unclear       unclear  804082975</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8                         846             unclear       unclear  866541247</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9                         641             unclear acetylcholine 1018937226</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10                        612             unclear acetylcholine  916808515</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11                        667             unclear acetylcholine 1067876448</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12                        683             unclear          gaba 1062787580</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13                        655             unclear          gaba 1047380469</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14                        664             unclear          gaba 1040612808</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15                        182             unclear acetylcholine  813036570</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16                        253             unclear acetylcholine  927152811</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17                        213             unclear acetylcholine  961411371</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18                        171             unclear acetylcholine  329238662</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19                        259             unclear acetylcholine  759385128</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 20                        228             unclear acetylcholine  964607747</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 21                        188             unclear acetylcholine  828302503</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 22                        193             unclear acetylcholine  743696722</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 23                        309             unclear       unclear  296715322</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 24                        498             unclear       unclear  358969718</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 25                        377             unclear       unclear  316383629</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 26                        327             unclear       unclear  268455501</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 27                        662             unclear acetylcholine  580519796</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 28                        447             unclear       unclear  555359414</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 29                        454             unclear       unclear  616753114</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 30                        383             unclear acetylcholine  567027449</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 31                        427             unclear acetylcholine  545272234</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 32                        327             unclear acetylcholine  515649434</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 33                        289             unclear acetylcholine  358019962</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 34                        340             unclear acetylcholine  454581194</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 35                        385             unclear acetylcholine  537868187</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 36                       1936           glutamate     glutamate  630996054</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 37                        130             unclear          gaba  222281477</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 38                        137             unclear          gaba  248732505</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 39                        140             unclear          gaba  234881881</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 40                        157             unclear          gaba  295708955</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 41                        143             unclear          gaba  266340613</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 42                        344             unclear       unclear  574257172</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 43                        380             unclear     serotonin  591267806</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 44                        456             unclear          gaba  474729585</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 45                        555             unclear          gaba  509804640</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 46                        434             unclear       unclear  452488535</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 47                        471             unclear       unclear  485994463</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 48                       3383       acetylcholine acetylcholine  255418306</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 49                       3383       acetylcholine acetylcholine  251819479</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       type          flywireType          itoleeHl somaSide supertype</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1     &lt;NA&gt;               CB0585  putative_primary        R      &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2     &lt;NA&gt;               CB0585  putative_primary        L      &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3     &lt;NA&gt;               CB1072        DM1_dorsal        R     10768</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4     &lt;NA&gt;               CB1072        DM1_dorsal        L     10768</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5     &lt;NA&gt;               CB1072        DM1_dorsal        L     10768</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6     &lt;NA&gt;               CB1072        DM1_dorsal        R     10768</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7     &lt;NA&gt;               CB0643             FLAa2        L     12502</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8     &lt;NA&gt;               CB0643             FLAa2        R     12502</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9     &lt;NA&gt;               CB2659      VLPl2_medial        L     12980</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10    &lt;NA&gt;               CB2281      VLPl2_medial        R     12980</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11    &lt;NA&gt;               CB2281      VLPl2_medial        L     12980</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12    &lt;NA&gt;               CB4179             VLPa2        R      &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13    &lt;NA&gt;               CB4179             VLPa2        L      &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14    &lt;NA&gt;                 cM19             VLPa2        L      &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15    &lt;NA&gt;        CB2102,CB2712             VLPp2        R     16520</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16    &lt;NA&gt;        CB2102,CB2712             VLPp2        L     16520</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17    &lt;NA&gt;        CB2591,CB2917             VLPp2        R     16520</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18    &lt;NA&gt;        CB2102,CB2712             VLPp2        R     25959</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19    &lt;NA&gt;        CB2591,CB2917             VLPp2        L     16520</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 20    &lt;NA&gt;        CB2102,CB2712             VLPp2        L     16520</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 21    &lt;NA&gt;        CB2102,CB2712             VLPp2        L     16520</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 22    &lt;NA&gt;        CB2102,CB2712             VLPp2        R     16520</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 23    &lt;NA&gt;              AVLP584     DM6_posterior        R     16831</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 24    &lt;NA&gt;               CB1812     DM6_posterior        R     16831</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 25    &lt;NA&gt;               CB1812     DM6_posterior        L     16831</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 26    &lt;NA&gt;               CB1812     DM6_posterior        L     16831</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 27    &lt;NA&gt;               CB3409    VLPl1_or_VLPl5        L     11119</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 28    &lt;NA&gt;               CB3110 VLPd&amp;p1_posterior        L     19281</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 29    &lt;NA&gt;               SMP419              CLp1        R     23896</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 30    &lt;NA&gt;        CB3377,CB3234    VLPl1_or_VLPl5        R     10982</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 31    &lt;NA&gt;        CB3377,CB3234    VLPl1_or_VLPl5        L     10982</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 32    &lt;NA&gt;        CB3377,CB3234    VLPl1_or_VLPl5        R     10982</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 33    &lt;NA&gt;        CB3234,CB3377    VLPl1_or_VLPl5        L     10982</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 34    &lt;NA&gt;                 &lt;NA&gt; VLPd&amp;p1_posterior        R     20747</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 35    &lt;NA&gt;                 &lt;NA&gt; VLPd&amp;p1_posterior        L     20747</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 36 SIP103m                 &lt;NA&gt;            SMPad1        R     18172</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 37    &lt;NA&gt;        CB1761,CB2741    LALa1_anterior        L     23508</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 38    &lt;NA&gt;        CB1761,CB2741    LALa1_anterior        L     23508</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 39    &lt;NA&gt;        CB1761,CB2741    LALa1_anterior        L     23508</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 40    &lt;NA&gt;        CB1761,CB2741    LALa1_anterior        R     23508</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 41    &lt;NA&gt;        CB1761,CB2741    LALa1_anterior        R     23508</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 42    &lt;NA&gt;               CB2138            SMPpv1        R     19728</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 43    &lt;NA&gt;                 &lt;NA&gt;            SMPpv1        L     10946</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 44    &lt;NA&gt;               CB4170             VLPa2        L      &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 45    &lt;NA&gt;               CB4170             VLPa2        R      &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 46    &lt;NA&gt; CB1159,CB2015,CB2669              LHp2        L     27405</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 47    &lt;NA&gt; CB1159,CB2015,CB2669              LHp2        R     27405</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 48  SAch03             SA_VTV_8              &lt;NA&gt;     &lt;NA&gt;      &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 49  SAch03                 &lt;NA&gt;              &lt;NA&gt;     &lt;NA&gt;      &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    somaNeuromere trumanHl        somaLocation celltypePredictedNtConfidence</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1           &lt;NA&gt;     &lt;NA&gt;   39967,39079,16624                            NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2           &lt;NA&gt;     &lt;NA&gt;   56921,37184,17922                            NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3           &lt;NA&gt;     &lt;NA&gt;   44818,14342,34444                            NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4           &lt;NA&gt;     &lt;NA&gt;   50462,17308,34630                            NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5           &lt;NA&gt;     &lt;NA&gt;   49903,15907,34492                            NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6           &lt;NA&gt;     &lt;NA&gt;   45700,14790,34690                            NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7           &lt;NA&gt;     &lt;NA&gt;   55328,35136,16410                            NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8           &lt;NA&gt;     &lt;NA&gt;   42463,35748,14179                            NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9           &lt;NA&gt;     &lt;NA&gt;   72396,20028,18998                            NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10          &lt;NA&gt;     &lt;NA&gt;   22596,26628,20862                            NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11          &lt;NA&gt;     &lt;NA&gt;   73100,21418,18478                            NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12          &lt;NA&gt;     &lt;NA&gt;   35307,26454,18071                            NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13          &lt;NA&gt;     &lt;NA&gt;   63656,22928,16358                            NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14          &lt;NA&gt;     &lt;NA&gt;   62029,22263,17583                            NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15         brain      23B   40988,20592,34594                            NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16         brain      23B   56027,19232,35221                            NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17         brain      23B   42127,20634,34269                            NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18         brain      23B   40448,19630,37894                            NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19         brain      23B   56512,20368,34594                            NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 20         brain      23B   55722,19138,34590                            NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 21         brain      23B   55953,18759,34948                            NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 22         brain      23B   41270,20590,35198                            NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 23          &lt;NA&gt;     &lt;NA&gt;   46117,21677,36719                            NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 24          &lt;NA&gt;     &lt;NA&gt;   46539,21835,37030                            NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 25          &lt;NA&gt;     &lt;NA&gt;   51915,23704,37653                            NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 26          &lt;NA&gt;     &lt;NA&gt;   52141,21487,36632                            NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 27          &lt;NA&gt;     &lt;NA&gt;   66450,37610,23560                            NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 28          &lt;NA&gt;     &lt;NA&gt;    66946,8352,30354                            NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 29          &lt;NA&gt;     &lt;NA&gt;    40083,6066,26891                            NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 30          &lt;NA&gt;     &lt;NA&gt;   27714,34345,21403                            NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 31          &lt;NA&gt;     &lt;NA&gt;   70407,33475,20044                            NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 32          &lt;NA&gt;     &lt;NA&gt;   28522,34474,21196                            NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 33          &lt;NA&gt;     &lt;NA&gt;   69486,35134,21362                            NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 34          &lt;NA&gt;     &lt;NA&gt;   32547,10929,32087                            NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 35          &lt;NA&gt;     &lt;NA&gt;    67512,8300,29688                            NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 36          &lt;NA&gt;     &lt;NA&gt;   46956,13254,12782                     0.3524310</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 37          &lt;NA&gt;     &lt;NA&gt;   66620,24888,15730                            NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 38          &lt;NA&gt;     &lt;NA&gt;   65254,26033,14863                            NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 39          &lt;NA&gt;     &lt;NA&gt;   65850,24844,15111                            NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 40          &lt;NA&gt;     &lt;NA&gt;   30730,36422,22418                            NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 41          &lt;NA&gt;     &lt;NA&gt;   30920,37020,23082                            NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 42         brain      17A   41468,13240,30486                            NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 43         brain      17A   57336,11336,30984                            NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 44          &lt;NA&gt;     &lt;NA&gt; 63373, 23119, 15798                            NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 45          &lt;NA&gt;     &lt;NA&gt; 33888, 26158, 17180                            NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 46          &lt;NA&gt;     &lt;NA&gt;   68976,14832,32846                            NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 47          &lt;NA&gt;     &lt;NA&gt;   28544,10466,32448                            NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 48          &lt;NA&gt;     &lt;NA&gt;                                         0.5183619</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 49          &lt;NA&gt;     &lt;NA&gt;                                         0.5183619</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 33 125137  672  293       2009      672      2681        Roughly traced</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 34  27359  632  342       2533      632      3165        Roughly traced</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 35 124680  810  385       2812      810      3622        Roughly traced</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 36  69407 1534  542       4385     1534      5919        Roughly traced</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 37  66837 1243  427       3462     1243      4705        Roughly traced</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 38 515254 1564  563       4599     1564      6163        Roughly traced</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 39  61957 1348  550       4398     1348      5746        Roughly traced</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 40 512263 1227  554       4291     1227      5518        Roughly traced</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 41 129990  759  147       1150      759      1909        Roughly traced</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 42  28195  661  133        987      661      1648        Roughly traced</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 43  52953  751  137        981      751      1732        Roughly traced</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 44  41250  870  158       1125      870      1995        Roughly traced</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 45  46029  736  151       1053      736      1789        Roughly traced</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 46  34160  789  380       2496      789      3285        Roughly traced</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 47 525548  880  344       2536      880      3416        Roughly traced</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 48  40930 1056  469       4589     1056      5645        Roughly traced</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 49  45498 1160  570       5057     1160      6217        Roughly traced</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 50  48918  787  434       3227      787      4014        Roughly traced</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 51  49406  741  471       3117      741      3858        Roughly traced</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 52  64607  228  627       5172      228      5400 Prelim Roughly traced</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 53  69544  243  609       4857      243      5100 Prelim Roughly traced</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>            superclass                               type    subclass     class</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1        cb_intrinsic                               &lt;NA&gt;        &lt;NA&gt;      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2        cb_intrinsic                               &lt;NA&gt;        &lt;NA&gt;      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3        cb_intrinsic                               &lt;NA&gt;        &lt;NA&gt;      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4        cb_intrinsic                               &lt;NA&gt;        &lt;NA&gt;      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5        cb_intrinsic                               &lt;NA&gt;        &lt;NA&gt;      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6        cb_intrinsic                               &lt;NA&gt;        &lt;NA&gt;      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7        cb_intrinsic                               &lt;NA&gt;        &lt;NA&gt;      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8        cb_intrinsic                               &lt;NA&gt;        &lt;NA&gt;      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9        cb_intrinsic                               &lt;NA&gt;        &lt;NA&gt;      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10       cb_intrinsic                               &lt;NA&gt;        &lt;NA&gt;      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11       cb_intrinsic                               &lt;NA&gt;        &lt;NA&gt;      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12       cb_intrinsic                               &lt;NA&gt;        &lt;NA&gt;      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13       cb_intrinsic                               &lt;NA&gt;        &lt;NA&gt;      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14 visual_centrifugal                               &lt;NA&gt;        &lt;NA&gt;      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15       cb_intrinsic                               &lt;NA&gt;        &lt;NA&gt;      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16       cb_intrinsic                               &lt;NA&gt;        &lt;NA&gt;      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 17       cb_intrinsic                               &lt;NA&gt;        &lt;NA&gt;      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 18       cb_intrinsic                               &lt;NA&gt;        &lt;NA&gt;      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 19       cb_intrinsic                               &lt;NA&gt;        &lt;NA&gt;      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 20       cb_intrinsic                               &lt;NA&gt;        &lt;NA&gt;      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 21       cb_intrinsic                               &lt;NA&gt;        &lt;NA&gt;      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 22       cb_intrinsic                               &lt;NA&gt;        &lt;NA&gt;      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 23       cb_intrinsic                            AVLP584        &lt;NA&gt;      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 24       cb_intrinsic                               &lt;NA&gt;        &lt;NA&gt;      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 25       cb_intrinsic                               &lt;NA&gt;        &lt;NA&gt;      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 26       cb_intrinsic                               &lt;NA&gt;        &lt;NA&gt;      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 27       cb_intrinsic                               &lt;NA&gt;        &lt;NA&gt;      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 28       cb_intrinsic                            LHPD2a2        &lt;NA&gt;      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 29       cb_intrinsic                             SMP419        &lt;NA&gt;      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 30       cb_intrinsic                               &lt;NA&gt;        &lt;NA&gt;      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 31       cb_intrinsic                               &lt;NA&gt;        &lt;NA&gt;      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 32       cb_intrinsic                               &lt;NA&gt;        &lt;NA&gt;      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 33       cb_intrinsic                               &lt;NA&gt;        &lt;NA&gt;      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 34       cb_intrinsic                             PLP122        &lt;NA&gt;      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 35       cb_intrinsic                             PLP122        &lt;NA&gt;      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 36       cb_intrinsic                            SIP103m        &lt;NA&gt;      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 37       cb_intrinsic                            SIP103m        &lt;NA&gt;      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 38       cb_intrinsic                            SIP103m        &lt;NA&gt;      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 39       cb_intrinsic                            SIP103m        &lt;NA&gt;      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 40       cb_intrinsic                            SIP103m        &lt;NA&gt;      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 41       cb_intrinsic                               &lt;NA&gt;        &lt;NA&gt;      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 42       cb_intrinsic                               &lt;NA&gt;        &lt;NA&gt;      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 43       cb_intrinsic                               &lt;NA&gt;        &lt;NA&gt;      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 44       cb_intrinsic                               &lt;NA&gt;        &lt;NA&gt;      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 45       cb_intrinsic                               &lt;NA&gt;        &lt;NA&gt;      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 46       cb_intrinsic CB1671,CB2138,CB2610,CB2274,CB3106        &lt;NA&gt;      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 47       cb_intrinsic CB1671,CB2138,CB2610,CB2274,CB3106        &lt;NA&gt;      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 48       cb_intrinsic                               &lt;NA&gt;        &lt;NA&gt;      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 49       cb_intrinsic                               &lt;NA&gt;        &lt;NA&gt;      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 50       cb_intrinsic                               &lt;NA&gt;        &lt;NA&gt;      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 51       cb_intrinsic                               &lt;NA&gt;        &lt;NA&gt;      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 52  sensory_ascending                             SAch03 leg bristle gustatory</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 53  sensory_ascending                             SAch03 leg bristle gustatory</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    rootSide entryNerve status totalNtPredictions predictedNtConfidence</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1      &lt;NA&gt;       &lt;NA&gt; Traced               1770             0.4084912</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2      &lt;NA&gt;       &lt;NA&gt; Traced               1781             0.3862821</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3      &lt;NA&gt;       &lt;NA&gt; Traced                519             0.5515331</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4      &lt;NA&gt;       &lt;NA&gt; Traced                700             0.4680038</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5      &lt;NA&gt;       &lt;NA&gt; Traced                639             0.4893404</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6      &lt;NA&gt;       &lt;NA&gt; Traced                768             0.5052945</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7      &lt;NA&gt;       &lt;NA&gt; Traced                823             0.3833639</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8      &lt;NA&gt;       &lt;NA&gt; Traced                846             0.3117348</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9      &lt;NA&gt;       &lt;NA&gt; Traced                643             0.5109920</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10     &lt;NA&gt;       &lt;NA&gt; Traced                625             0.5185563</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11     &lt;NA&gt;       &lt;NA&gt; Traced                669             0.5954018</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12     &lt;NA&gt;       &lt;NA&gt; Traced                688             0.8261518</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13     &lt;NA&gt;       &lt;NA&gt; Traced                655             0.8229196</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14     &lt;NA&gt;       &lt;NA&gt; Traced                666             0.8109251</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15     &lt;NA&gt;       &lt;NA&gt; Traced                182             0.6722581</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16     &lt;NA&gt;       &lt;NA&gt; Traced                253             0.6931556</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 17     &lt;NA&gt;       &lt;NA&gt; Traced                171             0.7170107</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 18     &lt;NA&gt;       &lt;NA&gt; Traced                213             0.6703054</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 19     &lt;NA&gt;       &lt;NA&gt; Traced                259             0.6703221</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 20     &lt;NA&gt;       &lt;NA&gt; Traced                228             0.6962004</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 21     &lt;NA&gt;       &lt;NA&gt; Traced                190             0.6585609</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 22     &lt;NA&gt;       &lt;NA&gt; Traced                193             0.6875848</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 23     &lt;NA&gt;       &lt;NA&gt; Traced                310             0.3211054</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 24     &lt;NA&gt;       &lt;NA&gt; Traced                498             0.3813663</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 25     &lt;NA&gt;       &lt;NA&gt; Traced                381             0.4122870</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 26     &lt;NA&gt;       &lt;NA&gt; Traced                339             0.3920549</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 27     &lt;NA&gt;       &lt;NA&gt; Traced                662             0.6510727</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 28     &lt;NA&gt;       &lt;NA&gt; Traced                449             0.3353363</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 29     &lt;NA&gt;       &lt;NA&gt; Traced                457             0.3480895</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 30     &lt;NA&gt;       &lt;NA&gt; Traced                383             0.7059188</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 31     &lt;NA&gt;       &lt;NA&gt; Traced                428             0.7056758</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 32     &lt;NA&gt;       &lt;NA&gt; Traced                327             0.6364347</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 33     &lt;NA&gt;       &lt;NA&gt; Traced                293             0.5448468</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 34     &lt;NA&gt;       &lt;NA&gt; Traced                342             0.5884230</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 35     &lt;NA&gt;       &lt;NA&gt; Traced                385             0.6817591</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 36     &lt;NA&gt;       &lt;NA&gt; Traced                542             0.3387756</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 37     &lt;NA&gt;       &lt;NA&gt; Traced                427             0.3479127</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 38     &lt;NA&gt;       &lt;NA&gt; Traced                563             0.3658495</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 39     &lt;NA&gt;       &lt;NA&gt; Traced                550             0.3502768</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 40     &lt;NA&gt;       &lt;NA&gt; Traced                554             0.3349141</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 41     &lt;NA&gt;       &lt;NA&gt; Traced                147             0.7823102</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 42     &lt;NA&gt;       &lt;NA&gt; Traced                133             0.7479678</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 43     &lt;NA&gt;       &lt;NA&gt; Traced                137             0.7517462</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 44     &lt;NA&gt;       &lt;NA&gt; Traced                158             0.7247570</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 45     &lt;NA&gt;       &lt;NA&gt; Traced                151             0.6395393</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 46     &lt;NA&gt;       &lt;NA&gt; Traced                380             0.5142119</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 47     &lt;NA&gt;       &lt;NA&gt; Traced                344             0.4509937</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 48     &lt;NA&gt;       &lt;NA&gt; Traced                469             0.8049832</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 49     &lt;NA&gt;       &lt;NA&gt; Traced                570             0.7984552</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 50     &lt;NA&gt;       &lt;NA&gt; Traced                434             0.4323986</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 51     &lt;NA&gt;       &lt;NA&gt; Traced                471             0.3609026</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 52        R     MesoLN Traced                627             0.5410754</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 53        L     MesoLN Traced                609             0.5149702</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      predictedNt celltypeTotalNtPredictions celltypePredictedNt</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1        unclear                       1770             unclear</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2        unclear                       1781             unclear</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3  acetylcholine                        519             unclear</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4        unclear                        700             unclear</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5        unclear                        639             unclear</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6  acetylcholine                        768             unclear</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7        unclear                        823             unclear</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8        unclear                        846             unclear</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9  acetylcholine                        643             unclear</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10 acetylcholine                        625             unclear</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11 acetylcholine                        669             unclear</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12          gaba                        688             unclear</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13          gaba                        655             unclear</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14          gaba                        666             unclear</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15 acetylcholine                        182             unclear</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16 acetylcholine                        253             unclear</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 17 acetylcholine                        171             unclear</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 18 acetylcholine                        213             unclear</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 19 acetylcholine                        259             unclear</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 20 acetylcholine                        228             unclear</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 21 acetylcholine                        190             unclear</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 22 acetylcholine                        193             unclear</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 23       unclear                        310             unclear</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 24       unclear                        498             unclear</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 25       unclear                        381             unclear</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 26       unclear                        339             unclear</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 27 acetylcholine                        662             unclear</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 28       unclear                        449             unclear</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 29       unclear                        457             unclear</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 30 acetylcholine                        383             unclear</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 31 acetylcholine                        428             unclear</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 32 acetylcholine                        327             unclear</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 33 acetylcholine                        293             unclear</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 34 acetylcholine                        342             unclear</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 35 acetylcholine                        385             unclear</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 36       unclear                       4444           glutamate</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 37       unclear                       4444           glutamate</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 38       unclear                       4444           glutamate</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 39       unclear                       4444           glutamate</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 40       unclear                       4444           glutamate</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 41          gaba                        147             unclear</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 42          gaba                        133             unclear</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 43          gaba                        137             unclear</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 44          gaba                        158             unclear</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 45          gaba                        151             unclear</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 46     serotonin                        380             unclear</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 47       unclear                        344             unclear</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 48          gaba                        469             unclear</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 49          gaba                        570             unclear</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 50       unclear                        434             unclear</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 51       unclear                        471             unclear</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 52 acetylcholine                       3384       acetylcholine</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 53 acetylcholine                       3384       acetylcholine</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    celltypePredictedNtConfidence   consensusNt     voxels          flywireType</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1                             NA       unclear 2293892193               CB0585</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2                             NA       unclear 2620705828               CB0585</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3                             NA acetylcholine  575614932               CB1072</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4                             NA       unclear  665046170               CB1072</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5                             NA       unclear  530021926               CB1072</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6                             NA acetylcholine  735285726               CB1072</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7                             NA       unclear  812967604               CB0643</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8                             NA       unclear  867140076               CB0643</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9                             NA acetylcholine 1022676006               CB2659</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10                            NA acetylcholine  921706323               CB2281</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11                            NA acetylcholine 1069768474               CB2281</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12                            NA          gaba 1070494620               CB4179</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13                            NA          gaba 1050960259               CB4179</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14                            NA          gaba 1050109768               CB4179</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15                            NA acetylcholine  814021906        CB2102,CB2712</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16                            NA acetylcholine  927425099        CB2102,CB2712</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 17                            NA acetylcholine  329955458        CB2102,CB2712</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 18                            NA acetylcholine  962688347        CB2591,CB2917</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 19                            NA acetylcholine  759442200        CB2591,CB2917</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 20                            NA acetylcholine  964607747        CB2102,CB2712</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 21                            NA acetylcholine  828378575        CB2102,CB2712</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 22                            NA acetylcholine  743696722        CB2102,CB2712</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 23                            NA       unclear  299095101              AVLP584</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 24                            NA       unclear  358969718               CB1812</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 25                            NA       unclear  321601418               CB1812</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 26                            NA       unclear  271752281               CB1812</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 27                            NA acetylcholine  580519796               CB3409</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 28                            NA       unclear  559753937               CB3110</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 29                            NA       unclear  620730851               SMP419</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 30                            NA acetylcholine  567027449        CB3377,CB3234</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 31                            NA acetylcholine  546817077        CB3377,CB3234</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 32                            NA acetylcholine  515649434        CB3377,CB3234</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 33                            NA acetylcholine  360295901        CB3234,CB3377</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 34                            NA acetylcholine  456016694               CB0945</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 35                            NA acetylcholine  539203021               CB0945</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 36                     0.3437845     glutamate  551637608                 &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 37                     0.3437845     glutamate  503663952                 &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 38                     0.3437845     glutamate  639147000                 &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 39                     0.3437845     glutamate  564296792                 &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 40                     0.3437845     glutamate  574329671                 &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 41                            NA          gaba  241019652        CB1761,CB2741</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 42                            NA          gaba  229963626        CB1761,CB2741</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 43                            NA          gaba  248926814        CB1761,CB2741</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 44                            NA          gaba  297966845        CB1761,CB2741</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 45                            NA          gaba  271122994        CB1761,CB2741</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 46                            NA     serotonin  591267806 CB1671,CB2138,CB2610</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 47                            NA       unclear  574770989 CB1671,CB2138,CB2610</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 48                            NA          gaba  480981247               CB4170</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 49                            NA          gaba  518279614               CB4170</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 50                            NA       unclear  457493970 CB1159,CB2015,CB2669</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 51                            NA       unclear  485994463 CB1159,CB2015,CB2669</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 52                     0.5169546 acetylcholine  255418306             SA_VTV_8</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 53                     0.5169546 acetylcholine  251819479                 &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    somaSide          itoleeHl supertype somaNeuromere trumanHl</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1         R  putative_primary      &lt;NA&gt;          &lt;NA&gt;     &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2         L  putative_primary      &lt;NA&gt;          &lt;NA&gt;     &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3         R        DM1_dorsal     10768          &lt;NA&gt;     &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4         R        DM1_dorsal     10768          &lt;NA&gt;     &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5         L        DM1_dorsal     10768          &lt;NA&gt;     &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6         L        DM1_dorsal     10768          &lt;NA&gt;     &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7         L             FLAa2     12502          &lt;NA&gt;     &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8         R             FLAa2     12502          &lt;NA&gt;     &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9         L      VLPl2_medial     12980          &lt;NA&gt;     &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10        R      VLPl2_medial     12980          &lt;NA&gt;     &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11        L      VLPl2_medial     12980          &lt;NA&gt;     &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12        R             VLPa2      &lt;NA&gt;          &lt;NA&gt;     &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13        L             VLPa2      &lt;NA&gt;          &lt;NA&gt;     &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14        L             VLPa2      &lt;NA&gt;          &lt;NA&gt;     &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15        R             VLPp2     16520         brain      23B</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16        L             VLPp2     16520         brain      23B</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 17        R             VLPp2     25959         brain      23B</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 18        R             VLPp2     16520         brain      23B</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 19        L             VLPp2     16520         brain      23B</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 20        L             VLPp2     16520         brain      23B</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 21        L             VLPp2     16520         brain      23B</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 22        R             VLPp2     16520         brain      23B</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 23        R     DM6_posterior     16831          &lt;NA&gt;     &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 24        R     DM6_posterior     16831          &lt;NA&gt;     &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 25        L     DM6_posterior     16831          &lt;NA&gt;     &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 26        L     DM6_posterior     16831          &lt;NA&gt;     &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 27        L    VLPl1_or_VLPl5     11119          &lt;NA&gt;     &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 28        L VLPd&amp;p1_posterior     19281          &lt;NA&gt;     &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 29        R              CLp1     23896          &lt;NA&gt;     &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 30        R    VLPl1_or_VLPl5     10982          &lt;NA&gt;     &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 31        L    VLPl1_or_VLPl5     10982          &lt;NA&gt;     &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 32        R    VLPl1_or_VLPl5     10982          &lt;NA&gt;     &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 33        L    VLPl1_or_VLPl5     10982          &lt;NA&gt;     &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 34        R VLPd&amp;p1_posterior     20747          &lt;NA&gt;     &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 35        L VLPd&amp;p1_posterior     20747          &lt;NA&gt;     &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 36        R            SMPad1     18172          &lt;NA&gt;     &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 37        R            SMPad1     18172          &lt;NA&gt;     &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 38        R            SMPad1     18172          &lt;NA&gt;     &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 39        L            SMPad1     18172          &lt;NA&gt;     &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 40        L            SMPad1     18172          &lt;NA&gt;     &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 41        L    LALa1_anterior     23508          &lt;NA&gt;     &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 42        L    LALa1_anterior     23508          &lt;NA&gt;     &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 43        L    LALa1_anterior     23508          &lt;NA&gt;     &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 44        R    LALa1_anterior     23508          &lt;NA&gt;     &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 45        R    LALa1_anterior     23508          &lt;NA&gt;     &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 46        L            SMPpv1     10946         brain      17A</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 47        R            SMPpv1     19728         brain      17A</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 48        L             VLPa2      &lt;NA&gt;          &lt;NA&gt;     &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 49        R             VLPa2      &lt;NA&gt;          &lt;NA&gt;     &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 50        L              LHp2     27405          &lt;NA&gt;     &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 51        R              LHp2     27405          &lt;NA&gt;     &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 52     &lt;NA&gt;              &lt;NA&gt;      &lt;NA&gt;          &lt;NA&gt;     &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 53     &lt;NA&gt;              &lt;NA&gt;      &lt;NA&gt;          &lt;NA&gt;     &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         somaLocation group mancGroup mancType birthtime mancBodyid mancSerial</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1  39967,39079,16624 11333        NA     &lt;NA&gt;     early         NA         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2  56921,37184,17922 11333        NA     &lt;NA&gt;     early         NA         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3  44818,14342,34444 11700        NA     &lt;NA&gt;      &lt;NA&gt;         NA         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4  45700,14790,34690 11700        NA     &lt;NA&gt;      &lt;NA&gt;         NA         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5  50462,17308,34630 11700        NA     &lt;NA&gt;      &lt;NA&gt;         NA         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6  49903,15907,34492 11700        NA     &lt;NA&gt;      &lt;NA&gt;         NA         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7  55328,35136,16410 12502        NA     &lt;NA&gt;      &lt;NA&gt;         NA         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8  42463,35748,14179 12502        NA     &lt;NA&gt;      &lt;NA&gt;         NA         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9  72396,20028,18998 12980        NA     &lt;NA&gt;      &lt;NA&gt;         NA         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10 22596,26628,20862 12980        NA     &lt;NA&gt;      &lt;NA&gt;         NA         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11 73100,21418,18478 12980        NA     &lt;NA&gt;      &lt;NA&gt;         NA         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12 35307,26454,18071 13405        NA     &lt;NA&gt;      &lt;NA&gt;         NA         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13 63656,22928,16358 13405        NA     &lt;NA&gt;      &lt;NA&gt;         NA         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14 62029,22263,17583 13405        NA     &lt;NA&gt;      &lt;NA&gt;         NA         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15 40988,20592,34594 16520        NA     &lt;NA&gt;      &lt;NA&gt;         NA         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16 56027,19232,35221 16520        NA     &lt;NA&gt;      &lt;NA&gt;         NA         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 17 40448,19630,37894 16520        NA     &lt;NA&gt;      &lt;NA&gt;         NA         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 18 42127,20634,34269 16520        NA     &lt;NA&gt;      &lt;NA&gt;         NA         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 19 56512,20368,34594 16520        NA     &lt;NA&gt;      &lt;NA&gt;         NA         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 20 55722,19138,34590 16520        NA     &lt;NA&gt;      &lt;NA&gt;         NA         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 21 55953,18759,34948 16520        NA     &lt;NA&gt;      &lt;NA&gt;         NA         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 22 41270,20590,35198 16520        NA     &lt;NA&gt;      &lt;NA&gt;         NA         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 23 46117,21677,36719 16831        NA     &lt;NA&gt;      &lt;NA&gt;         NA         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 24 46539,21835,37030 16831        NA     &lt;NA&gt;      &lt;NA&gt;         NA         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 25 51915,23704,37653 16831        NA     &lt;NA&gt;      &lt;NA&gt;         NA         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 26 52141,21487,36632 16831        NA     &lt;NA&gt;      &lt;NA&gt;         NA         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 27 66450,37610,23560 18292        NA     &lt;NA&gt;      &lt;NA&gt;         NA         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 28  66946,8352,30354 19281        NA     &lt;NA&gt;      &lt;NA&gt;         NA         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 29  40083,6066,26891 19281        NA     &lt;NA&gt;      &lt;NA&gt;         NA         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 30 27714,34345,21403 22653        NA     &lt;NA&gt;      &lt;NA&gt;         NA         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 31 70407,33475,20044 22653        NA     &lt;NA&gt;      &lt;NA&gt;         NA         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 32 28522,34474,21196 22653        NA     &lt;NA&gt;      &lt;NA&gt;         NA         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 33 69486,35134,21362 22653        NA     &lt;NA&gt;      &lt;NA&gt;         NA         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 34 32547,10929,32087 27359        NA     &lt;NA&gt;      &lt;NA&gt;         NA         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 35  67512,8300,29688 27359        NA     &lt;NA&gt;      &lt;NA&gt;         NA         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 36 47923,12215,14587 27918        NA     &lt;NA&gt;      &lt;NA&gt;         NA         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 37 47266,10331,15638 27918        NA     &lt;NA&gt;      &lt;NA&gt;         NA         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 38 46956,13254,12782 27918        NA     &lt;NA&gt;      &lt;NA&gt;         NA         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 39 48608,10744,14858 27918        NA     &lt;NA&gt;      &lt;NA&gt;         NA         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 40 49394,13130,12920 27918        NA     &lt;NA&gt;      &lt;NA&gt;         NA         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 41 65850,24844,15111 28195        NA     &lt;NA&gt;      &lt;NA&gt;         NA         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 42 66620,24888,15730 28195        NA     &lt;NA&gt;      &lt;NA&gt;         NA         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 43 65254,26033,14863 28195        NA     &lt;NA&gt;      &lt;NA&gt;         NA         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 44 30730,36422,22418 28195        NA     &lt;NA&gt;      &lt;NA&gt;         NA         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 45 30920,37020,23082 28195        NA     &lt;NA&gt;      &lt;NA&gt;         NA         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 46 57336,11336,30984 33024        NA     &lt;NA&gt;      &lt;NA&gt;         NA         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 47 41468,13240,30486 33024        NA     &lt;NA&gt;      &lt;NA&gt;         NA         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 48 63373,23119,15798 40930        NA     &lt;NA&gt;      &lt;NA&gt;         NA         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 49 33888,26158,17180 40930        NA     &lt;NA&gt;      &lt;NA&gt;         NA         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 50 68976,14832,32846 48918        NA     &lt;NA&gt;      &lt;NA&gt;         NA         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 51 28544,10466,32448 48918        NA     &lt;NA&gt;      &lt;NA&gt;         NA         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 52                   64399        NA   SAch01      &lt;NA&gt;     151702         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 53                   64399        NA   SAch01      &lt;NA&gt;      61168         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    mcnsSerial                           synonyms   fruDsx exitNerve</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1          NA                               &lt;NA&gt;     &lt;NA&gt;      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2          NA                               &lt;NA&gt;     &lt;NA&gt;      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3          NA                               &lt;NA&gt;     &lt;NA&gt;      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4          NA                               &lt;NA&gt;     &lt;NA&gt;      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5          NA                               &lt;NA&gt;     &lt;NA&gt;      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6          NA                               &lt;NA&gt;     &lt;NA&gt;      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7          NA                               &lt;NA&gt;     &lt;NA&gt;      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8          NA                               &lt;NA&gt;     &lt;NA&gt;      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9          NA                               &lt;NA&gt;     &lt;NA&gt;      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10         NA                               &lt;NA&gt;     &lt;NA&gt;      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11         NA                               &lt;NA&gt;     &lt;NA&gt;      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12         NA                               &lt;NA&gt;     &lt;NA&gt;      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13         NA                               &lt;NA&gt;     &lt;NA&gt;      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14         NA            SAD017, SAD015, SAD018a     &lt;NA&gt;      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15         NA                               &lt;NA&gt;     &lt;NA&gt;      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16         NA                               &lt;NA&gt;     &lt;NA&gt;      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 17         NA                               &lt;NA&gt;     &lt;NA&gt;      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 18         NA                               &lt;NA&gt;     &lt;NA&gt;      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 19         NA                               &lt;NA&gt;     &lt;NA&gt;      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 20         NA                               &lt;NA&gt;     &lt;NA&gt;      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 21         NA                               &lt;NA&gt;     &lt;NA&gt;      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 22         NA                               &lt;NA&gt;     &lt;NA&gt;      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 23         NA                               &lt;NA&gt;     &lt;NA&gt;      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 24         NA                               &lt;NA&gt;     &lt;NA&gt;      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 25         NA                               &lt;NA&gt;     &lt;NA&gt;      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 26         NA                               &lt;NA&gt;     &lt;NA&gt;      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 27         NA                               &lt;NA&gt;     &lt;NA&gt;      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 28         NA                               &lt;NA&gt;     &lt;NA&gt;      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 29         NA                               &lt;NA&gt;     &lt;NA&gt;      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 30         NA                               &lt;NA&gt;     &lt;NA&gt;      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 31         NA                               &lt;NA&gt;     &lt;NA&gt;      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 32         NA                               &lt;NA&gt;     &lt;NA&gt;      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 33         NA                               &lt;NA&gt;     &lt;NA&gt;      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 34         NA                               &lt;NA&gt;     &lt;NA&gt;      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 35         NA                               &lt;NA&gt;     &lt;NA&gt;      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 36         NA Cachero 2010: aSP-a; Yu 2010: aSP2 fru_high      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 37         NA Cachero 2010: aSP-a; Yu 2010: aSP2 fru_high      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 38         NA Cachero 2010: aSP-a; Yu 2010: aSP2 fru_high      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 39         NA Cachero 2010: aSP-a; Yu 2010: aSP2 fru_high      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 40         NA Cachero 2010: aSP-a; Yu 2010: aSP2 fru_high      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 41         NA                               &lt;NA&gt;     &lt;NA&gt;      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 42         NA                               &lt;NA&gt;     &lt;NA&gt;      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 43         NA                               &lt;NA&gt;     &lt;NA&gt;      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 44         NA                               &lt;NA&gt;     &lt;NA&gt;      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 45         NA                               &lt;NA&gt;     &lt;NA&gt;      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 46         NA                               &lt;NA&gt;     &lt;NA&gt;      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 47         NA                               &lt;NA&gt;     &lt;NA&gt;      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 48         NA                               &lt;NA&gt;     &lt;NA&gt;      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 49         NA                               &lt;NA&gt;     &lt;NA&gt;      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 50         NA                               &lt;NA&gt;     &lt;NA&gt;      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 51         NA                               &lt;NA&gt;     &lt;NA&gt;      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 52         NA                               &lt;NA&gt;     &lt;NA&gt;      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 53         NA                               &lt;NA&gt;     &lt;NA&gt;      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    tosomaLocation receptorType matchingNotes hemibrainType     name</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1                         &lt;NA&gt;          &lt;NA&gt;          &lt;NA&gt;  11133_R</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2                         &lt;NA&gt;          &lt;NA&gt;          &lt;NA&gt;  11133_L</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3                         &lt;NA&gt;          &lt;NA&gt;          &lt;NA&gt; 514232_R</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4                         &lt;NA&gt;          &lt;NA&gt;          &lt;NA&gt; 514232_R</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5                         &lt;NA&gt;          &lt;NA&gt;          &lt;NA&gt; 514232_L</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6                         &lt;NA&gt;          &lt;NA&gt;          &lt;NA&gt; 514232_L</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7                         &lt;NA&gt;          &lt;NA&gt;          &lt;NA&gt;  25945_L</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8                         &lt;NA&gt;          &lt;NA&gt;          &lt;NA&gt;  25945_R</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9                         &lt;NA&gt;          &lt;NA&gt;          &lt;NA&gt;  16251_L</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10                        &lt;NA&gt;          &lt;NA&gt;          &lt;NA&gt;  16251_R</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11                        &lt;NA&gt;          &lt;NA&gt;          &lt;NA&gt;  16251_L</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12                        &lt;NA&gt;          &lt;NA&gt;          &lt;NA&gt;  15221_R</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13                        &lt;NA&gt;          &lt;NA&gt;          &lt;NA&gt;  15221_L</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14                        &lt;NA&gt;          &lt;NA&gt;          &lt;NA&gt;  15221_L</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15                        &lt;NA&gt;          &lt;NA&gt;          &lt;NA&gt;  17246_R</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16                        &lt;NA&gt;          &lt;NA&gt;          &lt;NA&gt;  17246_L</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 17                        &lt;NA&gt;          &lt;NA&gt;          &lt;NA&gt;  17246_R</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 18                        &lt;NA&gt;          &lt;NA&gt;          &lt;NA&gt;  17246_R</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 19                        &lt;NA&gt;          &lt;NA&gt;          &lt;NA&gt;  17246_L</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 20                        &lt;NA&gt;          &lt;NA&gt;          &lt;NA&gt;  17246_L</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 21                        &lt;NA&gt;          &lt;NA&gt;          &lt;NA&gt;  17246_L</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 22                        &lt;NA&gt;          &lt;NA&gt;          &lt;NA&gt;  17246_R</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 23                        &lt;NA&gt;          &lt;NA&gt;          &lt;NA&gt;  39737_R</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 24                        &lt;NA&gt;          &lt;NA&gt;          &lt;NA&gt;  39737_R</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 25                        &lt;NA&gt;          &lt;NA&gt;          &lt;NA&gt;  39737_L</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 26                        &lt;NA&gt;          &lt;NA&gt;          &lt;NA&gt;  39737_L</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 27                        &lt;NA&gt;          &lt;NA&gt;          &lt;NA&gt;  19292_L</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 28                        &lt;NA&gt;          &lt;NA&gt;       LHPD2a2  55747_L</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 29                        &lt;NA&gt;          &lt;NA&gt;          &lt;NA&gt;  55747_R</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 30                        &lt;NA&gt;          &lt;NA&gt;          &lt;NA&gt;  17414_R</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 31                        &lt;NA&gt;          &lt;NA&gt;          &lt;NA&gt;  17414_L</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 32                        &lt;NA&gt;          &lt;NA&gt;          &lt;NA&gt;  17414_R</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 33                        &lt;NA&gt;          &lt;NA&gt;          &lt;NA&gt;  17414_L</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 34                        &lt;NA&gt;          &lt;NA&gt;        PLP122  44027_R</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 35                        &lt;NA&gt;          &lt;NA&gt;        PLP122  44027_L</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 36                        &lt;NA&gt;          &lt;NA&gt;          &lt;NA&gt;  61957_R</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 37                        &lt;NA&gt;          &lt;NA&gt;          &lt;NA&gt;  61957_R</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 38                        &lt;NA&gt;          &lt;NA&gt;          &lt;NA&gt;  61957_R</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 39                        &lt;NA&gt;          &lt;NA&gt;          &lt;NA&gt;  61957_L</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 40                        &lt;NA&gt;          &lt;NA&gt;          &lt;NA&gt;  61957_L</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 41                        &lt;NA&gt;          &lt;NA&gt;          &lt;NA&gt;  28915_L</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 42                        &lt;NA&gt;          &lt;NA&gt;          &lt;NA&gt;  28915_L</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 43                        &lt;NA&gt;          &lt;NA&gt;          &lt;NA&gt;  28915_L</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 44                        &lt;NA&gt;          &lt;NA&gt;          &lt;NA&gt;  28915_R</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 45                        &lt;NA&gt;          &lt;NA&gt;          &lt;NA&gt;  28915_R</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 46                        &lt;NA&gt;          &lt;NA&gt;          &lt;NA&gt;  19728_L</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 47                        &lt;NA&gt;          &lt;NA&gt;          &lt;NA&gt;  19728_R</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 48                        &lt;NA&gt;          &lt;NA&gt;          &lt;NA&gt;  40903_L</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 49                        &lt;NA&gt;          &lt;NA&gt;          &lt;NA&gt;  40903_R</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 50                        &lt;NA&gt;          &lt;NA&gt;          &lt;NA&gt;  48919_L</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 51                        &lt;NA&gt;          &lt;NA&gt;          &lt;NA&gt;  48919_R</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 52                        &lt;NA&gt;          &lt;NA&gt;          &lt;NA&gt;  64607_R</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 53                        &lt;NA&gt;          &lt;NA&gt;          &lt;NA&gt;  64607_L</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                                                                                                                                                                 anteriorCervicalRootPosition</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1                                                                                                                                                                                           </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2                                                                                                                                                                                           </span>
@@ -460,158 +646,66 @@ bad values or because the types are too broad to be very useful.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 45                                                                                                                                                                                          </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 46                                                                                                                                                                                          </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 47                                                                                                                                                                                          </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 48 list(48606, 49195, 43456),list(name = "cartesian-3d", properties = list(href = "http://spatialreference.org/ref/sr-org/9157/ogcwkt/", type = "ogcwkt"), srid = 9157, type = "link"),Point</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 49 list(49074, 49273, 43456),list(name = "cartesian-3d", properties = list(href = "http://spatialreference.org/ref/sr-org/9157/ogcwkt/", type = "ogcwkt"), srid = 9157, type = "link"),Point</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                              synonyms   fruDsx matchingNotes receptorType</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                                &lt;NA&gt;     &lt;NA&gt;          &lt;NA&gt;         &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                                &lt;NA&gt;     &lt;NA&gt;          &lt;NA&gt;         &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                                &lt;NA&gt;     &lt;NA&gt;          &lt;NA&gt;         &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                                &lt;NA&gt;     &lt;NA&gt;          &lt;NA&gt;         &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5                                &lt;NA&gt;     &lt;NA&gt;          &lt;NA&gt;         &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6                                &lt;NA&gt;     &lt;NA&gt;          &lt;NA&gt;         &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7                                &lt;NA&gt;     &lt;NA&gt;          &lt;NA&gt;         &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8                                &lt;NA&gt;     &lt;NA&gt;          &lt;NA&gt;         &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9                                &lt;NA&gt;     &lt;NA&gt;          &lt;NA&gt;         &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10                               &lt;NA&gt;     &lt;NA&gt;          &lt;NA&gt;         &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11                               &lt;NA&gt;     &lt;NA&gt;          &lt;NA&gt;         &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12                               &lt;NA&gt;     &lt;NA&gt;          &lt;NA&gt;         &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13                               &lt;NA&gt;     &lt;NA&gt;          &lt;NA&gt;         &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14            SAD017, SAD015, SAD018a     &lt;NA&gt;          &lt;NA&gt;         &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15                               &lt;NA&gt;     &lt;NA&gt;          &lt;NA&gt;         &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16                               &lt;NA&gt;     &lt;NA&gt;          &lt;NA&gt;         &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17                               &lt;NA&gt;     &lt;NA&gt;          &lt;NA&gt;         &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18                               &lt;NA&gt;     &lt;NA&gt;          &lt;NA&gt;         &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19                               &lt;NA&gt;     &lt;NA&gt;          &lt;NA&gt;         &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 20                               &lt;NA&gt;     &lt;NA&gt;          &lt;NA&gt;         &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 21                               &lt;NA&gt;     &lt;NA&gt;          &lt;NA&gt;         &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 22                               &lt;NA&gt;     &lt;NA&gt;          &lt;NA&gt;         &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 23                               &lt;NA&gt;     &lt;NA&gt;          &lt;NA&gt;         &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 24                               &lt;NA&gt;     &lt;NA&gt;          &lt;NA&gt;         &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 25                               &lt;NA&gt;     &lt;NA&gt;          &lt;NA&gt;         &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 26                               &lt;NA&gt;     &lt;NA&gt;          &lt;NA&gt;         &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 27                               &lt;NA&gt;     &lt;NA&gt;          &lt;NA&gt;         &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 28                               &lt;NA&gt;     &lt;NA&gt;          &lt;NA&gt;         &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 29                               &lt;NA&gt;     &lt;NA&gt;          &lt;NA&gt;         &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 30                               &lt;NA&gt;     &lt;NA&gt;          &lt;NA&gt;         &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 31                               &lt;NA&gt;     &lt;NA&gt;          &lt;NA&gt;         &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 32                               &lt;NA&gt;     &lt;NA&gt;          &lt;NA&gt;         &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 33                               &lt;NA&gt;     &lt;NA&gt;          &lt;NA&gt;         &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 34                               &lt;NA&gt;     &lt;NA&gt;          &lt;NA&gt;         &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 35                               &lt;NA&gt;     &lt;NA&gt;          &lt;NA&gt;         &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 36 Cachero 2010: aSP-a; Yu 2010: aSP2 fru_high          &lt;NA&gt;         &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 37                               &lt;NA&gt;     &lt;NA&gt;          &lt;NA&gt;         &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 38                               &lt;NA&gt;     &lt;NA&gt;          &lt;NA&gt;         &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 39                               &lt;NA&gt;     &lt;NA&gt;          &lt;NA&gt;         &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 40                               &lt;NA&gt;     &lt;NA&gt;          &lt;NA&gt;         &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 41                               &lt;NA&gt;     &lt;NA&gt;          &lt;NA&gt;         &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 42                               &lt;NA&gt;     &lt;NA&gt;          &lt;NA&gt;         &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 43                               &lt;NA&gt;     &lt;NA&gt;          &lt;NA&gt;         &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 44                               &lt;NA&gt;     &lt;NA&gt;          &lt;NA&gt;         &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 45                               &lt;NA&gt;     &lt;NA&gt;          &lt;NA&gt;         &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 46                               &lt;NA&gt;     &lt;NA&gt;          &lt;NA&gt;         &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 47                               &lt;NA&gt;     &lt;NA&gt;          &lt;NA&gt;         &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 48                               &lt;NA&gt;     &lt;NA&gt;          &lt;NA&gt;         &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 49                               &lt;NA&gt;     &lt;NA&gt;          &lt;NA&gt;         &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    mancGroup group mancType birthtime mancBodyid mcnsSerial mancSerial</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1         NA 11333     &lt;NA&gt;     early         NA         NA         NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2         NA 11333     &lt;NA&gt;     early         NA         NA         NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3         NA 11700     &lt;NA&gt;      &lt;NA&gt;         NA         NA         NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4         NA 11700     &lt;NA&gt;      &lt;NA&gt;         NA         NA         NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5         NA 11700     &lt;NA&gt;      &lt;NA&gt;         NA         NA         NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6         NA 11700     &lt;NA&gt;      &lt;NA&gt;         NA         NA         NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7         NA 12502     &lt;NA&gt;      &lt;NA&gt;         NA         NA         NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8         NA 12502     &lt;NA&gt;      &lt;NA&gt;         NA         NA         NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9         NA 12980     &lt;NA&gt;      &lt;NA&gt;         NA         NA         NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10        NA 12980     &lt;NA&gt;      &lt;NA&gt;         NA         NA         NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11        NA 12980     &lt;NA&gt;      &lt;NA&gt;         NA         NA         NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12        NA 13405     &lt;NA&gt;      &lt;NA&gt;         NA         NA         NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13        NA 13405     &lt;NA&gt;      &lt;NA&gt;         NA         NA         NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14        NA 13405     &lt;NA&gt;      &lt;NA&gt;         NA         NA         NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15        NA 16520     &lt;NA&gt;      &lt;NA&gt;         NA         NA         NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16        NA 16520     &lt;NA&gt;      &lt;NA&gt;         NA         NA         NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17        NA 16520     &lt;NA&gt;      &lt;NA&gt;         NA         NA         NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18        NA 16520     &lt;NA&gt;      &lt;NA&gt;         NA         NA         NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19        NA 16520     &lt;NA&gt;      &lt;NA&gt;         NA         NA         NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 20        NA 16520     &lt;NA&gt;      &lt;NA&gt;         NA         NA         NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 21        NA 16520     &lt;NA&gt;      &lt;NA&gt;         NA         NA         NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 22        NA 16520     &lt;NA&gt;      &lt;NA&gt;         NA         NA         NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 23        NA 16831     &lt;NA&gt;      &lt;NA&gt;         NA         NA         NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 24        NA 16831     &lt;NA&gt;      &lt;NA&gt;         NA         NA         NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 25        NA 16831     &lt;NA&gt;      &lt;NA&gt;         NA         NA         NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 26        NA 16831     &lt;NA&gt;      &lt;NA&gt;         NA         NA         NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 27        NA 18292     &lt;NA&gt;      &lt;NA&gt;         NA         NA         NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 28        NA 19281     &lt;NA&gt;      &lt;NA&gt;         NA         NA         NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 29        NA 19281     &lt;NA&gt;      &lt;NA&gt;         NA         NA         NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 30        NA 22653     &lt;NA&gt;      &lt;NA&gt;         NA         NA         NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 31        NA 22653     &lt;NA&gt;      &lt;NA&gt;         NA         NA         NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 32        NA 22653     &lt;NA&gt;      &lt;NA&gt;         NA         NA         NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 33        NA 22653     &lt;NA&gt;      &lt;NA&gt;         NA         NA         NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 34        NA 27359     &lt;NA&gt;      &lt;NA&gt;         NA         NA         NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 35        NA 27359     &lt;NA&gt;      &lt;NA&gt;         NA         NA         NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 36        NA 27918     &lt;NA&gt;      &lt;NA&gt;         NA         NA         NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 37        NA 28195     &lt;NA&gt;      &lt;NA&gt;         NA         NA         NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 38        NA 28195     &lt;NA&gt;      &lt;NA&gt;         NA         NA         NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 39        NA 28195     &lt;NA&gt;      &lt;NA&gt;         NA         NA         NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 40        NA 28195     &lt;NA&gt;      &lt;NA&gt;         NA         NA         NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 41        NA 28195     &lt;NA&gt;      &lt;NA&gt;         NA         NA         NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 42        NA 33024     &lt;NA&gt;      &lt;NA&gt;         NA         NA         NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 43        NA 33024     &lt;NA&gt;      &lt;NA&gt;         NA         NA         NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 44        NA 40930     &lt;NA&gt;      &lt;NA&gt;         NA         NA         NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 45        NA 40930     &lt;NA&gt;      &lt;NA&gt;         NA         NA         NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 46        NA 48918     &lt;NA&gt;      &lt;NA&gt;         NA         NA         NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 47        NA 48918     &lt;NA&gt;      &lt;NA&gt;         NA         NA         NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 48        NA 64399   SAch01      &lt;NA&gt;     151702         NA         NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 49        NA 64399   SAch01      &lt;NA&gt;      61168         NA         NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    exitNerve tosomaLocation     name hemibrainType flywireId serialMotif</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1       &lt;NA&gt;                 11133_R          &lt;NA&gt;      &lt;NA&gt;        &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2       &lt;NA&gt;                 11133_L          &lt;NA&gt;      &lt;NA&gt;        &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3       &lt;NA&gt;                514232_R          &lt;NA&gt;      &lt;NA&gt;        &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4       &lt;NA&gt;                514232_L          &lt;NA&gt;      &lt;NA&gt;        &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5       &lt;NA&gt;                514232_L          &lt;NA&gt;      &lt;NA&gt;        &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6       &lt;NA&gt;                514232_R          &lt;NA&gt;      &lt;NA&gt;        &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7       &lt;NA&gt;                 25945_L          &lt;NA&gt;      &lt;NA&gt;        &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8       &lt;NA&gt;                 25945_R          &lt;NA&gt;      &lt;NA&gt;        &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9       &lt;NA&gt;                 16251_L          &lt;NA&gt;      &lt;NA&gt;        &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10      &lt;NA&gt;                 16251_R          &lt;NA&gt;      &lt;NA&gt;        &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11      &lt;NA&gt;                 16251_L          &lt;NA&gt;      &lt;NA&gt;        &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12      &lt;NA&gt;                 15221_R          &lt;NA&gt;      &lt;NA&gt;        &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13      &lt;NA&gt;                 15221_L          &lt;NA&gt;      &lt;NA&gt;        &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14      &lt;NA&gt;                 15221_L       PVLP046      &lt;NA&gt;        &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15      &lt;NA&gt;                 17246_R          &lt;NA&gt;      &lt;NA&gt;        &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16      &lt;NA&gt;                 17246_L          &lt;NA&gt;      &lt;NA&gt;        &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17      &lt;NA&gt;                 17246_R          &lt;NA&gt;      &lt;NA&gt;        &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18      &lt;NA&gt;                 17246_R          &lt;NA&gt;      &lt;NA&gt;        &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19      &lt;NA&gt;                 17246_L          &lt;NA&gt;      &lt;NA&gt;        &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 20      &lt;NA&gt;                 17246_L          &lt;NA&gt;      &lt;NA&gt;        &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 21      &lt;NA&gt;                 17246_L          &lt;NA&gt;      &lt;NA&gt;        &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 22      &lt;NA&gt;                 17246_R          &lt;NA&gt;      &lt;NA&gt;        &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 23      &lt;NA&gt;                 39737_R          &lt;NA&gt;      &lt;NA&gt;        &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 24      &lt;NA&gt;                 39737_R          &lt;NA&gt;      &lt;NA&gt;        &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 25      &lt;NA&gt;                 39737_L          &lt;NA&gt;      &lt;NA&gt;        &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 26      &lt;NA&gt;                 39737_L          &lt;NA&gt;      &lt;NA&gt;        &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 27      &lt;NA&gt;                 19292_L          &lt;NA&gt;      &lt;NA&gt;        &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 28      &lt;NA&gt;                 55747_L          &lt;NA&gt;      &lt;NA&gt;        &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 29      &lt;NA&gt;                 55747_R          &lt;NA&gt;      &lt;NA&gt;        &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 30      &lt;NA&gt;                 17414_R          &lt;NA&gt;      &lt;NA&gt;        &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 31      &lt;NA&gt;                 17414_L          &lt;NA&gt;      &lt;NA&gt;        &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 32      &lt;NA&gt;                 17414_R          &lt;NA&gt;      &lt;NA&gt;        &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 33      &lt;NA&gt;                 17414_L          &lt;NA&gt;      &lt;NA&gt;        &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 34      &lt;NA&gt;                 44027_R          &lt;NA&gt;      &lt;NA&gt;        &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 35      &lt;NA&gt;                 44027_L          &lt;NA&gt;      &lt;NA&gt;        &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 36      &lt;NA&gt;                 61957_R          &lt;NA&gt;      &lt;NA&gt;        &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 37      &lt;NA&gt;                 28915_L          &lt;NA&gt;      &lt;NA&gt;        &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 38      &lt;NA&gt;                 28915_L          &lt;NA&gt;      &lt;NA&gt;        &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 39      &lt;NA&gt;                 28915_L          &lt;NA&gt;      &lt;NA&gt;        &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 40      &lt;NA&gt;                 28915_R          &lt;NA&gt;      &lt;NA&gt;        &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 41      &lt;NA&gt;                 28915_R          &lt;NA&gt;      &lt;NA&gt;        &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 42      &lt;NA&gt;                 19728_R          &lt;NA&gt;      &lt;NA&gt;        &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 43      &lt;NA&gt;                 19728_L          &lt;NA&gt;      &lt;NA&gt;        &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 44      &lt;NA&gt;                 40903_L          &lt;NA&gt;      &lt;NA&gt;        &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 45      &lt;NA&gt;                 40903_R          &lt;NA&gt;      &lt;NA&gt;        &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 46      &lt;NA&gt;                 48919_L          &lt;NA&gt;      &lt;NA&gt;        &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 47      &lt;NA&gt;                 48919_R          &lt;NA&gt;      &lt;NA&gt;        &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 48      &lt;NA&gt;                 64607_R          &lt;NA&gt;      &lt;NA&gt;        &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 49      &lt;NA&gt;                 64607_L          &lt;NA&gt;      &lt;NA&gt;        &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 48                                                                                                                                                                                          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 49                                                                                                                                                                                          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 50                                                                                                                                                                                          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 51                                                                                                                                                                                          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 52 list(48606, 49195, 43456),list(name = "cartesian-3d", properties = list(href = "http://spatialreference.org/ref/sr-org/9157/ogcwkt/", type = "ogcwkt"), srid = 9157, type = "link"),Point</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 53 list(49074, 49273, 43456),list(name = "cartesian-3d", properties = list(href = "http://spatialreference.org/ref/sr-org/9157/ogcwkt/", type = "ogcwkt"), srid = 9157, type = "link"),Point</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    flywireId</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1       &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2       &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3       &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4       &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5       &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6       &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7       &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8       &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9       &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 17      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 18      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 19      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 20      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 21      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 22      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 23      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 24      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 25      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 26      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 27      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 28      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 29      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 30      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 31      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 32      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 33      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 34      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 35      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 36      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 37      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 38      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 39      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 40      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 41      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 42      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 43      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 44      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 45      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 46      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 47      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 48      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 49      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 50      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 51      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 52      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 53      &lt;NA&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                                                                                                                                                                posteriorCervicalRootPosition</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1                                                                                                                                                                                           </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2                                                                                                                                                                                           </span>
@@ -660,158 +754,174 @@ bad values or because the types are too broad to be very useful.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 45                                                                                                                                                                                          </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 46                                                                                                                                                                                          </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 47                                                                                                                                                                                          </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 48 list(49408, 54632, 57845),list(name = "cartesian-3d", properties = list(href = "http://spatialreference.org/ref/sr-org/9157/ogcwkt/", type = "ogcwkt"), srid = 9157, type = "link"),Point</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 49 list(49983, 54778, 57845),list(name = "cartesian-3d", properties = list(href = "http://spatialreference.org/ref/sr-org/9157/ogcwkt/", type = "ogcwkt"), srid = 9157, type = "link"),Point</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       dimorphism assignedOlHex1 assignedOlHex2 hemibrainBodyId location</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1           &lt;NA&gt;             NA             NA            &lt;NA&gt;     &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2           &lt;NA&gt;             NA             NA            &lt;NA&gt;     &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3           &lt;NA&gt;             NA             NA            &lt;NA&gt;     &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4           &lt;NA&gt;             NA             NA            &lt;NA&gt;     &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5           &lt;NA&gt;             NA             NA            &lt;NA&gt;     &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6           &lt;NA&gt;             NA             NA            &lt;NA&gt;     &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7           &lt;NA&gt;             NA             NA            &lt;NA&gt;     &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8           &lt;NA&gt;             NA             NA            &lt;NA&gt;     &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9           &lt;NA&gt;             NA             NA            &lt;NA&gt;     &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10          &lt;NA&gt;             NA             NA            &lt;NA&gt;     &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11          &lt;NA&gt;             NA             NA            &lt;NA&gt;     &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12          &lt;NA&gt;             NA             NA            &lt;NA&gt;     &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13          &lt;NA&gt;             NA             NA            &lt;NA&gt;     &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14          &lt;NA&gt;             NA             NA            &lt;NA&gt;     &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15          &lt;NA&gt;             NA             NA            &lt;NA&gt;     &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16          &lt;NA&gt;             NA             NA            &lt;NA&gt;     &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17          &lt;NA&gt;             NA             NA            &lt;NA&gt;     &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18          &lt;NA&gt;             NA             NA            &lt;NA&gt;     &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19          &lt;NA&gt;             NA             NA            &lt;NA&gt;     &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 20          &lt;NA&gt;             NA             NA            &lt;NA&gt;     &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 21          &lt;NA&gt;             NA             NA            &lt;NA&gt;     &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 22          &lt;NA&gt;             NA             NA            &lt;NA&gt;     &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 23          &lt;NA&gt;             NA             NA            &lt;NA&gt;     &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 24          &lt;NA&gt;             NA             NA            &lt;NA&gt;     &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 25          &lt;NA&gt;             NA             NA            &lt;NA&gt;     &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 26          &lt;NA&gt;             NA             NA            &lt;NA&gt;     &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 27          &lt;NA&gt;             NA             NA            &lt;NA&gt;     &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 28          &lt;NA&gt;             NA             NA            &lt;NA&gt;     &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 29          &lt;NA&gt;             NA             NA            &lt;NA&gt;     &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 30          &lt;NA&gt;             NA             NA            &lt;NA&gt;     &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 31          &lt;NA&gt;             NA             NA            &lt;NA&gt;     &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 32          &lt;NA&gt;             NA             NA            &lt;NA&gt;     &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 33          &lt;NA&gt;             NA             NA            &lt;NA&gt;     &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 34          &lt;NA&gt;             NA             NA            &lt;NA&gt;     &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 35          &lt;NA&gt;             NA             NA            &lt;NA&gt;     &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 36 male-specific             NA             NA            &lt;NA&gt;     &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 37          &lt;NA&gt;             NA             NA            &lt;NA&gt;     &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 38          &lt;NA&gt;             NA             NA            &lt;NA&gt;     &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 39          &lt;NA&gt;             NA             NA            &lt;NA&gt;     &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 40          &lt;NA&gt;             NA             NA            &lt;NA&gt;     &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 41          &lt;NA&gt;             NA             NA            &lt;NA&gt;     &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 42          &lt;NA&gt;             NA             NA            &lt;NA&gt;     &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 43          &lt;NA&gt;             NA             NA            &lt;NA&gt;     &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 44          &lt;NA&gt;             NA             NA            &lt;NA&gt;     &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 45          &lt;NA&gt;             NA             NA            &lt;NA&gt;     &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 46          &lt;NA&gt;             NA             NA            &lt;NA&gt;     &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 47          &lt;NA&gt;             NA             NA            &lt;NA&gt;     &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 48          &lt;NA&gt;             NA             NA            &lt;NA&gt;     &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 49          &lt;NA&gt;             NA             NA            &lt;NA&gt;     &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    locationType cellBodyFiber  soma instance_group type_group mancGroup_group</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1          &lt;NA&gt;          &lt;NA&gt;  TRUE          11133         NA              NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2          &lt;NA&gt;          &lt;NA&gt;  TRUE          11133         NA              NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3          &lt;NA&gt;          &lt;NA&gt;  TRUE         514232         NA              NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4          &lt;NA&gt;          &lt;NA&gt;  TRUE         514232         NA              NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5          &lt;NA&gt;          &lt;NA&gt;  TRUE         514232         NA              NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6          &lt;NA&gt;          &lt;NA&gt;  TRUE         514232         NA              NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7          &lt;NA&gt;          &lt;NA&gt;  TRUE          25945         NA              NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8          &lt;NA&gt;          &lt;NA&gt;  TRUE          25945         NA              NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9          &lt;NA&gt;          &lt;NA&gt;  TRUE          16251         NA              NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10         &lt;NA&gt;          &lt;NA&gt;  TRUE          16251         NA              NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11         &lt;NA&gt;          &lt;NA&gt;  TRUE          16251         NA              NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12         &lt;NA&gt;          &lt;NA&gt;  TRUE          15221         NA              NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13         &lt;NA&gt;          &lt;NA&gt;  TRUE          15221         NA              NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14         &lt;NA&gt;          &lt;NA&gt;  TRUE          15221         NA              NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15         &lt;NA&gt;          &lt;NA&gt;  TRUE          17246         NA              NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16         &lt;NA&gt;          &lt;NA&gt;  TRUE          17246         NA              NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17         &lt;NA&gt;          &lt;NA&gt;  TRUE          17246         NA              NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18         &lt;NA&gt;          &lt;NA&gt;  TRUE          17246         NA              NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19         &lt;NA&gt;          &lt;NA&gt;  TRUE          17246         NA              NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 20         &lt;NA&gt;          &lt;NA&gt;  TRUE          17246         NA              NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 21         &lt;NA&gt;          &lt;NA&gt;  TRUE          17246         NA              NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 22         &lt;NA&gt;          &lt;NA&gt;  TRUE          17246         NA              NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 23         &lt;NA&gt;          &lt;NA&gt;  TRUE          39737         NA              NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 24         &lt;NA&gt;          &lt;NA&gt;  TRUE          39737         NA              NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 25         &lt;NA&gt;          &lt;NA&gt;  TRUE          39737         NA              NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 26         &lt;NA&gt;          &lt;NA&gt;  TRUE          39737         NA              NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 27         &lt;NA&gt;          &lt;NA&gt;  TRUE          19292         NA              NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 28         &lt;NA&gt;          &lt;NA&gt;  TRUE          55747         NA              NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 29         &lt;NA&gt;          &lt;NA&gt;  TRUE          55747         NA              NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 30         &lt;NA&gt;          &lt;NA&gt;  TRUE          17414         NA              NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 31         &lt;NA&gt;          &lt;NA&gt;  TRUE          17414         NA              NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 32         &lt;NA&gt;          &lt;NA&gt;  TRUE          17414         NA              NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 33         &lt;NA&gt;          &lt;NA&gt;  TRUE          17414         NA              NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 34         &lt;NA&gt;          &lt;NA&gt;  TRUE          44027         NA              NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 35         &lt;NA&gt;          &lt;NA&gt;  TRUE          44027         NA              NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 36         &lt;NA&gt;          &lt;NA&gt;  TRUE          61957      45473              NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 37         &lt;NA&gt;          &lt;NA&gt;  TRUE          28915         NA              NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 38         &lt;NA&gt;          &lt;NA&gt;  TRUE          28915         NA              NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 39         &lt;NA&gt;          &lt;NA&gt;  TRUE          28915         NA              NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 40         &lt;NA&gt;          &lt;NA&gt;  TRUE          28915         NA              NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 41         &lt;NA&gt;          &lt;NA&gt;  TRUE          28915         NA              NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 42         &lt;NA&gt;          &lt;NA&gt;  TRUE          19728         NA              NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 43         &lt;NA&gt;          &lt;NA&gt;  TRUE          19728         NA              NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 44         &lt;NA&gt;          &lt;NA&gt;  TRUE          40903         NA              NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 45         &lt;NA&gt;          &lt;NA&gt;  TRUE          40903         NA              NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 46         &lt;NA&gt;          &lt;NA&gt;  TRUE          48919         NA              NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 47         &lt;NA&gt;          &lt;NA&gt;  TRUE          48919         NA              NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 48         &lt;NA&gt;          &lt;NA&gt; FALSE          64607      64399              NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 49         &lt;NA&gt;          &lt;NA&gt; FALSE          64607      64399              NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    pmanc_group</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1        11333</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2        11333</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3        11700</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4        11700</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5        11700</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6        11700</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7        12502</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8        12502</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9        12980</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10       12980</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11       12980</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12       13405</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13       13405</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14       13405</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15       16520</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16       16520</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17       16520</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18       16520</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19       16520</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 20       16520</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 21       16520</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 22       16520</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 23       16831</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 24       16831</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 25       16831</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 26       16831</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 27       18292</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 28       19281</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 29       19281</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 30       22653</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 31       22653</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 32       22653</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 33       22653</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 34       27359</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 35       27359</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 36       27918</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 37       28195</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 38       28195</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 39       28195</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 40       28195</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 41       28195</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 42       33024</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 43       33024</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 44       40930</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 45       40930</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 46       48918</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 47       48918</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 48       64399</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 49       64399</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 48                                                                                                                                                                                          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 49                                                                                                                                                                                          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 50                                                                                                                                                                                          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 51                                                                                                                                                                                          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 52 list(49408, 54632, 57845),list(name = "cartesian-3d", properties = list(href = "http://spatialreference.org/ref/sr-org/9157/ogcwkt/", type = "ogcwkt"), srid = 9157, type = "link"),Point</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 53 list(49983, 54778, 57845),list(name = "cartesian-3d", properties = list(href = "http://spatialreference.org/ref/sr-org/9157/ogcwkt/", type = "ogcwkt"), srid = 9157, type = "link"),Point</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    serialMotif    dimorphism assignedOlHex1 assignedOlHex2 hemibrainBodyId</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1         &lt;NA&gt;          &lt;NA&gt;             NA             NA            &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2         &lt;NA&gt;          &lt;NA&gt;             NA             NA            &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3         &lt;NA&gt;          &lt;NA&gt;             NA             NA            &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4         &lt;NA&gt;          &lt;NA&gt;             NA             NA            &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5         &lt;NA&gt;          &lt;NA&gt;             NA             NA            &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6         &lt;NA&gt;          &lt;NA&gt;             NA             NA            &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7         &lt;NA&gt;          &lt;NA&gt;             NA             NA            &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8         &lt;NA&gt;          &lt;NA&gt;             NA             NA            &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9         &lt;NA&gt;          &lt;NA&gt;             NA             NA            &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10        &lt;NA&gt;          &lt;NA&gt;             NA             NA            &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11        &lt;NA&gt;          &lt;NA&gt;             NA             NA            &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12        &lt;NA&gt;          &lt;NA&gt;             NA             NA            &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13        &lt;NA&gt;          &lt;NA&gt;             NA             NA            &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14        &lt;NA&gt;          &lt;NA&gt;             NA             NA            &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15        &lt;NA&gt;          &lt;NA&gt;             NA             NA            &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16        &lt;NA&gt;          &lt;NA&gt;             NA             NA            &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 17        &lt;NA&gt;          &lt;NA&gt;             NA             NA            &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 18        &lt;NA&gt;          &lt;NA&gt;             NA             NA            &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 19        &lt;NA&gt;          &lt;NA&gt;             NA             NA            &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 20        &lt;NA&gt;          &lt;NA&gt;             NA             NA            &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 21        &lt;NA&gt;          &lt;NA&gt;             NA             NA            &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 22        &lt;NA&gt;          &lt;NA&gt;             NA             NA            &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 23        &lt;NA&gt;          &lt;NA&gt;             NA             NA            &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 24        &lt;NA&gt;          &lt;NA&gt;             NA             NA            &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 25        &lt;NA&gt;          &lt;NA&gt;             NA             NA            &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 26        &lt;NA&gt;          &lt;NA&gt;             NA             NA            &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 27        &lt;NA&gt;          &lt;NA&gt;             NA             NA            &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 28        &lt;NA&gt;          &lt;NA&gt;             NA             NA            &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 29        &lt;NA&gt;          &lt;NA&gt;             NA             NA            &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 30        &lt;NA&gt;          &lt;NA&gt;             NA             NA            &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 31        &lt;NA&gt;          &lt;NA&gt;             NA             NA            &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 32        &lt;NA&gt;          &lt;NA&gt;             NA             NA            &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 33        &lt;NA&gt;          &lt;NA&gt;             NA             NA            &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 34        &lt;NA&gt;          &lt;NA&gt;             NA             NA            &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 35        &lt;NA&gt;          &lt;NA&gt;             NA             NA            &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 36        &lt;NA&gt; male-specific             NA             NA            &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 37        &lt;NA&gt; male-specific             NA             NA            &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 38        &lt;NA&gt; male-specific             NA             NA            &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 39        &lt;NA&gt; male-specific             NA             NA            &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 40        &lt;NA&gt; male-specific             NA             NA            &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 41        &lt;NA&gt;          &lt;NA&gt;             NA             NA            &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 42        &lt;NA&gt;          &lt;NA&gt;             NA             NA            &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 43        &lt;NA&gt;          &lt;NA&gt;             NA             NA            &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 44        &lt;NA&gt;          &lt;NA&gt;             NA             NA            &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 45        &lt;NA&gt;          &lt;NA&gt;             NA             NA            &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 46        &lt;NA&gt;          &lt;NA&gt;             NA             NA            &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 47        &lt;NA&gt;          &lt;NA&gt;             NA             NA            &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 48        &lt;NA&gt;          &lt;NA&gt;             NA             NA            &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 49        &lt;NA&gt;          &lt;NA&gt;             NA             NA            &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 50        &lt;NA&gt;          &lt;NA&gt;             NA             NA            &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 51        &lt;NA&gt;          &lt;NA&gt;             NA             NA            &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 52        &lt;NA&gt;          &lt;NA&gt;             NA             NA            &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 53        &lt;NA&gt;          &lt;NA&gt;             NA             NA            &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    location locationType cellBodyFiber  soma instance_group type_group</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1      &lt;NA&gt;         &lt;NA&gt;          &lt;NA&gt;  TRUE          11133         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2      &lt;NA&gt;         &lt;NA&gt;          &lt;NA&gt;  TRUE          11133         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3      &lt;NA&gt;         &lt;NA&gt;          &lt;NA&gt;  TRUE         514232         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4      &lt;NA&gt;         &lt;NA&gt;          &lt;NA&gt;  TRUE         514232         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5      &lt;NA&gt;         &lt;NA&gt;          &lt;NA&gt;  TRUE         514232         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6      &lt;NA&gt;         &lt;NA&gt;          &lt;NA&gt;  TRUE         514232         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7      &lt;NA&gt;         &lt;NA&gt;          &lt;NA&gt;  TRUE          25945         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8      &lt;NA&gt;         &lt;NA&gt;          &lt;NA&gt;  TRUE          25945         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9      &lt;NA&gt;         &lt;NA&gt;          &lt;NA&gt;  TRUE          16251         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10     &lt;NA&gt;         &lt;NA&gt;          &lt;NA&gt;  TRUE          16251         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11     &lt;NA&gt;         &lt;NA&gt;          &lt;NA&gt;  TRUE          16251         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12     &lt;NA&gt;         &lt;NA&gt;          &lt;NA&gt;  TRUE          15221         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13     &lt;NA&gt;         &lt;NA&gt;          &lt;NA&gt;  TRUE          15221         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14     &lt;NA&gt;         &lt;NA&gt;          &lt;NA&gt;  TRUE          15221         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15     &lt;NA&gt;         &lt;NA&gt;          &lt;NA&gt;  TRUE          17246         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16     &lt;NA&gt;         &lt;NA&gt;          &lt;NA&gt;  TRUE          17246         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 17     &lt;NA&gt;         &lt;NA&gt;          &lt;NA&gt;  TRUE          17246         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 18     &lt;NA&gt;         &lt;NA&gt;          &lt;NA&gt;  TRUE          17246         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 19     &lt;NA&gt;         &lt;NA&gt;          &lt;NA&gt;  TRUE          17246         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 20     &lt;NA&gt;         &lt;NA&gt;          &lt;NA&gt;  TRUE          17246         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 21     &lt;NA&gt;         &lt;NA&gt;          &lt;NA&gt;  TRUE          17246         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 22     &lt;NA&gt;         &lt;NA&gt;          &lt;NA&gt;  TRUE          17246         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 23     &lt;NA&gt;         &lt;NA&gt;          &lt;NA&gt;  TRUE          39737      16831</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 24     &lt;NA&gt;         &lt;NA&gt;          &lt;NA&gt;  TRUE          39737         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 25     &lt;NA&gt;         &lt;NA&gt;          &lt;NA&gt;  TRUE          39737         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 26     &lt;NA&gt;         &lt;NA&gt;          &lt;NA&gt;  TRUE          39737         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 27     &lt;NA&gt;         &lt;NA&gt;          &lt;NA&gt;  TRUE          19292         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 28     &lt;NA&gt;         &lt;NA&gt;          &lt;NA&gt;  TRUE          55747      19281</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 29     &lt;NA&gt;         &lt;NA&gt;          &lt;NA&gt;  TRUE          55747      57048</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 30     &lt;NA&gt;         &lt;NA&gt;          &lt;NA&gt;  TRUE          17414         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 31     &lt;NA&gt;         &lt;NA&gt;          &lt;NA&gt;  TRUE          17414         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 32     &lt;NA&gt;         &lt;NA&gt;          &lt;NA&gt;  TRUE          17414         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 33     &lt;NA&gt;         &lt;NA&gt;          &lt;NA&gt;  TRUE          17414         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 34     &lt;NA&gt;         &lt;NA&gt;          &lt;NA&gt;  TRUE          44027      25565</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 35     &lt;NA&gt;         &lt;NA&gt;          &lt;NA&gt;  TRUE          44027      25565</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 36     &lt;NA&gt;         &lt;NA&gt;          &lt;NA&gt;  TRUE          61957      27918</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 37     &lt;NA&gt;         &lt;NA&gt;          &lt;NA&gt;  TRUE          61957      27918</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 38     &lt;NA&gt;         &lt;NA&gt;          &lt;NA&gt;  TRUE          61957      27918</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 39     &lt;NA&gt;         &lt;NA&gt;          &lt;NA&gt;  TRUE          61957      27918</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 40     &lt;NA&gt;         &lt;NA&gt;          &lt;NA&gt;  TRUE          61957      27918</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 41     &lt;NA&gt;         &lt;NA&gt;          &lt;NA&gt;  TRUE          28915         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 42     &lt;NA&gt;         &lt;NA&gt;          &lt;NA&gt;  TRUE          28915         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 43     &lt;NA&gt;         &lt;NA&gt;          &lt;NA&gt;  TRUE          28915         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 44     &lt;NA&gt;         &lt;NA&gt;          &lt;NA&gt;  TRUE          28915         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 45     &lt;NA&gt;         &lt;NA&gt;          &lt;NA&gt;  TRUE          28915         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 46     &lt;NA&gt;         &lt;NA&gt;          &lt;NA&gt;  TRUE          19728      10946</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 47     &lt;NA&gt;         &lt;NA&gt;          &lt;NA&gt;  TRUE          19728      10946</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 48     &lt;NA&gt;         &lt;NA&gt;          &lt;NA&gt;  TRUE          40903         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 49     &lt;NA&gt;         &lt;NA&gt;          &lt;NA&gt;  TRUE          40903         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 50                  &lt;NA&gt;          &lt;NA&gt;  TRUE          48919         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 51                  &lt;NA&gt;          &lt;NA&gt;  TRUE          48919         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 52     &lt;NA&gt;         &lt;NA&gt;          &lt;NA&gt; FALSE          64607      64399</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 53     &lt;NA&gt;         &lt;NA&gt;          &lt;NA&gt; FALSE          64607      64399</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    mancGroup_group pmanc_group</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1               NA       11333</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2               NA       11333</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3               NA       11700</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4               NA       11700</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5               NA       11700</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6               NA       11700</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7               NA       12502</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8               NA       12502</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9               NA       12980</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10              NA       12980</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11              NA       12980</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12              NA       13405</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13              NA       13405</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14              NA       13405</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15              NA       16520</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16              NA       16520</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 17              NA       16520</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 18              NA       16520</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 19              NA       16520</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 20              NA       16520</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 21              NA       16520</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 22              NA       16520</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 23              NA       16831</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 24              NA       16831</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 25              NA       16831</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 26              NA       16831</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 27              NA       18292</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 28              NA       19281</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 29              NA       19281</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 30              NA       22653</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 31              NA       22653</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 32              NA       22653</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 33              NA       22653</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 34              NA       27359</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 35              NA       27359</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 36              NA       27918</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 37              NA       27918</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 38              NA       27918</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 39              NA       27918</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 40              NA       27918</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 41              NA       28195</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 42              NA       28195</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 43              NA       28195</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 44              NA       28195</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 45              NA       28195</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 46              NA       33024</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 47              NA       33024</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 48              NA       40930</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 49              NA       40930</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 50              NA       48918</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 51              NA       48918</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 52              NA       64399</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 53              NA       64399</span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 <span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span> <span class="co"># \dontrun{</span></span></span>
 <span class="r-in"><span><span class="co"># neurons where the recorded group and type group disagree</span></span></span>
