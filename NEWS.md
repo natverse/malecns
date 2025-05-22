@@ -1,3 +1,9 @@
+# malecns 0.3.5
+
+* Improved malecns bridging xform + plotting xform by @jefferis in https://github.com/flyconnectome/malecns/pull/30
+
+**Full Changelog**: https://github.com/flyconnectome/malecns/compare/v0.3.4...v0.3.5
+
 # malecns 0.3.4
 
 * add malecns vnc neuropil surface
