@@ -32,7 +32,7 @@ mcns_register_xforms <- function() {
 
 # this two component registration needs special handling
 register_manc_malecns <- function() {
-  reg=try(nat.templatebrains::shortest_bridging_seq(reference = "MANC", sample = 'JRCFIB2022M'))
+  reg=try(nat.templatebrains::shortest_bridging_seq(reference = "MANC", sample = 'JRCFIB2022M'), silent = TRUE)
   if(inherits(reg, 'try-error'))
     return(NULL)
   ureg=unlist(reg)
