@@ -17,8 +17,10 @@
     )
 
   res=try(mcns_register_xforms())
-  if(inherits(res, 'try-error'))
-    warning("Trouble registering malencs xforms.\n",
+  res2=try(register_manc_malecns())
+  if(inherits(res, 'try-error') || inherits(res2, 'try-error'))
+    warning("Trouble registering malecns xforms.\n",
             "Ask on #code or file an issue at https://github.com/flyconnectome/malecns/issues")
+
   invisible()
 }
