@@ -7,10 +7,12 @@ mcns_register_xforms <- function() {
   malehb_fafb14.tpsnm=nat::tpsreg(malehb_fafb14[3:5]*1e3, malehb_fafb14[6:8]*1e3)
 
   f2=system.file("landmarks/maleCNS_brain_FAFB_landmarks_um.csv", package = 'malecns')
+  # download.file('https://raw.githubusercontent.com/navis-org/navis-flybrains/refs/heads/main/flybrains/data/FAFB14_maleCNS_landmarks.csv', destfile = f2)
+  # malecns_fafb14.old = utils::read.csv(f2, header = T)
   malecns_fafb14 = utils::read.csv(f2, header = T)
 
-  malecns_fafb14.tps=nat::tpsreg(malecns_fafb14[2:4], malecns_fafb14[5:7])
-  malecns_fafb14.tpsnm=nat::tpsreg(malecns_fafb14[2:4]*1e3, malecns_fafb14[5:7]*1e3)
+  malecns_fafb14.tps=nat::tpsreg(malecns_fafb14[1:3]/1e3, malecns_fafb14[4:6]/1e3)
+  malecns_fafb14.tpsnm=nat::tpsreg(malecns_fafb14[1:3], malecns_fafb14[4:6])
 
   nat.templatebrains::add_reglist(malehb_fafb14.tps, sample = 'malehbum', reference = "FAFB14um")
   nat.templatebrains::add_reglist(malehb_fafb14.tpsnm, sample = 'malehb', reference = "FAFB14")
@@ -22,6 +24,21 @@ mcns_register_xforms <- function() {
   maleCNS_mirror_landmarks_nm <- utils::read.csv(f3)[-1]
   malecns_mirrorreg=nat::tpsreg(maleCNS_mirror_landmarks_nm[1:3], maleCNS_mirror_landmarks_nm[4:6])
   nat.templatebrains::add_reglist(malecns_mirrorreg, sample = 'malecns_mirror', reference = 'malecns')
+
+  f4=system.file("landmarks/malehb_fafb14_landmarks_um_v2.csv", package = 'malecns')
+  JRCFIB2022M_plotting_landmarks=utils::read.csv(f4)
+  nat.templatebrains::add_reglist(nat::tpsreg(JRCFIB2022M_plotting_landmarks[,1:3], reference = JRCFIB2022M_plotting_landmarks[,4:6]), sample="malecns", reference = "malecnsplot")
+}
+
+# this two component registration needs special handling
+register_manc_malecns <- function() {
+  reg=try(nat.templatebrains::shortest_bridging_seq(reference = "MANC", sample = 'JRCFIB2022M'))
+  if(inherits(reg, 'try-error'))
+    return(NULL)
+  ureg=unlist(reg)
+  post_reg=file.path(ureg, "post_registration")
+  compound_reg <- nat::reglist(post_reg, ureg, swap=c(F,F))
+  nat.templatebrains::add_reglist(compound_reg, reference = 'MANC', sample = 'malecnsum')
 }
 
 halfbrain2wholebrain <- function(x, units=c("raw", "nm", "microns", "um"), warn=TRUE) {

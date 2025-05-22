@@ -11,7 +11,14 @@
 #'   registrations using bigwarp and the presynapse predictions for the male
 #'   half brain and male cns. See
 #'   \href{https://flyconnectome.slack.com/archives/C02F6UCCU6B/p1652945492746389?thread_ts=1652423869.552919&cid=C02F6UCCU6B}{slack}
-#'   for details.
+#'   for details. And an
+#'   \href{https://flyconnectome.slack.com/archives/C02F6UCCU6B/p1747641901448259}{an
+#'   updated registration}.
+#'
+#'   There is a special space "malecnsplot" which brings the brain and VNC into
+#'   a more aligned orientation. See examples below and
+#'   \href{https://flyconnectome.slack.com/archives/C02F6UCCU6B/p1747645164139839}{slack
+#'   message}.
 #' @family malecns-package
 #' @examples
 #' \donttest{
@@ -42,6 +49,13 @@
 #' plot3d(da1.hb.mcns, col='cyan')
 #' plot3d(da1.1, col='red')
 #' plot3d(malecns.surf, alpha=.1)
+#'
+#' # compare plotting orientation with original templates
+#' plot3d(malecns_shell.surf)
+#' plot3d(malecnsvnc_shell.surf)
+#' plot3d(xform_brain(malecnsvnc_shell.surf, sample='malecns', ref='malecnsplot'), col='red')
+#' plot3d(xform_brain(malecns_shell.surf, sample='malecns', ref='malecnsplot'), col='red')
+#'
 #' }
 #' }
 "_PACKAGE"
