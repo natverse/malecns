@@ -10,7 +10,7 @@
                                  dataset = getOption('malecns.dataset')),
           silent = F)
   if (inherits(res, 'try-error'))
-    warning(
+    packageStartupMessage(
       "Trouble choosing default malecns dataset.\nTry running dr_malecns() and then ",
       "ask on #code or file an issue at\n",
       "https://github.com/flyconnectome/malecns/issues"
@@ -19,7 +19,7 @@
   res=try(mcns_register_xforms())
   res2=try(register_manc_malecns())
   if(inherits(res, 'try-error') || inherits(res2, 'try-error'))
-    message("Trouble registering malecns xforms.\n",
+    packageStartupMessage("Trouble registering malecns xforms.\n",
             "Ask on #code or file an issue at https://github.com/flyconnectome/malecns/issues")
 
   invisible()
