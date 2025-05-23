@@ -160,7 +160,7 @@ manc_bodyid_groups <- function(groupids=NULL) {
   meta <- neuprintr:::neuprint_fix_column_types(meta, conn = conn)
   colnames(meta)=c("group", 'bodyid')
   if(is.null(groupids)) return(meta)
-  left_join(data.frame(group=malevnc::manc_ids(groupids, as_character = F)), meta, by='group')
+  dplyr::left_join(data.frame(group=malevnc::manc_ids(groupids, as_character = F)), meta, by='group')
 }
 
 #' @importFrom stats na.omit
