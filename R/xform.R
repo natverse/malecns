@@ -26,7 +26,7 @@ mcns_register_xforms <- function() {
   nat.templatebrains::add_reglist(malecns_mirrorreg, sample = 'malecns_mirror', reference = 'malecns')
 
   f4=system.file("landmarks/malehb_fafb14_landmarks_um_v2.csv", package = 'malecns')
-  JRCFIB2022M_plotting_landmarks=utils::read.csv(f4)
+  JRCFIB2022M_plotting_landmarks=utils::read.csv(f4, header = F)[-(1:2)]
   nat.templatebrains::add_reglist(nat::tpsreg(JRCFIB2022M_plotting_landmarks[,1:3], reference = JRCFIB2022M_plotting_landmarks[,4:6]), sample="malecns", reference = "malecnsplot")
 }
 
