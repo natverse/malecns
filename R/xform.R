@@ -25,9 +25,11 @@ mcns_register_xforms <- function() {
   malecns_mirrorreg=nat::tpsreg(maleCNS_mirror_landmarks_nm[1:3], maleCNS_mirror_landmarks_nm[4:6])
   nat.templatebrains::add_reglist(malecns_mirrorreg, sample = 'malecns_mirror', reference = 'malecns')
 
-  f4=system.file("landmarks/malehb_fafb14_landmarks_um_v2.csv", package = 'malecns')
-  JRCFIB2022M_plotting_landmarks=utils::read.csv(f4, header = F)[-(1:2)]
+  f4=system.file("landmarks/JRCFIB2022M_plotting_landmarks.csv", package = 'malecns')
+  JRCFIB2022M_plotting_landmarks=utils::read.csv(f4, header = T)
   nat.templatebrains::add_reglist(nat::tpsreg(JRCFIB2022M_plotting_landmarks[,1:3], reference = JRCFIB2022M_plotting_landmarks[,4:6]), sample="malecns", reference = "malecnsplot")
+
+  nat.templatebrains::add_reglist(nat::tpsreg(JRCFIB2022M_plotting_landmarks[,1:3]/1e3, reference = JRCFIB2022M_plotting_landmarks[,4:6]/1e3), sample="malecnsum", reference = "malecnsumplot")
 }
 
 # this two component registration needs special handling
