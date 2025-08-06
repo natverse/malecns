@@ -1,3 +1,7 @@
+# malecns 0.3.6
+
+* fix plotting transforms and switch to version 2 provided by @schlegelp
+
 # malecns 0.3.5
 
 * Improved malecns bridging xform + plotting xform by @jefferis in https://github.com/flyconnectome/malecns/pull/30
