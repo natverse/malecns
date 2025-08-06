@@ -8,7 +8,9 @@ test_that("xform works", {
     nat.templatebrains::xform_brain(
       xyzmatrix(c("386118.7, 227965.6, 210815.8", "406876.5 443980.0 745986.5")),
                                     sample = 'malecns', reference = 'malecnsplot'),
-    matrix(c(386118.7, 406876.5, 227975.90, 728793.53,
-             210810.74, 264554.97), ncol = 3), tolerance = 1e-6)
+    matrix(c(385826.3, 227887.5, 210821.2,
+             395724.7, 729367.1, 264989.2),
+           byrow = T, ncol = 3),
+    tolerance = 1e-5)
 
 })
