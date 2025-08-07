@@ -9,6 +9,10 @@
 #'   setting \code{Force=T} to ensure that the specified token is used if you
 #'   have already tried to log in during the current session. See examples for
 #'   code.
+#' @param dataset Allows you to override the neuprint dataset (which will
+#'   otherwise be chosen based on the value of \code{options(malecns.dataset)}
+#'   which would normally be changed by using the function
+#'   \code{\link{choose_mcns_dataset}})
 #' @param ... Additional arguments passed to \code{\link{neuprint_login}}
 #' @param token Optional neuprint access token (see details and examples if you
 #'   have trouble with multiple tokens).
@@ -33,8 +37,12 @@
 #' plot(cumsum(sort(anchormeta$pre, decreasing = TRUE)), ylab='Cumulative presynapses')
 #' plot(cumsum(sort(anchormeta$post, decreasing = TRUE)), ylab='Cumulative postsynapses')
 #' }
-mcns_neuprint <- function(token=Sys.getenv("neuprint_token"), Force=FALSE, ...) {
-  neuprintr::neuprint_login(server='https://neuprint-cns.janelia.org', dataset = "cns", token=token, Force=Force, ...)
+mcns_neuprint <- function(token=Sys.getenv("neuprint_token"),
+                          dataset=NULL, Force=FALSE, ...) {
+  if(is.null(dataset))
+    dataset=getOption("malecns.dataset", default = 'cns')
+  dataset=tolower(dataset)
+  neuprintr::neuprint_login(server='https://neuprint-cns.janelia.org', dataset = dataset, token=token, Force=Force, ...)
 }
 
 
