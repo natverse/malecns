@@ -7,7 +7,8 @@ choose_mcns swaps out the male vnc dataset for the male
   cns. This means that all functions from the malevnc package should
   target the male cns instead. It is recommended that you use the
   with_mcns function to do this temporarily unless you have no
-  intention of using the male vnc dataset."><meta property="og:description" content="malecns is a thin wrapper around malevnc which
+  intention of using the male vnc dataset. To switch the default
+  malecns dataset please see choose_mcns_dataset."><meta property="og:description" content="malecns is a thin wrapper around malevnc which
   operates by changing the server/dataset options of that package. This
   function temporarily changes those options, runs the required expression
   and then sets back again.
@@ -15,7 +16,8 @@ choose_mcns swaps out the male vnc dataset for the male
   cns. This means that all functions from the malevnc package should
   target the male cns instead. It is recommended that you use the
   with_mcns function to do this temporarily unless you have no
-  intention of using the male vnc dataset."></head><body>
+  intention of using the male vnc dataset. To switch the default
+  malecns dataset please see choose_mcns_dataset."></head><body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
 
 
@@ -45,7 +47,7 @@ choose_mcns swaps out the male vnc dataset for the male
   <main id="main" class="col-md-9"><div class="page-header">
 
       <h1>Evaluate an expression after temporarily setting malevnc options</h1>
-      <small class="dont-index">Source: <a href="https://github.com/flyconnectome/malecns/blob/v0.3.6/R/urls.R" class="external-link"><code>R/urls.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/flyconnectome/malecns/blob/master/R/urls.R" class="external-link"><code>R/urls.R</code></a></small>
       <div class="d-none name"><code>with_mcns.Rd</code></div>
     </div>
 
@@ -58,7 +60,8 @@ choose_mcns swaps out the male vnc dataset for the male
   cns. This means that all functions from the <code>malevnc</code> package should
   target the male cns instead. It is recommended that you use the
   <code>with_mcns</code> function to do this temporarily unless you have no
-  intention of using the male vnc dataset.</p>
+  intention of using the male vnc dataset. <em>To switch the default
+  malecns dataset please see <code>choose_mcns_dataset</code></em>.</p>
     </div>
 
     <div class="section level2">
@@ -80,6 +83,13 @@ choose_mcns swaps out the male vnc dataset for the male
 <dd><p>The name of the dataset as reported in Clio e.g. CNS, VNC etc</p></dd>
 
 </dl></div>
+    <div class="section level2">
+    <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
+    <div class="dont-index"><p>Other malecns-package:
+<code><a href="choose_mcns_dataset.html">choose_mcns_dataset</a>()</code>,
+<code><a href="dr_malecns.html">dr_malecns</a>()</code>,
+<code><a href="malecns-package.html">malecns-package</a></code></p></div>
+    </div>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>

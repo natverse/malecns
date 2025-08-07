@@ -29,7 +29,7 @@
   <main id="main" class="col-md-9"><div class="page-header">
 
       <h1>malecns: Access to the latest 'Janelia FlyEM' datasets</h1>
-      <small class="dont-index">Source: <a href="https://github.com/flyconnectome/malecns/blob/v0.3.6/R/malecns-package.R" class="external-link"><code>R/malecns-package.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/flyconnectome/malecns/blob/master/R/malecns-package.R" class="external-link"><code>R/malecns-package.R</code></a></small>
       <div class="d-none name"><code>malecns-package.Rd</code></div>
     </div>
 
@@ -41,8 +41,10 @@
     <div class="section level2">
     <h2 id="package-options">Package Options<a class="anchor" aria-label="anchor" href="#package-options"></a></h2>
     <p></p><ul><li><p><code>malecns.dataset</code> This is to used to keep track of the active
-  dataset. At present it is only for expert use and it is not recommended
-  that you change this manually.</p></li>
+  malecns dataset. You can use it to switch between production and snapshot
+  datasets. It is recommended to do this via the <code><a href="choose_mcns_dataset.html">choose_mcns_dataset</a></code>
+  function for each R session. Expert users may also wish to see the option
+  directly in their <code>.Rprofile</code> file.</p></li>
 </ul></div>
     <div class="section level2">
     <h2 id="bridging-registrations">Bridging registrations<a class="anchor" aria-label="anchor" href="#bridging-registrations"></a></h2>
@@ -64,7 +66,9 @@
 <li><p><a href="https://flyconnectome.github.io/malecns/">https://flyconnectome.github.io/malecns/</a></p></li>
 <li><p>Report bugs at <a href="https://github.com/flyconnectome/malecns/issues" class="external-link">https://github.com/flyconnectome/malecns/issues</a></p></li>
 </ul><p>Other malecns-package:
-<code><a href="dr_malecns.html">dr_malecns</a>()</code></p></div>
+<code><a href="choose_mcns_dataset.html">choose_mcns_dataset</a>()</code>,
+<code><a href="dr_malecns.html">dr_malecns</a>()</code>,
+<code><a href="with_mcns.html">with_mcns</a>()</code></p></div>
     </div>
     <div class="section level2">
     <h2 id="author">Author<a class="anchor" aria-label="anchor" href="#author"></a></h2>
@@ -81,6 +85,9 @@
 <span class="r-in"><span><span class="co"># }</span></span></span>
 <span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span> <span class="co"># \dontrun{</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="dr_malecns.html">dr_malecns</a></span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># edit .Rprofile to set package options (expert use)</span></span></span>
+<span class="r-in"><span><span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/edit.html" class="external-link">edit_r_profile</a></span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">}</span> <span class="co"># }</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># \donttest{</span></span></span>

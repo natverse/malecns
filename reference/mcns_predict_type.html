@@ -29,7 +29,7 @@
   <main id="main" class="col-md-9"><div class="page-header">
 
       <h1>Predict the cell type of male cns neurons from type and name/instance fields</h1>
-      <small class="dont-index">Source: <a href="https://github.com/flyconnectome/malecns/blob/v0.3.6/R/type.R" class="external-link"><code>R/type.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/flyconnectome/malecns/blob/master/R/type.R" class="external-link"><code>R/type.R</code></a></small>
       <div class="d-none name"><code>mcns_predict_type.Rd</code></div>
     </div>
 
@@ -91,6 +91,7 @@ datasets (see details).</p></dd>
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
+<span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">mnm.ti</span> <span class="op">&lt;-</span> <span class="fu"><a href="mcns_neuprint_meta.html">mcns_neuprint_meta</a></span><span class="op">(</span><span class="st">'where:exists(n.type) OR exists(n.instance)'</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="co"># Descending neurons with the wrong superclass</span></span></span>
 <span class="r-in"><span><span class="va">mnm.ti</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
@@ -7572,8 +7573,8 @@ datasets (see details).</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 937    5873465137                LB0        M     12405            LB      00A</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 938    3953257373                LB0        M     11466            LB      00A</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 939    6342538544                LB0        M     10205            LB      00B</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 940    2719227310               &lt;NA&gt;        R      &lt;NA&gt;           GNG 05B_tbd3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 941    2585556089               &lt;NA&gt;        L      &lt;NA&gt;           GNG 05B_tbd3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 940    2719227310               &lt;NA&gt;        R      &lt;NA&gt;           GNG 05B_tbd2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 941    2585556089               &lt;NA&gt;        L      &lt;NA&gt;           GNG 05B_tbd2</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 942     584598644                LB7        L     19691            LB      07B</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 943     606661112                LB7        R     19691            LB      07B</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 944    2777808058               &lt;NA&gt;        L      &lt;NA&gt;            MX  27X_tbd</span>
@@ -7937,8 +7938,8 @@ datasets (see details).</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1302   2975555101               &lt;NA&gt;     &lt;NA&gt;      &lt;NA&gt;          &lt;NA&gt;     &lt;NA&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1303   3140092882               &lt;NA&gt;     &lt;NA&gt;      &lt;NA&gt;          &lt;NA&gt;     &lt;NA&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1304   2667535756               &lt;NA&gt;     &lt;NA&gt;      &lt;NA&gt;          &lt;NA&gt;     &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1305   2516905347               &lt;NA&gt;        L      &lt;NA&gt;           GNG 05B_tbd3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1306   2189290423               &lt;NA&gt;        R      &lt;NA&gt;           GNG 05B_tbd3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1305   2516905347               &lt;NA&gt;        L      &lt;NA&gt;           GNG 05B_tbd2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1306   2189290423               &lt;NA&gt;        R      &lt;NA&gt;           GNG 05B_tbd2</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           somaLocation  group mancGroup         mancType trumanHlVncOnly</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1    35932,19030,15516  10442     10751            DNa01            &lt;NA&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2    61859,18689,15971  10442     10751            DNa01            &lt;NA&gt;</span>
@@ -16454,7 +16455,7 @@ datasets (see details).</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 670  list(45793, 46521, 43456),list(name = "cartesian-3d", properties = list(href = "http://spatialreference.org/ref/sr-org/9157/ogcwkt/", type = "ogcwkt"), srid = 9157, type = "link"),Point</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 671  list(51975, 44767, 43456),list(name = "cartesian-3d", properties = list(href = "http://spatialreference.org/ref/sr-org/9157/ogcwkt/", type = "ogcwkt"), srid = 9157, type = "link"),Point</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 672  list(46036, 47095, 43456),list(name = "cartesian-3d", properties = list(href = "http://spatialreference.org/ref/sr-org/9157/ogcwkt/", type = "ogcwkt"), srid = 9157, type = "link"),Point</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 673                                                                                                                                                                          51695,45319,43456</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 673  list(51695, 45319, 43456),list(name = "cartesian-3d", properties = list(href = "http://spatialreference.org/ref/sr-org/9157/ogcwkt/", type = "ogcwkt"), srid = 9157, type = "link"),Point</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 674                                                                                                                                                                          50848,45386,43456</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 675                                                                                                                                                                          46424,47557,43456</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 676                                                                                                                                                                          46304,48356,43456</span>
@@ -19068,7 +19069,7 @@ datasets (see details).</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 670  list(45979, 52336, 57845),list(name = "cartesian-3d", properties = list(href = "http://spatialreference.org/ref/sr-org/9157/ogcwkt/", type = "ogcwkt"), srid = 9157, type = "link"),Point</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 671  list(54720, 51832, 57845),list(name = "cartesian-3d", properties = list(href = "http://spatialreference.org/ref/sr-org/9157/ogcwkt/", type = "ogcwkt"), srid = 9157, type = "link"),Point</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 672  list(46387, 52796, 57845),list(name = "cartesian-3d", properties = list(href = "http://spatialreference.org/ref/sr-org/9157/ogcwkt/", type = "ogcwkt"), srid = 9157, type = "link"),Point</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 673                                                                                                                                                                          54602,52496,57845</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 673  list(54602, 52496, 57845),list(name = "cartesian-3d", properties = list(href = "http://spatialreference.org/ref/sr-org/9157/ogcwkt/", type = "ogcwkt"), srid = 9157, type = "link"),Point</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 674                                                                                                                                                                          52702,53455,57845</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 675                                                                                                                                                                          46713,53280,57845</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 676                                                                                                                                                                          46688,53581,57845</span>
