@@ -4,11 +4,21 @@
 \alias{mcns_neuprint}
 \title{Login to male CNS neuprint server}
 \usage{
-mcns_neuprint(token = Sys.getenv("neuprint_token"), Force = FALSE, ...)
+mcns_neuprint(
+  token = Sys.getenv("neuprint_token"),
+  dataset = NULL,
+  Force = FALSE,
+  ...
+)
 }
 \arguments{
 \item{token}{Optional neuprint access token (see details and examples if you
 have trouble with multiple tokens).}
+
+\item{dataset}{Allows you to override the neuprint dataset (which will
+otherwise be chosen based on the value of \code{options(malecns.dataset)}
+which would normally be changed by using the function
+\code{\link{choose_mcns_dataset}})}
 
 \item{Force}{Whether to force a new login to the CATMAID server (default
 \code{FALSE})}

@@ -7,6 +7,7 @@
 #'
 #' @param expr An expression to evaluate with a default autosegmentation
 #' @param dataset The name of the dataset as reported in Clio e.g. CNS, VNC etc
+#' @family malecns-package
 #' @export
 #' @examples
 #' \dontrun{
@@ -18,16 +19,50 @@ with_mcns <- function(expr, dataset=getOption("malecns.dataset")) {
   force(expr)
 }
 
+#' Switch the default dataset for \code{mcns_*} functions
+#' @param dataset The name of the dataset as reported in Clio e.g. CNS,  etc
+#' @family malecns-package
+#' @export
+#' @description \code{choose_mcns_dataset} This sets the default dataset used by
+#'   all \code{mcns_*} functions. It is the recommended way to access malecns
+#'   snapshots. Unlike \code{\link{choose_mcns}} it does \emph{not} permanently
+#'   change the default dataset used when callers use functions from the
+#'   \code{malevnc} package (such as \code{malevnc::manc_xyz2bodyid}) directly.
+#'
+#' @examples
+#' \dontrun{
+#' # use the v0.9 snapshot for the rest of this R session
+#' choose_mcns_dataset("male-cns:v0.9")
+#' # use production for the rest of this R session
+#' choose_mcns_dataset("CNS")
+#' }
+choose_mcns_dataset <- function(dataset='CNS') {
+  if(dataset=='cns') {
+    dataset='CNS'
+  }
+
+  # this will check that this is a sensible value and error if not
+  malevnc::choose_flyem_dataset(dataset, set=F)
+
+  old_dataset=getOption("malecns.dataset", default = 'CNS')
+  if(old_dataset!=dataset)
+    message("switching CNS dataset from `", old_dataset, '` to `', dataset,'`')
+
+  options(malecns.dataset = dataset)
+}
+
 #' @export
 #' @rdname with_mcns
 #' @description \code{choose_mcns} swaps out the male vnc dataset for the male
 #'   cns. This means that all functions from the \code{malevnc} package should
 #'   target the male cns instead. It is recommended that you use the
 #'   \code{with_mcns} function to do this temporarily unless you have no
-#'   intention of using the male vnc dataset.
+#'   intention of using the male vnc dataset. \emph{To switch the default
+#'   malecns dataset please see \code{choose_mcns_dataset}}.
 choose_mcns <- function(dataset=getOption("malecns.dataset")) {
   malevnc::choose_flyem_dataset(set=TRUE, dataset = dataset)
 }
+
 
 #' Construct a neuroglancer scene for CNS dataset
 #'

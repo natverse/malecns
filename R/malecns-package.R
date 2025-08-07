@@ -2,8 +2,10 @@
 #' @section Package Options: \itemize{
 #'
 #'   \item \code{malecns.dataset} This is to used to keep track of the active
-#'   dataset. At present it is only for expert use and it is not recommended
-#'   that you change this manually.
+#'   malecns dataset. You can use it to switch between production and snapshot
+#'   datasets. It is recommended to do this via the \code{\link{choose_mcns_dataset}}
+#'   function for each R session. Expert users may also wish to see the option
+#'   directly in their \code{.Rprofile} file.
 #'
 #'   }
 #'
@@ -26,6 +28,9 @@
 #' }
 #' \dontrun{
 #' dr_malecns()
+#'
+#' # edit .Rprofile to set package options (expert use)
+#' usethis::edit_r_profile()
 #' }
 #'
 #' \donttest{

@@ -42,6 +42,7 @@ Note that when \code{prefer.foreign=TRUE} or
 }
 \examples{
 \donttest{
+library(dplyr)
 mnm.ti <- mcns_neuprint_meta('where:exists(n.type) OR exists(n.instance)')
 # Descending neurons with the wrong superclass
 mnm.ti \%>\%
