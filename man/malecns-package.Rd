@@ -12,8 +12,10 @@ Provides access to the latest 'Janelia FlyEM' datasets by providing a thin wrapp
  \itemize{
 
   \item \code{malecns.dataset} This is to used to keep track of the active
-  dataset. At present it is only for expert use and it is not recommended
-  that you change this manually.
+  malecns dataset. You can use it to switch between production and snapshot
+  datasets. It is recommended to do this via the \code{\link{choose_mcns_dataset}}
+  function for each R session. Expert users may also wish to see the option
+  directly in their \code{.Rprofile} file.
 
   }
 }
@@ -39,6 +41,9 @@ options()[grepl("^malecns", names(options()))]
 }
 \dontrun{
 dr_malecns()
+
+# edit .Rprofile to set package options (expert use)
+usethis::edit_r_profile()
 }
 
 \donttest{
@@ -82,7 +87,9 @@ Useful links:
 
 
 Other malecns-package: 
-\code{\link{dr_malecns}()}
+\code{\link{choose_mcns_dataset}()},
+\code{\link{dr_malecns}()},
+\code{\link{with_mcns}()}
 }
 \author{
 \strong{Maintainer}: Gregory Jefferis \email{jefferis@gmail.com} (\href{https://orcid.org/0000-0002-0587-9355}{ORCID})

@@ -24,10 +24,18 @@ choose_mcns(dataset = getOption("malecns.dataset"))
   cns. This means that all functions from the \code{malevnc} package should
   target the male cns instead. It is recommended that you use the
   \code{with_mcns} function to do this temporarily unless you have no
-  intention of using the male vnc dataset.
+  intention of using the male vnc dataset. \emph{To switch the default
+  malecns dataset please see \code{choose_mcns_dataset}}.
 }
 \examples{
 \dontrun{
 with_mcns(malevnc::manc_dvid_node(type = 'clio'))
 }
 }
+\seealso{
+Other malecns-package: 
+\code{\link{choose_mcns_dataset}()},
+\code{\link{dr_malecns}()},
+\code{\link{malecns-package}}
+}
+\concept{malecns-package}
