@@ -681,29 +681,29 @@ at <code>spatialreference.org</code>. Defaults to <code>TRUE</code>.</p></dd>
 <span class="r-in"><span><span class="va">mnm.nsc</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html" class="external-link">count</a></span><span class="op">(</span><span class="va">statusLabel</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>              statusLabel    n</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1              0.5assign   48</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                 Anchor  588</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                   Glia  393</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2                 Anchor  587</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3                   Glia  394</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 4          Hard to trace    1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 5                 Leaves  411</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6                 Orphan 3499</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6                 Orphan 3504</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 7        Orphan hotknife 1017</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 8        Orphan-artifact 1931</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 9           Out of scope 1591</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10            PRT Orphan   23</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11 Prelim Roughly traced   25</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12        Primary Anchor  432</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10            PRT Orphan   38</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11 Prelim Roughly traced   27</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12        Primary Anchor  411</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 13      RT Hard to trace    1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 14        Roughly traced    2</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 15        Sensory Anchor  193</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 16           Soma Anchor   28</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 17           Unimportant  160</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18                  &lt;NA&gt;  469</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 18                  &lt;NA&gt;  468</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># neurons that are RT or PRT should probably have a superclass</span></span></span>
 <span class="r-in"><span><span class="va">mnm.nscprt</span><span class="op">=</span><span class="fu">mcns_neuprint_meta</span><span class="op">(</span><span class="st">"where:NOT exists(n.superclass) AND n.statusLabel CONTAINS 'Roughly'"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">mnm.nscprt</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html" class="external-link">count</a></span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    n</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 27</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 29</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

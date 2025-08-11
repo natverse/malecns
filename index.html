@@ -83,7 +83,11 @@
 <span><span class="va">pnmeta</span><span class="op">=</span><span class="fu"><a href="reference/mcns_neuprint_meta.html">mcns_neuprint_meta</a></span><span class="op">(</span><span class="st">'/.+_[adl]+PN'</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/table.html" class="external-link">table</a></span><span class="op">(</span><span class="va">pnmeta</span><span class="op">$</span><span class="va">type</span><span class="op">)</span></span>
 <span><span class="va">vm6</span><span class="op">=</span><span class="fu"><a href="reference/read_mcns_meshes.html">read_mcns_meshes</a></span><span class="op">(</span><span class="st">'VM6_adPN'</span><span class="op">)</span></span>
-<span><span class="fu">plot3d</span><span class="op">(</span><span class="va">malecns.surf</span>, alpha<span class="op">=</span><span class="fl">.1</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu">plot3d</span><span class="op">(</span><span class="va">malecns.surf</span>, alpha<span class="op">=</span><span class="fl">.1</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># compare query for production vs snapshot</span></span>
+<span><span class="fu"><a href="reference/with_mcns.html">with_mcns</a></span><span class="op">(</span><span class="fu"><a href="reference/mcns_body_annotations.html">mcns_body_annotations</a></span><span class="op">(</span><span class="fl">194965</span><span class="op">)</span>, dataset <span class="op">=</span> <span class="st">"CNS"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/with_mcns.html">with_mcns</a></span><span class="op">(</span><span class="fu"><a href="reference/mcns_body_annotations.html">mcns_body_annotations</a></span><span class="op">(</span><span class="fl">194965</span><span class="op">)</span>, dataset <span class="op">=</span> <span class="st">"male-cns:v0.9"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="introduction">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
@@ -125,19 +129,15 @@
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/flyconnectome/malecns" class="external-link">malecns</a></span><span class="op">)</span></span>
 <span><span class="co">## read meshes for some annotated neurons</span></span>
 <span></span>
-<span><span class="va">gs</span><span class="op">=</span><span class="st">"https://docs.google.com/spreadsheets/d/13e2yboGmSHrkdew0REkqXWrx5PfHrwPbZZArySjIHtA/edit?usp=sharing"</span></span>
-<span><span class="va">mca</span><span class="op">=</span><span class="fu">googlesheets4</span><span class="fu">::</span><span class="fu">read_sheet</span><span class="op">(</span><span class="va">gs</span><span class="op">)</span></span>
-<span><span class="co"># update bodyids based on XYZ position</span></span>
-<span><span class="va">mca</span><span class="op">$</span><span class="va">position</span><span class="op">=</span><span class="fu"><a href="reference/mcns_xyz2bodyid.html">mcns_xyz2bodyid</a></span><span class="op">(</span><span class="va">mca</span><span class="op">$</span><span class="va">position</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">confirmed_neurondf</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/subset.html" class="external-link">subset</a></span><span class="op">(</span><span class="va">mca</span>, <span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html" class="external-link">is.na</a></span><span class="op">(</span><span class="va">ontology</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="va">ml</span><span class="op">=</span><span class="fu"><a href="reference/read_mcns_meshes.html">read_mcns_meshes</a></span><span class="op">(</span><span class="va">confirmed_neurondf</span><span class="op">)</span></span>
-<span><span class="fu">plot3d</span><span class="op">(</span><span class="va">ml</span>, col<span class="op">=</span><span class="va">symbol</span><span class="op">)</span></span>
+<span><span class="va">ml</span><span class="op">=</span><span class="fu"><a href="reference/read_mcns_meshes.html">read_mcns_meshes</a></span><span class="op">(</span><span class="st">"/type:(DA1|DL3)_lPN"</span><span class="op">)</span></span>
+<span><span class="co"># set metadata for this neuronlist</span></span>
+<span><span class="va">ml</span><span class="op">[</span>,<span class="op">]</span><span class="op">=</span><span class="fu"><a href="reference/mcns_neuprint_meta.html">mcns_neuprint_meta</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">ml</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu">plot3d</span><span class="op">(</span><span class="va">ml</span>, col<span class="op">=</span><span class="va">type</span><span class="op">)</span></span>
 <span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">natverse</span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/natverse/fafbseg" class="external-link">fafbseg</a></span><span class="op">)</span></span>
 <span><span class="co"># transform a point in FlyWire voxel space to malecns voxel space</span></span>
-<span><span class="co"># and put it on the clipbaord ready to paste into neuroglancer</span></span>
+<span><span class="co"># and put it on the clipboard ready to paste into neuroglancer</span></span>
 <span><span class="fu">clipr</span><span class="fu">::</span><span class="fu"><a href="http://matthewlincoln.net/clipr/reference/write_clip.html" class="external-link">write_clip</a></span><span class="op">(</span><span class="fu">xform_brain</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">cbind</a></span><span class="op">(</span><span class="fl">109953</span>, <span class="fl">50450</span>, <span class="fl">1660</span><span class="op">)</span><span class="op">*</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">4</span>,<span class="fl">4</span>,<span class="fl">40</span><span class="op">)</span>, </span>
 <span>  reference <span class="op">=</span> <span class="st">'malecns'</span>,   sample <span class="op">=</span> <span class="st">'FlyWire'</span><span class="op">)</span><span class="op">/</span><span class="fl">8</span><span class="op">)</span></span></code></pre></div>
 </div>
