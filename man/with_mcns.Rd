@@ -10,15 +10,16 @@ with_mcns(expr, dataset = getOption("malecns.dataset"))
 choose_mcns(dataset = getOption("malecns.dataset"))
 }
 \arguments{
-\item{expr}{An expression to evaluate with a default autosegmentation}
+\item{expr}{An expression involving malecns/malevnc functions to evaluate
+with the specified autosegmentation. .}
 
-\item{dataset}{The name of the dataset as reported in Clio e.g. CNS, VNC etc}
+\item{dataset}{The name of the dataset as reported in Clio e.g. \code{CNS},
+\code{male-cns:v0.9} etc.}
 }
 \description{
-\code{malecns} is a thin wrapper around \code{malevnc} which
-  operates by changing the server/dataset options of that package. This
-  function temporarily changes those options, runs the required expression
-  and then sets back again.
+\code{malecns} is a thin wrapper around \code{malevnc}. This
+  function temporarily changes the server/dataset options for the malevnc
+  while running your expression.
 
 \code{choose_mcns} swaps out the male vnc dataset for the male
   cns. This means that all functions from the \code{malevnc} package should
@@ -27,9 +28,22 @@ choose_mcns(dataset = getOption("malecns.dataset"))
   intention of using the male vnc dataset. \emph{To switch the default
   malecns dataset please see \code{choose_mcns_dataset}}.
 }
+\details{
+Note that as of 11 Aug 2025 it also switches out the active dataset
+  for the malecns package if you specify something different using the
+  \code{dataset} argument. This is probably what people always expected and
+  allows you to easily run the same expression for e.g. production vs
+  snapshot malecns datasets.
+}
 \examples{
 \dontrun{
 with_mcns(malevnc::manc_dvid_node(type = 'clio'))
+}
+\donttest{
+# This should work for both clio and neuprint calls, here clio:
+# this body was typed after the v0.9 snapshot
+with_mcns(mcns_body_annotations(194965), dataset = "CNS")
+with_mcns(mcns_body_annotations(194965), dataset = "male-cns:v0.9")
 }
 }
 \seealso{

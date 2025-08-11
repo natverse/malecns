@@ -31,7 +31,8 @@ numeric vector (the default is character for safety).}
 
 \item{...}{Additional arguments passed to \code{\link[neuprintr]{neuprint_search}}}
 
-\item{dataset}{The name of the dataset as reported in Clio e.g. CNS, VNC etc}
+\item{dataset}{The name of the dataset as reported in Clio e.g. \code{CNS},
+\code{male-cns:v0.9} etc.}
 }
 \value{
 A vector of numeric ids with mode determined by \code{as_character}
