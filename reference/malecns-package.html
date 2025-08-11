@@ -40,12 +40,21 @@
 
     <div class="section level2">
     <h2 id="package-options">Package Options<a class="anchor" aria-label="anchor" href="#package-options"></a></h2>
-    <p></p><ul><li><p><code>malecns.dataset</code> This is to used to keep track of the active
-  malecns dataset. You can use it to switch between production and snapshot
-  datasets. It is recommended to do this via the <code><a href="choose_mcns_dataset.html">choose_mcns_dataset</a></code>
-  function for each R session. Expert users may also wish to see the option
-  directly in their <code>.Rprofile</code> file.</p></li>
-</ul></div>
+    <p>There is just one package option:</p>
+<ul><li><p><code>malecns.dataset</code> This is to used to keep track of the active
+  malecns dataset.</p></li>
+</ul><p>This is now of more than internal use as you can use it run your code
+  against the production dataset (still the default) or a snapshot. There are
+  essentially three main ways to do this, from safest/least intrusive to most
+  intrusive. I recommend using option 1 for one-off queries and option 2 if
+  you want to run a series of commands within a script.</p>
+<p></p><ol><li><p>Use <code><a href="with_mcns.html">with_mcns</a>(dataset="&lt;name of dataset&gt;")</code> to run a
+  piece of code without switching the default malecns dataset.</p></li>
+<li><p>Use the <code><a href="choose_mcns_dataset.html">choose_mcns_dataset</a></code> to choose a default malecns
+  dataset for the rest of the session (or until you change it again).</p></li>
+<li><p>Expert users may also wish to set the <code>malecns.dataset</code> option
+  directly in their <code>.Rprofile</code> file to set a permanent default.</p></li>
+</ol></div>
     <div class="section level2">
     <h2 id="bridging-registrations">Bridging registrations<a class="anchor" aria-label="anchor" href="#bridging-registrations"></a></h2>
     <p>Philipp Schlegel has made bridging
@@ -85,6 +94,15 @@
 <span class="r-in"><span><span class="co"># }</span></span></span>
 <span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span> <span class="co"># \dontrun{</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="dr_malecns.html">dr_malecns</a></span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># run expression without changing default malecns dataset</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="with_mcns.html">with_mcns</a></span><span class="op">(</span><span class="fu"><a href="mcns_body_annotations.html">mcns_body_annotations</a></span><span class="op">(</span><span class="fl">194965</span><span class="op">)</span>, dataset <span class="op">=</span> <span class="st">"male-cns:v0.9"</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># run expression(s) after changing default malecns dataset</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="choose_mcns_dataset.html">choose_mcns_dataset</a></span><span class="op">(</span><span class="st">"male-cns:v0.9"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="mcns_body_annotations.html">mcns_body_annotations</a></span><span class="op">(</span><span class="fl">194965</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="choose_mcns_dataset.html">choose_mcns_dataset</a></span><span class="op">(</span><span class="st">"CNS"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="mcns_body_annotations.html">mcns_body_annotations</a></span><span class="op">(</span><span class="fl">194965</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># edit .Rprofile to set package options (expert use)</span></span></span>
 <span class="r-in"><span><span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/edit.html" class="external-link">edit_r_profile</a></span><span class="op">(</span><span class="op">)</span></span></span>
