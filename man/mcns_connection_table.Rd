@@ -55,10 +55,10 @@ Connectivity query for CNS neurons
 }
 \examples{
 library(dplyr)
-mcns_connection_table('DNa02', partners = 'out') |> head()
-mcns_connection_table('DNa02', partners = 'out', summary = TRUE) |> head()
+mcns_connection_table('DNa02', partners = 'out') \%>\% head()
+mcns_connection_table('DNa02', partners = 'out', summary = TRUE) \%>\% head()
 # return weight of outputs in the brain specifically (see ROIweight column)
-mcns_connection_table('DNa02', partners = 'out', roi='CentralBrain') |> head()
+mcns_connection_table('DNa02', partners = 'out', roi='CentralBrain') \%>\% head()
 
 \donttest{
 joffrey.id=mcns_xyz2bodyid(cbind(24590, 13816, 26102)+4096, node = 'neuprint')

@@ -64,10 +64,10 @@ mcns_neuprint <- function(token=Sys.getenv("neuprint_token"),
 #'
 #' @examples
 #' library(dplyr)
-#' mcns_connection_table('DNa02', partners = 'out') |> head()
-#' mcns_connection_table('DNa02', partners = 'out', summary = TRUE) |> head()
+#' mcns_connection_table('DNa02', partners = 'out') %>% head()
+#' mcns_connection_table('DNa02', partners = 'out', summary = TRUE) %>% head()
 #' # return weight of outputs in the brain specifically (see ROIweight column)
-#' mcns_connection_table('DNa02', partners = 'out', roi='CentralBrain') |> head()
+#' mcns_connection_table('DNa02', partners = 'out', roi='CentralBrain') %>% head()
 #'
 #' \donttest{
 #' joffrey.id=mcns_xyz2bodyid(cbind(24590, 13816, 26102)+4096, node = 'neuprint')
@@ -132,16 +132,16 @@ mcns_connection_table <- function(ids, partners=c("inputs", "outputs"),
 #'
 #' # neurons without a superclass but quite a few synapses
 #' mnm.nc=mcns_neuprint_meta("where:NOT exists(n.superclass) AND n.synweight>2000")
-#' mnm.nc |> arrange(desc(synweight))
+#' mnm.nc %>% arrange(desc(synweight))
 #' }
 #' library(dplyr)
 #' # Which neurons don't have a superclass, but possibly should
 #' mnm.nsc=mcns_neuprint_meta("where:NOT exists(n.superclass)")
-#' mnm.nsc |> count(statusLabel)
+#' mnm.nsc %>% count(statusLabel)
 #'
 #' # neurons that are RT or PRT should probably have a superclass
 #' mnm.nscprt=mcns_neuprint_meta("where:NOT exists(n.superclass) AND n.statusLabel CONTAINS 'Roughly'")
-#' mnm.nscprt |> count()
+#' mnm.nscprt %>% count()
 mcns_neuprint_meta <- function(ids=NULL, conn=mcns_neuprint(), roiInfo=FALSE,
                                simplify.xyz=TRUE, ...) {
   res=with_mcns(malevnc::manc_neuprint_meta(ids,conn=conn, roiInfo = roiInfo, fields.regex.exclude='^col_[0-9]+', ...))

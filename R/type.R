@@ -34,7 +34,7 @@
 #'   filter(superclass!='Descending' | is.na(superclass))
 #'
 #' # report all the different types available for these two VPNs
-#' mcns_predict_type("LoVP106", method = 'all') |>
+#' mcns_predict_type("LoVP106", method = 'all') %>%
 #'   select(matches('.ype'))
 #' # report just one type, preferring malecns type (the default)
 #' mcns_predict_type("LoVP106")
