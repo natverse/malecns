@@ -39,6 +39,11 @@ pnmeta=mcns_neuprint_meta('/.+_[adl]+PN')
 table(pnmeta$type)
 vm6=read_mcns_meshes('VM6_adPN')
 plot3d(malecns.surf, alpha=.1)
+
+# compare query for production vs snapshot
+with_mcns(mcns_body_annotations(194965), dataset = "CNS")
+with_mcns(mcns_body_annotations(194965), dataset = "male-cns:v0.9")
+
 ```
 ## Introduction
 
@@ -105,19 +110,15 @@ and transform positions from FlyWire/FAFB14.
 library(malecns)
 ## read meshes for some annotated neurons
 
-gs="https://docs.google.com/spreadsheets/d/13e2yboGmSHrkdew0REkqXWrx5PfHrwPbZZArySjIHtA/edit?usp=sharing"
-mca=googlesheets4::read_sheet(gs)
-# update bodyids based on XYZ position
-mca$position=mcns_xyz2bodyid(mca$position)
-
-confirmed_neurondf=subset(mca, !is.na(ontology))
-ml=read_mcns_meshes(confirmed_neurondf)
-plot3d(ml, col=symbol)
+ml=read_mcns_meshes("/type:(DA1|DL3)_lPN")
+# set metadata for this neuronlist
+ml[,]=mcns_neuprint_meta(names(ml))
+plot3d(ml, col=type)
 
 library(natverse)
 library(fafbseg)
 # transform a point in FlyWire voxel space to malecns voxel space
-# and put it on the clipbaord ready to paste into neuroglancer
+# and put it on the clipboard ready to paste into neuroglancer
 clipr::write_clip(xform_brain(cbind(109953, 50450, 1660)*c(4,4,40), 
   reference = 'malecns',   sample = 'FlyWire')/8)
 ```
