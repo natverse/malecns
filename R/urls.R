@@ -1,21 +1,36 @@
 #' Evaluate an expression after temporarily setting malevnc options
 #'
-#' @description \code{malecns} is a thin wrapper around \code{malevnc} which
-#'   operates by changing the server/dataset options of that package. This
-#'   function temporarily changes those options, runs the required expression
-#'   and then sets back again.
+#' @description \code{malecns} is a thin wrapper around \code{malevnc}. This
+#'   function temporarily changes the server/dataset options for the malevnc
+#'   while running your expression.
 #'
-#' @param expr An expression to evaluate with a default autosegmentation
-#' @param dataset The name of the dataset as reported in Clio e.g. CNS, VNC etc
+#' @details Note that as of 11 Aug 2025 it also switches out the active dataset
+#'   for the malecns package if you specify something different using the
+#'   \code{dataset} argument. This is probably what people always expected and
+#'   allows you to easily run the same expression for e.g. production vs
+#'   snapshot malecns datasets.
+#'
+#' @param expr An expression involving malecns/malevnc functions to evaluate
+#'   with the specified autosegmentation. .
+#' @param dataset The name of the dataset as reported in Clio e.g. \code{CNS},
+#'   \code{male-cns:v0.9} etc.
 #' @family malecns-package
 #' @export
 #' @examples
 #' \dontrun{
 #' with_mcns(malevnc::manc_dvid_node(type = 'clio'))
 #' }
+#' \donttest{
+#' # This should work for both clio and neuprint calls, here clio:
+#' # this body was typed after the v0.9 snapshot
+#' with_mcns(mcns_body_annotations(194965), dataset = "CNS")
+#' with_mcns(mcns_body_annotations(194965), dataset = "male-cns:v0.9")
+#' }
 with_mcns <- function(expr, dataset=getOption("malecns.dataset")) {
   oldop <- malevnc::choose_flyem_dataset(dataset=dataset, set=T)
   on.exit(options(oldop))
+  oldop2 <- choose_mcns_dataset(dataset)
+  on.exit(options(oldop2), add = T)
   force(expr)
 }
 

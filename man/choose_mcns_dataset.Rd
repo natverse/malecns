@@ -17,8 +17,12 @@ choose_mcns_dataset(dataset = "CNS")
   \code{malevnc} package (such as \code{malevnc::manc_xyz2bodyid}) directly.
 }
 \examples{
-# example code
-
+\dontrun{
+# use the v0.9 snapshot for the rest of this R session
+choose_mcns_dataset("male-cns:v0.9")
+# use production for the rest of this R session
+choose_mcns_dataset("CNS")
+}
 }
 \seealso{
 Other malecns-package: 
