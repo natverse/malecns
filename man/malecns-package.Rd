@@ -9,13 +9,31 @@
 Provides access to the latest 'Janelia FlyEM' datasets by providing a thin wrapper around the 'malevnc' package.
 }
 \section{Package Options}{
- \itemize{
+ There is just one package option:
+
+\itemize{
 
   \item \code{malecns.dataset} This is to used to keep track of the active
-  malecns dataset. You can use it to switch between production and snapshot
-  datasets. It is recommended to do this via the \code{\link{choose_mcns_dataset}}
-  function for each R session. Expert users may also wish to see the option
-  directly in their \code{.Rprofile} file.
+  malecns dataset.
+
+  }
+
+  This is now of more than internal use as you can use it run your code
+  against the production dataset (still the default) or a snapshot. There are
+  essentially three main ways to do this, from safest/least intrusive to most
+  intrusive. I recommend using option 1 for one-off queries and option 2 if
+  you want to run a series of commands within a script.
+
+  \enumerate{
+
+  \item Use \code{\link{with_mcns}(dataset="<name of dataset>")} to run a
+  piece of code without switching the default malecns dataset.
+
+  \item Use the \code{\link{choose_mcns_dataset}} to choose a default malecns
+  dataset for the rest of the session (or until you change it again).
+
+  \item Expert users may also wish to set the \code{malecns.dataset} option
+  directly in their \code{.Rprofile} file to set a permanent default.
 
   }
 }
@@ -41,6 +59,15 @@ options()[grepl("^malecns", names(options()))]
 }
 \dontrun{
 dr_malecns()
+
+# run expression without changing default malecns dataset
+with_mcns(mcns_body_annotations(194965), dataset = "male-cns:v0.9")
+
+# run expression(s) after changing default malecns dataset
+choose_mcns_dataset("male-cns:v0.9")
+mcns_body_annotations(194965)
+choose_mcns_dataset("CNS")
+mcns_body_annotations(194965)
 
 # edit .Rprofile to set package options (expert use)
 usethis::edit_r_profile()
