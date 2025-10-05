@@ -26,8 +26,9 @@
 #' with_mcns(mcns_body_annotations(194965), dataset = "male-cns:v0.9")
 #' with_mcns(mcns_body_annotations(194965), dataset = "CNS")
 #' }
-with_mcns <- function(expr, dataset=getOption("malecns.dataset")) {
-  oldop <- malevnc::choose_flyem_dataset(dataset=dataset, set=T)
+with_mcns <- function(expr, dataset=getOption("malecns.dataset",
+                                              default = "male-cns:v0.9")) {
+  oldop <- choose_mcns(dataset)
   on.exit(options(oldop))
   oldop2 <- choose_mcns_dataset(dataset)
   on.exit(options(oldop2), add = T)
@@ -85,7 +86,7 @@ choose_mcns <- function(dataset=getOption("malecns.dataset", default = 'male-cns
       malevnc.neuprint='https://neuprint.janelia.org',
       malevnc.neuprint_dataset=dataset,
       malevnc.rootnode='f3969dc575d74e4f922a8966709958c8',
-      malevnc.server="https://emdata-mcns.janelia.org",
+      malevnc.server="https://emdata-mcns.janelia.org"
     )
     if(set) return(options(ops)) else return(ops)
   } else {
