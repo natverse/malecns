@@ -22,11 +22,6 @@
     "You can switch to a snapshot dataset in this R session with:\n",
     'choose_mcns_dataset("male-cns:v0.9")'
     )
-  } else {
-    packageStartupMessage(
-      "You may be able to switch to the production dataset in this R session with:\n",
-      "choose_mcns_dataset('CNS')"
-      )
   }
   packageStartupMessage(
     'See ?malecns section Package Options for details.')
