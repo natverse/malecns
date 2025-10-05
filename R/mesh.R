@@ -57,9 +57,6 @@ read_mcns_meshes <- function(ids, units=c("nm", "raw", "microns"),
 
 #' @importFrom glue glue
 read_mcns_mesh <- function(id, node, type, ...) {
-  ss=malevnc:::flyem_servers4dataset(getOption("malecns.dataset", default = "male-cns:v0.9"))
-  dvid = ss$dvid
-  support = ss$support
   if(type %in% c("auto", "dvid")) {
     res <- try(with_mcns(malevnc:::read_manc_neuroglancer_mesh(id, node)))
     if(inherits(res, 'try-error')) {
@@ -68,6 +65,9 @@ read_mcns_mesh <- function(id, node, type, ...) {
     }
   }
   if(type=='small') {
+    ss=malevnc:::flyem_servers4dataset(getOption("malecns.dataset", default = "male-cns:v0.9"))
+    dvid = ss$dvid
+    support = ss$support
     u = glue("{support}/small-mesh?dvid={dvid}&uuid={node}&body={id}&decimation=0.5")
     res=malevnc:::read_neuroglancer_mesh(u, ...)
   }
