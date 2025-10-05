@@ -1,7 +1,7 @@
 .onLoad <- function(libname, pkgname) {
 
   op.malecns <- list(
-    malecns.dataset="CNS"
+    malecns.dataset="male-cns:v0.9"
   )
   op<-options()
   toset <- !(names(op.malecns) %in% names(op))
@@ -15,7 +15,7 @@
       "ask on #code or file an issue at\n",
       "https://github.com/flyconnectome/malecns/issues"
     )
-  ds=getOption('malecns.dataset', default = 'CNS')
+  ds=getOption('malecns.dataset', default = 'male-cns:v0.9')
   packageStartupMessage("Using malecns dataset `",ds,"`.")
   if(ds=='CNS') {
     packageStartupMessage(
@@ -24,12 +24,12 @@
     )
   } else {
     packageStartupMessage(
-      "You can switch to the production dataset in this R session with:\n",
+      "You may be able to switch to the production dataset in this R session with:\n",
       "choose_mcns_dataset('CNS')"
       )
   }
   packageStartupMessage(
-    'Permanently switch by setting `options("malecns.dataset"=<dataset>)` in .Rprofile')
+    'See ?malecns section Package Options for details.')
 
   res=try(mcns_register_xforms())
   res2=try(register_manc_malecns())

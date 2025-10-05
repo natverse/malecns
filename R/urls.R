@@ -51,7 +51,7 @@ with_mcns <- function(expr, dataset=getOption("malecns.dataset")) {
 #' # use production for the rest of this R session
 #' choose_mcns_dataset("CNS")
 #' }
-choose_mcns_dataset <- function(dataset='CNS') {
+choose_mcns_dataset <- function(dataset='male-cns:v0.9') {
   if(dataset=='cns') {
     dataset='CNS'
   }
