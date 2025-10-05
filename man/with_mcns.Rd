@@ -5,7 +5,10 @@
 \alias{choose_mcns}
 \title{Evaluate an expression after temporarily setting malevnc options}
 \usage{
-with_mcns(expr, dataset = getOption("malecns.dataset"))
+with_mcns(
+  expr,
+  dataset = getOption("malecns.dataset", default = "male-cns:v0.9")
+)
 
 choose_mcns(
   dataset = getOption("malecns.dataset", default = "male-cns:v0.9"),
@@ -20,7 +23,8 @@ with the specified autosegmentation. .}
 \item{dataset}{The name of the dataset as reported in Clio e.g. \code{CNS},
 \code{male-cns:v0.9} etc.}
 
-\item{set}{Whether to set the relevant package options or just to return the,}
+\item{set}{Whether to set the relevant package options or just to return a
+list of the required options.}
 
 \item{use_clio}{Whether to use clio to list datasets (expert use only;
 default of \code{use_clio=NA} should do the right thing).}
