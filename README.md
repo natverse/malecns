@@ -1,12 +1,27 @@
 # malecns
 
+<img src="man/figures/malecns-400h.jpg" align="right" height="200" 
+alt="A rendering by Phil Hubbard (Janelia) of a sample of male-cns neurons" title="male-cns by P. Hubbard"/>
+
 <!-- badges: start -->
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
-[![R-CMD-check](https://github.com/flyconnectome/malecns/workflows/R-CMD-check/badge.svg)](https://github.com/flyconnectome/malecns/actions)
+[![R-CMD-check](https://github.com/natverse/malecns/workflows/R-CMD-check/badge.svg)](https://github.com/natverse/malecns/actions)
 <!-- badges: end -->
 
 The goal of **malecns** is to provide [natverse](https://natverse.org) 
-access to the whole male central nervous system dataset from Janelia FlyEM.
+access to the [whole male central nervous system dataset](https://www.janelia.org/project-team/flyem/male-cns-connectome).
+This is a collaborative project between the [Janelia FlyEM Project Team](https://www.janelia.org/project-team/flyem/) and the 
+[Drosophila Connectomics Group](https://www.zoo.cam.ac.uk/research/groups/connectomics)
+in Cambridge.
+
+Although you can access the malecns dataset via the [neuprintr](https://github.com/natverse/neuprintr) package just like any other 
+neuprint dataset, this **malecns** package provides some additional conveniences.
+For example, it gives access to all metadata columns including useful ones like:
+
+* flywireType (corresponding type in FlyWire-FAFB dataset)
+* mancType (corresponding type in male VNC dataset)
+* itoleeHl (hemilineage identity acording to Lee/Ito 2013 papers)
+
 
 ## Quick start
 
@@ -15,16 +30,11 @@ install.packages("natmanager")
 natmanager::check_pat()
 natmanager::install(pkgs="flyconnectome/malecns")
 
-usethis::edit_r_profile()
-# paste in this text, appropriately edited, and close the file
-options(malevnc.clio_email="myuser@gmail.com")
-# e.g. "jefferisg"
-options(malevnc.dvid_user="<surname><firstinitial>")
 
 ## Set your Neuprint token
 # will open your browser
 # collect token by clicking on your account icon top right and then Account
-browseURL('https://neuprint-cns.janelia.org')
+browseURL('https://neuprint.janelia.org')
 # back in R
 usethis::edit_r_environ()
 # paste in this text replacing with your neuprint token
@@ -40,10 +50,6 @@ table(pnmeta$type)
 vm6=read_mcns_meshes('VM6_adPN')
 plot3d(malecns.surf, alpha=.1)
 
-# compare query for production vs snapshot
-with_mcns(mcns_body_annotations(194965), dataset = "CNS")
-with_mcns(mcns_body_annotations(194965), dataset = "male-cns:v0.9")
-
 ```
 ## Introduction
 
@@ -54,52 +60,21 @@ functionality from the **malevnc** package. However, the current arrangement mea
 
 ## Installation
 
-This package points to private resources
-made available by the male CNS project led by the FlyEM team at Janelia.
-You will therefore need appropriate authorisation both to install the package
-from github and access the data.
-
 You can install the released version of malecns from GitHub
 
 ``` r
 install.packages("natmanager")
-natmanager::install(pkgs="flyconnectome/malecns")
-
-```
-
-Note that you must have been given access to the [github repository](https://github.com/flyconnectome/malecns/) and have a GitHub Personal Access Token (PAT) set up in order
-to install the library for as long as it remains private. Do :
-
-```
-natmanager::check_pat()
-```
-
-to check and follow the instructions if necessary to create. Should you run into any errors with that (there have been some significant changes at 
-github recently), you can also try:
-
-```
-usethis::create_github_token()
+natmanager::install(pkgs="natverse/malecns")
 ```
 
 ### Authentication
 
-Access to neuprint / Clio then depends on authentication. For neuprint, please
+Access to neuprint depends on authentication. Please
 see https://github.com/natverse/neuprintr#authentication; you only need to set
-a `NEUPRINT_TOKEN` R environment variable. You can display your neuprint token after logging into the neuprint website. For Clio, you will prompted to 
-authenticate via a Google OAuth "dance" in your web browser. 
-Note that the Clio and neuprint tokens look similar, but are *not* the same.
-Your neuprint token appears to be indefinite while the clio token
-currently lasts 3 weeks.
+a `NEUPRINT_TOKEN` R environment variable. You can display your neuprint token after logging into the neuprint website. 
 
-### Configuration
-
-For interaction with the Clio/DVID annotation systems you may need to tell R+malecns about the emails that you used to sign up for Clio/neuprint.
-
-```r
-options(malevnc.clio_email="myuser@gmail.com")
-options(malevnc.dvid_user="<surname><firstinitial>")
-```
-These should be set in your `.Rprofile` file.
+Clio authentication supports write access to the dataset and shouldn't be 
+required by regular users.
 
 ## Example
 
@@ -129,4 +104,47 @@ If you need to update your malecns install, I recommend:
 
 ```
 natmanager::install(pkgs="flyconnectome/malecns")
+```
+
+## Production access
+
+The default dataset is a public read only snapshot, `malecns-v0.9`.
+Collaborators working on (what at this point will only be minor) updates to
+the read/write production dataset will need neuprint authentication as above.
+They will also need Clio authentication and user configuration as below.
+
+To switch between datasets in the current session use `choose_mcns_dataset()`
+
+```
+choose_mcns_dataset("CNS")
+mcns_body_annotations(194965)
+choose_mcns_dataset("male-cns:v0.9")
+mcns_body_annotations(194965)
+```
+
+You can also permanently set
+
+```
+options(malecns.dataset = 'CNS')
+```
+in your `.RProfile`.
+
+### Clio authentication
+If you are working to update the production dataset, you may
+For Clio, you will prompted to 
+authenticate via a Google OAuth "dance" in your web browser. 
+Note that the Clio and neuprint tokens look similar, but are *not* the same.
+Your neuprint token appears to be indefinite while the clio token
+currently lasts 3 weeks.
+
+### Configuration
+
+For interaction with the Clio/DVID annotation systems you may need to tell R+malecns about the emails that you used to sign up for Clio/neuprint.
+
+```r
+usethis::edit_r_profile()
+# paste in this text, appropriately edited, and close the file
+options(malevnc.clio_email="myuser@gmail.com")
+# e.g. "jefferisg"
+options(malevnc.dvid_user="<surname><firstinitial>")
 ```
