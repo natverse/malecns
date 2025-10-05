@@ -265,7 +265,8 @@ mcns_annotate_body <- function(x, test=TRUE, version=NULL,
 
 # Clio/Dvid DB schema endpoint
 .url_clio_schema = function() {
-  paste0(malevnc:::flyem_servers4dataset('CNS')$dvid,
+  dvid=with_mcns(getOption('malevnc.server', "https://emdata-mcns.janelia.org"))
+  paste0(dvid,
          "/api/node/:master/segmentation_annotations/json_schema")
 }
 
