@@ -29,7 +29,7 @@ Imports:
     malevnc (>= 0.3.2),
     nat.templatebrains (>= 1.0),
     pbapply,
-    neuprintr (>= 1.3.1.9000),
+    neuprintr (> 1.3.3),
     glue,
     checkmate,
     dplyr,
