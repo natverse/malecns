@@ -4,7 +4,7 @@
 \alias{choose_mcns_dataset}
 \title{Switch the default dataset for \code{mcns_*} functions}
 \usage{
-choose_mcns_dataset(dataset = "CNS")
+choose_mcns_dataset(dataset = "male-cns:v0.9")
 }
 \arguments{
 \item{dataset}{The name of the dataset as reported in Clio e.g. CNS,  etc}

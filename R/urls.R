@@ -23,11 +23,12 @@
 #' \donttest{
 #' # This should work for both clio and neuprint calls, here clio:
 #' # this body was typed after the v0.9 snapshot
-#' with_mcns(mcns_body_annotations(194965), dataset = "CNS")
 #' with_mcns(mcns_body_annotations(194965), dataset = "male-cns:v0.9")
+#' with_mcns(mcns_body_annotations(194965), dataset = "CNS")
 #' }
-with_mcns <- function(expr, dataset=getOption("malecns.dataset")) {
-  oldop <- malevnc::choose_flyem_dataset(dataset=dataset, set=T)
+with_mcns <- function(expr, dataset=getOption("malecns.dataset",
+                                              default = "male-cns:v0.9")) {
+  oldop <- choose_mcns(dataset)
   on.exit(options(oldop))
   oldop2 <- choose_mcns_dataset(dataset)
   on.exit(options(oldop2), add = T)
@@ -51,13 +52,14 @@ with_mcns <- function(expr, dataset=getOption("malecns.dataset")) {
 #' # use production for the rest of this R session
 #' choose_mcns_dataset("CNS")
 #' }
-choose_mcns_dataset <- function(dataset='CNS') {
+choose_mcns_dataset <- function(dataset='male-cns:v0.9') {
   if(dataset=='cns') {
     dataset='CNS'
   }
 
   # this will check that this is a sensible value and error if not
-  malevnc::choose_flyem_dataset(dataset, set=F)
+  if(dataset!='male-cns:v0.9')
+    malevnc::choose_flyem_dataset(dataset, set=F)
 
   old_dataset=getOption("malecns.dataset", default = 'CNS')
   if(old_dataset!=dataset)
@@ -67,6 +69,7 @@ choose_mcns_dataset <- function(dataset='CNS') {
 }
 
 #' @export
+#' @inheritParams malevnc::choose_malevnc_dataset
 #' @rdname with_mcns
 #' @description \code{choose_mcns} swaps out the male vnc dataset for the male
 #'   cns. This means that all functions from the \code{malevnc} package should
@@ -74,8 +77,23 @@ choose_mcns_dataset <- function(dataset='CNS') {
 #'   \code{with_mcns} function to do this temporarily unless you have no
 #'   intention of using the male vnc dataset. \emph{To switch the default
 #'   malecns dataset please see \code{choose_mcns_dataset}}.
-choose_mcns <- function(dataset=getOption("malecns.dataset")) {
-  malevnc::choose_flyem_dataset(set=TRUE, dataset = dataset)
+choose_mcns <- function(dataset=getOption("malecns.dataset", default = 'male-cns:v0.9'), set=TRUE, use_clio=NA) {
+
+  if(dataset=='male-cns:v0.9' && !isTRUE(use_clio)) {
+    # let's do this manually
+    ops=list(
+      malevnc.dataset=dataset,
+      malevnc.neuprint='https://neuprint.janelia.org',
+      malevnc.neuprint_dataset=dataset,
+      malevnc.rootnode='f3969dc575d74e4f922a8966709958c8',
+      malevnc.server="https://emdata-mcns.janelia.org"
+    )
+    if(set) return(options(ops)) else return(ops)
+  } else {
+    if(isFALSE(use_clio))
+      stop("I must use_clio to get information about dataset:", dataset)
+  }
+  malevnc::choose_flyem_dataset(set=set, dataset = dataset)
 }
 
 
