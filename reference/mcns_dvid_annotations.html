@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">malecns</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.3.6</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.4.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -120,22 +120,22 @@ suffix. Accepted options are: 'user', 'time', 'all'.</p></dd>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span><span class="va">mda</span><span class="op">=</span><span class="fu">mcns_dvid_annotations</span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">mda</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 6 × 49</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 6 × 41</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   bodyid birthtime celltype_predicted_nt celltype_predicted_nt_confidence</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                                            <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span>  <span style="text-decoration: underline;">10</span>001 early     unclear                                          0.321</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span>  <span style="text-decoration: underline;">10</span>002 <span style="color: #BB0000;">NA</span>        acetylcholine                                    0.577</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span>  <span style="text-decoration: underline;">10</span>003 early     gaba                                             0.837</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span>  <span style="text-decoration: underline;">10</span>005 early     gaba                                             0.780</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">5</span>  <span style="text-decoration: underline;">10</span>006 <span style="color: #BB0000;">NA</span>        acetylcholine                                    0.616</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">6</span>  <span style="text-decoration: underline;">10</span>009 <span style="color: #BB0000;">NA</span>        gaba                                             0.757</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 45 more variables: celltype_total_nt_predictions &lt;int&gt;, consensus_nt &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span>  <span style="text-decoration: underline;">10</span>001 early     acetylcholine                                    0.528</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span>  <span style="text-decoration: underline;">10</span>002 <span style="color: #BB0000;">NA</span>        acetylcholine                                    0.956</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span>  <span style="text-decoration: underline;">10</span>003 early     gaba                                             0.875</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span>  <span style="text-decoration: underline;">10</span>005 early     gaba                                             0.831</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">5</span>  <span style="text-decoration: underline;">10</span>006 <span style="color: #BB0000;">NA</span>        acetylcholine                                    0.820</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">6</span>  <span style="text-decoration: underline;">10</span>009 <span style="color: #BB0000;">NA</span>        gaba                                             0.866</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 37 more variables: celltype_total_nt_predictions &lt;int&gt;, consensus_nt &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   flywire_type &lt;chr&gt;, group &lt;int&gt;, hemibrain_type &lt;chr&gt;, instance &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   itolee_hl &lt;chr&gt;, manc_bodyid &lt;dbl&gt;, manc_group &lt;int&gt;, manc_type &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   predicted_nt &lt;chr&gt;, predicted_nt_confidence &lt;dbl&gt;, soma_side &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   status &lt;chr&gt;, subclass &lt;chr&gt;, superclass &lt;chr&gt;, synonyms &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   total_nt_predictions &lt;int&gt;, type &lt;chr&gt;, notes &lt;chr&gt;, supertype &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   user &lt;chr&gt;, halfbrain_body &lt;dbl&gt;, class &lt;chr&gt;, fru_dsx &lt;chr&gt;, …</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   total_nt_predictions &lt;int&gt;, type &lt;chr&gt;, supertype &lt;chr&gt;, class &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   fru_dsx &lt;chr&gt;, dimorphism &lt;chr&gt;, soma_neuromere &lt;chr&gt;, truman_hl &lt;chr&gt;, …</span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/table.html" class="external-link">table</a></span><span class="op">(</span><span class="va">mda</span><span class="op">$</span><span class="va">type</span><span class="op">)</span>, ylab<span class="op">=</span><span class="st">'Frequency'</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="mcns_dvid_annotations-1.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span></span></span>
@@ -143,22 +143,22 @@ suffix. Accepted options are: 'user', 'time', 'all'.</p></dd>
 <span class="r-in"><span><span class="va">mbons</span><span class="op">=</span><span class="fu">mcns_dvid_annotations</span><span class="op">(</span><span class="st">"/MBON.+"</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">mbons</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 6 × 49</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 6 × 41</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   bodyid birthtime celltype_predicted_nt celltype_predicted_nt_confidence</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                                            <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> <span style="text-decoration: underline;">520</span>151 early     unclear                                          0.296</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span>  <span style="text-decoration: underline;">10</span>013 early     unclear                                          0.296</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span> <span style="text-decoration: underline;">522</span>444 early     unclear                                          0.322</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span> <span style="text-decoration: underline;">522</span>749 early     unclear                                          0.322</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">5</span> <span style="text-decoration: underline;">519</span>373 early     unclear                                          0.371</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">6</span> <span style="text-decoration: underline;">521</span>526 early     unclear                                          0.371</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 45 more variables: celltype_total_nt_predictions &lt;int&gt;, consensus_nt &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> <span style="text-decoration: underline;">520</span>151 early     glutamate                                        0.714</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span>  <span style="text-decoration: underline;">10</span>013 early     glutamate                                        0.714</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span> <span style="text-decoration: underline;">522</span>444 early     glutamate                                        0.742</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span> <span style="text-decoration: underline;">522</span>749 early     glutamate                                        0.742</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">5</span> <span style="text-decoration: underline;">519</span>373 early     glutamate                                        0.768</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">6</span> <span style="text-decoration: underline;">521</span>526 early     glutamate                                        0.768</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 37 more variables: celltype_total_nt_predictions &lt;int&gt;, consensus_nt &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   flywire_type &lt;chr&gt;, group &lt;int&gt;, hemibrain_type &lt;chr&gt;, instance &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   itolee_hl &lt;chr&gt;, manc_bodyid &lt;dbl&gt;, manc_group &lt;int&gt;, manc_type &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   predicted_nt &lt;chr&gt;, predicted_nt_confidence &lt;dbl&gt;, soma_side &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   status &lt;chr&gt;, subclass &lt;chr&gt;, superclass &lt;chr&gt;, synonyms &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   total_nt_predictions &lt;int&gt;, type &lt;chr&gt;, notes &lt;chr&gt;, supertype &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   user &lt;chr&gt;, halfbrain_body &lt;dbl&gt;, class &lt;chr&gt;, fru_dsx &lt;chr&gt;, …</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   total_nt_predictions &lt;int&gt;, type &lt;chr&gt;, supertype &lt;chr&gt;, class &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   fru_dsx &lt;chr&gt;, dimorphism &lt;chr&gt;, soma_neuromere &lt;chr&gt;, truman_hl &lt;chr&gt;, …</span></span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>

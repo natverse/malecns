@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">malecns</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.3.6</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.4.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -112,94 +112,78 @@ bad values or because the types are too broad to be very useful.</p></dd>
 <span class="r-in"><span><span class="va">allg</span><span class="op">=</span><span class="fu">mcns_predict_group</span><span class="op">(</span><span class="va">tig_ids</span>, method <span class="op">=</span> <span class="st">'all'</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="co"># neurons where the recorded group and instance group disagree</span></span></span>
 <span class="r-in"><span><span class="va">allg</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html" class="external-link">is.na</a></span><span class="op">(</span><span class="va">group</span><span class="op">)</span> <span class="op">&amp;</span> <span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html" class="external-link">is.na</a></span><span class="op">(</span><span class="va">instance_group</span><span class="op">)</span> <span class="op">&amp;</span> <span class="va">group</span><span class="op">!=</span><span class="va">instance_group</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   bodyid post pre downstream upstream synweight          flywireType    name</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 129990  759 147       1150      759      1909        CB1761,CB2741 28915_L</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2  28195  661 133        987      661      1648        CB1761,CB2741 28915_L</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3  52953  751 137        981      751      1732        CB1761,CB2741 28915_L</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4  41250  870 158       1125      870      1995        CB1761,CB2741 28915_R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5  46029  736 151       1053      736      1789        CB1761,CB2741 28915_R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6  49406  741 471       3117      741      3858 CB1159,CB2015,CB2669 48919_R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7  48918  787 434       3227      787      4014 CB1159,CB2015,CB2669 48919_L</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      statusLabel subclass   superclass type class entryNerve rootSide status</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 Roughly traced     &lt;NA&gt; cb_intrinsic &lt;NA&gt;  &lt;NA&gt;       &lt;NA&gt;     &lt;NA&gt; Traced</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 Roughly traced     &lt;NA&gt; cb_intrinsic &lt;NA&gt;  &lt;NA&gt;       &lt;NA&gt;     &lt;NA&gt; Traced</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3 Roughly traced     &lt;NA&gt; cb_intrinsic &lt;NA&gt;  &lt;NA&gt;       &lt;NA&gt;     &lt;NA&gt; Traced</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4 Roughly traced     &lt;NA&gt; cb_intrinsic &lt;NA&gt;  &lt;NA&gt;       &lt;NA&gt;     &lt;NA&gt; Traced</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5 Roughly traced     &lt;NA&gt; cb_intrinsic &lt;NA&gt;  &lt;NA&gt;       &lt;NA&gt;     &lt;NA&gt; Traced</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6 Roughly traced     &lt;NA&gt; cb_intrinsic &lt;NA&gt;  &lt;NA&gt;       &lt;NA&gt;     &lt;NA&gt; Traced</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7 Roughly traced     &lt;NA&gt; cb_intrinsic &lt;NA&gt;  &lt;NA&gt;       &lt;NA&gt;     &lt;NA&gt; Traced</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   totalNtPredictions predictedNtConfidence predictedNt</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                147             0.7810776        gaba</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                133             0.7468014        gaba</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                137             0.7505689        gaba</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                158             0.7236252        gaba</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5                151             0.6385662        gaba</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6                471             0.3583271     unclear</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7                434             0.4293320     unclear</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   celltypeTotalNtPredictions celltypePredictedNt celltypePredictedNtConfidence</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                        147             unclear                            NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                        133             unclear                            NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                        137             unclear                            NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                        158             unclear                            NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5                        151             unclear                            NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6                        471             unclear                            NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7                        434             unclear                            NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   consensusNt    voxels       itoleeHl somaSide supertype somaNeuromere</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1        gaba 241019652 LALa1_anterior        L     23508          &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2        gaba 229963626 LALa1_anterior        L     23508          &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3        gaba 248926814 LALa1_anterior        L     23508          &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4        gaba 297966845 LALa1_anterior        R     23508          &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5        gaba 271122994 LALa1_anterior        R     23508          &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6     unclear 485994463           LHp2        R     18606          &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7     unclear 457493970           LHp2        L     18606          &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   trumanHl      somaLocation group mancGroup mancType trumanHlVncOnly birthtime</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1     &lt;NA&gt; 65850,24844,15111 28195        NA     &lt;NA&gt;            &lt;NA&gt;      &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2     &lt;NA&gt; 66620,24888,15730 28195        NA     &lt;NA&gt;            &lt;NA&gt;      &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3     &lt;NA&gt; 65254,26033,14863 28195        NA     &lt;NA&gt;            &lt;NA&gt;      &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4     &lt;NA&gt; 30730,36422,22418 28195        NA     &lt;NA&gt;            &lt;NA&gt;      &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5     &lt;NA&gt; 30920,37020,23082 28195        NA     &lt;NA&gt;            &lt;NA&gt;      &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6     &lt;NA&gt; 28544,10466,32448 48918        NA     &lt;NA&gt;            &lt;NA&gt;      &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7     &lt;NA&gt; 68976,14832,32846 48918        NA     &lt;NA&gt;            &lt;NA&gt;      &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   mancBodyid mcnsSerial mancSerial synonyms fruDsx exitNerve tosomaLocation</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1         NA         NA         NA     &lt;NA&gt;   &lt;NA&gt;      &lt;NA&gt;               </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2         NA         NA         NA     &lt;NA&gt;   &lt;NA&gt;      &lt;NA&gt;               </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3         NA         NA         NA     &lt;NA&gt;   &lt;NA&gt;      &lt;NA&gt;               </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4         NA         NA         NA     &lt;NA&gt;   &lt;NA&gt;      &lt;NA&gt;               </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5         NA         NA         NA     &lt;NA&gt;   &lt;NA&gt;      &lt;NA&gt;               </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6         NA         NA         NA     &lt;NA&gt;   &lt;NA&gt;      &lt;NA&gt;               </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7         NA         NA         NA     &lt;NA&gt;   &lt;NA&gt;      &lt;NA&gt;               </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   receptorType matchingNotes hemibrainType anteriorCervicalRootPosition</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1         &lt;NA&gt;          &lt;NA&gt;          &lt;NA&gt;                             </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2         &lt;NA&gt;          &lt;NA&gt;          &lt;NA&gt;                             </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3         &lt;NA&gt;          &lt;NA&gt;          &lt;NA&gt;                             </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4         &lt;NA&gt;          &lt;NA&gt;          &lt;NA&gt;                             </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5         &lt;NA&gt;          &lt;NA&gt;          &lt;NA&gt;                             </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6         &lt;NA&gt;          &lt;NA&gt;          &lt;NA&gt;                             </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7         &lt;NA&gt;          &lt;NA&gt;          &lt;NA&gt;                             </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   dimorphism flywireId posteriorCervicalRootPosition serialMotif assignedOlHex1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1       &lt;NA&gt;      &lt;NA&gt;                                      &lt;NA&gt;             NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2       &lt;NA&gt;      &lt;NA&gt;                                      &lt;NA&gt;             NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3       &lt;NA&gt;      &lt;NA&gt;                                      &lt;NA&gt;             NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4       &lt;NA&gt;      &lt;NA&gt;                                      &lt;NA&gt;             NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5       &lt;NA&gt;      &lt;NA&gt;                                      &lt;NA&gt;             NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6       &lt;NA&gt;      &lt;NA&gt;                                      &lt;NA&gt;             NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7       &lt;NA&gt;      &lt;NA&gt;                                      &lt;NA&gt;             NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   assignedOlHex2 hemibrainBodyId location locationType cellBodyFiber soma</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1             NA            &lt;NA&gt;     &lt;NA&gt;         &lt;NA&gt;          &lt;NA&gt; TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2             NA            &lt;NA&gt;     &lt;NA&gt;         &lt;NA&gt;          &lt;NA&gt; TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3             NA            &lt;NA&gt;     &lt;NA&gt;         &lt;NA&gt;          &lt;NA&gt; TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4             NA            &lt;NA&gt;     &lt;NA&gt;         &lt;NA&gt;          &lt;NA&gt; TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5             NA            &lt;NA&gt;     &lt;NA&gt;         &lt;NA&gt;          &lt;NA&gt; TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6             NA            &lt;NA&gt;     &lt;NA&gt;         &lt;NA&gt;          &lt;NA&gt; TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7             NA            &lt;NA&gt;     &lt;NA&gt;         &lt;NA&gt;          &lt;NA&gt; TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   instance_group type_group mancGroup_group pmanc_group</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1          28915         NA              NA       28195</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2          28915         NA              NA       28195</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3          28915         NA              NA       28195</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4          28915         NA              NA       28195</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5          28915         NA              NA       28195</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6          48919         NA              NA       48918</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7          48919         NA              NA       48918</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   bodyid post pre downstream upstream synweight          flywireType group</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1  28195  661 133        987      661      1648        CB1761,CB2741 28195</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2  52953  751 137        981      751      1732        CB1761,CB2741 28195</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3 129990  759 147       1150      759      1909        CB1761,CB2741 28195</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4  41250  870 158       1125      870      1995        CB1761,CB2741 28195</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5  46029  736 151       1053      736      1789        CB1761,CB2741 28195</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6  48918  787 434       3227      787      4014 CB1159,CB2015,CB2669 48918</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7  49406  741 471       3117      741      3858 CB1159,CB2015,CB2669 48918</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   hemibrainType    name       itoleeHl somaSide    statusLabel   superclass</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1          &lt;NA&gt; 28915_L LALa1_anterior        L Roughly traced cb_intrinsic</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2          &lt;NA&gt; 28915_L LALa1_anterior        L Roughly traced cb_intrinsic</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3          &lt;NA&gt; 28915_L LALa1_anterior        L Roughly traced cb_intrinsic</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4          &lt;NA&gt; 28915_R LALa1_anterior        R Roughly traced cb_intrinsic</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5          &lt;NA&gt; 28915_R LALa1_anterior        R Roughly traced cb_intrinsic</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6          &lt;NA&gt; 48919_L           LHp2        L Roughly traced cb_intrinsic</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7          &lt;NA&gt; 48919_R           LHp2        R Roughly traced cb_intrinsic</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   supertype type class entryNerve fruDsx matchingNotes rootSide assignedOlHex1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1     23508 &lt;NA&gt;  &lt;NA&gt;       &lt;NA&gt;   &lt;NA&gt;          &lt;NA&gt;     &lt;NA&gt;             NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2     23508 &lt;NA&gt;  &lt;NA&gt;       &lt;NA&gt;   &lt;NA&gt;          &lt;NA&gt;     &lt;NA&gt;             NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3     23508 &lt;NA&gt;  &lt;NA&gt;       &lt;NA&gt;   &lt;NA&gt;          &lt;NA&gt;     &lt;NA&gt;             NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4     23508 &lt;NA&gt;  &lt;NA&gt;       &lt;NA&gt;   &lt;NA&gt;          &lt;NA&gt;     &lt;NA&gt;             NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5     23508 &lt;NA&gt;  &lt;NA&gt;       &lt;NA&gt;   &lt;NA&gt;          &lt;NA&gt;     &lt;NA&gt;             NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6     18606 &lt;NA&gt;  &lt;NA&gt;       &lt;NA&gt;   &lt;NA&gt;          &lt;NA&gt;     &lt;NA&gt;             NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7     18606 &lt;NA&gt;  &lt;NA&gt;       &lt;NA&gt;   &lt;NA&gt;          &lt;NA&gt;     &lt;NA&gt;             NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   assignedOlHex2 mancBodyid mancGroup mancType somaNeuromere subclass trumanHl</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1             NA         NA        NA     &lt;NA&gt;          &lt;NA&gt;     &lt;NA&gt;     &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2             NA         NA        NA     &lt;NA&gt;          &lt;NA&gt;     &lt;NA&gt;     &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3             NA         NA        NA     &lt;NA&gt;          &lt;NA&gt;     &lt;NA&gt;     &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4             NA         NA        NA     &lt;NA&gt;          &lt;NA&gt;     &lt;NA&gt;     &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5             NA         NA        NA     &lt;NA&gt;          &lt;NA&gt;     &lt;NA&gt;     &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6             NA         NA        NA     &lt;NA&gt;          &lt;NA&gt;     &lt;NA&gt;     &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7             NA         NA        NA     &lt;NA&gt;          &lt;NA&gt;     &lt;NA&gt;     &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   dimorphism synonyms birthtime mancSerial mcnsSerial exitNerve serialMotif</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1       &lt;NA&gt;     &lt;NA&gt;      &lt;NA&gt;         NA         NA      &lt;NA&gt;        &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2       &lt;NA&gt;     &lt;NA&gt;      &lt;NA&gt;         NA         NA      &lt;NA&gt;        &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3       &lt;NA&gt;     &lt;NA&gt;      &lt;NA&gt;         NA         NA      &lt;NA&gt;        &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4       &lt;NA&gt;     &lt;NA&gt;      &lt;NA&gt;         NA         NA      &lt;NA&gt;        &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5       &lt;NA&gt;     &lt;NA&gt;      &lt;NA&gt;         NA         NA      &lt;NA&gt;        &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6       &lt;NA&gt;     &lt;NA&gt;      &lt;NA&gt;         NA         NA      &lt;NA&gt;        &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7       &lt;NA&gt;     &lt;NA&gt;      &lt;NA&gt;         NA         NA      &lt;NA&gt;        &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   receptorType      somaLocation tosomaLocation status totalNtPredictions</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1         &lt;NA&gt; 66620,24888,15730                Traced                133</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2         &lt;NA&gt; 65254,26033,14863                Traced                137</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3         &lt;NA&gt; 65850,24844,15111                Traced                147</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4         &lt;NA&gt; 30730,36422,22418                Traced                158</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5         &lt;NA&gt; 30920,37020,23082                Traced                151</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6         &lt;NA&gt; 68976,14832,32846                Traced                434</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7         &lt;NA&gt; 28544,10466,32448                Traced                471</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   predictedNtConfidence   predictedNt celltypeTotalNtPredictions</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1             0.8200724          gaba                        133</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2             0.8341187          gaba                        137</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3             0.7992291          gaba                        147</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4             0.8392468          gaba                        158</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5             0.7578290          gaba                        151</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6             0.8384565 acetylcholine                        434</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7             0.6560721 acetylcholine                        471</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   celltypePredictedNt celltypePredictedNtConfidence   consensusNt    voxels</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1             unclear                            NA          gaba 229963626</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2             unclear                            NA          gaba 248926814</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3             unclear                            NA          gaba 241019652</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4             unclear                            NA          gaba 297966845</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5             unclear                            NA          gaba 271122994</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6             unclear                            NA acetylcholine 457493970</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7             unclear                            NA acetylcholine 485994463</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   soma instance_group type_group mancGroup_group pmanc_group</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 TRUE          28915         NA              NA       28195</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 TRUE          28915         NA              NA       28195</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3 TRUE          28915         NA              NA       28195</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4 TRUE          28915         NA              NA       28195</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5 TRUE          28915         NA              NA       28195</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6 TRUE          48919         NA              NA       48918</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7 TRUE          48919         NA              NA       48918</span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 <span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span> <span class="co"># \dontrun{</span></span></span>
 <span class="r-in"><span><span class="co"># neurons where the recorded group and type group disagree</span></span></span>

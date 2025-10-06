@@ -22,7 +22,7 @@
 
     <a class="navbar-brand me-2" href="index.html">malecns</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.3.6</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.4.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -49,9 +49,16 @@
   <main id="main" class="col-md-9"><div class="section level1">
 <div class="page-header"><h1 id="malecns">malecns<a class="anchor" aria-label="anchor" href="#malecns"></a>
 </h1></div>
+<p><img src="reference/figures/malecns-400h.jpg" align="right" height="200" alt="A rendering by Phil Hubbard (Janelia) of a sample of male-cns neurons" title="male-cns by P. Hubbard"></p>
 <!-- badges: start -->
 
-<p>The goal of <strong>malecns</strong> is to provide <a href="https://natverse.org" class="external-link">natverse</a> access to the whole male central nervous system dataset from Janelia FlyEM.</p>
+<p>The goal of <strong>malecns</strong> is to provide <a href="https://natverse.org" class="external-link">natverse</a> access to the <a href="https://www.janelia.org/project-team/flyem/male-cns-connectome" class="external-link">whole male central nervous system dataset</a>. This is a collaborative project between the <a href="https://www.janelia.org/project-team/flyem/" class="external-link">Janelia FlyEM Project Team</a> and the <a href="https://www.zoo.cam.ac.uk/research/groups/connectomics" class="external-link">Drosophila Connectomics Group</a> in Cambridge.</p>
+<p>Although you can access the malecns dataset via the <a href="https://github.com/natverse/neuprintr" class="external-link">neuprintr</a> package just like any other neuprint dataset, this <strong>malecns</strong> package provides some additional conveniences. For example, it gives access to all metadata columns including useful ones like:</p>
+<ul>
+<li>flywireType (corresponding type in FlyWire-FAFB dataset)</li>
+<li>mancType (corresponding type in male VNC dataset)</li>
+<li>itoleeHl (hemilineage identity acording to Lee/Ito 2013 papers)</li>
+</ul>
 <div class="section level2">
 <h2 id="quick-start">Quick start<a class="anchor" aria-label="anchor" href="#quick-start"></a>
 </h2>
@@ -60,16 +67,11 @@
 <span><span class="fu">natmanager</span><span class="fu">::</span><span class="fu">check_pat</span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="fu">natmanager</span><span class="fu">::</span><span class="fu">install</span><span class="op">(</span>pkgs<span class="op">=</span><span class="st">"flyconnectome/malecns"</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/edit.html" class="external-link">edit_r_profile</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="co"># paste in this text, appropriately edited, and close the file</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span>malevnc.clio_email<span class="op">=</span><span class="st">"myuser@gmail.com"</span><span class="op">)</span></span>
-<span><span class="co"># e.g. "jefferisg"</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span>malevnc.dvid_user<span class="op">=</span><span class="st">"&lt;surname&gt;&lt;firstinitial&gt;"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co">## Set your Neuprint token</span></span>
 <span><span class="co"># will open your browser</span></span>
 <span><span class="co"># collect token by clicking on your account icon top right and then Account</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/browseURL.html" class="external-link">browseURL</a></span><span class="op">(</span><span class="st">'https://neuprint-cns.janelia.org'</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/browseURL.html" class="external-link">browseURL</a></span><span class="op">(</span><span class="st">'https://neuprint.janelia.org'</span><span class="op">)</span></span>
 <span><span class="co"># back in R</span></span>
 <span><span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/edit.html" class="external-link">edit_r_environ</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co"># paste in this text replacing with your neuprint token</span></span>
@@ -83,11 +85,7 @@
 <span><span class="va">pnmeta</span><span class="op">=</span><span class="fu"><a href="reference/mcns_neuprint_meta.html">mcns_neuprint_meta</a></span><span class="op">(</span><span class="st">'/.+_[adl]+PN'</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/table.html" class="external-link">table</a></span><span class="op">(</span><span class="va">pnmeta</span><span class="op">$</span><span class="va">type</span><span class="op">)</span></span>
 <span><span class="va">vm6</span><span class="op">=</span><span class="fu"><a href="reference/read_mcns_meshes.html">read_mcns_meshes</a></span><span class="op">(</span><span class="st">'VM6_adPN'</span><span class="op">)</span></span>
-<span><span class="fu">plot3d</span><span class="op">(</span><span class="va">malecns.surf</span>, alpha<span class="op">=</span><span class="fl">.1</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># compare query for production vs snapshot</span></span>
-<span><span class="fu"><a href="reference/with_mcns.html">with_mcns</a></span><span class="op">(</span><span class="fu"><a href="reference/mcns_body_annotations.html">mcns_body_annotations</a></span><span class="op">(</span><span class="fl">194965</span><span class="op">)</span>, dataset <span class="op">=</span> <span class="st">"CNS"</span><span class="op">)</span></span>
-<span><span class="fu"><a href="reference/with_mcns.html">with_mcns</a></span><span class="op">(</span><span class="fu"><a href="reference/mcns_body_annotations.html">mcns_body_annotations</a></span><span class="op">(</span><span class="fl">194965</span><span class="op">)</span>, dataset <span class="op">=</span> <span class="st">"male-cns:v0.9"</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu">plot3d</span><span class="op">(</span><span class="va">malecns.surf</span>, alpha<span class="op">=</span><span class="fl">.1</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="introduction">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
@@ -97,35 +95,22 @@
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
-<p>This package points to private resources made available by the male CNS project led by the FlyEM team at Janelia. You will therefore need appropriate authorisation both to install the package from github and access the data.</p>
 <p>You can install the released version of malecns from GitHub</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"natmanager"</span><span class="op">)</span></span>
-<span><span class="fu">natmanager</span><span class="fu">::</span><span class="fu">install</span><span class="op">(</span>pkgs<span class="op">=</span><span class="st">"flyconnectome/malecns"</span><span class="op">)</span></span></code></pre></div>
-<p>Note that you must have been given access to the <a href="https://github.com/flyconnectome/malecns/" class="external-link">github repository</a> and have a GitHub Personal Access Token (PAT) set up in order to install the library for as long as it remains private. Do :</p>
-<pre><code><span><span class="fu">natmanager</span><span class="fu">::</span><span class="fu">check_pat</span><span class="op">(</span><span class="op">)</span></span></code></pre>
-<p>to check and follow the instructions if necessary to create. Should you run into any errors with that (there have been some significant changes at github recently), you can also try:</p>
-<pre><code><span><span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/github-token.html" class="external-link">create_github_token</a></span><span class="op">(</span><span class="op">)</span></span></code></pre>
+<span><span class="fu">natmanager</span><span class="fu">::</span><span class="fu">install</span><span class="op">(</span>pkgs<span class="op">=</span><span class="st">"natverse/malecns"</span><span class="op">)</span></span></code></pre></div>
 <div class="section level3">
 <h3 id="authentication">Authentication<a class="anchor" aria-label="anchor" href="#authentication"></a>
 </h3>
-<p>Access to neuprint / Clio then depends on authentication. For neuprint, please see <a href="https://github.com/natverse/neuprintr#authentication" class="external-link uri">https://github.com/natverse/neuprintr#authentication</a>; you only need to set a <code>NEUPRINT_TOKEN</code> R environment variable. You can display your neuprint token after logging into the neuprint website. For Clio, you will prompted to authenticate via a Google OAuth “dance” in your web browser. Note that the Clio and neuprint tokens look similar, but are <em>not</em> the same. Your neuprint token appears to be indefinite while the clio token currently lasts 3 weeks.</p>
-</div>
-<div class="section level3">
-<h3 id="configuration">Configuration<a class="anchor" aria-label="anchor" href="#configuration"></a>
-</h3>
-<p>For interaction with the Clio/DVID annotation systems you may need to tell R+malecns about the emails that you used to sign up for Clio/neuprint.</p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span>malevnc.clio_email<span class="op">=</span><span class="st">"myuser@gmail.com"</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span>malevnc.dvid_user<span class="op">=</span><span class="st">"&lt;surname&gt;&lt;firstinitial&gt;"</span><span class="op">)</span></span></code></pre></div>
-<p>These should be set in your <code>.Rprofile</code> file.</p>
+<p>Access to neuprint depends on authentication. Please see <a href="https://github.com/natverse/neuprintr#authentication" class="external-link uri">https://github.com/natverse/neuprintr#authentication</a>; you only need to set a <code>NEUPRINT_TOKEN</code> R environment variable. You can display your neuprint token after logging into the neuprint website.</p>
+<p>Clio authentication supports write access to the dataset and shouldn’t be required by regular users.</p>
 </div>
 </div>
 <div class="section level2">
 <h2 id="example">Example<a class="anchor" aria-label="anchor" href="#example"></a>
 </h2>
 <p>This example shows you how to read some meshes, look up ids by position and transform positions from FlyWire/FAFB14.</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/flyconnectome/malecns" class="external-link">malecns</a></span><span class="op">)</span></span>
 <span><span class="co">## read meshes for some annotated neurons</span></span>
 <span></span>
@@ -146,6 +131,35 @@
 </h2>
 <p>If you need to update your malecns install, I recommend:</p>
 <pre><code><span><span class="fu">natmanager</span><span class="fu">::</span><span class="fu">install</span><span class="op">(</span>pkgs<span class="op">=</span><span class="st">"flyconnectome/malecns"</span><span class="op">)</span></span></code></pre>
+</div>
+<div class="section level2">
+<h2 id="production-access">Production access<a class="anchor" aria-label="anchor" href="#production-access"></a>
+</h2>
+<p>The default dataset is a public read only snapshot, <code>malecns-v0.9</code>. Collaborators working on (what at this point will only be minor) updates to the read/write production dataset will need neuprint authentication as above. They will also need Clio authentication and user configuration as below.</p>
+<p>To switch between datasets in the current session use <code><a href="reference/choose_mcns_dataset.html">choose_mcns_dataset()</a></code></p>
+<pre><code><span><span class="fu"><a href="reference/choose_mcns_dataset.html">choose_mcns_dataset</a></span><span class="op">(</span><span class="st">"CNS"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/mcns_body_annotations.html">mcns_body_annotations</a></span><span class="op">(</span><span class="fl">194965</span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/choose_mcns_dataset.html">choose_mcns_dataset</a></span><span class="op">(</span><span class="st">"male-cns:v0.9"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/mcns_body_annotations.html">mcns_body_annotations</a></span><span class="op">(</span><span class="fl">194965</span><span class="op">)</span></span></code></pre>
+<p>You can also permanently set</p>
+<pre><code><span><span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span>malecns.dataset <span class="op">=</span> <span class="st">'CNS'</span><span class="op">)</span></span></code></pre>
+<p>in your <code>.RProfile</code>.</p>
+<div class="section level3">
+<h3 id="clio-authentication">Clio authentication<a class="anchor" aria-label="anchor" href="#clio-authentication"></a>
+</h3>
+<p>If you are working to update the production dataset, you may For Clio, you will prompted to authenticate via a Google OAuth “dance” in your web browser. Note that the Clio and neuprint tokens look similar, but are <em>not</em> the same. Your neuprint token appears to be indefinite while the clio token currently lasts 3 weeks.</p>
+</div>
+<div class="section level3">
+<h3 id="configuration">Configuration<a class="anchor" aria-label="anchor" href="#configuration"></a>
+</h3>
+<p>For interaction with the Clio/DVID annotation systems you may need to tell R+malecns about the emails that you used to sign up for Clio/neuprint.</p>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/edit.html" class="external-link">edit_r_profile</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co"># paste in this text, appropriately edited, and close the file</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span>malevnc.clio_email<span class="op">=</span><span class="st">"myuser@gmail.com"</span><span class="op">)</span></span>
+<span><span class="co"># e.g. "jefferisg"</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span>malevnc.dvid_user<span class="op">=</span><span class="st">"&lt;surname&gt;&lt;firstinitial&gt;"</span><span class="op">)</span></span></code></pre></div>
+</div>
 </div>
 </div>
   </main><aside class="col-md-3"><div class="links">
@@ -183,7 +197,7 @@
 <h2 data-toc-skip>Dev status</h2>
 <ul class="list-unstyled">
 <li><a href="https://lifecycle.r-lib.org/articles/stages.html#experimental" class="external-link"><img src="https://img.shields.io/badge/lifecycle-experimental-orange.svg" alt="Lifecycle: experimental"></a></li>
-<li><a href="https://github.com/flyconnectome/malecns/actions" class="external-link"><img src="https://github.com/flyconnectome/malecns/workflows/R-CMD-check/badge.svg" alt="R-CMD-check"></a></li>
+<li><a href="https://github.com/natverse/malecns/actions" class="external-link"><img src="https://github.com/natverse/malecns/workflows/R-CMD-check/badge.svg" alt="R-CMD-check"></a></li>
 </ul>
 </div>
 
