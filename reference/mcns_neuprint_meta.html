@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">malecns</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.4.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.4.0.9000</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -44,6 +44,7 @@
 <span>  conn <span class="op">=</span> <span class="fu"><a href="mcns_neuprint.html">mcns_neuprint</a></span><span class="op">(</span><span class="op">)</span>,</span>
 <span>  roiInfo <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>  simplify.xyz <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  cache <span class="op">=</span> <span class="cn">NA</span>,</span>
 <span>  <span class="va">...</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
@@ -72,6 +73,12 @@ returned as a character vector of unprocessed JSON.</p></dd>
 <dd><p>Whether to simplify columns containing XYZ locations to a
 simple <code>"x,y,z"</code> format rather than a longer form referencing a schema
 at <code>spatialreference.org</code>. Defaults to <code>TRUE</code>.</p></dd>
+
+
+<dt id="arg-cache">cache<a class="anchor" aria-label="anchor" href="#arg-cache"></a></dt>
+<dd><p>whether to cache the query. When <code>cache=NA</code> (the default)
+queries are cached for neuprint snapshot versions (but not production
+datasets). See details.</p></dd>
 
 
 <dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
