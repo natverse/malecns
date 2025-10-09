@@ -29,7 +29,7 @@ numeric vector (the default is character for safety).}
 \item{unique}{Whether to ensure that only unique ids are returned (default
 \code{TRUE})}
 
-\item{...}{Additional arguments passed to \code{\link[neuprintr]{neuprint_search}}}
+\item{...}{Additional arguments passed to \code{\link{neuprint_get_meta}}}
 
 \item{dataset}{The name of the dataset as reported in Clio e.g. \code{CNS},
 \code{male-cns:v0.9} etc.}

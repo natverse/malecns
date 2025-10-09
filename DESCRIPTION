@@ -26,7 +26,7 @@ Suggests:
 Language: en-GB
 Imports: 
     fafbseg (>= 0.9.4),
-    malevnc (>= 0.3.2),
+    malevnc (> 0.3.2),
     nat.templatebrains (>= 1.0),
     pbapply,
     neuprintr (>= 1.3.4),

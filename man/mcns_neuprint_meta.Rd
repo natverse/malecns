@@ -9,6 +9,7 @@ mcns_neuprint_meta(
   conn = mcns_neuprint(),
   roiInfo = FALSE,
   simplify.xyz = TRUE,
+  cache = NA,
   ...
 )
 }
@@ -26,6 +27,10 @@ returned as a character vector of unprocessed JSON.}
 \item{simplify.xyz}{Whether to simplify columns containing XYZ locations to a
 simple \code{"x,y,z"} format rather than a longer form referencing a schema
 at \code{spatialreference.org}. Defaults to \code{TRUE}.}
+
+\item{cache}{whether to cache the query. When \code{cache=NA} (the default)
+queries are cached for neuprint snapshot versions (but not production
+datasets). See details.}
 
 \item{...}{Additional arguments passed to \code{\link{neuprint_get_meta}}}
 }
