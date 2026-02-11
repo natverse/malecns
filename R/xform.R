@@ -62,29 +62,53 @@ halfbrain2wholebrain <- function(x, units=c("raw", "nm", "microns", "um"), warn=
   }
 }
 
-# register John Bogovic transforms
+#' Download and register h5 bridging registrations for malecns
+#'
+#' @description \code{mcns_register_xforms2} registers Saalfeld lab h5
+#'   deformation fields (JRCFIB2022M, JRC2018M, JRC2018U) via
+#'   \code{\link[nat.jrcbrains]{register_saalfeldlab_registrations}} and adds a
+#'   malecns (nm) to JRCFIB2022M (microns) scaling alias. This enables the
+#'   bridging path: malecns -> JRCFIB2022M -> JRC2018M -> JRC2018U. Must be
+#'   called once per session.
+#'
+#' @export
+#' @examples
+#' \dontrun{
+#' # first time only
+#' mcns_download_xforms2()
+#' # then once per session
+#' mcns_register_xforms2()
+#' xform_brain(cbind(100000, 100000, 50000), sample='malecns', reference='JRC2018U')
+#' }
 mcns_register_xforms2 <- function() {
-  check_package_available("nat.h5reg")
-  check_package_available("rappdirs")
-  jdata='/Volumes/JData5/JPeople/Common/Neuroanatomy/BridgingRegistrations/malecns'
-  f="CNSnm_JRC2018MumALPHA.h5"
-  p=path.expand(file.path(rappdirs::user_data_dir(appname = NULL), "R/malecns", f))
-  if(!file.exists(p))
-    stop("Cannot find h5 file at: ", p, '. You can get it from:\n',
-         jdata)
-  h5p=nat.h5reg::h5reg(p)
-  nat.templatebrains::add_reglist(h5p, sample = 'malecns',
-                                  reference = "JRC2018M")
+  check_package_available("nat.jrcbrains")
+  if(is.null(getOption('nat.jrcbrains.regfolder'))) {
+    message("Set options(nat.jrcbrains.regfolder=...) and run mcns_download_xforms2() ",
+            "for h5 registration support.")
+    return(invisible(NULL))
+  }
+  nat.jrcbrains::register_saalfeldlab_registrations()
 
-  f2='JRC2018U_JRC2018M.h5'
-  p2=path.expand(file.path(rappdirs::user_data_dir(appname = NULL), "R/malecns", f2))
-  if(!file.exists(p2))
-    stop("Cannot find h5 file at: ", p2, '. You can get it from:\n',
-         jdata)
-  h5p=nat.h5reg::h5reg(p2)
-  nat.templatebrains::add_reglist(h5p, sample = 'JRC2018U',
-                                  reference = "JRC2018M")
-  invisible(c(p,p2))
+  # malecns (nm) <-> JRCFIB2022M (microns) alias
+  nat.templatebrains::add_reglist(
+    nat::reglist(diag(c(1/1e3, 1/1e3, 1/1e3, 1))),
+    reference = 'JRCFIB2022M', sample = 'malecns')
+}
+
+#' @description \code{mcns_download_xforms2} downloads JRCFIB2022M_JRC2018M and
+#'   JRC2018U_JRC2018M h5 deformation fields (~3 GB total) from figshare. Only
+#'   needs to be run once; the download is resumable and will skip files already
+#'   present. Calls \code{mcns_register_xforms2} automatically after
+#'   downloading.
+#' @rdname mcns_register_xforms2
+#' @export
+mcns_download_xforms2 <- function() {
+  check_package_available("nat.jrcbrains")
+  nat.jrcbrains::download_saalfeldlab_registrations(
+    filenames = c("JRCFIB2022M_JRC2018M.h5", "JRC2018U_JRC2018M.h5"),
+    multi = TRUE
+  )
+  mcns_register_xforms2()
 }
 
 #' Mirror points in malecns space

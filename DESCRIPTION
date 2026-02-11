@@ -14,12 +14,13 @@ Description: Provides access to the latest 'Janelia FlyEM' datasets by providing
 License: GPL (>= 3)
 Encoding: UTF-8
 LazyData: true
-Suggests: 
+Suggests:
     spelling,
     remotes,
     testthat (>= 3.0.0),
     Morpho,
     nat.h5reg,
+    nat.jrcbrains,
     rappdirs,
     rgl,
     snakecase
@@ -35,7 +36,7 @@ Imports:
     dplyr,
     coconat (> 0.1.1),
     stringr
-Remotes: 
+Remotes:
     natverse/malevnc,
     natverse/fafbseg,
     natverse/nat,
@@ -43,8 +44,9 @@ Remotes:
     natverse/neuprintr,
     catmaid=natverse/rcatmaid,
     natverse/nat.h5reg,
+    natverse/nat.jrcbrains,
     natverse/coconat
-RoxygenNote: 7.3.2
+RoxygenNote: 7.3.3
 URL: https://github.com/flyconnectome/malecns,
     https://flyconnectome.github.io/malecns/
 BugReports: https://github.com/flyconnectome/malecns/issues
