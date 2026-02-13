@@ -35,5 +35,11 @@
     packageStartupMessage("Trouble registering malecns xforms.\n",
             "Ask on #code or file an issue at https://github.com/flyconnectome/malecns/issues")
 
+  packageStartupMessage(
+    "For high-quality h5 bridging registrations (malecns <-> JRC2018U),\n",
+    "run mcns_download_xforms2() once to download, then\n",
+    "mcns_register_xforms2() once per session to activate."
+  )
+
   invisible()
 }
