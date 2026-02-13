@@ -20,7 +20,7 @@ Suggests:
     testthat (>= 3.0.0),
     Morpho,
     nat.h5reg,
-    nat.jrcbrains,
+    nat.jrcbrains (>= 0.3.3),
     rappdirs,
     rgl,
     snakecase
