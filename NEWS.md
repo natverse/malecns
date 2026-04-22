@@ -1,4 +1,7 @@
-# malecns (development version)
+# malecns 0.4.1
+
+* `mcns_annotate_body()` defaults updated to match `malevnc::manc_annotate_body()` 0.4.0. `test` now defaults to `FALSE` (previously `TRUE`, which hit the retired Clio test server and produced an error). A new `dry_run` argument defaults to `TRUE`, so a bare call previews the POST body that would be sent to the production Clio store instead of writing. Pass `dry_run = FALSE` to actually write.
+* Require `malevnc (>= 0.4.0)`.
 
 # malecns 0.3.6
 

@@ -212,8 +212,11 @@ mcns_set_group <- function(id, group, user) {
 #'   \bold{End users are strongly recommended to use data.frames.}
 #' @param version Optional clio version to associate with this annotation. The
 #'   default \code{NULL} uses the current version returned by the API.
-#' @param test Whether to use the test clio store (recommended until you are
-#'   sure you know what you are doing).
+#' @param test Whether to use the test clio store. Default \code{FALSE}
+#'   writes to production Clio. See \code{\link{manc_annotate_body}}.
+#' @param dry_run When \code{TRUE} (the default) no data is written; a preview
+#'   tibble of the POST body is returned. Pass \code{dry_run = FALSE} to
+#'   actually write. See \code{\link{manc_annotate_body}} for full details.
 #' @param protect Vector of fields that will not be overwritten if they already
 #'   have a value in clio store. Set to \code{TRUE} to protect all fields and to
 #'   \code{FALSE} to overwrite all fields for which you provide data. See
@@ -245,10 +248,11 @@ mcns_set_group <- function(id, group, user) {
 #' # note use of test server
 #' mcns_annotate_body(data.frame(bodyid=10005, group=10005), test=TRUE)
 #' }
-mcns_annotate_body <- function(x, test=TRUE, version=NULL,
+mcns_annotate_body <- function(x, test=FALSE, version=NULL,
                                write_empty_fields=FALSE,
                                designated_user=NULL,
-                               protect=c("user"), chunksize=50, check_types = TRUE, ...) {
+                               protect=c("user"), chunksize=50, check_types = TRUE,
+                               dry_run=TRUE, ...) {
   # we need numeric ids
   if(is.data.frame(x) && "bodyid" %in% colnames(x)) {
     x$bodyid=mcns_ids(x$bodyid, as_character=F, unique=F)
@@ -259,7 +263,8 @@ mcns_annotate_body <- function(x, test=TRUE, version=NULL,
     manc_annotate_body(x, test=test, version=version,
                        designated_user=designated_user,
                        write_empty_fields=write_empty_fields,
-                       protect=protect, chunksize=chunksize, query=FALSE, ...)
+                       protect=protect, chunksize=chunksize, query=FALSE,
+                       dry_run=dry_run, ...)
   )
 }
 
