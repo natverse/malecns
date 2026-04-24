@@ -98,8 +98,8 @@ plot3d(malecns.surf, alpha=.1)
 # compare plotting orientation with original templates
 plot3d(malecns_shell.surf)
 plot3d(malecnsvnc_shell.surf)
-plot3d(xform_brain(malecnsvnc_shell.surf, sample='malecns', ref='malecnsplot'), col='red')
-plot3d(xform_brain(malecns_shell.surf, sample='malecns', ref='malecnsplot'), col='red')
+plot3d(xform_brain(malecnsvnc_shell.surf, sample='malecns', reference='malecnsplot'), col='red')
+plot3d(xform_brain(malecns_shell.surf, sample='malecns', reference='malecnsplot'), col='red')
 
 }
 }
