@@ -44,6 +44,7 @@ A character vector of body ids (0 is missing somas / missing locations)
 # \donttest{
 # find the bodyids corresponding to set of soma positions
 mcns_xyz2bodyid(mcns_somapos("/LAL04[12]", units='raw'), units='raw')
+#> Warning: NAs introduced by coercion to integer64 range
 #> [1]  34187 512750
 # }
 # the APL

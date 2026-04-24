@@ -73,23 +73,10 @@ with_mcns(malevnc::manc_dvid_node(type = 'clio'))
 # This should work for both clio and neuprint calls, here clio:
 # this body was typed after the v0.9 snapshot
 with_mcns(mcns_body_annotations(194965), dataset = "male-cns:v0.9")
-#>   bodyid celltype_predicted_nt celltype_predicted_nt_confidence
-#> 1 194965         acetylcholine                         0.952291
-#>   celltype_total_nt_predictions  consensus_nt flywire_type group instance
-#> 1                         22356 acetylcholine         Sm01 29457    Cm2_L
-#>    predicted_nt predicted_nt_confidence soma_side   status   superclass
-#> 1 acetylcholine               0.9597166         L Reviewed ol_intrinsic
-#>   total_nt_predictions type  auto
-#> 1                   66  Cm2 FALSE
+#> Error in clio_auth(): Clio/Google auth failure. Do you have access rights to VNC clio?
+#> Try specifying the email linked to clio in a call to `clio_auth` or setting `options(malevnc.clio_email)`!
 with_mcns(mcns_body_annotations(194965), dataset = "CNS")
-#> switching CNS dataset from `male-cns:v0.9` to `CNS`
-#>   bodyid celltype_predicted_nt celltype_predicted_nt_confidence
-#> 1 194965         acetylcholine                        0.9478553
-#>   celltype_total_nt_predictions  consensus_nt flywire_type group instance
-#> 1                         22356 acetylcholine         Sm01 29457    Cm2_L
-#>    predicted_nt predicted_nt_confidence soma_side   status   superclass
-#> 1 acetylcholine               0.9552417         L Reviewed ol_intrinsic
-#>   total_nt_predictions type  user  auto
-#> 1                   66  Cm2 bergs FALSE
+#> Error in clio_auth(): Clio/Google auth failure. Do you have access rights to VNC clio?
+#> Try specifying the email linked to clio in a call to `clio_auth` or setting `options(malevnc.clio_email)`!
 # }
 ```

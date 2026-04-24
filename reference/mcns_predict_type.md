@@ -61,6 +61,7 @@ the ascending neurons are unlikely to be canonical.
 # \donttest{
 library(dplyr)
 mnm.ti <- mcns_neuprint_meta('where:exists(n.type) OR exists(n.instance)')
+#> Warning: NAs introduced by coercion to integer64 range
 # Descending neurons with the wrong superclass
 mnm.ti %>%
   mutate(ptype=mcns_predict_type(.)) %>%
@@ -18368,6 +18369,7 @@ mnm.ti %>%
 # report all the different types available for these two VPNs
 mcns_predict_type("LoVP106", method = 'all') %>%
   select(matches('.ype'))
+#> Warning: NAs introduced by coercion to integer64 range
 #>   flywireType hemibrainType supertype    type mancType receptorType
 #> 1       LTe08          <NA>      <NA> LoVP106     <NA>         <NA>
 #> 2       LTe08          <NA>      <NA> LoVP106     <NA>         <NA>
@@ -18379,9 +18381,11 @@ mcns_predict_type("LoVP106", method = 'all') %>%
 #> 2 LoVP106  LTe08 LoVP106 LoVP106
 # report just one type, preferring malecns type (the default)
 mcns_predict_type("LoVP106")
+#> Warning: NAs introduced by coercion to integer64 range
 #> [1] "LoVP106" "LoVP106"
 # ... or preferring the foreign type (flywire in this case)
 mcns_predict_type("LoVP106", prefer.foreign=TRUE)
+#> Warning: NAs introduced by coercion to integer64 range
 #> [1] "LTe08" "LTe08"
 # }
 ```

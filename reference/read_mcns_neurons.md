@@ -56,10 +56,6 @@ Other neurons:
 ``` r
 # nb convert
 n30102=read_mcns_neurons(30102)
-#> Warning: The `father` argument of `dfs()` is deprecated as of igraph 2.2.0.
-#> ℹ Please use the `parent` argument instead.
-#> ℹ The deprecated feature was likely used in the nat package.
-#>   Please report the issue at <https://github.com/natverse/nat/issues>.
 # neuronlist
 n30102
 #> 'neuronlist' containing 1 'neuprintneuron' object and 'data.frame' with 49 vars [165.6 kB]

@@ -77,15 +77,19 @@ Other annotations:
 library(dplyr)
 # fetch metatada for all bodies in neuprint
 mnm=mcns_neuprint_meta()
-#> Error in manc_dvid_node("neuprint"): Unable to find neuprint node
+#> Error in clio_auth(): Clio/Google auth failure. Do you have access rights to VNC clio?
+#> Try specifying the email linked to clio in a call to `clio_auth` or setting `options(malevnc.clio_email)`!
 # fetch metadata for all bodies with a somaLocation
 mnm.soma=mcns_neuprint_meta("where:exists(n.somaLocation)")
+#> Warning: NAs introduced by coercion to integer64 range
 
 # type or instance present
 mnm.ti <- mcns_neuprint_meta('where:exists(n.type) OR exists(n.instance)')
+#> Warning: NAs introduced by coercion to integer64 range
 
 # neurons without a superclass but quite a few synapses
 mnm.nc=mcns_neuprint_meta("where:NOT exists(n.superclass) AND n.synweight>2000")
+#> Warning: NAs introduced by coercion to integer64 range
 mnm.nc %>% arrange(desc(synweight))
 #>       bodyid post  pre downstream upstream synweight flywireType group
 #> 1     957899 1776 1343       5431     1776      7207        <NA>    NA
@@ -451,6 +455,7 @@ mnm.nc %>% arrange(desc(synweight))
 library(dplyr)
 # Which neurons don't have a superclass, but possibly should
 mnm.nsc=mcns_neuprint_meta("where:NOT exists(n.superclass)")
+#> Warning: NAs introduced by coercion to integer64 range
 mnm.nsc %>% count(statusLabel)
 #>              statusLabel    n
 #> 1              0.5assign   11
@@ -474,6 +479,7 @@ mnm.nsc %>% count(statusLabel)
 
 # neurons that are RT or PRT should probably have a superclass
 mnm.nscprt=mcns_neuprint_meta("where:NOT exists(n.superclass) AND n.statusLabel CONTAINS 'Roughly'")
+#> Warning: NAs introduced by coercion to integer64 range
 mnm.nscprt %>% count()
 #>    n
 #> 1 19

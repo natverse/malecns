@@ -114,7 +114,9 @@ plot(table(mda$type), ylab='Frequency')
 
 
 kcs=mcns_dvid_annotations("/KC.*")
+#> Warning: NAs introduced by coercion to integer64 range
 mbons=mcns_dvid_annotations("/MBON.+")
+#> Warning: NAs introduced by coercion to integer64 range
 
 head(mbons)
 #> # A tibble: 6 × 41

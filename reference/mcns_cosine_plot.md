@@ -104,6 +104,7 @@ invisibly including the row and column dendrograms.
 # \donttest{
 # cosine clustering based on grouped output partners (mainly DNs right now)
 r=mcns_cosine_plot("/name:LAL.+", partners='out', group=TRUE)
+#> Warning: NAs introduced by coercion to integer64 range
 #> Warning: Dropping: 93/24092 neurons representing 1646/862740 synapses due to missing ids!
 #> Warning: diag(V) has non-positive or non-finite entries; finite result is doubtful
 

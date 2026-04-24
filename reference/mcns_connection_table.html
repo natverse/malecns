@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">malecns</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.4.0.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.4.1</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -124,6 +124,7 @@ ensure that query is against the VNC dataset.</p></dd>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>     intersect, setdiff, setequal, union</span>
 <span class="r-in"><span><span class="fu">mcns_connection_table</span><span class="op">(</span><span class="st">'DNa02'</span>, partners <span class="op">=</span> <span class="st">'out'</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>NAs introduced by coercion to integer64 range</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   bodyid partner prepost weight       name     type  group        superclass</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1 523769  800561       1    209 IN08A006_L IN08A006 800561     vnc_intrinsic</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2  10360  801437       1    195 IN08A006_R IN08A006 800561     vnc_intrinsic</span>
@@ -139,6 +140,7 @@ ensure that query is against the VNC dataset.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 5        R</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 6        R</span>
 <span class="r-in"><span><span class="fu">mcns_connection_table</span><span class="op">(</span><span class="st">'DNa02'</span>, partners <span class="op">=</span> <span class="st">'out'</span>, summary <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>NAs introduced by coercion to integer64 range</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 6 × 9</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   partner prepost weight name       type         n  group superclass    somaSide</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   </span>
@@ -150,6 +152,7 @@ ensure that query is against the VNC dataset.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">6</span>  <span style="text-decoration: underline;">524</span>150       1    150 PS137_R    PS137        1  <span style="text-decoration: underline;">13</span>165 cb_intrinsic  R       </span>
 <span class="r-in"><span><span class="co"># return weight of outputs in the brain specifically (see ROIweight column)</span></span></span>
 <span class="r-in"><span><span class="fu">mcns_connection_table</span><span class="op">(</span><span class="st">'DNa02'</span>, partners <span class="op">=</span> <span class="st">'out'</span>, roi<span class="op">=</span><span class="st">'CentralBrain'</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>NAs introduced by coercion to integer64 range</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   bodyid partner prepost weight           name    type ROIweight          roi</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1  10360   11158       1    168      DNge026_R DNge026       168 CentralBrain</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2  10360  524150       1    150        PS137_R   PS137       150 CentralBrain</span>

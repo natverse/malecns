@@ -60,23 +60,29 @@ A vector of numeric ids with mode determined by `as_character` and
 ``` r
 # exact matches for cell types
 mcns_ids("DA2_lPN")
+#> Warning: NAs introduced by coercion to integer64 range
 #>  [1] "18776" "20105" "20995" "26423" "20311" "21876" "18416" "23958" "34301"
 #> [10] "19339"
 mcns_ids("DA2_lPN", integer64=TRUE)
+#> Warning: NAs introduced by coercion to integer64 range
 #> integer64
 #>  [1] 18776 20105 20995 26423 20311 21876 18416 23958 34301 19339
 # You can also do more complex queries using regular expressions
 mcns_ids("/VL2a.+")
+#> Warning: NAs introduced by coercion to integer64 range
 #> [1] "10039" "10134" "25927" "22224" "33165" "52616" "22977" "32815"
 dns=mcns_ids("/type:DN.+")
+#> Warning: NAs introduced by coercion to integer64 range
 
 # you can also use Neo4J cypher queries by using the where: prefix
 # note that each field of the neuron must prefixed with "n."
 bigneurons_nosuperclass <-
 mcns_ids("where:NOT exists(n.superclass) AND n.synweight>5000")
+#> Warning: NAs introduced by coercion to integer64 range
 
 bignogroupids <-
 mcns_ids("where:NOT exists(n.group) AND n.synweight>5000 AND n.superclass CONTAINS 'neuron'")
+#> Warning: NAs introduced by coercion to integer64 range
 
 if (FALSE) { # \dontrun{
 # you can paste ids onto the clipboard for inspection
@@ -87,5 +93,6 @@ mcns_ids("rhubarb")
 } # }
 # returns a length 0 vector
 mcns_ids("rhubarb", mustWork = FALSE)
+#> Warning: NAs introduced by coercion to integer64 range
 #> character(0)
 ```

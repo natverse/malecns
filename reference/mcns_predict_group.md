@@ -79,6 +79,7 @@ predicted MANC matches as a fall-back.
 library(dplyr)
 # return all body ids with a group type or instance
 tig_ids=mcns_ids('where:exists(n.group) OR exists(n.type) OR exists (n.instance)')
+#> Warning: NAs introduced by coercion to integer64 range
 allg=mcns_predict_group(tig_ids, method = 'all')
 # neurons where the recorded group and instance group disagree
 allg %>% filter(!is.na(group) & !is.na(instance_group) & group!=instance_group)

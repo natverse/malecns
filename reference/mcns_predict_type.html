@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">malecns</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.4.0.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.4.1</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -93,6 +93,7 @@ datasets (see details).</p></dd>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">mnm.ti</span> <span class="op">&lt;-</span> <span class="fu"><a href="mcns_neuprint_meta.html">mcns_neuprint_meta</a></span><span class="op">(</span><span class="st">'where:exists(n.type) OR exists(n.instance)'</span><span class="op">)</span></span></span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>NAs introduced by coercion to integer64 range</span>
 <span class="r-in"><span><span class="co"># Descending neurons with the wrong superclass</span></span></span>
 <span class="r-in"><span><span class="va">mnm.ti</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>ptype<span class="op">=</span><span class="fu">mcns_predict_type</span><span class="op">(</span><span class="va">.</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
@@ -18400,6 +18401,7 @@ datasets (see details).</p></dd>
 <span class="r-in"><span><span class="co"># report all the different types available for these two VPNs</span></span></span>
 <span class="r-in"><span><span class="fu">mcns_predict_type</span><span class="op">(</span><span class="st">"LoVP106"</span>, method <span class="op">=</span> <span class="st">'all'</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html" class="external-link">matches</a></span><span class="op">(</span><span class="st">'.ype'</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>NAs introduced by coercion to integer64 range</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   flywireType hemibrainType supertype    type mancType receptorType</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1       LTe08          &lt;NA&gt;      &lt;NA&gt; LoVP106     &lt;NA&gt;         &lt;NA&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2       LTe08          &lt;NA&gt;      &lt;NA&gt; LoVP106     &lt;NA&gt;         &lt;NA&gt;</span>
@@ -18411,9 +18413,11 @@ datasets (see details).</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2 LoVP106  LTe08 LoVP106 LoVP106</span>
 <span class="r-in"><span><span class="co"># report just one type, preferring malecns type (the default)</span></span></span>
 <span class="r-in"><span><span class="fu">mcns_predict_type</span><span class="op">(</span><span class="st">"LoVP106"</span><span class="op">)</span></span></span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>NAs introduced by coercion to integer64 range</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "LoVP106" "LoVP106"</span>
 <span class="r-in"><span><span class="co"># ... or preferring the foreign type (flywire in this case)</span></span></span>
 <span class="r-in"><span><span class="fu">mcns_predict_type</span><span class="op">(</span><span class="st">"LoVP106"</span>, prefer.foreign<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span></span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>NAs introduced by coercion to integer64 range</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "LTe08" "LTe08"</span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 <span class="r-in"><span></span></span>

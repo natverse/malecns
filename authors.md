@@ -11,13 +11,13 @@ Source:
 [`DESCRIPTION`](https://github.com/flyconnectome/malecns/blob/master/DESCRIPTION)
 
 Jefferis G (2026). *malecns: Access to the latest 'Janelia FlyEM'
-datasets*. R package version 0.4.0.9000,
+datasets*. R package version 0.4.1,
 <https://github.com/flyconnectome/malecns>.
 
     @Manual{,
       title = {malecns: Access to the latest 'Janelia FlyEM' datasets},
       author = {Gregory Jefferis},
       year = {2026},
-      note = {R package version 0.4.0.9000},
+      note = {R package version 0.4.1},
       url = {https://github.com/flyconnectome/malecns},
     }

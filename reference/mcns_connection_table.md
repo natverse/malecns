@@ -88,6 +88,7 @@ library(dplyr)
 #> 
 #>     intersect, setdiff, setequal, union
 mcns_connection_table('DNa02', partners = 'out') %>% head()
+#> Warning: NAs introduced by coercion to integer64 range
 #>   bodyid partner prepost weight       name     type  group        superclass
 #> 1 523769  800561       1    209 IN08A006_L IN08A006 800561     vnc_intrinsic
 #> 2  10360  801437       1    195 IN08A006_R IN08A006 800561     vnc_intrinsic
@@ -103,6 +104,7 @@ mcns_connection_table('DNa02', partners = 'out') %>% head()
 #> 5        R
 #> 6        R
 mcns_connection_table('DNa02', partners = 'out', summary = TRUE) %>% head()
+#> Warning: NAs introduced by coercion to integer64 range
 #> # A tibble: 6 × 9
 #>   partner prepost weight name       type         n  group superclass    somaSide
 #>     <dbl>   <dbl>  <int> <chr>      <chr>    <int>  <int> <chr>         <chr>   
@@ -114,6 +116,7 @@ mcns_connection_table('DNa02', partners = 'out', summary = TRUE) %>% head()
 #> 6  524150       1    150 PS137_R    PS137        1  13165 cb_intrinsic  R       
 # return weight of outputs in the brain specifically (see ROIweight column)
 mcns_connection_table('DNa02', partners = 'out', roi='CentralBrain') %>% head()
+#> Warning: NAs introduced by coercion to integer64 range
 #>   bodyid partner prepost weight           name    type ROIweight          roi
 #> 1  10360   11158       1    168      DNge026_R DNge026       168 CentralBrain
 #> 2  10360  524150       1    150        PS137_R   PS137       150 CentralBrain
