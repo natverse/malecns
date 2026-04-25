@@ -77,8 +77,7 @@ Other annotations:
 library(dplyr)
 # fetch metatada for all bodies in neuprint
 mnm=mcns_neuprint_meta()
-#> Error in clio_auth(): Clio/Google auth failure. Do you have access rights to VNC clio?
-#> Try specifying the email linked to clio in a call to `clio_auth` or setting `options(malevnc.clio_email)`!
+#> Error in manc_dvid_node("neuprint"): Unable to find neuprint node
 # fetch metadata for all bodies with a somaLocation
 mnm.soma=mcns_neuprint_meta("where:exists(n.somaLocation)")
 #> Warning: NAs introduced by coercion to integer64 range
