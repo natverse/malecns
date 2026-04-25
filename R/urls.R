@@ -58,7 +58,7 @@ choose_mcns_dataset <- function(dataset='male-cns:v0.9') {
   }
 
   # this will check that this is a sensible value and error if not
-  if(dataset!='male-cns:v0.9')
+  if(!dataset %in% c('male-cns:v0.9', 'male-cns:v0.13'))
     malevnc::choose_flyem_dataset(dataset, set=F)
 
   old_dataset=getOption("malecns.dataset", default = 'CNS')
@@ -79,7 +79,7 @@ choose_mcns_dataset <- function(dataset='male-cns:v0.9') {
 #'   malecns dataset please see \code{choose_mcns_dataset}}.
 choose_mcns <- function(dataset=getOption("malecns.dataset", default = 'male-cns:v0.9'), set=TRUE, use_clio=NA) {
 
-  if(dataset=='male-cns:v0.9' && !isTRUE(use_clio)) {
+  if(dataset %in% c("male-cns:v0.9", "male-cns:v0.13") && !isTRUE(use_clio)) {
     # let's do this manually
     ops=list(
       malevnc.dataset=dataset,
@@ -88,6 +88,9 @@ choose_mcns <- function(dataset=getOption("malecns.dataset", default = 'male-cns
       malevnc.rootnode='f3969dc575d74e4f922a8966709958c8',
       malevnc.server="https://emdata-mcns.janelia.org"
     )
+    # still hosted on the production server
+    if(dataset=='male-cns:v0.13')
+      ops['malevnc.neuprint']='https://neuprint-cns.janelia.org'
     if(set) return(options(ops)) else return(ops)
   } else {
     if(isFALSE(use_clio))
