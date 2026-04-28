@@ -77,7 +77,7 @@ Other annotations:
 library(dplyr)
 # fetch metatada for all bodies in neuprint
 mnm=mcns_neuprint_meta()
-#> Error in manc_dvid_node("neuprint"): Unable to find neuprint node
+#> Error in manc_get(path, urlargs = list(node), show = show, as = "parsed",     simplifyVector = F): Forbidden (HTTP 403).
 # fetch metadata for all bodies with a somaLocation
 mnm.soma=mcns_neuprint_meta("where:exists(n.somaLocation)")
 #> Warning: NAs introduced by coercion to integer64 range
