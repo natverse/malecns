@@ -79,8 +79,9 @@ choose_mcns_dataset <- function(dataset='male-cns:v0.9') {
 #'   malecns dataset please see \code{choose_mcns_dataset}}.
 choose_mcns <- function(dataset=getOption("malecns.dataset", default = 'male-cns:v0.9'), set=TRUE, use_clio=NA) {
 
-  if(dataset %in% c("male-cns:v0.9", "male-cns:v0.13") && !isTRUE(use_clio)) {
-    # let's do this manually
+  # v0.9 stays on the public mcns server and can be set up without any clio
+  # auth — keep the manual path
+  if(dataset == 'male-cns:v0.9' && !isTRUE(use_clio)) {
     ops=list(
       malevnc.dataset=dataset,
       malevnc.neuprint='https://neuprint.janelia.org',
@@ -88,14 +89,23 @@ choose_mcns <- function(dataset=getOption("malecns.dataset", default = 'male-cns
       malevnc.rootnode='f3969dc575d74e4f922a8966709958c8',
       malevnc.server="https://emdata-mcns.janelia.org"
     )
-    # still hosted on the production server
-    if(dataset=='male-cns:v0.13')
-      ops['malevnc.neuprint']='https://neuprint-cns.janelia.org'
     if(set) return(options(ops)) else return(ops)
-  } else {
-    if(isFALSE(use_clio))
-      stop("I must use_clio to get information about dataset:", dataset)
   }
+
+  if(isFALSE(use_clio))
+    stop("I must use_clio to get information about dataset:", dataset)
+
+  if(dataset == 'male-cns:v0.13') {
+    # take server and rootnode from the production CNS clio entry
+    # (there is no v0.13 entry);
+    # then patch the dataset name and neuprint server
+    ops <- malevnc::choose_flyem_dataset(set=FALSE, dataset = 'CNS')
+    ops$malevnc.neuprint_dataset <- dataset
+    ops$malevnc.dataset <- dataset
+    ops$malevnc.neuprint <- 'https://neuprint-cns.janelia.org'
+    if(set) return(options(ops)) else return(ops)
+  }
+
   malevnc::choose_flyem_dataset(set=set, dataset = dataset)
 }
 
