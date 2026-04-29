@@ -26,6 +26,7 @@ test_that("choose_mcns v0.13 returns expected options", {
 
 test_that("can pull body annotations from v0.13 dataset", {
   skip_if_not(has_clio(), "Clio credentials not available")
+  skip('v0.13 dataset not available on Clio')
   res <- with_mcns(
     mcns_body_annotations(query = list(superclass = "descending_neuron")),
     dataset = "male-cns:v0.13"
