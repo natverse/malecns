@@ -25,6 +25,7 @@ columns including useful ones like:
 ## Quick start
 
 ``` r
+
 install.packages("natmanager")
 natmanager::check_pat()
 natmanager::install(pkgs="natverse/malecns")
@@ -64,6 +65,7 @@ arrangement means that some of the configuration for using the
 You can install the released version of malecns from GitHub
 
 ``` r
+
 install.packages("natmanager")
 natmanager::install(pkgs="natverse/malecns")
 ```
@@ -84,6 +86,7 @@ This example shows you how to read some meshes, look up ids by position
 and transform positions from FlyWire/FAFB14.
 
 ``` r
+
 library(malecns)
 ## read meshes for some annotated neurons
 
@@ -148,6 +151,7 @@ tell R+malecns about the emails that you used to sign up for
 Clio/neuprint.
 
 ``` r
+
 usethis::edit_r_profile()
 # paste in this text, appropriately edited, and close the file
 options(malevnc.clio_email="myuser@gmail.com")
