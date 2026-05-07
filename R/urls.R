@@ -58,7 +58,7 @@ choose_mcns_dataset <- function(dataset='male-cns:v0.9') {
   }
 
   # this will check that this is a sensible value and error if not
-  if(!dataset %in% c('male-cns:v0.9', 'male-cns:v0.13'))
+  if(!dataset %in% c('male-cns:v0.9', 'male-cns:v1.0'))
     malevnc::choose_flyem_dataset(dataset, set=F)
 
   old_dataset=getOption("malecns.dataset", default = 'CNS')
@@ -95,9 +95,9 @@ choose_mcns <- function(dataset=getOption("malecns.dataset", default = 'male-cns
   if(isFALSE(use_clio))
     stop("I must use_clio to get information about dataset:", dataset)
 
-  if(dataset == 'male-cns:v0.13') {
+  if(dataset == 'male-cns:v1.0') {
     # take server and rootnode from the production CNS clio entry
-    # (there is no v0.13 entry);
+    # (there is no v01.0 entry);
     # then patch the dataset name and neuprint server
     ops <- malevnc::choose_flyem_dataset(set=FALSE, dataset = 'CNS')
     ops$malevnc.neuprint_dataset <- dataset
