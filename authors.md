@@ -8,16 +8,16 @@
 ## Citation
 
 Source:
-[`DESCRIPTION`](https://github.com/flyconnectome/malecns/blob/master/DESCRIPTION)
+[`DESCRIPTION`](https://github.com/natverse/malecns/blob/master/DESCRIPTION)
 
-Jefferis G (2026). *malecns: Access to the latest 'Janelia FlyEM'
-datasets*. R package version 0.4.1,
-<https://github.com/flyconnectome/malecns>.
+Jefferis G (2026). *malecns: Access to the Latest 'Janelia FlyEM'
+Datasets*. R package version 0.4.1,
+<https://github.com/natverse/malecns>.
 
     @Manual{,
-      title = {malecns: Access to the latest 'Janelia FlyEM' datasets},
+      title = {malecns: Access to the Latest 'Janelia FlyEM' Datasets},
       author = {Gregory Jefferis},
       year = {2026},
       note = {R package version 0.4.1},
-      url = {https://github.com/flyconnectome/malecns},
+      url = {https://github.com/natverse/malecns},
     }

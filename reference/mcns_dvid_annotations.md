@@ -84,9 +84,9 @@ because of a bad node.
 ## See also
 
 Other annotations:
-[`mcns_body_annotations()`](https://flyconnectome.github.io/malecns/reference/mcns_body_annotations.md),
-[`mcns_neuprint_meta()`](https://flyconnectome.github.io/malecns/reference/mcns_neuprint_meta.md),
-[`mcns_soma_side()`](https://flyconnectome.github.io/malecns/reference/mcns_soma_side.md)
+[`mcns_body_annotations()`](https://natverse.org/malecns/reference/mcns_body_annotations.md),
+[`mcns_neuprint_meta()`](https://natverse.org/malecns/reference/mcns_neuprint_meta.md),
+[`mcns_soma_side()`](https://natverse.org/malecns/reference/mcns_soma_side.md)
 
 ## Examples
 
@@ -114,15 +114,24 @@ plot(table(mda$type), ylab='Frequency')
 
 
 kcs=mcns_dvid_annotations("/KC.*")
-#> Error in check_dataset(conn = conn): Specified dataset: `male-cns:v0.9` does not match those provided by your neuPrint connection:
-#>   male-cns:v1.0, optic-lobe:v1.1, manc:v1.2.3, manc:v1.2.1, optic-lobe:v1.0.1, manc:v1.0, hemibrain:v1.2.1, hemibrain:v1.1, fib19:v1.0, mushroombody
-#> See ?neuprint_login for details.
 mbons=mcns_dvid_annotations("/MBON.+")
-#> Error in check_dataset(conn = conn): Specified dataset: `male-cns:v0.9` does not match those provided by your neuPrint connection:
-#>   male-cns:v1.0, optic-lobe:v1.1, manc:v1.2.3, manc:v1.2.1, optic-lobe:v1.0.1, manc:v1.0, hemibrain:v1.2.1, hemibrain:v1.1, fib19:v1.0, mushroombody
-#> See ?neuprint_login for details.
 
 head(mbons)
-#> Error: object 'mbons' not found
+#> # A tibble: 6 × 49
+#>   bodyid birthtime celltype_predicted_nt celltype_predicted_nt_confidence
+#>    <dbl> <chr>     <chr>                                            <dbl>
+#> 1 520151 early     glutamate                                        0.713
+#> 2  10013 early     glutamate                                        0.713
+#> 3 522749 early     glutamate                                        0.740
+#> 4 522444 early     glutamate                                        0.740
+#> 5 519373 early     glutamate                                        0.767
+#> 6 521526 early     glutamate                                        0.767
+#> # ℹ 45 more variables: celltype_total_nt_predictions <int>, consensus_nt <chr>,
+#> #   flywire_type <chr>, group <int>, hemibrain_type <chr>, instance <chr>,
+#> #   itolee_hl <chr>, manc_bodyid <dbl>, manc_group <int>, manc_type <chr>,
+#> #   predicted_nt <chr>, predicted_nt_confidence <dbl>, soma_side <chr>,
+#> #   status <chr>, subclass <chr>, superclass <chr>, synonyms <chr>,
+#> #   total_nt_predictions <int>, type <chr>, vfb_id <chr>, notes <chr>,
+#> #   supertype <chr>, user <chr>, halfbrain_body <dbl>, class <chr>, …
 # }
 ```

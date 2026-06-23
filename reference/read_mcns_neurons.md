@@ -49,22 +49,25 @@ containing one or more
 ## See also
 
 Other neurons:
-[`read_mcns_meshes()`](https://flyconnectome.github.io/malecns/reference/read_mcns_meshes.md)
+[`read_mcns_meshes()`](https://natverse.org/malecns/reference/read_mcns_meshes.md)
 
 ## Examples
 
 ``` r
 # nb convert
 n30102=read_mcns_neurons(30102)
-#> Error in neuprintr::neuprint_read_neurons(ids, meta = F, connectors = connectors,     heal.threshold = heal.threshold, conn = conn, ...): Error reading bodyids. Likely no valid ids or no connection to neuPrint!
 # neuronlist
 n30102
-#> Error: object 'n30102' not found
+#> 'neuronlist' containing 1 'neuprintneuron' object and 'data.frame' with 51 vars [165.9 kB]
 boundingbox(n30102)
-#> Error: object 'n30102' not found
+#>        [,1]   [,2]   [,3]
+#> [1,] 168448  92160 197632
+#> [2,] 279552 169984 274432
+#> attr(,"class")
+#> [1] "boundingbox"
 # neuron
 n30102[[1]]
-#> Error: object 'n30102' not found
+#> 'neuron' with 2154 vertices in 1 tree and additional classes 'neuprintneuron', 'catmaidneuron'
 if (FALSE) { # \dontrun{
 nclear3d()
 plot3d(malecns.surf, alpha=.1)

@@ -67,7 +67,7 @@ fork.
 ## See also
 
 Other neurons:
-[`read_mcns_neurons()`](https://flyconnectome.github.io/malecns/reference/read_mcns_neurons.md)
+[`read_mcns_neurons()`](https://natverse.org/malecns/reference/read_mcns_neurons.md)
 
 ## Examples
 

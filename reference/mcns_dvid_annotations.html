@@ -19,7 +19,7 @@
 <li class="nav-item"><a class="nav-link" href="../news/index.html">Changelog</a></li>
       </ul><ul class="navbar-nav"><li class="nav-item"><form class="form-inline" role="search">
  <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="../search.json"></form></li>
-<li class="nav-item"><a class="external-link nav-link" href="https://github.com/flyconnectome/malecns/" aria-label="GitHub"><span class="fa fab fa-github fa-lg"></span></a></li>
+<li class="nav-item"><a class="external-link nav-link" href="https://github.com/natverse/malecns/" aria-label="GitHub"><span class="fa fab fa-github fa-lg"></span></a></li>
       </ul></div>
 
 
@@ -29,7 +29,7 @@
   <main id="main" class="col-md-9"><div class="page-header">
 
       <h1>Return all DVID body annotations</h1>
-      <small class="dont-index">Source: <a href="https://github.com/flyconnectome/malecns/blob/master/R/annotations.R" class="external-link"><code>R/annotations.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/natverse/malecns/blob/master/R/annotations.R" class="external-link"><code>R/annotations.R</code></a></small>
       <div class="d-none name"><code>mcns_dvid_annotations.Rd</code></div>
     </div>
 
@@ -140,16 +140,25 @@ suffix. Accepted options are: 'user', 'time', 'all'.</p></dd>
 <span class="r-plt img"><img src="mcns_dvid_annotations-1.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">kcs</span><span class="op">=</span><span class="fu">mcns_dvid_annotations</span><span class="op">(</span><span class="st">"/KC.*"</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in check_dataset(conn = conn):</span> Specified dataset: `male-cns:v0.9` does not match those provided by your neuPrint connection:</span>
-<span class="r-err co"><span class="r-pr">#&gt;</span>   male-cns:v1.0, optic-lobe:v1.1, manc:v1.2.3, manc:v1.2.1, optic-lobe:v1.0.1, manc:v1.0, hemibrain:v1.2.1, hemibrain:v1.1, fib19:v1.0, mushroombody</span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> See ?neuprint_login for details.</span>
 <span class="r-in"><span><span class="va">mbons</span><span class="op">=</span><span class="fu">mcns_dvid_annotations</span><span class="op">(</span><span class="st">"/MBON.+"</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in check_dataset(conn = conn):</span> Specified dataset: `male-cns:v0.9` does not match those provided by your neuPrint connection:</span>
-<span class="r-err co"><span class="r-pr">#&gt;</span>   male-cns:v1.0, optic-lobe:v1.1, manc:v1.2.3, manc:v1.2.1, optic-lobe:v1.0.1, manc:v1.0, hemibrain:v1.2.1, hemibrain:v1.1, fib19:v1.0, mushroombody</span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> See ?neuprint_login for details.</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">mbons</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> object 'mbons' not found</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 6 × 49</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   bodyid birthtime celltype_predicted_nt celltype_predicted_nt_confidence</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                                            <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> <span style="text-decoration: underline;">520</span>151 early     glutamate                                        0.713</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span>  <span style="text-decoration: underline;">10</span>013 early     glutamate                                        0.713</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span> <span style="text-decoration: underline;">522</span>749 early     glutamate                                        0.740</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span> <span style="text-decoration: underline;">522</span>444 early     glutamate                                        0.740</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">5</span> <span style="text-decoration: underline;">519</span>373 early     glutamate                                        0.767</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">6</span> <span style="text-decoration: underline;">521</span>526 early     glutamate                                        0.767</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 45 more variables: celltype_total_nt_predictions &lt;int&gt;, consensus_nt &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   flywire_type &lt;chr&gt;, group &lt;int&gt;, hemibrain_type &lt;chr&gt;, instance &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   itolee_hl &lt;chr&gt;, manc_bodyid &lt;dbl&gt;, manc_group &lt;int&gt;, manc_type &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   predicted_nt &lt;chr&gt;, predicted_nt_confidence &lt;dbl&gt;, soma_side &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   status &lt;chr&gt;, subclass &lt;chr&gt;, superclass &lt;chr&gt;, synonyms &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   total_nt_predictions &lt;int&gt;, type &lt;chr&gt;, vfb_id &lt;chr&gt;, notes &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   supertype &lt;chr&gt;, user &lt;chr&gt;, halfbrain_body &lt;dbl&gt;, class &lt;chr&gt;, …</span></span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>

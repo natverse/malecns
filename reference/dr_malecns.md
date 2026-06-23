@@ -11,6 +11,6 @@ dr_malecns()
 ## See also
 
 Other malecns-package:
-[`choose_mcns_dataset()`](https://flyconnectome.github.io/malecns/reference/choose_mcns_dataset.md),
-[`malecns-package`](https://flyconnectome.github.io/malecns/reference/malecns-package.md),
-[`with_mcns()`](https://flyconnectome.github.io/malecns/reference/with_mcns.md)
+[`choose_mcns_dataset()`](https://natverse.org/malecns/reference/choose_mcns_dataset.md),
+[`malecns-package`](https://natverse.org/malecns/reference/malecns-package.md),
+[`with_mcns()`](https://natverse.org/malecns/reference/with_mcns.md)

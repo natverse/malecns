@@ -58,18 +58,17 @@ define the rest.
 ## See also
 
 Other annotations:
-[`mcns_body_annotations()`](https://flyconnectome.github.io/malecns/reference/mcns_body_annotations.md),
-[`mcns_dvid_annotations()`](https://flyconnectome.github.io/malecns/reference/mcns_dvid_annotations.md),
-[`mcns_neuprint_meta()`](https://flyconnectome.github.io/malecns/reference/mcns_neuprint_meta.md)
+[`mcns_body_annotations()`](https://natverse.org/malecns/reference/mcns_body_annotations.md),
+[`mcns_dvid_annotations()`](https://natverse.org/malecns/reference/mcns_dvid_annotations.md),
+[`mcns_neuprint_meta()`](https://natverse.org/malecns/reference/mcns_neuprint_meta.md)
 
 ## Examples
 
 ``` r
 # \donttest{
 mcns_soma_side('/LAL04.*')
-#> Error in check_dataset(conn = conn): Specified dataset: `male-cns:v0.9` does not match those provided by your neuPrint connection:
-#>   male-cns:v1.0, optic-lobe:v1.1, manc:v1.2.3, manc:v1.2.1, optic-lobe:v1.0.1, manc:v1.0, hemibrain:v1.2.1, hemibrain:v1.1, fib19:v1.0, mushroombody
-#> See ?neuprint_login for details.
+#>  [1] "R" "L" "R" "L" "R" "L" "L" "R" "L" "R" "R" "L" "R" "L" "L" "R" "R" "L" "R"
+#> [20] "L" "R" "L" "L" "L" "R" "R" "L" "L" "L" "R" "R" "R" "R" "L"
 # }
 if (FALSE) { # \dontrun{
 # All neurons with a type
@@ -98,13 +97,8 @@ with(mcns_instance, table(somaSide, iside, useNA = 'i'))
 mcns_instance %>% filter(soma) %>% with(table(somaSide, iside, useNA = 'i'))
 } # }
 sp=mcns_somapos('/LAL04.*', units='um')
-#> Error in check_dataset(conn = conn): Specified dataset: `male-cns:v0.9` does not match those provided by your neuPrint connection:
-#>   male-cns:v1.0, optic-lobe:v1.1, manc:v1.2.3, manc:v1.2.1, optic-lobe:v1.0.1, manc:v1.0, hemibrain:v1.2.1, hemibrain:v1.1, fib19:v1.0, mushroombody
-#> See ?neuprint_login for details.
 plot(sp[,1:2])
-#> Error: object 'sp' not found
+
 mcns_somapos('LAL042', units='um', as_character=TRUE)
-#> Error in check_dataset(conn = conn): Specified dataset: `male-cns:v0.9` does not match those provided by your neuPrint connection:
-#>   male-cns:v1.0, optic-lobe:v1.1, manc:v1.2.3, manc:v1.2.1, optic-lobe:v1.0.1, manc:v1.0, hemibrain:v1.2.1, hemibrain:v1.1, fib19:v1.0, mushroombody
-#> See ?neuprint_login for details.
+#> [1] "299.768,99.944,128.68" "438.56,87.904,117.6"  
 ```
