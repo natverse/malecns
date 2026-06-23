@@ -65,7 +65,7 @@ read_mcns_mesh <- function(id, node, type, ...) {
     }
   }
   if(type=='small') {
-    ss=malevnc:::flyem_servers4dataset(getOption("malecns.dataset", default = "male-cns:v0.9"))
+    ss=malevnc:::flyem_servers4dataset(getOption("malecns.dataset", default = "male-cns:v1.0"))
     dvid = ss$dvid
     support = ss$support
     u = glue("{support}/small-mesh?dvid={dvid}&uuid={node}&body={id}&decimation=0.5")

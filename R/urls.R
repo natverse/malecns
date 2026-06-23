@@ -12,8 +12,8 @@
 #'
 #' @param expr An expression involving malecns/malevnc functions to evaluate
 #'   with the specified autosegmentation. .
-#' @param dataset The name of the dataset as reported in Clio e.g. \code{CNS},
-#'   \code{male-cns:v0.9} etc.
+#' @param dataset The name of the dataset, e.g. \code{male-cns:v1.0},
+#'   \code{male-cns:v0.9}, or \code{CNS}.
 #' @family malecns-package
 #' @export
 #' @examples
@@ -22,12 +22,12 @@
 #' }
 #' \donttest{
 #' # This should work for both clio and neuprint calls, here clio:
-#' # this body was typed after the v0.9 snapshot
-#' with_mcns(mcns_body_annotations(194965), dataset = "male-cns:v0.9")
+#' # this body was typed after the v1.0 snapshot
+#' with_mcns(mcns_body_annotations(194965), dataset = "male-cns:v1.0")
 #' with_mcns(mcns_body_annotations(194965), dataset = "CNS")
 #' }
 with_mcns <- function(expr, dataset=getOption("malecns.dataset",
-                                              default = "male-cns:v0.9")) {
+                                              default = "male-cns:v1.0")) {
   oldop <- choose_mcns(dataset)
   on.exit(options(oldop))
   oldop2 <- choose_mcns_dataset(dataset)
@@ -36,7 +36,10 @@ with_mcns <- function(expr, dataset=getOption("malecns.dataset",
 }
 
 #' Switch the default dataset for \code{mcns_*} functions
-#' @param dataset The name of the dataset as reported in Clio e.g. CNS,  etc
+#'
+#' @param dataset The name of the dataset. Defaults to the public
+#'   \code{male-cns:v1.0} release, but e.g. \code{CNS} accesses the private
+#'   production version used to collect any fixes.
 #' @family malecns-package
 #' @export
 #' @description \code{choose_mcns_dataset} This sets the default dataset used by
@@ -47,12 +50,12 @@ with_mcns <- function(expr, dataset=getOption("malecns.dataset",
 #'
 #' @examples
 #' \dontrun{
-#' # use the v0.9 snapshot for the rest of this R session
-#' choose_mcns_dataset("male-cns:v0.9")
+#' # use the v1.0 snapshot for the rest of this R session
+#' choose_mcns_dataset("male-cns:v1.0")
 #' # use production for the rest of this R session
 #' choose_mcns_dataset("CNS")
 #' }
-choose_mcns_dataset <- function(dataset='male-cns:v0.9') {
+choose_mcns_dataset <- function(dataset='male-cns:v1.0') {
   if(dataset=='cns') {
     dataset='CNS'
   }
@@ -77,11 +80,11 @@ choose_mcns_dataset <- function(dataset='male-cns:v0.9') {
 #'   \code{with_mcns} function to do this temporarily unless you have no
 #'   intention of using the male vnc dataset. \emph{To switch the default
 #'   malecns dataset please see \code{choose_mcns_dataset}}.
-choose_mcns <- function(dataset=getOption("malecns.dataset", default = 'male-cns:v0.9'), set=TRUE, use_clio=NA) {
+choose_mcns <- function(dataset=getOption("malecns.dataset", default = 'male-cns:v1.0'), set=TRUE, use_clio=NA) {
 
-  # v0.9 stays on the public mcns server and can be set up without any clio
-  # auth — keep the manual path
-  if(dataset == 'male-cns:v0.9' && !isTRUE(use_clio)) {
+  # Public snapshots stay on the public mcns server and can be set up without
+  # any clio auth -- keep the manual path.
+  if(dataset %in% c('male-cns:v0.9','male-cns:v1.0') && !isTRUE(use_clio)) {
     ops=list(
       malevnc.dataset=dataset,
       malevnc.neuprint='https://neuprint.janelia.org',
@@ -95,9 +98,10 @@ choose_mcns <- function(dataset=getOption("malecns.dataset", default = 'male-cns
   if(isFALSE(use_clio))
     stop("I must use_clio to get information about dataset:", dataset)
 
-  if(dataset == 'male-cns:v1.0') {
+  # leaving this block to handle another potential pre-release dataset
+  if(dataset == 'pre-release-dataset') {
     # take server and rootnode from the production CNS clio entry
-    # (there is no v01.0 entry);
+    # (there is no public release entry);
     # then patch the dataset name and neuprint server
     ops <- malevnc::choose_flyem_dataset(set=FALSE, dataset = 'CNS')
     ops$malevnc.neuprint_dataset <- dataset

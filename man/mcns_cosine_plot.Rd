@@ -55,8 +55,8 @@ with \code{stats::\link{heatmap}}.}
 \item{interactive}{Whether to plot an interactive heatmap (allowing zooming
 and id selection). See details.}
 
-\item{action}{Whether to zero out or drop any NA values in the cosine matrix
-(these may be present when some columns have no entries)}
+\item{action}{Whether to zero out or drop any NA values in the similarity
+matrix (these may be present when some columns have no entries)}
 
 \item{threshold}{An integer threshold (connections >= this will be returned)}
 

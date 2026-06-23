@@ -61,10 +61,10 @@ options()[grepl("^malecns", names(options()))]
 dr_malecns()
 
 # run expression without changing default malecns dataset
-with_mcns(mcns_body_annotations(194965), dataset = "male-cns:v0.9")
+with_mcns(mcns_body_annotations(194965), dataset = "male-cns:v1.0")
 
 # run expression(s) after changing default malecns dataset
-choose_mcns_dataset("male-cns:v0.9")
+choose_mcns_dataset("male-cns:v1.0")
 mcns_body_annotations(194965)
 choose_mcns_dataset("CNS")
 mcns_body_annotations(194965)

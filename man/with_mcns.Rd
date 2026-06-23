@@ -7,11 +7,11 @@
 \usage{
 with_mcns(
   expr,
-  dataset = getOption("malecns.dataset", default = "male-cns:v0.9")
+  dataset = getOption("malecns.dataset", default = "male-cns:v1.0")
 )
 
 choose_mcns(
-  dataset = getOption("malecns.dataset", default = "male-cns:v0.9"),
+  dataset = getOption("malecns.dataset", default = "male-cns:v1.0"),
   set = TRUE,
   use_clio = NA
 )
@@ -20,8 +20,8 @@ choose_mcns(
 \item{expr}{An expression involving malecns/malevnc functions to evaluate
 with the specified autosegmentation. .}
 
-\item{dataset}{The name of the dataset as reported in Clio e.g. \code{CNS},
-\code{male-cns:v0.9} etc.}
+\item{dataset}{The name of the dataset, e.g. \code{male-cns:v1.0},
+\code{male-cns:v0.9}, or \code{CNS}.}
 
 \item{set}{Whether to set the relevant package options or just to return a
 list of the required options.}
@@ -54,8 +54,8 @@ with_mcns(malevnc::manc_dvid_node(type = 'clio'))
 }
 \donttest{
 # This should work for both clio and neuprint calls, here clio:
-# this body was typed after the v0.9 snapshot
-with_mcns(mcns_body_annotations(194965), dataset = "male-cns:v0.9")
+# this body was typed after the v1.0 snapshot
+with_mcns(mcns_body_annotations(194965), dataset = "male-cns:v1.0")
 with_mcns(mcns_body_annotations(194965), dataset = "CNS")
 }
 }

@@ -1,19 +1,19 @@
 .onLoad <- function(libname, pkgname) {
 
   op.malecns <- list(
-    malecns.dataset="male-cns:v0.9"
+    malecns.dataset="male-cns:v1.0"
   )
   op<-options()
   toset <- !(names(op.malecns) %in% names(op))
   if(any(toset)) options(op.malecns[toset])
 
-    ds=getOption('malecns.dataset', default = 'male-cns:v0.9')
+    ds=getOption('malecns.dataset', default = 'male-cns:v1.0')
 
   packageStartupMessage("Using malecns dataset `",ds,"`.")
   if(ds=='CNS') {
     packageStartupMessage(
     "You can switch to a snapshot dataset in this R session with:\n",
-    'choose_mcns_dataset("male-cns:v0.9")'
+    'choose_mcns_dataset("male-cns:v1.0")'
     )
     res=try(malevnc::choose_flyem_dataset(set=FALSE,
                                           dataset = getOption('malecns.dataset')),

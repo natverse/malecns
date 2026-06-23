@@ -4,10 +4,12 @@
 \alias{choose_mcns_dataset}
 \title{Switch the default dataset for \code{mcns_*} functions}
 \usage{
-choose_mcns_dataset(dataset = "male-cns:v0.9")
+choose_mcns_dataset(dataset = "male-cns:v1.0")
 }
 \arguments{
-\item{dataset}{The name of the dataset as reported in Clio e.g. CNS,  etc}
+\item{dataset}{The name of the dataset. Defaults to the public
+\code{male-cns:v1.0} release, but e.g. \code{CNS} accesses the private
+production version used to collect any fixes.}
 }
 \description{
 \code{choose_mcns_dataset} This sets the default dataset used by
@@ -18,8 +20,8 @@ choose_mcns_dataset(dataset = "male-cns:v0.9")
 }
 \examples{
 \dontrun{
-# use the v0.9 snapshot for the rest of this R session
-choose_mcns_dataset("male-cns:v0.9")
+# use the v1.0 snapshot for the rest of this R session
+choose_mcns_dataset("male-cns:v1.0")
 # use production for the rest of this R session
 choose_mcns_dataset("CNS")
 }

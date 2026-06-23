@@ -40,7 +40,7 @@
 mcns_neuprint <- function(token=Sys.getenv("neuprint_token"),
                           dataset=NULL, Force=FALSE, ...) {
   if(is.null(dataset))
-    dataset=getOption("malecns.dataset", default = 'male-cns:v0.9')
+    dataset=getOption("malecns.dataset", default = 'male-cns:v1.0')
   dataset=tolower(dataset)
   npserver=choose_mcns(set = F)$malevnc.neuprint
   neuprintr::neuprint_login(server=npserver, dataset = dataset, token=token,

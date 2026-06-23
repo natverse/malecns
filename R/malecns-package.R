@@ -9,7 +9,7 @@
 #'   }
 #'
 #'   This is now of more than internal use as you can use it run your code
-#'   against the production dataset (still the default) or a snapshot. There are
+#'   against the default public snapshot or the private production dataset. There are
 #'   essentially three main ways to do this, from safest/least intrusive to most
 #'   intrusive. I recommend using option 1 for one-off queries and option 2 if
 #'   you want to run a series of commands within a script.
@@ -48,10 +48,10 @@
 #' dr_malecns()
 #'
 #' # run expression without changing default malecns dataset
-#' with_mcns(mcns_body_annotations(194965), dataset = "male-cns:v0.9")
+#' with_mcns(mcns_body_annotations(194965), dataset = "male-cns:v1.0")
 #'
 #' # run expression(s) after changing default malecns dataset
-#' choose_mcns_dataset("male-cns:v0.9")
+#' choose_mcns_dataset("male-cns:v1.0")
 #' mcns_body_annotations(194965)
 #' choose_mcns_dataset("CNS")
 #' mcns_body_annotations(194965)
