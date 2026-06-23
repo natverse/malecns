@@ -56,18 +56,15 @@ Other neurons:
 ``` r
 # nb convert
 n30102=read_mcns_neurons(30102)
+#> Error in neuprintr::neuprint_read_neurons(ids, meta = F, connectors = connectors,     heal.threshold = heal.threshold, conn = conn, ...): Error reading bodyids. Likely no valid ids or no connection to neuPrint!
 # neuronlist
 n30102
-#> 'neuronlist' containing 1 'neuprintneuron' object and 'data.frame' with 49 vars [165.6 kB]
+#> Error: object 'n30102' not found
 boundingbox(n30102)
-#>        [,1]   [,2]   [,3]
-#> [1,] 168448  92160 197632
-#> [2,] 279552 169984 274432
-#> attr(,"class")
-#> [1] "boundingbox"
+#> Error: object 'n30102' not found
 # neuron
 n30102[[1]]
-#> 'neuron' with 2154 vertices in 1 tree and additional classes 'neuprintneuron', 'catmaidneuron'
+#> Error: object 'n30102' not found
 if (FALSE) { # \dontrun{
 nclear3d()
 plot3d(malecns.surf, alpha=.1)

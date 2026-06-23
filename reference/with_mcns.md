@@ -16,11 +16,11 @@ the male vnc dataset. *To switch the default malecns dataset please see
 ``` r
 with_mcns(
   expr,
-  dataset = getOption("malecns.dataset", default = "male-cns:v0.9")
+  dataset = getOption("malecns.dataset", default = "male-cns:v1.0")
 )
 
 choose_mcns(
-  dataset = getOption("malecns.dataset", default = "male-cns:v0.9"),
+  dataset = getOption("malecns.dataset", default = "male-cns:v1.0"),
   set = TRUE,
   use_clio = NA
 )
@@ -35,8 +35,8 @@ choose_mcns(
 
 - dataset:
 
-  The name of the dataset as reported in Clio e.g. `CNS`,
-  `male-cns:v0.9` etc.
+  The name of the dataset, e.g. `male-cns:v1.0`, `male-cns:v0.9`, or
+  `CNS`.
 
 - set:
 
@@ -71,25 +71,12 @@ with_mcns(malevnc::manc_dvid_node(type = 'clio'))
 } # }
 # \donttest{
 # This should work for both clio and neuprint calls, here clio:
-# this body was typed after the v0.9 snapshot
-with_mcns(mcns_body_annotations(194965), dataset = "male-cns:v0.9")
-#>   bodyid celltype_predicted_nt celltype_predicted_nt_confidence
-#> 1 194965         acetylcholine                         0.952291
-#>   celltype_total_nt_predictions  consensus_nt flywire_type group instance
-#> 1                         22356 acetylcholine         Sm01 29457    Cm2_L
-#>    predicted_nt predicted_nt_confidence soma_side   status   superclass
-#> 1 acetylcholine               0.9597166         L Reviewed ol_intrinsic
-#>   total_nt_predictions type  auto
-#> 1                   66  Cm2 FALSE
+# this body was typed after the v1.0 snapshot
+with_mcns(mcns_body_annotations(194965), dataset = "male-cns:v1.0")
+#> Error in clio_auth(): Clio/Google auth failure. Do you have access rights to VNC clio?
+#> Try specifying the email linked to clio in a call to `clio_auth` or setting `options(malevnc.clio_email)`!
 with_mcns(mcns_body_annotations(194965), dataset = "CNS")
-#> switching CNS dataset from `male-cns:v0.9` to `CNS`
-#>   bodyid celltype_predicted_nt celltype_predicted_nt_confidence
-#> 1 194965         acetylcholine                        0.9525882
-#>   celltype_total_nt_predictions  consensus_nt flywire_type group instance
-#> 1                         22356 acetylcholine         Sm01 29457    Cm2_L
-#>    predicted_nt predicted_nt_confidence soma_side   status   superclass
-#> 1 acetylcholine               0.9600185         L Reviewed ol_intrinsic
-#>   total_nt_predictions type  user       vfb_id  auto
-#> 1                   66  Cm2 bergs VFB_jrmc35xh FALSE
+#> Error in clio_auth(): Clio/Google auth failure. Do you have access rights to VNC clio?
+#> Try specifying the email linked to clio in a call to `clio_auth` or setting `options(malevnc.clio_email)`!
 # }
 ```

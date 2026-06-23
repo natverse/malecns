@@ -94,7 +94,7 @@ Other annotations:
 # \donttest{
 mda=mcns_dvid_annotations()
 head(mda)
-#> # A tibble: 6 × 41
+#> # A tibble: 6 × 49
 #>   bodyid birthtime celltype_predicted_nt celltype_predicted_nt_confidence
 #>    <dbl> <chr>     <chr>                                            <dbl>
 #> 1  10001 early     acetylcholine                                    0.528
@@ -103,37 +103,26 @@ head(mda)
 #> 4  10005 early     gaba                                             0.831
 #> 5  10006 NA        acetylcholine                                    0.820
 #> 6  10009 NA        gaba                                             0.866
-#> # ℹ 37 more variables: celltype_total_nt_predictions <int>, consensus_nt <chr>,
+#> # ℹ 45 more variables: celltype_total_nt_predictions <int>, consensus_nt <chr>,
 #> #   flywire_type <chr>, group <int>, hemibrain_type <chr>, instance <chr>,
 #> #   itolee_hl <chr>, manc_bodyid <dbl>, manc_group <int>, manc_type <chr>,
 #> #   predicted_nt <chr>, predicted_nt_confidence <dbl>, soma_side <chr>,
 #> #   status <chr>, subclass <chr>, superclass <chr>, synonyms <chr>,
-#> #   total_nt_predictions <int>, type <chr>, supertype <chr>, class <chr>,
-#> #   fru_dsx <chr>, dimorphism <chr>, soma_neuromere <chr>, truman_hl <chr>, …
+#> #   total_nt_predictions <int>, type <chr>, vfb_id <chr>, notes <chr>,
+#> #   supertype <chr>, user <chr>, halfbrain_body <dbl>, class <chr>, …
 plot(table(mda$type), ylab='Frequency')
 
 
 kcs=mcns_dvid_annotations("/KC.*")
-#> Warning: NAs introduced by coercion to integer64 range
+#> Error in check_dataset(conn = conn): Specified dataset: `male-cns:v0.9` does not match those provided by your neuPrint connection:
+#>   male-cns:v1.0, optic-lobe:v1.1, manc:v1.2.3, manc:v1.2.1, optic-lobe:v1.0.1, manc:v1.0, hemibrain:v1.2.1, hemibrain:v1.1, fib19:v1.0, mushroombody
+#> See ?neuprint_login for details.
 mbons=mcns_dvid_annotations("/MBON.+")
-#> Warning: NAs introduced by coercion to integer64 range
+#> Error in check_dataset(conn = conn): Specified dataset: `male-cns:v0.9` does not match those provided by your neuPrint connection:
+#>   male-cns:v1.0, optic-lobe:v1.1, manc:v1.2.3, manc:v1.2.1, optic-lobe:v1.0.1, manc:v1.0, hemibrain:v1.2.1, hemibrain:v1.1, fib19:v1.0, mushroombody
+#> See ?neuprint_login for details.
 
 head(mbons)
-#> # A tibble: 6 × 41
-#>   bodyid birthtime celltype_predicted_nt celltype_predicted_nt_confidence
-#>    <dbl> <chr>     <chr>                                            <dbl>
-#> 1 520151 early     glutamate                                        0.714
-#> 2  10013 early     glutamate                                        0.714
-#> 3 522444 early     glutamate                                        0.742
-#> 4 522749 early     glutamate                                        0.742
-#> 5 519373 early     glutamate                                        0.768
-#> 6 521526 early     glutamate                                        0.768
-#> # ℹ 37 more variables: celltype_total_nt_predictions <int>, consensus_nt <chr>,
-#> #   flywire_type <chr>, group <int>, hemibrain_type <chr>, instance <chr>,
-#> #   itolee_hl <chr>, manc_bodyid <dbl>, manc_group <int>, manc_type <chr>,
-#> #   predicted_nt <chr>, predicted_nt_confidence <dbl>, soma_side <chr>,
-#> #   status <chr>, subclass <chr>, superclass <chr>, synonyms <chr>,
-#> #   total_nt_predictions <int>, type <chr>, supertype <chr>, class <chr>,
-#> #   fru_dsx <chr>, dimorphism <chr>, soma_neuromere <chr>, truman_hl <chr>, …
+#> Error: object 'mbons' not found
 # }
 ```

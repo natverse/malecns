@@ -84,19 +84,9 @@ Other annotations:
 ``` r
 # \donttest{
 mcns_body_annotations("AOTU019")
-#> Warning: NAs introduced by coercion to integer64 range
-#>   birthtime bodyid celltype_predicted_nt celltype_predicted_nt_confidence
-#> 1     early  10070                  gaba                        0.8305694
-#> 2     early  10005                  gaba                        0.8305694
-#>   celltype_total_nt_predictions consensus_nt flywire_type group hemibrain_type
-#> 1                          5673         gaba      AOTU019 10005        AOTU019
-#> 2                          5673         gaba      AOTU019 10005        AOTU019
-#>    instance        itolee_hl predicted_nt predicted_nt_confidence soma_side
-#> 1 AOTU019_L putative_primary         gaba               0.8259949         L
-#> 2 AOTU019_R putative_primary         gaba               0.8351424         R
-#>           status   superclass total_nt_predictions    type  auto
-#> 1 Roughly traced cb_intrinsic                 2836 AOTU019 FALSE
-#> 2 Roughly traced cb_intrinsic                 2837 AOTU019 FALSE
+#> Error in check_dataset(conn = conn): Specified dataset: `male-cns:v0.9` does not match those provided by your neuPrint connection:
+#>   male-cns:v1.0, optic-lobe:v1.1, manc:v1.2.3, manc:v1.2.1, optic-lobe:v1.0.1, manc:v1.0, hemibrain:v1.2.1, hemibrain:v1.1, fib19:v1.0, mushroombody
+#> See ?neuprint_login for details.
 # }
 if (FALSE) { # \dontrun{
 mcns.superclass=mcns_body_annotations(query=list(superclass="exists/1"))

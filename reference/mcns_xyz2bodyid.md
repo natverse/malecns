@@ -44,8 +44,9 @@ A character vector of body ids (0 is missing somas / missing locations)
 # \donttest{
 # find the bodyids corresponding to set of soma positions
 mcns_xyz2bodyid(mcns_somapos("/LAL04[12]", units='raw'), units='raw')
-#> Warning: NAs introduced by coercion to integer64 range
-#> [1]  34187 512750
+#> Error in check_dataset(conn = conn): Specified dataset: `male-cns:v0.9` does not match those provided by your neuPrint connection:
+#>   male-cns:v1.0, optic-lobe:v1.1, manc:v1.2.3, manc:v1.2.1, optic-lobe:v1.0.1, manc:v1.0, hemibrain:v1.2.1, hemibrain:v1.1, fib19:v1.0, mushroombody
+#> See ?neuprint_login for details.
 # }
 # the APL
 if (FALSE) { # \dontrun{

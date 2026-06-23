@@ -81,8 +81,8 @@ mcns_cosine_plot(
 
 - action:
 
-  Whether to zero out or drop any NA values in the cosine matrix (these
-  may be present when some columns have no entries)
+  Whether to zero out or drop any NA values in the similarity matrix
+  (these may be present when some columns have no entries)
 
 - threshold:
 
@@ -104,10 +104,9 @@ invisibly including the row and column dendrograms.
 # \donttest{
 # cosine clustering based on grouped output partners (mainly DNs right now)
 r=mcns_cosine_plot("/name:LAL.+", partners='out', group=TRUE)
-#> Warning: NAs introduced by coercion to integer64 range
-#> Warning: Dropping: 93/24092 neurons representing 1646/862740 synapses due to missing ids!
-#> Warning: diag(V) has non-positive or non-finite entries; finite result is doubtful
-
+#> Error in check_dataset(conn = conn): Specified dataset: `male-cns:v0.9` does not match those provided by your neuPrint connection:
+#>   male-cns:v1.0, optic-lobe:v1.1, manc:v1.2.3, manc:v1.2.1, optic-lobe:v1.0.1, manc:v1.0, hemibrain:v1.2.1, hemibrain:v1.1, fib19:v1.0, mushroombody
+#> See ?neuprint_login for details.
 # }
 if (FALSE) { # \dontrun{
 # fancier labelling of rows including soma side of neurons

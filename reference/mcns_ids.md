@@ -47,8 +47,8 @@ mcns_ids(
 
 - dataset:
 
-  The name of the dataset as reported in Clio e.g. `CNS`,
-  `male-cns:v0.9` etc.
+  The name of the dataset, e.g. `male-cns:v1.0`, `male-cns:v0.9`, or
+  `CNS`.
 
 ## Value
 
@@ -60,29 +60,36 @@ A vector of numeric ids with mode determined by `as_character` and
 ``` r
 # exact matches for cell types
 mcns_ids("DA2_lPN")
-#> Warning: NAs introduced by coercion to integer64 range
-#>  [1] "18776" "20105" "20995" "26423" "20311" "21876" "18416" "23958" "34301"
-#> [10] "19339"
+#> Error in check_dataset(conn = conn): Specified dataset: `male-cns:v0.9` does not match those provided by your neuPrint connection:
+#>   male-cns:v1.0, optic-lobe:v1.1, manc:v1.2.3, manc:v1.2.1, optic-lobe:v1.0.1, manc:v1.0, hemibrain:v1.2.1, hemibrain:v1.1, fib19:v1.0, mushroombody
+#> See ?neuprint_login for details.
 mcns_ids("DA2_lPN", integer64=TRUE)
-#> Warning: NAs introduced by coercion to integer64 range
-#> integer64
-#>  [1] 18776 20105 20995 26423 20311 21876 18416 23958 34301 19339
+#> Error in check_dataset(conn = conn): Specified dataset: `male-cns:v0.9` does not match those provided by your neuPrint connection:
+#>   male-cns:v1.0, optic-lobe:v1.1, manc:v1.2.3, manc:v1.2.1, optic-lobe:v1.0.1, manc:v1.0, hemibrain:v1.2.1, hemibrain:v1.1, fib19:v1.0, mushroombody
+#> See ?neuprint_login for details.
 # You can also do more complex queries using regular expressions
 mcns_ids("/VL2a.+")
-#> Warning: NAs introduced by coercion to integer64 range
-#> [1] "10039" "10134" "25927" "22224" "33165" "52616" "22977" "32815"
+#> Error in check_dataset(conn = conn): Specified dataset: `male-cns:v0.9` does not match those provided by your neuPrint connection:
+#>   male-cns:v1.0, optic-lobe:v1.1, manc:v1.2.3, manc:v1.2.1, optic-lobe:v1.0.1, manc:v1.0, hemibrain:v1.2.1, hemibrain:v1.1, fib19:v1.0, mushroombody
+#> See ?neuprint_login for details.
 dns=mcns_ids("/type:DN.+")
-#> Warning: NAs introduced by coercion to integer64 range
+#> Error in check_dataset(conn = conn): Specified dataset: `male-cns:v0.9` does not match those provided by your neuPrint connection:
+#>   male-cns:v1.0, optic-lobe:v1.1, manc:v1.2.3, manc:v1.2.1, optic-lobe:v1.0.1, manc:v1.0, hemibrain:v1.2.1, hemibrain:v1.1, fib19:v1.0, mushroombody
+#> See ?neuprint_login for details.
 
 # you can also use Neo4J cypher queries by using the where: prefix
 # note that each field of the neuron must prefixed with "n."
 bigneurons_nosuperclass <-
 mcns_ids("where:NOT exists(n.superclass) AND n.synweight>5000")
-#> Warning: NAs introduced by coercion to integer64 range
+#> Error in check_dataset(conn = conn): Specified dataset: `male-cns:v0.9` does not match those provided by your neuPrint connection:
+#>   male-cns:v1.0, optic-lobe:v1.1, manc:v1.2.3, manc:v1.2.1, optic-lobe:v1.0.1, manc:v1.0, hemibrain:v1.2.1, hemibrain:v1.1, fib19:v1.0, mushroombody
+#> See ?neuprint_login for details.
 
 bignogroupids <-
 mcns_ids("where:NOT exists(n.group) AND n.synweight>5000 AND n.superclass CONTAINS 'neuron'")
-#> Warning: NAs introduced by coercion to integer64 range
+#> Error in check_dataset(conn = conn): Specified dataset: `male-cns:v0.9` does not match those provided by your neuPrint connection:
+#>   male-cns:v1.0, optic-lobe:v1.1, manc:v1.2.3, manc:v1.2.1, optic-lobe:v1.0.1, manc:v1.0, hemibrain:v1.2.1, hemibrain:v1.1, fib19:v1.0, mushroombody
+#> See ?neuprint_login for details.
 
 if (FALSE) { # \dontrun{
 # you can paste ids onto the clipboard for inspection
@@ -93,6 +100,7 @@ mcns_ids("rhubarb")
 } # }
 # returns a length 0 vector
 mcns_ids("rhubarb", mustWork = FALSE)
-#> Warning: NAs introduced by coercion to integer64 range
-#> character(0)
+#> Error in check_dataset(conn = conn): Specified dataset: `male-cns:v0.9` does not match those provided by your neuPrint connection:
+#>   male-cns:v1.0, optic-lobe:v1.1, manc:v1.2.3, manc:v1.2.1, optic-lobe:v1.0.1, manc:v1.0, hemibrain:v1.2.1, hemibrain:v1.1, fib19:v1.0, mushroombody
+#> See ?neuprint_login for details.
 ```
