@@ -8,3 +8,8 @@
 ^_pkgdown\.yml$
 ^docs$
 ^pkgdown$
+^\.claude$
+^[^/]+[.]pdf$
+^tests/testthat/Rplots[.]pdf$
+^tests/testthat/.*[.]orig$
+^man/figures/.* copy[.]png$

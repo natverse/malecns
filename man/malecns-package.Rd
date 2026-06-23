@@ -4,7 +4,7 @@
 \name{malecns-package}
 \alias{malecns}
 \alias{malecns-package}
-\title{malecns: Access to the latest 'Janelia FlyEM' datasets}
+\title{malecns: Access to the Latest 'Janelia FlyEM' Datasets}
 \description{
 Provides access to the latest 'Janelia FlyEM' datasets by providing a thin wrapper around the 'malevnc' package.
 }
@@ -19,7 +19,7 @@ Provides access to the latest 'Janelia FlyEM' datasets by providing a thin wrapp
   }
 
   This is now of more than internal use as you can use it run your code
-  against the production dataset (still the default) or a snapshot. There are
+  against the default public snapshot or the private production dataset. There are
   essentially three main ways to do this, from safest/least intrusive to most
   intrusive. I recommend using option 1 for one-off queries and option 2 if
   you want to run a series of commands within a script.
@@ -107,9 +107,9 @@ plot3d(xform_brain(malecns_shell.surf, sample='malecns', reference='malecnsplot'
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://github.com/flyconnectome/malecns}
-  \item \url{https://flyconnectome.github.io/malecns/}
-  \item Report bugs at \url{https://github.com/flyconnectome/malecns/issues}
+  \item \url{https://github.com/natverse/malecns}
+  \item \url{https://natverse.org/malecns/}
+  \item Report bugs at \url{https://github.com/natverse/malecns/issues}
 }
 
 

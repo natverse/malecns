@@ -22,7 +22,7 @@
       packageStartupMessage(
         "Trouble choosing default malecns dataset.\nTry running dr_malecns() and then ",
         "ask on #code or file an issue at\n",
-        "https://github.com/flyconnectome/malecns/issues"
+        "https://github.com/natverse/malecns/issues"
       )
 
   }
@@ -33,7 +33,7 @@
   res2=try(register_manc_malecns())
   if(inherits(res, 'try-error') || inherits(res2, 'try-error'))
     packageStartupMessage("Trouble registering malecns xforms.\n",
-            "Ask on #code or file an issue at https://github.com/flyconnectome/malecns/issues")
+            "Ask on #code or file an issue at https://github.com/natverse/malecns/issues")
 
   packageStartupMessage(
     "For high-quality h5 bridging registrations (malecns <-> JRC2018U),\n",

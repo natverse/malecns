@@ -116,7 +116,7 @@ neurons](man/figures/readem-alpns.jpg)
 If you need to update your malecns install, I recommend:
 
 ```         
-natmanager::install(pkgs="flyconnectome/malecns")
+natmanager::install(pkgs="natverse/malecns")
 ```
 
 ## Production access
