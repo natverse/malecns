@@ -1,3 +1,9 @@
+# malecns 0.4.2
+
+* Default dataset is now `male-cns:v1.0`, the public release (previously `male-cns:v0.9`). `male-cns:v0.9` is still selectable via `choose_mcns_dataset()` / `with_mcns()` if you need it.
+* `male-cns:v1.0` is now routed through the public neuprint and DVID servers (the same hardcoded public path as v0.9), so no Clio authentication is required to use it. The Clio-driven branch is retained for any future pre-release snapshot.
+* Repository moved to `natverse/malecns`; pkgdown site now lives at <https://natverse.org/malecns/>. URLs in `DESCRIPTION` and package startup messages updated accordingly.
+
 # malecns 0.4.1
 
 * `mcns_annotate_body()` defaults updated to match `malevnc::manc_annotate_body()` 0.4.0. `test` now defaults to `FALSE` (previously `TRUE`, which hit the retired Clio test server and produced an error). A new `dry_run` argument defaults to `TRUE`, so a bare call previews the POST body that would be sent to the production Clio store instead of writing. Pass `dry_run = FALSE` to actually write.
