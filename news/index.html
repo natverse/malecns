@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">malecns</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.4.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.4.2</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -32,6 +32,13 @@
       <small>Source: <a href="https://github.com/natverse/malecns/blob/master/NEWS.md" class="external-link"><code>NEWS.md</code></a></small>
     </div>
 
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="0.4.2" id="malecns-042">malecns 0.4.2<a class="anchor" aria-label="anchor" href="#malecns-042"></a></h2>
+<ul><li>Default dataset is now <code>male-cns:v1.0</code>, the public release (previously <code>male-cns:v0.9</code>). <code>male-cns:v0.9</code> is still selectable via <code><a href="../reference/choose_mcns_dataset.html">choose_mcns_dataset()</a></code> / <code><a href="../reference/with_mcns.html">with_mcns()</a></code> if you need it.</li>
+<li>
+<code>male-cns:v1.0</code> is now routed through the public neuprint and DVID servers (the same hardcoded public path as v0.9), so no Clio authentication is required to use it. The Clio-driven branch is retained for any future pre-release snapshot.</li>
+<li>Repository moved to <code>natverse/malecns</code>; pkgdown site now lives at <a href="https://natverse.org/malecns/" class="uri">https://natverse.org/malecns/</a>. URLs in <code>DESCRIPTION</code> and package startup messages updated accordingly.</li>
+</ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.4.1" id="malecns-041">malecns 0.4.1<a class="anchor" aria-label="anchor" href="#malecns-041"></a></h2>
 <ul><li>
