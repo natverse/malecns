@@ -1,3 +1,5 @@
+# malecns (development version)
+
 # malecns 0.4.2
 
 * Default dataset is now `male-cns:v1.0`, the public release (previously `male-cns:v0.9`). `male-cns:v0.9` is still selectable via `choose_mcns_dataset()` / `with_mcns()` if you need it.
@@ -8,6 +10,13 @@
 
 * `mcns_annotate_body()` defaults updated to match `malevnc::manc_annotate_body()` 0.4.0. `test` now defaults to `FALSE` (previously `TRUE`, which hit the retired Clio test server and produced an error). A new `dry_run` argument defaults to `TRUE`, so a bare call previews the POST body that would be sent to the production Clio store instead of writing. Pass `dry_run = FALSE` to actually write.
 * Require `malevnc (>= 0.4.0)`.
+
+# malecns 0.4.0
+
+* Support for the `male-cns:v0.9` dataset.
+* Cache static `mcns_neuprint_meta()` and `mcns_ids()` queries.
+* Require a newer `neuprintr` for a ~3x speedup in `mcns_neuprint_meta()`.
+* Updated install instructions and add a README image.
 
 # malecns 0.3.6
 

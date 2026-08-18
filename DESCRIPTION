@@ -1,7 +1,7 @@
 Package: malecns
 Type: Package
 Title: Access to the Latest 'Janelia FlyEM' Datasets
-Version: 0.4.2
+Version: 0.4.2.9000
 Authors@R:
     c(person(given = "Gregory",
            family = "Jefferis",
