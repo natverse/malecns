@@ -1,32 +1,5 @@
 # Changelog
 
-## malecns 0.4.2
-
-- Default dataset is now `male-cns:v1.0`, the public release (previously
-  `male-cns:v0.9`). `male-cns:v0.9` is still selectable via
-  [`choose_mcns_dataset()`](https://natverse.org/malecns/reference/choose_mcns_dataset.md)
-  / [`with_mcns()`](https://natverse.org/malecns/reference/with_mcns.md)
-  if you need it.
-- `male-cns:v1.0` is now routed through the public neuprint and DVID
-  servers (the same hardcoded public path as v0.9), so no Clio
-  authentication is required to use it. The Clio-driven branch is
-  retained for any future pre-release snapshot.
-- Repository moved to `natverse/malecns`; pkgdown site now lives at
-  <https://natverse.org/malecns/>. URLs in `DESCRIPTION` and package
-  startup messages updated accordingly.
-
-## malecns 0.4.1
-
-- [`mcns_annotate_body()`](https://natverse.org/malecns/reference/mcns_annotate_body.md)
-  defaults updated to match
-  [`malevnc::manc_annotate_body()`](https://natverse.org/malevnc/reference/manc_annotate_body.html)
-  0.4.0. `test` now defaults to `FALSE` (previously `TRUE`, which hit
-  the retired Clio test server and produced an error). A new `dry_run`
-  argument defaults to `TRUE`, so a bare call previews the POST body
-  that would be sent to the production Clio store instead of writing.
-  Pass `dry_run = FALSE` to actually write.
-- Require `malevnc (>= 0.4.0)`.
-
 ## malecns 0.3.6
 
 - fix plotting transforms and switch to version 2 provided by
@@ -52,15 +25,16 @@
   [@jefferis](https://github.com/jefferis) in
   <https://github.com/flyconnectome/malecns/pull/28>
 - Give
-  [`mcns_somapos()`](https://natverse.org/malecns/reference/mcns_soma_side.md)
+  [`mcns_somapos()`](https://flyconnectome.github.io/malecns/reference/mcns_soma_side.md)
   an `as_character` argument (closes
-  [\#27](https://github.com/natverse/malecns/issues/27))
+  [\#27](https://github.com/flyconnectome/malecns/issues/27))
 - Specify roi args for
-  [`mcns_connection_table()`](https://natverse.org/malecns/reference/mcns_connection_table.md)
+  [`mcns_connection_table()`](https://flyconnectome.github.io/malecns/reference/mcns_connection_table.md)
   (ccfb930b79692fb268243f9b759f8cf360f98476)
 - more examples for
-  [`mcns_ids()`](https://natverse.org/malecns/reference/mcns_ids.md) &
-  [`mcns_neuprint_meta()`](https://natverse.org/malecns/reference/mcns_neuprint_meta.md)
+  [`mcns_ids()`](https://flyconnectome.github.io/malecns/reference/mcns_ids.md)
+  &
+  [`mcns_neuprint_meta()`](https://flyconnectome.github.io/malecns/reference/mcns_neuprint_meta.md)
 - extra protection against duplicate columns
   (b58f6ca730a3cbac6c7e8c50b804bf1dff65eb50)
   - some functions don’t like these
@@ -81,10 +55,10 @@
 ## malecns 0.3.1
 
 - add
-  [`mcns_islatest()`](https://natverse.org/malecns/reference/mcns_islatest.md)
+  [`mcns_islatest()`](https://flyconnectome.github.io/malecns/reference/mcns_islatest.md)
   (dbe8243)
 - give
-  [`mcns_predict_type()`](https://natverse.org/malecns/reference/mcns_predict_type.md)
+  [`mcns_predict_type()`](https://flyconnectome.github.io/malecns/reference/mcns_predict_type.md)
   an option to predict/prefer a foreign type e.g.  flywireType (390e1b5)
 - move dataset choice to malevnc (ba01be5)
 - Updates as malevnc package supports manc:v1.0 by
@@ -95,7 +69,7 @@
   <https://github.com/flyconnectome/malecns/pull/18>
 - fix bug introduced by changes in glue v1.8.0 (c30d8a7)
 - fix mcns_predict_group_manc when no matched bodyids
-  ([\#20](https://github.com/natverse/malecns/issues/20))
+  ([\#20](https://github.com/flyconnectome/malecns/issues/20))
 - fix: use mcns_ids not manc_ids in mcns_annotate_body (aa252e9)
 - fix stop mcns_predict_manc failing when no matches (b3252a1)
 - fix: bodyids in mcns_annotate_body must be numeric (957adb34)
@@ -104,7 +78,7 @@
 - Update support for recording clio user information (c4951002)
 - add cns vnc mesh (5ce3af8, 93f5294)
 - harden schema check fn to fix
-  [`mcns_annotate_body()`](https://natverse.org/malecns/reference/mcns_annotate_body.md)
+  [`mcns_annotate_body()`](https://flyconnectome.github.io/malecns/reference/mcns_annotate_body.md)
   (fc79d2d)
 
 **Full Changelog**:
@@ -113,26 +87,26 @@
 ## malecns 0.3
 
 - add
-  [`mcns_cosine_plot()`](https://natverse.org/malecns/reference/mcns_cosine_plot.md)
+  [`mcns_cosine_plot()`](https://flyconnectome.github.io/malecns/reference/mcns_cosine_plot.md)
   for within dataset connectivity clustering (works nicely across
   hemispheres)
 - add
-  [`mcns_body_annotations()`](https://natverse.org/malecns/reference/mcns_body_annotations.md)
+  [`mcns_body_annotations()`](https://flyconnectome.github.io/malecns/reference/mcns_body_annotations.md)
   to get clio annotations (may contain fields not in neuprint;
   immediately visible).
 - add
-  [`mcns_annotate_body()`](https://natverse.org/malecns/reference/mcns_annotate_body.md)
+  [`mcns_annotate_body()`](https://flyconnectome.github.io/malecns/reference/mcns_annotate_body.md)
   to set annotations via clio (now strongly recommended)
 - add
-  [`mcns_set_dvid_annotations()`](https://natverse.org/malecns/reference/mcns_set_dvid_annotations.md)
+  [`mcns_set_dvid_annotations()`](https://flyconnectome.github.io/malecns/reference/mcns_set_dvid_annotations.md)
   (already deprecated)
 - export `export mcns_ids()`
 - add
-  [`mirror_malecns()`](https://natverse.org/malecns/reference/mirror_malecns.md),
+  [`mirror_malecns()`](https://flyconnectome.github.io/malecns/reference/mirror_malecns.md),
   `mcns_xyz()`,
-  [`mcns_somapos()`](https://natverse.org/malecns/reference/mcns_soma_side.md)
+  [`mcns_somapos()`](https://flyconnectome.github.io/malecns/reference/mcns_soma_side.md)
 - add
-  [`mcns_predict_type()`](https://natverse.org/malecns/reference/mcns_predict_type.md)
+  [`mcns_predict_type()`](https://flyconnectome.github.io/malecns/reference/mcns_predict_type.md)
   to get best guess at cell type across type/instance
 - add mcns_predict_type() to get best guess at cell type across
   type/instance
@@ -160,18 +134,18 @@
 
 - Add transforms for malecns and malehb by
   [@jefferis](https://github.com/jefferis) in
-  [\#2](https://github.com/natverse/malecns/issues/2)
+  [\#2](https://github.com/flyconnectome/malecns/issues/2)
 - fix
-  [`read_mcns_meshes()`](https://natverse.org/malecns/reference/read_mcns_meshes.md)
+  [`read_mcns_meshes()`](https://flyconnectome.github.io/malecns/reference/read_mcns_meshes.md)
   for static and on the fly meshes
 - add
-  [`read_mcns_neurons()`](https://natverse.org/malecns/reference/read_mcns_neurons.md)
+  [`read_mcns_neurons()`](https://flyconnectome.github.io/malecns/reference/read_mcns_neurons.md)
 - add
-  [`mcns_dvid_annotations()`](https://natverse.org/malecns/reference/mcns_dvid_annotations.md)
+  [`mcns_dvid_annotations()`](https://flyconnectome.github.io/malecns/reference/mcns_dvid_annotations.md)
   and
-  [`mcns_neuprint_meta()`](https://natverse.org/malecns/reference/mcns_neuprint_meta.md)
+  [`mcns_neuprint_meta()`](https://flyconnectome.github.io/malecns/reference/mcns_neuprint_meta.md)
 - fix
-  [`mcns_connection_table()`](https://natverse.org/malecns/reference/mcns_connection_table.md)
+  [`mcns_connection_table()`](https://flyconnectome.github.io/malecns/reference/mcns_connection_table.md)
 - dev: test infrastructure, pkgdown
 
 [Full

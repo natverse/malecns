@@ -58,17 +58,17 @@ define the rest.
 ## See also
 
 Other annotations:
-[`mcns_body_annotations()`](https://natverse.org/malecns/reference/mcns_body_annotations.md),
-[`mcns_dvid_annotations()`](https://natverse.org/malecns/reference/mcns_dvid_annotations.md),
-[`mcns_neuprint_meta()`](https://natverse.org/malecns/reference/mcns_neuprint_meta.md)
+[`mcns_body_annotations()`](https://flyconnectome.github.io/malecns/reference/mcns_body_annotations.md),
+[`mcns_dvid_annotations()`](https://flyconnectome.github.io/malecns/reference/mcns_dvid_annotations.md),
+[`mcns_neuprint_meta()`](https://flyconnectome.github.io/malecns/reference/mcns_neuprint_meta.md)
 
 ## Examples
 
 ``` r
 # \donttest{
 mcns_soma_side('/LAL04.*')
-#>  [1] "R" "L" "R" "L" "R" "L" "L" "R" "L" "R" "R" "L" "R" "L" "L" "R" "R" "L" "R"
-#> [20] "L" "R" "L" "L" "L" "R" "R" "L" "L" "L" "R" "R" "R" "R" "L"
+#>  [1] "R" "L" "R" "L" "L" "L" "R" "R" "L" "R" "R" "L" "R" "L" "L" "R" "R" "L" "R"
+#> [20] "L" "R" "L" "L" "L" "R" "L" "R" "L" "R" "R" "R" "L" "L" "R"
 # }
 if (FALSE) { # \dontrun{
 # All neurons with a type

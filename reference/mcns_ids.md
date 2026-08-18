@@ -47,8 +47,8 @@ mcns_ids(
 
 - dataset:
 
-  The name of the dataset, e.g. `male-cns:v1.0`, `male-cns:v0.9`, or
-  `CNS`.
+  The name of the dataset as reported in Clio e.g. `CNS`,
+  `male-cns:v0.9` etc.
 
 ## Value
 
@@ -60,14 +60,14 @@ A vector of numeric ids with mode determined by `as_character` and
 ``` r
 # exact matches for cell types
 mcns_ids("DA2_lPN")
-#>  [1] "18776" "20105" "19339" "26423" "23958" "21876" "34301" "18416" "20995"
-#> [10] "20311"
+#>  [1] "18776" "20105" "20995" "26423" "20311" "21876" "18416" "23958" "34301"
+#> [10] "19339"
 mcns_ids("DA2_lPN", integer64=TRUE)
 #> integer64
-#>  [1] 18776 20105 19339 26423 23958 21876 34301 18416 20995 20311
+#>  [1] 18776 20105 20995 26423 20311 21876 18416 23958 34301 19339
 # You can also do more complex queries using regular expressions
 mcns_ids("/VL2a.+")
-#> [1] "10039" "10134" "22977" "22224" "33165" "32815" "52616" "25927"
+#> [1] "10039" "10134" "25927" "22224" "33165" "52616" "22977" "32815"
 dns=mcns_ids("/type:DN.+")
 
 # you can also use Neo4J cypher queries by using the where: prefix

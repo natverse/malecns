@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">malecns</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.4.2</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.4.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -19,7 +19,7 @@
 <li class="nav-item"><a class="nav-link" href="../news/index.html">Changelog</a></li>
       </ul><ul class="navbar-nav"><li class="nav-item"><form class="form-inline" role="search">
  <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="../search.json"></form></li>
-<li class="nav-item"><a class="external-link nav-link" href="https://github.com/natverse/malecns/" aria-label="GitHub"><span class="fa fab fa-github fa-lg"></span></a></li>
+<li class="nav-item"><a class="external-link nav-link" href="https://github.com/flyconnectome/malecns/" aria-label="GitHub"><span class="fa fab fa-github fa-lg"></span></a></li>
       </ul></div>
 
 
@@ -29,7 +29,7 @@
   <main id="main" class="col-md-9"><div class="page-header">
 
       <h1>Get Male CNS ids in standard formats</h1>
-      <small class="dont-index">Source: <a href="https://github.com/natverse/malecns/blob/master/R/ids.R" class="external-link"><code>R/ids.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/flyconnectome/malecns/blob/v0.4.0/R/ids.R" class="external-link"><code>R/ids.R</code></a></small>
       <div class="d-none name"><code>mcns_ids.Rd</code></div>
     </div>
 
@@ -83,8 +83,8 @@ numeric vector (the default is character for safety).</p></dd>
 
 
 <dt id="arg-dataset">dataset<a class="anchor" aria-label="anchor" href="#arg-dataset"></a></dt>
-<dd><p>The name of the dataset, e.g. <code>male-cns:v1.0</code>,
-<code>male-cns:v0.9</code>, or <code>CNS</code>.</p></dd>
+<dd><p>The name of the dataset as reported in Clio e.g. <code>CNS</code>,
+<code>male-cns:v0.9</code> etc.</p></dd>
 
 </dl></div>
     <div class="section level2">
@@ -97,14 +97,14 @@ numeric vector (the default is character for safety).</p></dd>
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># exact matches for cell types</span></span></span>
 <span class="r-in"><span><span class="fu">mcns_ids</span><span class="op">(</span><span class="st">"DA2_lPN"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "18776" "20105" "19339" "26423" "23958" "21876" "34301" "18416" "20995"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [10] "20311"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "18776" "20105" "20995" "26423" "20311" "21876" "18416" "23958" "34301"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [10] "19339"</span>
 <span class="r-in"><span><span class="fu">mcns_ids</span><span class="op">(</span><span class="st">"DA2_lPN"</span>, integer64<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> integer64</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] 18776 20105 19339 26423 23958 21876 34301 18416 20995 20311</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] 18776 20105 20995 26423 20311 21876 18416 23958 34301 19339</span>
 <span class="r-in"><span><span class="co"># You can also do more complex queries using regular expressions</span></span></span>
 <span class="r-in"><span><span class="fu">mcns_ids</span><span class="op">(</span><span class="st">"/VL2a.+"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "10039" "10134" "22977" "22224" "33165" "32815" "52616" "25927"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "10039" "10134" "25927" "22224" "33165" "52616" "22977" "32815"</span>
 <span class="r-in"><span><span class="va">dns</span><span class="op">=</span><span class="fu">mcns_ids</span><span class="op">(</span><span class="st">"/type:DN.+"</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># you can also use Neo4J cypher queries by using the where: prefix</span></span></span>
@@ -136,7 +136,7 @@ numeric vector (the default is character for safety).</p></dd>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.1.</p>
 </div>
 
     </footer></div>

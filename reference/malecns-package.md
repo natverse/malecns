@@ -1,4 +1,4 @@
-# malecns: Access to the Latest 'Janelia FlyEM' Datasets
+# malecns: Access to the latest 'Janelia FlyEM' datasets
 
 Provides access to the latest 'Janelia FlyEM' datasets by providing a
 thin wrapper around the 'malevnc' package.
@@ -11,19 +11,18 @@ There is just one package option:
   dataset.
 
 This is now of more than internal use as you can use it run your code
-against the default public snapshot or the private production dataset.
-There are essentially three main ways to do this, from safest/least
-intrusive to most intrusive. I recommend using option 1 for one-off
-queries and option 2 if you want to run a series of commands within a
-script.
+against the production dataset (still the default) or a snapshot. There
+are essentially three main ways to do this, from safest/least intrusive
+to most intrusive. I recommend using option 1 for one-off queries and
+option 2 if you want to run a series of commands within a script.
 
 1.  Use
-    [`with_mcns`](https://natverse.org/malecns/reference/with_mcns.md)`(dataset="<name of dataset>")`
+    [`with_mcns`](https://flyconnectome.github.io/malecns/reference/with_mcns.md)`(dataset="<name of dataset>")`
     to run a piece of code without switching the default malecns
     dataset.
 
 2.  Use the
-    [`choose_mcns_dataset`](https://natverse.org/malecns/reference/choose_mcns_dataset.md)
+    [`choose_mcns_dataset`](https://flyconnectome.github.io/malecns/reference/choose_mcns_dataset.md)
     to choose a default malecns dataset for the rest of the session (or
     until you change it again).
 
@@ -46,16 +45,16 @@ message](https://flyconnectome.slack.com/archives/C02F6UCCU6B/p1747645164139839)
 
 Useful links:
 
-- <https://github.com/natverse/malecns>
+- <https://github.com/flyconnectome/malecns>
 
-- <https://natverse.org/malecns/>
+- <https://flyconnectome.github.io/malecns/>
 
-- Report bugs at <https://github.com/natverse/malecns/issues>
+- Report bugs at <https://github.com/flyconnectome/malecns/issues>
 
 Other malecns-package:
-[`choose_mcns_dataset()`](https://natverse.org/malecns/reference/choose_mcns_dataset.md),
-[`dr_malecns()`](https://natverse.org/malecns/reference/dr_malecns.md),
-[`with_mcns()`](https://natverse.org/malecns/reference/with_mcns.md)
+[`choose_mcns_dataset()`](https://flyconnectome.github.io/malecns/reference/choose_mcns_dataset.md),
+[`dr_malecns()`](https://flyconnectome.github.io/malecns/reference/dr_malecns.md),
+[`with_mcns()`](https://flyconnectome.github.io/malecns/reference/with_mcns.md)
 
 ## Author
 
@@ -68,17 +67,17 @@ Other malecns-package:
 # \donttest{
 options()[grepl("^malecns", names(options()))]
 #> $malecns.dataset
-#> [1] "male-cns:v1.0"
+#> [1] "male-cns:v0.9"
 #> 
 # }
 if (FALSE) { # \dontrun{
 dr_malecns()
 
 # run expression without changing default malecns dataset
-with_mcns(mcns_body_annotations(194965), dataset = "male-cns:v1.0")
+with_mcns(mcns_body_annotations(194965), dataset = "male-cns:v0.9")
 
 # run expression(s) after changing default malecns dataset
-choose_mcns_dataset("male-cns:v1.0")
+choose_mcns_dataset("male-cns:v0.9")
 mcns_body_annotations(194965)
 choose_mcns_dataset("CNS")
 mcns_body_annotations(194965)
@@ -121,8 +120,8 @@ plot3d(malecns.surf, alpha=.1)
 # compare plotting orientation with original templates
 plot3d(malecns_shell.surf)
 plot3d(malecnsvnc_shell.surf)
-plot3d(xform_brain(malecnsvnc_shell.surf, sample='malecns', reference='malecnsplot'), col='red')
-plot3d(xform_brain(malecns_shell.surf, sample='malecns', reference='malecnsplot'), col='red')
+plot3d(xform_brain(malecnsvnc_shell.surf, sample='malecns', ref='malecnsplot'), col='red')
+plot3d(xform_brain(malecns_shell.surf, sample='malecns', ref='malecnsplot'), col='red')
 
 } # }
 # }

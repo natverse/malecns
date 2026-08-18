@@ -27,9 +27,8 @@ The transformed object
 
 This mirroring could of course be improved. I used Philipp Schlegel's 69
 landmarks to map malecns -\> FAFB space followed by the
-[`nat.jrcbrains::mirror_fafb`](https://rdrr.io/pkg/nat.jrcbrains/man/mirror_fafb.html)
-function to map those landmarks to the opposite side of FAFB and then
-brought those back to malecns.
+`nat.jrcbrains::mirror_fafb` function to map those landmarks to the
+opposite side of FAFB and then brought those back to malecns.
 
 ## Examples
 

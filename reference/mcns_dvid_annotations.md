@@ -84,9 +84,9 @@ because of a bad node.
 ## See also
 
 Other annotations:
-[`mcns_body_annotations()`](https://natverse.org/malecns/reference/mcns_body_annotations.md),
-[`mcns_neuprint_meta()`](https://natverse.org/malecns/reference/mcns_neuprint_meta.md),
-[`mcns_soma_side()`](https://natverse.org/malecns/reference/mcns_soma_side.md)
+[`mcns_body_annotations()`](https://flyconnectome.github.io/malecns/reference/mcns_body_annotations.md),
+[`mcns_neuprint_meta()`](https://flyconnectome.github.io/malecns/reference/mcns_neuprint_meta.md),
+[`mcns_soma_side()`](https://flyconnectome.github.io/malecns/reference/mcns_soma_side.md)
 
 ## Examples
 
@@ -122,8 +122,8 @@ head(mbons)
 #>    <dbl> <chr>     <chr>                                            <dbl>
 #> 1 520151 early     glutamate                                        0.713
 #> 2  10013 early     glutamate                                        0.713
-#> 3 522749 early     glutamate                                        0.740
-#> 4 522444 early     glutamate                                        0.740
+#> 3 522444 early     glutamate                                        0.740
+#> 4 522749 early     glutamate                                        0.740
 #> 5 519373 early     glutamate                                        0.767
 #> 6 521526 early     glutamate                                        0.767
 #> # ℹ 45 more variables: celltype_total_nt_predictions <int>, consensus_nt <chr>,

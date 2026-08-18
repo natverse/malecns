@@ -25,7 +25,7 @@ mcns_neuprint(
   Allows you to override the neuprint dataset (which will otherwise be
   chosen based on the value of `options(malecns.dataset)` which would
   normally be changed by using the function
-  [`choose_mcns_dataset`](https://natverse.org/malecns/reference/choose_mcns_dataset.md))
+  [`choose_mcns_dataset`](https://flyconnectome.github.io/malecns/reference/choose_mcns_dataset.md))
 
 - Force:
 

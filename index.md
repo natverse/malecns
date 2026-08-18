@@ -112,22 +112,22 @@ DA1 and DL3 antennal lobe projection neurons
 
 If you need to update your malecns install, I recommend:
 
-    natmanager::install(pkgs="natverse/malecns")
+    natmanager::install(pkgs="flyconnectome/malecns")
 
 ## Production access
 
-The default dataset is a public read only snapshot, `male-cns:v1.0`.
+The default dataset is a public read only snapshot, `malecns-v0.9`.
 Collaborators working on (what at this point will only be minor) updates
 to the read/write production dataset will need neuprint authentication
 as above. They will also need Clio authentication and user configuration
 as below.
 
 To switch between datasets in the current session use
-[`choose_mcns_dataset()`](https://natverse.org/malecns/reference/choose_mcns_dataset.md)
+[`choose_mcns_dataset()`](https://flyconnectome.github.io/malecns/reference/choose_mcns_dataset.md)
 
     choose_mcns_dataset("CNS")
     mcns_body_annotations(194965)
-    choose_mcns_dataset("male-cns:v1.0")
+    choose_mcns_dataset("male-cns:v0.9")
     mcns_body_annotations(194965)
 
 You can also permanently set
