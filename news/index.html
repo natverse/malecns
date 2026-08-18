@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">malecns</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.4.2</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.4.2.9000</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -29,9 +29,12 @@
   <main id="main" class="col-md-9"><div class="page-header">
 
       <h1>Changelog</h1>
-      <small>Source: <a href="https://github.com/natverse/malecns/blob/v0.4.2/NEWS.md" class="external-link"><code>NEWS.md</code></a></small>
+      <small>Source: <a href="https://github.com/natverse/malecns/blob/master/NEWS.md" class="external-link"><code>NEWS.md</code></a></small>
     </div>
 
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="development version" id="malecns-development-version">malecns (development version)<a class="anchor" aria-label="anchor" href="#malecns-development-version"></a></h2>
+</div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.4.2" id="malecns-042">malecns 0.4.2<a class="anchor" aria-label="anchor" href="#malecns-042"></a></h2>
 <ul><li>Default dataset is now <code>male-cns:v1.0</code>, the public release (previously <code>male-cns:v0.9</code>). <code>male-cns:v0.9</code> is still selectable via <code><a href="../reference/choose_mcns_dataset.html">choose_mcns_dataset()</a></code> / <code><a href="../reference/with_mcns.html">with_mcns()</a></code> if you need it.</li>
@@ -44,6 +47,13 @@
 <ul><li>
 <code><a href="../reference/mcns_annotate_body.html">mcns_annotate_body()</a></code> defaults updated to match <code><a href="https://natverse.org/malevnc/reference/manc_annotate_body.html" class="external-link">malevnc::manc_annotate_body()</a></code> 0.4.0. <code>test</code> now defaults to <code>FALSE</code> (previously <code>TRUE</code>, which hit the retired Clio test server and produced an error). A new <code>dry_run</code> argument defaults to <code>TRUE</code>, so a bare call previews the POST body that would be sent to the production Clio store instead of writing. Pass <code>dry_run = FALSE</code> to actually write.</li>
 <li>Require <code>malevnc (&gt;= 0.4.0)</code>.</li>
+</ul></div>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="0.4.0" id="malecns-040">malecns 0.4.0<a class="anchor" aria-label="anchor" href="#malecns-040"></a></h2>
+<ul><li>Support for the <code>male-cns:v0.9</code> dataset.</li>
+<li>Cache static <code><a href="../reference/mcns_neuprint_meta.html">mcns_neuprint_meta()</a></code> and <code><a href="../reference/mcns_ids.html">mcns_ids()</a></code> queries.</li>
+<li>Require a newer <code>neuprintr</code> for a ~3x speedup in <code><a href="../reference/mcns_neuprint_meta.html">mcns_neuprint_meta()</a></code>.</li>
+<li>Updated install instructions and add a README image.</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.3.6" id="malecns-036">malecns 0.3.6<a class="anchor" aria-label="anchor" href="#malecns-036"></a></h2>

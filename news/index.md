@@ -1,5 +1,7 @@
 # Changelog
 
+## malecns (development version)
+
 ## malecns 0.4.2
 
 - Default dataset is now `male-cns:v1.0`, the public release (previously
@@ -26,6 +28,17 @@
   that would be sent to the production Clio store instead of writing.
   Pass `dry_run = FALSE` to actually write.
 - Require `malevnc (>= 0.4.0)`.
+
+## malecns 0.4.0
+
+- Support for the `male-cns:v0.9` dataset.
+- Cache static
+  [`mcns_neuprint_meta()`](https://natverse.org/malecns/reference/mcns_neuprint_meta.md)
+  and [`mcns_ids()`](https://natverse.org/malecns/reference/mcns_ids.md)
+  queries.
+- Require a newer `neuprintr` for a ~3x speedup in
+  [`mcns_neuprint_meta()`](https://natverse.org/malecns/reference/mcns_neuprint_meta.md).
+- Updated install instructions and add a README image.
 
 ## malecns 0.3.6
 
