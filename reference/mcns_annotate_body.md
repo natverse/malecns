@@ -7,13 +7,14 @@ Set Clio body annotations
 ``` r
 mcns_annotate_body(
   x,
-  test = TRUE,
+  test = FALSE,
   version = NULL,
   write_empty_fields = FALSE,
   designated_user = NULL,
   protect = c("user"),
   chunksize = 50,
   check_types = TRUE,
+  dry_run = TRUE,
   ...
 )
 ```
@@ -27,8 +28,8 @@ mcns_annotate_body(
 
 - test:
 
-  Whether to use the test clio store (recommended until you are sure you
-  know what you are doing).
+  Whether to use the test clio store. Default `FALSE` writes to
+  production Clio. See `manc_annotate_body`.
 
 - version:
 
@@ -67,6 +68,12 @@ mcns_annotate_body(
 - check_types:
 
   Whether or not it should verify types of columns.
+
+- dry_run:
+
+  When `TRUE` (the default) no data is written; a preview tibble of the
+  POST body is returned. Pass `dry_run = FALSE` to actually write. See
+  `manc_annotate_body` for full details.
 
 - ...:
 

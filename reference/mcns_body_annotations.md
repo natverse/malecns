@@ -63,21 +63,21 @@ A data.frame with metadata
 ## Details
 
 In comparison with
-[`mcns_dvid_annotations`](https://flyconnectome.github.io/malecns/reference/mcns_dvid_annotations.md),
+[`mcns_dvid_annotations`](https://natverse.org/malecns/reference/mcns_dvid_annotations.md),
 this allows queries for specific bodies. In comparison with
-[`mcns_neuprint_meta`](https://flyconnectome.github.io/malecns/reference/mcns_neuprint_meta.md),
+[`mcns_neuprint_meta`](https://natverse.org/malecns/reference/mcns_neuprint_meta.md),
 it provides access to up to the second annotations; it is also presently
 faster than these other two calls. Compared with
-[`mcns_neuprint_meta`](https://flyconnectome.github.io/malecns/reference/mcns_neuprint_meta.md),
+[`mcns_neuprint_meta`](https://natverse.org/malecns/reference/mcns_neuprint_meta.md),
 it does not produce a stable set of columns, only returning those that
 exist for the given query ids.
 
 ## See also
 
 Other annotations:
-[`mcns_dvid_annotations()`](https://flyconnectome.github.io/malecns/reference/mcns_dvid_annotations.md),
-[`mcns_neuprint_meta()`](https://flyconnectome.github.io/malecns/reference/mcns_neuprint_meta.md),
-[`mcns_soma_side()`](https://flyconnectome.github.io/malecns/reference/mcns_soma_side.md)
+[`mcns_dvid_annotations()`](https://natverse.org/malecns/reference/mcns_dvid_annotations.md),
+[`mcns_neuprint_meta()`](https://natverse.org/malecns/reference/mcns_neuprint_meta.md),
+[`mcns_soma_side()`](https://natverse.org/malecns/reference/mcns_soma_side.md)
 
 ## Examples
 

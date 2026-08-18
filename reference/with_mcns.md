@@ -16,11 +16,11 @@ the male vnc dataset. *To switch the default malecns dataset please see
 ``` r
 with_mcns(
   expr,
-  dataset = getOption("malecns.dataset", default = "male-cns:v0.9")
+  dataset = getOption("malecns.dataset", default = "male-cns:v1.0")
 )
 
 choose_mcns(
-  dataset = getOption("malecns.dataset", default = "male-cns:v0.9"),
+  dataset = getOption("malecns.dataset", default = "male-cns:v1.0"),
   set = TRUE,
   use_clio = NA
 )
@@ -35,8 +35,8 @@ choose_mcns(
 
 - dataset:
 
-  The name of the dataset as reported in Clio e.g. `CNS`,
-  `male-cns:v0.9` etc.
+  The name of the dataset, e.g. `male-cns:v1.0`, `male-cns:v0.9`, or
+  `CNS`.
 
 - set:
 
@@ -59,9 +59,9 @@ snapshot malecns datasets.
 ## See also
 
 Other malecns-package:
-[`choose_mcns_dataset()`](https://flyconnectome.github.io/malecns/reference/choose_mcns_dataset.md),
-[`dr_malecns()`](https://flyconnectome.github.io/malecns/reference/dr_malecns.md),
-[`malecns-package`](https://flyconnectome.github.io/malecns/reference/malecns-package.md)
+[`choose_mcns_dataset()`](https://natverse.org/malecns/reference/choose_mcns_dataset.md),
+[`dr_malecns()`](https://natverse.org/malecns/reference/dr_malecns.md),
+[`malecns-package`](https://natverse.org/malecns/reference/malecns-package.md)
 
 ## Examples
 
@@ -71,8 +71,8 @@ with_mcns(malevnc::manc_dvid_node(type = 'clio'))
 } # }
 # \donttest{
 # This should work for both clio and neuprint calls, here clio:
-# this body was typed after the v0.9 snapshot
-with_mcns(mcns_body_annotations(194965), dataset = "male-cns:v0.9")
+# this body was typed after the v1.0 snapshot
+with_mcns(mcns_body_annotations(194965), dataset = "male-cns:v1.0")
 #> Error in clio_auth(): Clio/Google auth failure. Do you have access rights to VNC clio?
 #> Try specifying the email linked to clio in a call to `clio_auth` or setting `options(malevnc.clio_email)`!
 with_mcns(mcns_body_annotations(194965), dataset = "CNS")

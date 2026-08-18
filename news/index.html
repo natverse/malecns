@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">malecns</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.4.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.4.2</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -19,7 +19,7 @@
 <li class="active nav-item"><a class="nav-link" href="../news/index.html">Changelog</a></li>
       </ul><ul class="navbar-nav"><li class="nav-item"><form class="form-inline" role="search">
  <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="../search.json"></form></li>
-<li class="nav-item"><a class="external-link nav-link" href="https://github.com/flyconnectome/malecns/" aria-label="GitHub"><span class="fa fab fa-github fa-lg"></span></a></li>
+<li class="nav-item"><a class="external-link nav-link" href="https://github.com/natverse/malecns/" aria-label="GitHub"><span class="fa fab fa-github fa-lg"></span></a></li>
       </ul></div>
 
 
@@ -29,9 +29,22 @@
   <main id="main" class="col-md-9"><div class="page-header">
 
       <h1>Changelog</h1>
-      <small>Source: <a href="https://github.com/flyconnectome/malecns/blob/v0.4.0/NEWS.md" class="external-link"><code>NEWS.md</code></a></small>
+      <small>Source: <a href="https://github.com/natverse/malecns/blob/v0.4.2/NEWS.md" class="external-link"><code>NEWS.md</code></a></small>
     </div>
 
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="0.4.2" id="malecns-042">malecns 0.4.2<a class="anchor" aria-label="anchor" href="#malecns-042"></a></h2>
+<ul><li>Default dataset is now <code>male-cns:v1.0</code>, the public release (previously <code>male-cns:v0.9</code>). <code>male-cns:v0.9</code> is still selectable via <code><a href="../reference/choose_mcns_dataset.html">choose_mcns_dataset()</a></code> / <code><a href="../reference/with_mcns.html">with_mcns()</a></code> if you need it.</li>
+<li>
+<code>male-cns:v1.0</code> is now routed through the public neuprint and DVID servers (the same hardcoded public path as v0.9), so no Clio authentication is required to use it. The Clio-driven branch is retained for any future pre-release snapshot.</li>
+<li>Repository moved to <code>natverse/malecns</code>; pkgdown site now lives at <a href="https://natverse.org/malecns/" class="uri">https://natverse.org/malecns/</a>. URLs in <code>DESCRIPTION</code> and package startup messages updated accordingly.</li>
+</ul></div>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="0.4.1" id="malecns-041">malecns 0.4.1<a class="anchor" aria-label="anchor" href="#malecns-041"></a></h2>
+<ul><li>
+<code><a href="../reference/mcns_annotate_body.html">mcns_annotate_body()</a></code> defaults updated to match <code><a href="https://natverse.org/malevnc/reference/manc_annotate_body.html" class="external-link">malevnc::manc_annotate_body()</a></code> 0.4.0. <code>test</code> now defaults to <code>FALSE</code> (previously <code>TRUE</code>, which hit the retired Clio test server and produced an error). A new <code>dry_run</code> argument defaults to <code>TRUE</code>, so a bare call previews the POST body that would be sent to the production Clio store instead of writing. Pass <code>dry_run = FALSE</code> to actually write.</li>
+<li>Require <code>malevnc (&gt;= 0.4.0)</code>.</li>
+</ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.3.6" id="malecns-036">malecns 0.3.6<a class="anchor" aria-label="anchor" href="#malecns-036"></a></h2>
 <ul><li>fix plotting transforms and switch to version 2 provided by <a href="https://github.com/schlegelp" class="external-link">@schlegelp</a></li>
@@ -51,7 +64,7 @@
 <h2 class="pkg-version" data-toc-text="0.3.3" id="malecns-033">malecns 0.3.3<a class="anchor" aria-label="anchor" href="#malecns-033"></a></h2>
 <ul><li>prefer manc types for ANs + SAs by <a href="https://github.com/jefferis" class="external-link">@jefferis</a> in <a href="https://github.com/flyconnectome/malecns/pull/28" class="external-link uri">https://github.com/flyconnectome/malecns/pull/28</a>
 </li>
-<li>Give <code><a href="../reference/mcns_soma_side.html">mcns_somapos()</a></code> an <code>as_character</code> argument (closes <a href="https://github.com/flyconnectome/malecns/issues/27" class="external-link">#27</a>)</li>
+<li>Give <code><a href="../reference/mcns_soma_side.html">mcns_somapos()</a></code> an <code>as_character</code> argument (closes <a href="https://github.com/natverse/malecns/issues/27" class="external-link">#27</a>)</li>
 <li>Specify roi args for <code><a href="../reference/mcns_connection_table.html">mcns_connection_table()</a></code> (ccfb930b79692fb268243f9b759f8cf360f98476)</li>
 <li>more examples for <code><a href="../reference/mcns_ids.html">mcns_ids()</a></code> &amp; <code><a href="../reference/mcns_neuprint_meta.html">mcns_neuprint_meta()</a></code>
 </li>
@@ -78,7 +91,7 @@
 <li>Define malecns groups from manc matches (and use this for clustering) by <a href="https://github.com/jefferis" class="external-link">@jefferis</a> in <a href="https://github.com/flyconnectome/malecns/pull/18" class="external-link uri">https://github.com/flyconnectome/malecns/pull/18</a>
 </li>
 <li>fix bug introduced by changes in glue v1.8.0 (c30d8a7)</li>
-<li>fix mcns_predict_group_manc when no matched bodyids (<a href="https://github.com/flyconnectome/malecns/issues/20" class="external-link">#20</a>)</li>
+<li>fix mcns_predict_group_manc when no matched bodyids (<a href="https://github.com/natverse/malecns/issues/20" class="external-link">#20</a>)</li>
 <li>fix: use mcns_ids not manc_ids in mcns_annotate_body (aa252e9)</li>
 <li>fix stop mcns_predict_manc failing when no matches (b3252a1)</li>
 <li>fix: bodyids in mcns_annotate_body must be numeric (957adb34)</li>
@@ -118,7 +131,7 @@
 </div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.2.0" id="malecns-020">malecns 0.2.0<a class="anchor" aria-label="anchor" href="#malecns-020"></a></h2>
-<ul><li>Add transforms for malecns and malehb by <a href="https://github.com/jefferis" class="external-link">@jefferis</a> in <a href="https://github.com/flyconnectome/malecns/issues/2" class="external-link">#2</a></li>
+<ul><li>Add transforms for malecns and malehb by <a href="https://github.com/jefferis" class="external-link">@jefferis</a> in <a href="https://github.com/natverse/malecns/issues/2" class="external-link">#2</a></li>
 <li>fix <code><a href="../reference/read_mcns_meshes.html">read_mcns_meshes()</a></code> for static and on the fly meshes</li>
 <li>add <code><a href="../reference/read_mcns_neurons.html">read_mcns_neurons()</a></code>
 </li>

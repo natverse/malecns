@@ -34,7 +34,7 @@ mcns_connection_table(
 
   Either a logical (to add all fields when `TRUE`) or a character vector
   naming additional fields returned by
-  [`mcns_neuprint_meta`](https://flyconnectome.github.io/malecns/reference/mcns_neuprint_meta.md)
+  [`mcns_neuprint_meta`](https://natverse.org/malecns/reference/mcns_neuprint_meta.md)
   that will be added to the results data.frame.
 
 - summary:

@@ -49,7 +49,7 @@ containing one or more
 ## See also
 
 Other neurons:
-[`read_mcns_meshes()`](https://flyconnectome.github.io/malecns/reference/read_mcns_meshes.md)
+[`read_mcns_meshes()`](https://natverse.org/malecns/reference/read_mcns_meshes.md)
 
 ## Examples
 
@@ -58,7 +58,7 @@ Other neurons:
 n30102=read_mcns_neurons(30102)
 # neuronlist
 n30102
-#> 'neuronlist' containing 1 'neuprintneuron' object and 'data.frame' with 49 vars [165.6 kB]
+#> 'neuronlist' containing 1 'neuprintneuron' object and 'data.frame' with 51 vars [165.9 kB]
 boundingbox(n30102)
 #>        [,1]   [,2]   [,3]
 #> [1,] 168448  92160 197632

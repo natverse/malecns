@@ -19,9 +19,9 @@ mcns_predict_group(
 - ids:
 
   Body ids in any form understood by
-  [`mcns_ids`](https://flyconnectome.github.io/malecns/reference/mcns_ids.md).
-  If you have a metadata dataframe as returned by
-  [`mcns_neuprint_meta`](https://flyconnectome.github.io/malecns/reference/mcns_neuprint_meta.md)
+  [`mcns_ids`](https://natverse.org/malecns/reference/mcns_ids.md). If
+  you have a metadata dataframe as returned by
+  [`mcns_neuprint_meta`](https://natverse.org/malecns/reference/mcns_neuprint_meta.md)
   then this is ideal as that function is called under the hood.
 
 - method:
@@ -41,7 +41,7 @@ mcns_predict_group(
 ## Value
 
 For `method="all"` a dataframe as returned by
-[`mcns_neuprint_meta`](https://flyconnectome.github.io/malecns/reference/mcns_neuprint_meta.md)
+[`mcns_neuprint_meta`](https://natverse.org/malecns/reference/mcns_neuprint_meta.md)
 with additional columns `instance_group` and `type_group`. Otherwise a
 numeric vector.
 
@@ -70,7 +70,7 @@ predicted MANC matches as a fall-back.
 
 ## See also
 
-[`mcns_predict_type`](https://flyconnectome.github.io/malecns/reference/mcns_predict_type.md)
+[`mcns_predict_type`](https://natverse.org/malecns/reference/mcns_predict_type.md)
 
 ## Examples
 
@@ -82,78 +82,86 @@ tig_ids=mcns_ids('where:exists(n.group) OR exists(n.type) OR exists (n.instance)
 allg=mcns_predict_group(tig_ids, method = 'all')
 # neurons where the recorded group and instance group disagree
 allg %>% filter(!is.na(group) & !is.na(instance_group) & group!=instance_group)
-#>   bodyid post pre downstream upstream synweight          flywireType group
-#> 1  28195  661 133        987      661      1648        CB1761,CB2741 28195
-#> 2  52953  751 137        981      751      1732        CB1761,CB2741 28195
-#> 3 129990  759 147       1150      759      1909        CB1761,CB2741 28195
-#> 4  41250  870 158       1125      870      1995        CB1761,CB2741 28195
-#> 5  46029  736 151       1053      736      1789        CB1761,CB2741 28195
-#> 6  48918  787 434       3227      787      4014 CB1159,CB2015,CB2669 48918
-#> 7  49406  741 471       3117      741      3858 CB1159,CB2015,CB2669 48918
-#>   hemibrainType    name       itoleeHl somaSide    statusLabel   superclass
-#> 1          <NA> 28915_L LALa1_anterior        L Roughly traced cb_intrinsic
-#> 2          <NA> 28915_L LALa1_anterior        L Roughly traced cb_intrinsic
-#> 3          <NA> 28915_L LALa1_anterior        L Roughly traced cb_intrinsic
-#> 4          <NA> 28915_R LALa1_anterior        R Roughly traced cb_intrinsic
-#> 5          <NA> 28915_R LALa1_anterior        R Roughly traced cb_intrinsic
-#> 6          <NA> 48919_L           LHp2        L Roughly traced cb_intrinsic
-#> 7          <NA> 48919_R           LHp2        R Roughly traced cb_intrinsic
-#>   supertype type class entryNerve fruDsx matchingNotes rootSide assignedOlHex1
-#> 1     23508 <NA>  <NA>       <NA>   <NA>          <NA>     <NA>             NA
-#> 2     23508 <NA>  <NA>       <NA>   <NA>          <NA>     <NA>             NA
-#> 3     23508 <NA>  <NA>       <NA>   <NA>          <NA>     <NA>             NA
-#> 4     23508 <NA>  <NA>       <NA>   <NA>          <NA>     <NA>             NA
-#> 5     23508 <NA>  <NA>       <NA>   <NA>          <NA>     <NA>             NA
-#> 6     18606 <NA>  <NA>       <NA>   <NA>          <NA>     <NA>             NA
-#> 7     18606 <NA>  <NA>       <NA>   <NA>          <NA>     <NA>             NA
-#>   assignedOlHex2 mancBodyid mancGroup mancType somaNeuromere subclass trumanHl
-#> 1             NA         NA        NA     <NA>          <NA>     <NA>     <NA>
-#> 2             NA         NA        NA     <NA>          <NA>     <NA>     <NA>
-#> 3             NA         NA        NA     <NA>          <NA>     <NA>     <NA>
-#> 4             NA         NA        NA     <NA>          <NA>     <NA>     <NA>
-#> 5             NA         NA        NA     <NA>          <NA>     <NA>     <NA>
-#> 6             NA         NA        NA     <NA>          <NA>     <NA>     <NA>
-#> 7             NA         NA        NA     <NA>          <NA>     <NA>     <NA>
-#>   dimorphism synonyms birthtime mancSerial mcnsSerial exitNerve serialMotif
-#> 1       <NA>     <NA>      <NA>         NA         NA      <NA>        <NA>
-#> 2       <NA>     <NA>      <NA>         NA         NA      <NA>        <NA>
-#> 3       <NA>     <NA>      <NA>         NA         NA      <NA>        <NA>
-#> 4       <NA>     <NA>      <NA>         NA         NA      <NA>        <NA>
-#> 5       <NA>     <NA>      <NA>         NA         NA      <NA>        <NA>
-#> 6       <NA>     <NA>      <NA>         NA         NA      <NA>        <NA>
-#> 7       <NA>     <NA>      <NA>         NA         NA      <NA>        <NA>
-#>   receptorType      somaLocation tosomaLocation status totalNtPredictions
-#> 1         <NA> 66620,24888,15730                Traced                133
-#> 2         <NA> 65254,26033,14863                Traced                137
-#> 3         <NA> 65850,24844,15111                Traced                147
-#> 4         <NA> 30730,36422,22418                Traced                158
-#> 5         <NA> 30920,37020,23082                Traced                151
-#> 6         <NA> 68976,14832,32846                Traced                434
-#> 7         <NA> 28544,10466,32448                Traced                471
-#>   predictedNtConfidence   predictedNt celltypeTotalNtPredictions
-#> 1             0.8200724          gaba                        133
-#> 2             0.8341187          gaba                        137
-#> 3             0.7992291          gaba                        147
-#> 4             0.8392468          gaba                        158
-#> 5             0.7578290          gaba                        151
-#> 6             0.8384565 acetylcholine                        434
-#> 7             0.6560721 acetylcholine                        471
-#>   celltypePredictedNt celltypePredictedNtConfidence   consensusNt    voxels
-#> 1             unclear                            NA          gaba 229963626
-#> 2             unclear                            NA          gaba 248926814
-#> 3             unclear                            NA          gaba 241019652
-#> 4             unclear                            NA          gaba 297966845
-#> 5             unclear                            NA          gaba 271122994
-#> 6             unclear                            NA acetylcholine 457493970
-#> 7             unclear                            NA acetylcholine 485994463
-#>   soma instance_group type_group mancGroup_group pmanc_group
-#> 1 TRUE          28915         NA              NA       28195
-#> 2 TRUE          28915         NA              NA       28195
-#> 3 TRUE          28915         NA              NA       28195
-#> 4 TRUE          28915         NA              NA       28195
-#> 5 TRUE          28915         NA              NA       28195
-#> 6 TRUE          48919         NA              NA       48918
-#> 7 TRUE          48919         NA              NA       48918
+#>   bodyid post pre downstream upstream synweight assignedOlHex1 assignedOlHex2
+#> 1 129990  759 147       1150      759      1909             NA             NA
+#> 2  28195  661 133        987      661      1648             NA             NA
+#> 3  52953  751 137        981      751      1732             NA             NA
+#> 4  41250  870 158       1125      870      1995             NA             NA
+#> 5  46029  736 151       1053      736      1789             NA             NA
+#> 6  49406  741 471       3117      741      3858             NA             NA
+#> 7  48918  787 434       3227      787      4014             NA             NA
+#>            flywireType group    name somaSide    statusLabel   superclass type
+#> 1        CB1761,CB2741 28195 28915_L        L Roughly traced cb_intrinsic <NA>
+#> 2        CB1761,CB2741 28195 28915_L        L Roughly traced cb_intrinsic <NA>
+#> 3        CB1761,CB2741 28195 28915_L        L Roughly traced cb_intrinsic <NA>
+#> 4        CB1761,CB2741 28195 28915_R        R Roughly traced cb_intrinsic <NA>
+#> 5        CB1761,CB2741 28195 28915_R        R Roughly traced cb_intrinsic <NA>
+#> 6 CB1159,CB2015,CB2669 48918 48919_R        R Roughly traced cb_intrinsic <NA>
+#> 7 CB1159,CB2015,CB2669 48918 48919_L        L Roughly traced cb_intrinsic <NA>
+#>          vfbId hemibrainType       itoleeHl supertype birthtime mancBodyid
+#> 1 VFB_jrmc3k51          <NA> LALa1_anterior     23508      <NA>         NA
+#> 2 VFB_jrmc3k4k          <NA> LALa1_anterior     23508      <NA>         NA
+#> 3 VFB_jrmc3k4l          <NA> LALa1_anterior     23508      <NA>         NA
+#> 4 VFB_jrmc3k7b          <NA> LALa1_anterior     23508      <NA>         NA
+#> 5 VFB_jrmc3kfg          <NA> LALa1_anterior     23508      <NA>         NA
+#> 6 VFB_jrmc3kam          <NA>           LHp2     18606      <NA>         NA
+#> 7 VFB_jrmc3k9m          <NA>           LHp2     18606      <NA>         NA
+#>   mancGroup mancType subclass synonyms class rootSide somaNeuromere trumanHl
+#> 1        NA     <NA>     <NA>     <NA>  <NA>     <NA>          <NA>     <NA>
+#> 2        NA     <NA>     <NA>     <NA>  <NA>     <NA>          <NA>     <NA>
+#> 3        NA     <NA>     <NA>     <NA>  <NA>     <NA>          <NA>     <NA>
+#> 4        NA     <NA>     <NA>     <NA>  <NA>     <NA>          <NA>     <NA>
+#> 5        NA     <NA>     <NA>     <NA>  <NA>     <NA>          <NA>     <NA>
+#> 6        NA     <NA>     <NA>     <NA>  <NA>     <NA>          <NA>     <NA>
+#> 7        NA     <NA>     <NA>     <NA>  <NA>     <NA>          <NA>     <NA>
+#>   dimorphism matchingNotes entryNerve mancSerial mcnsSerial serialMotif fruDsx
+#> 1       <NA>          <NA>       <NA>         NA         NA        <NA>   <NA>
+#> 2       <NA>          <NA>       <NA>         NA         NA        <NA>   <NA>
+#> 3       <NA>          <NA>       <NA>         NA         NA        <NA>   <NA>
+#> 4       <NA>          <NA>       <NA>         NA         NA        <NA>   <NA>
+#> 5       <NA>          <NA>       <NA>         NA         NA        <NA>   <NA>
+#> 6       <NA>          <NA>       <NA>         NA         NA        <NA>   <NA>
+#> 7       <NA>          <NA>       <NA>         NA         NA        <NA>   <NA>
+#>   exitNerve receptorType      somaLocation tosomaLocation status
+#> 1      <NA>         <NA> 65850,24844,15111                Traced
+#> 2      <NA>         <NA> 66620,24888,15730                Traced
+#> 3      <NA>         <NA> 65254,26033,14863                Traced
+#> 4      <NA>         <NA> 30730,36422,22418                Traced
+#> 5      <NA>         <NA> 30920,37020,23082                Traced
+#> 6      <NA>         <NA> 28544,10466,32448                Traced
+#> 7      <NA>         <NA> 68976,14832,32846                Traced
+#>   totalNtPredictions predictedNtConfidence   predictedNt
+#> 1                147             0.7991717          gaba
+#> 2                133             0.8200117          gaba
+#> 3                137             0.8340546          gaba
+#> 4                158             0.8391827          gaba
+#> 5                151             0.7577716          gaba
+#> 6                471             0.6562392 acetylcholine
+#> 7                434             0.8387030 acetylcholine
+#>   celltypeTotalNtPredictions celltypePredictedNt celltypePredictedNtConfidence
+#> 1                        147             unclear                            NA
+#> 2                        133             unclear                            NA
+#> 3                        137             unclear                            NA
+#> 4                        158             unclear                            NA
+#> 5                        151             unclear                            NA
+#> 6                        471             unclear                            NA
+#> 7                        434             unclear                            NA
+#>     consensusNt    voxels locationType soma instance_group type_group
+#> 1          gaba 241019652           NA TRUE          28915         NA
+#> 2          gaba 229963626           NA TRUE          28915         NA
+#> 3          gaba 248926814           NA TRUE          28915         NA
+#> 4          gaba 297966845           NA TRUE          28915         NA
+#> 5          gaba 271122994           NA TRUE          28915         NA
+#> 6 acetylcholine 485994463           NA TRUE          48919         NA
+#> 7 acetylcholine 457493970           NA TRUE          48919         NA
+#>   mancGroup_group pmanc_group
+#> 1              NA       28195
+#> 2              NA       28195
+#> 3              NA       28195
+#> 4              NA       28195
+#> 5              NA       28195
+#> 6              NA       48918
+#> 7              NA       48918
 # }
 if (FALSE) { # \dontrun{
 # neurons where the recorded group and type group disagree

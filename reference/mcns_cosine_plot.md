@@ -26,7 +26,7 @@ mcns_cosine_plot(
 - ids:
 
   Bodyids in any form understood by
-  [`mcns_ids`](https://flyconnectome.github.io/malecns/reference/mcns_ids.md)
+  [`mcns_ids`](https://natverse.org/malecns/reference/mcns_ids.md)
 
 - partners:
 
@@ -48,7 +48,7 @@ mcns_cosine_plot(
 
   A string interpolated by `glue` using the dataframe of metadata
   fetched by
-  [`mcns_neuprint_meta`](https://flyconnectome.github.io/malecns/reference/mcns_neuprint_meta.md).
+  [`mcns_neuprint_meta`](https://natverse.org/malecns/reference/mcns_neuprint_meta.md).
   Alternatively a character vector with as many elements as `ids`
   directly specifying the rows.
 
@@ -56,7 +56,7 @@ mcns_cosine_plot(
 
   whether to use `manc_bodyid` *predicted* matches to define grouping
   information in addition to curated `manc_group` matches. See
-  [`mcns_predict_group`](https://flyconnectome.github.io/malecns/reference/mcns_predict_group.md)
+  [`mcns_predict_group`](https://natverse.org/malecns/reference/mcns_predict_group.md)
   for details.
 
 - heatmap:
@@ -71,7 +71,7 @@ mcns_cosine_plot(
 - metadata.source:
 
   Whether to use neuprint
-  ([`mcns_neuprint_meta`](https://flyconnectome.github.io/malecns/reference/mcns_neuprint_meta.md))
+  ([`mcns_neuprint_meta`](https://natverse.org/malecns/reference/mcns_neuprint_meta.md))
   and clio ()
 
 - interactive:
@@ -81,8 +81,8 @@ mcns_cosine_plot(
 
 - action:
 
-  Whether to zero out or drop any NA values in the cosine matrix (these
-  may be present when some columns have no entries)
+  Whether to zero out or drop any NA values in the similarity matrix
+  (these may be present when some columns have no entries)
 
 - threshold:
 
@@ -104,7 +104,7 @@ invisibly including the row and column dendrograms.
 # \donttest{
 # cosine clustering based on grouped output partners (mainly DNs right now)
 r=mcns_cosine_plot("/name:LAL.+", partners='out', group=TRUE)
-#> Warning: Dropping: 93/24092 neurons representing 1646/862740 synapses due to missing ids!
+#> Warning: Dropping: 94/24280 neurons representing 1658/866555 synapses due to missing ids!
 #> Warning: diag(V) has non-positive or non-finite entries; finite result is doubtful
 
 # }
