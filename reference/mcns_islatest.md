@@ -30,7 +30,8 @@ A logical vector ordered by input ids
 
 ## Details
 
-For details (and there are some) please see `manc_islatest`
+For details (and there are some) please see
+[`manc_islatest`](https://natverse.org/malevnc/reference/manc_islatest.html)
 
 ## Examples
 

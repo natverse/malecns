@@ -33,11 +33,15 @@ mcns_neuprint(
 
 - ...:
 
-  Additional arguments passed to `neuprint_login`
+  Additional arguments passed to
+  [`neuprint_login`](https://natverse.org/neuprintr/reference/neuprint_login.html)
 
 ## Value
 
-a `neuprint_connection` object returned by `neuprint_login`
+a
+[`neuprint_connection`](https://natverse.org/neuprintr/reference/neuprint_login.html)
+object returned by
+[`neuprint_login`](https://natverse.org/neuprintr/reference/neuprint_login.html)
 
 ## Details
 

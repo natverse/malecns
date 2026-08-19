@@ -23,8 +23,9 @@ mcns_neuprint_meta(
 
 - conn:
 
-  Optional, a `neuprint_connection` object, which also specifies the
-  neuPrint server. Defaults to
+  Optional, a
+  [`neuprint_connection`](https://natverse.org/neuprintr/reference/neuprint_login.html)
+  object, which also specifies the neuPrint server. Defaults to
   [`manc_neuprint()`](https://natverse.org/malevnc/reference/manc_neuprint.html)
   to ensure that query is against the VNC dataset.
 
@@ -48,7 +49,8 @@ mcns_neuprint_meta(
 
 - ...:
 
-  Additional arguments passed to `neuprint_get_meta`
+  Additional arguments passed to
+  [`neuprint_get_meta`](https://natverse.org/neuprintr/reference/neuprint_get_meta.html)
 
 ## Value
 
@@ -58,7 +60,7 @@ columns except bodyid when neuprint holds no metadata.
 ## Details
 
 in contrast to
-[`malevnc::manc_neuprint_meta`](https://natverse.org/malevnc/reference/manc_neuprint_meta.html)
+[`manc_neuprint_meta`](https://natverse.org/malevnc/reference/manc_neuprint_meta.html)
 we leave bodyids as numeric (doubles) since flyem now guarantee them to
 be less than 2^53 i.e. within the range in which doubles can exactly
 represent numeric ids.

@@ -62,6 +62,11 @@ Other malecns-package:
 **Maintainer**: Gregory Jefferis <jefferis@gmail.com>
 ([ORCID](https://orcid.org/0000-0002-0587-9355))
 
+Authors:
+
+- Gregory Jefferis <jefferis@gmail.com>
+  ([ORCID](https://orcid.org/0000-0002-0587-9355))
+
 ## Examples
 
 ``` r

@@ -46,8 +46,9 @@ mcns_cosine_plot(
 
 - labRow:
 
-  A string interpolated by `glue` using the dataframe of metadata
-  fetched by
+  A string interpolated by
+  [`glue`](https://glue.tidyverse.org/reference/glue.html) using the
+  dataframe of metadata fetched by
   [`mcns_neuprint_meta`](https://natverse.org/malecns/reference/mcns_neuprint_meta.md).
   Alternatively a character vector with as many elements as `ids`
   directly specifying the rows.
@@ -81,8 +82,8 @@ mcns_cosine_plot(
 
 - action:
 
-  Whether to zero out or drop any NA values in the similarity matrix
-  (these may be present when some columns have no entries)
+  Whether to zero out or drop any NA values in the cosine matrix (these
+  may be present when some columns have no entries)
 
 - threshold:
 
@@ -90,8 +91,9 @@ mcns_cosine_plot(
 
 - ...:
 
-  additional arguments passed to `neuprint_cosine_plot` and eventually
-  to `heatmap`.
+  additional arguments passed to
+  [`neuprint_cosine_plot`](https://natverse.org/neuprintr/reference/neuprint_cosine_plot.html)
+  and eventually to `heatmap`.
 
 ## Value
 

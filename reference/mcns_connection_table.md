@@ -22,8 +22,9 @@ mcns_connection_table(
 
 - ids:
 
-  A set of body ids (see `manc_ids` for a range of ways to specify
-  these).
+  A set of body ids (see
+  [`manc_ids`](https://natverse.org/malevnc/reference/manc_ids.html) for
+  a range of ways to specify these).
 
 - partners:
 
@@ -59,14 +60,16 @@ mcns_connection_table(
 
 - conn:
 
-  Optional, a `neuprint_connection` object, which also specifies the
-  neuPrint server. Defaults to
+  Optional, a
+  [`neuprint_connection`](https://natverse.org/neuprintr/reference/neuprint_login.html)
+  object, which also specifies the neuPrint server. Defaults to
   [`manc_neuprint()`](https://natverse.org/malevnc/reference/manc_neuprint.html)
   to ensure that query is against the VNC dataset.
 
 - ...:
 
-  additional arguments passed to `neuprint_connection_table`
+  additional arguments passed to
+  [`neuprint_connection_table`](https://natverse.org/neuprintr/reference/neuprint_connection_table.html)
 
 ## Value
 

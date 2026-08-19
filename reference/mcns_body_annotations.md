@@ -54,7 +54,7 @@ mcns_body_annotations(
 - ...:
 
   Additional arguments passed to
-  [`pbapply::pblapply`](https://peter.solymos.org/pbapply/reference/pbapply.html)
+  [`pblapply`](https://peter.solymos.org/pbapply/reference/pbapply.html)
 
 ## Value
 

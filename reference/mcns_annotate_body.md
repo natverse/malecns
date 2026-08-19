@@ -29,7 +29,8 @@ mcns_annotate_body(
 - test:
 
   Whether to use the test clio store. Default `FALSE` writes to
-  production Clio. See `manc_annotate_body`.
+  production Clio. See
+  [`manc_annotate_body`](https://natverse.org/malevnc/reference/manc_annotate_body.html).
 
 - version:
 
@@ -73,12 +74,13 @@ mcns_annotate_body(
 
   When `TRUE` (the default) no data is written; a preview tibble of the
   POST body is returned. Pass `dry_run = FALSE` to actually write. See
-  `manc_annotate_body` for full details.
+  [`manc_annotate_body`](https://natverse.org/malevnc/reference/manc_annotate_body.html)
+  for full details.
 
 - ...:
 
   Additional parameters passed to
-  [`pbapply::pbsapply`](https://peter.solymos.org/pbapply/reference/pbapply.html)
+  [`pbsapply`](https://peter.solymos.org/pbapply/reference/pbapply.html)
 
 ## Value
 
@@ -136,7 +138,8 @@ fields in a record. For example if you edit the `type` field then then a
 authenticate to Clio. By default *your* email address will be used since
 this is contained within your clio token. You can also specify an
 alternate user with the `designated_user` argument. See the
-`manc_annotate_body` documentation for further details.
+[`manc_annotate_body`](https://natverse.org/malevnc/reference/manc_annotate_body.html)
+documentation for further details.
 
 ## Examples
 

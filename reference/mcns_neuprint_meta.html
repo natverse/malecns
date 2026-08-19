@@ -58,9 +58,10 @@
 
 
 <dt id="arg-conn">conn<a class="anchor" aria-label="anchor" href="#arg-conn"></a></dt>
-<dd><p>Optional, a <code>neuprint_connection</code> object, which also
-specifies the neuPrint server. Defaults to <code><a href="https://natverse.org/malevnc/reference/manc_neuprint.html" class="external-link">manc_neuprint()</a></code> to
-ensure that query is against the VNC dataset.</p></dd>
+<dd><p>Optional, a <code><a href="https://natverse.org/neuprintr/reference/neuprint_login.html" class="external-link">neuprint_connection</a></code> object,
+which also specifies the neuPrint server. Defaults to
+<code><a href="https://natverse.org/malevnc/reference/manc_neuprint.html" class="external-link">manc_neuprint()</a></code> to ensure that query is against the
+VNC dataset.</p></dd>
 
 
 <dt id="arg-roiinfo">roiInfo<a class="anchor" aria-label="anchor" href="#arg-roiinfo"></a></dt>
@@ -82,7 +83,8 @@ datasets). See details.</p></dd>
 
 
 <dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
-<dd><p>Additional arguments passed to <code>neuprint_get_meta</code></p></dd>
+<dd><p>Additional arguments passed to
+<code><a href="https://natverse.org/neuprintr/reference/neuprint_get_meta.html" class="external-link">neuprint_get_meta</a></code></p></dd>
 
 </dl></div>
     <div class="section level2">
@@ -92,7 +94,7 @@ datasets). See details.</p></dd>
     </div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
-    <p>in contrast to <code><a href="https://natverse.org/malevnc/reference/manc_neuprint_meta.html" class="external-link">malevnc::manc_neuprint_meta</a></code> we leave
+    <p>in contrast to <code><a href="https://natverse.org/malevnc/reference/manc_neuprint_meta.html" class="external-link">manc_neuprint_meta</a></code> we leave
   bodyids as numeric (doubles) since flyem now guarantee them to be less than
   2^53 i.e. within the range in which doubles can exactly represent numeric
   ids.</p>

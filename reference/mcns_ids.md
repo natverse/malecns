@@ -43,7 +43,8 @@ mcns_ids(
 
 - ...:
 
-  Additional arguments passed to `neuprint_get_meta`
+  Additional arguments passed to
+  [`neuprint_get_meta`](https://natverse.org/neuprintr/reference/neuprint_get_meta.html)
 
 - dataset:
 

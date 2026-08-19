@@ -24,8 +24,10 @@ mcns_dvid_annotations(
 
 - node:
 
-  A DVID node as returned by `manc_dvid_node`. The default is to return
-  the current active (unlocked) node being used through neutu.
+  A DVID node as returned by
+  [`manc_dvid_node`](https://natverse.org/malevnc/reference/manc_dvid_node.html).
+  The default is to return the current active (unlocked) node being used
+  through neutu.
 
 - rval:
 
@@ -45,7 +47,7 @@ mcns_dvid_annotations(
 - ...:
 
   Additional arguments passed to
-  [`pbapply::pblapply`](https://peter.solymos.org/pbapply/reference/pbapply.html)
+  [`pblapply`](https://peter.solymos.org/pbapply/reference/pbapply.html)
 
 ## Value
 
@@ -77,7 +79,8 @@ post](https://flyem-cns.slack.com/archives/C01BT2XFEEN/p1619201195032400)
 from Stuart Berg for details.
 
 Note that the original api call was `<rootuuid>:master`, but I have now
-just changed this to `<neutu-uuid>` as returned by `manc_dvid_node`.
+just changed this to `<neutu-uuid>` as returned by
+[`manc_dvid_node`](https://natverse.org/malevnc/reference/manc_dvid_node.html).
 This was because the range query stopped working 16 May 2021, probably
 because of a bad node.
 
