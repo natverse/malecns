@@ -26,6 +26,7 @@ test_that("schema_compare works", {
 
 
 test_that("mcns_body_annotations works", {
+  skip_if_not(has_clio(), "Clio auth is not available")
   expect_silent(dns.u <- mcns_body_annotations(query = list(superclass='descending_neuron'), show.extra = 'user'))
   expect_true(all(c("superclass_user", "group_user", "type_user") %in% names(dns.u)))
 })

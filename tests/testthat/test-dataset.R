@@ -1,10 +1,3 @@
-has_clio <- function() {
-  tryCatch({
-    malevnc::clio_token()
-    TRUE
-  }, error = function(e) FALSE)
-}
-
 test_that("choose_mcns v0.9 returns expected hardcoded options", {
   ops <- choose_mcns("male-cns:v0.9", set = FALSE)
   expect_equal(ops$malevnc.dataset, "male-cns:v0.9")
@@ -23,6 +16,7 @@ test_that("choose_mcns v1.0 returns expected hardcoded options", {
 })
 
 test_that("can pull body annotations from v1.0 dataset", {
+  skip_if_not(has_clio(), "Clio auth is not available")
   res <- with_mcns(
     mcns_body_annotations(query = list(superclass = "descending_neuron")),
     dataset = "male-cns:v1.0"
