@@ -4,6 +4,8 @@
 #'   \code{integer} or \code{integer64}format) or a query expression
 #' @inheritParams malevnc::manc_ids
 #' @inheritParams with_mcns
+#' @param ... Additional arguments passed to
+#'   \code{\link[neuprintr]{neuprint_get_meta}}
 #'
 #' @return A vector of numeric ids with mode determined by \code{as_character}
 #'   and \code{integer64}

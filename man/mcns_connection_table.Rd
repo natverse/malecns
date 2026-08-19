@@ -17,7 +17,7 @@ mcns_connection_table(
 )
 }
 \arguments{
-\item{ids}{A set of body ids (see \code{\link{manc_ids}} for a range of ways
+\item{ids}{A set of body ids (see \code{\link[malevnc]{manc_ids}} for a range of ways
 to specify these).}
 
 \item{partners}{Either inputs or outputs. Redundant with \code{prepost}, but
@@ -40,12 +40,13 @@ the \code{roi} argument is specified, otherwise to the whole neuron.}
 \item{by.roi}{logical, whether or not to break neurons' connectivity down by
 region of interest (ROI)}
 
-\item{conn}{Optional, a \code{\link{neuprint_connection}} object, which also
-specifies the neuPrint server. Defaults to \code{\link[malevnc]{manc_neuprint}()} to
-ensure that query is against the VNC dataset.}
+\item{conn}{Optional, a \code{\link[neuprintr]{neuprint_connection}} object,
+which also specifies the neuPrint server. Defaults to
+\code{\link[malevnc]{manc_neuprint}()} to ensure that query is against the
+VNC dataset.}
 
 \item{...}{additional arguments passed to
-\code{\link{neuprint_connection_table}}}
+\code{\link[neuprintr]{neuprint_connection_table}}}
 }
 \value{
 A data.frame

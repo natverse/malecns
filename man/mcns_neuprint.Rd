@@ -23,11 +23,11 @@ which would normally be changed by using the function
 \item{Force}{Whether to force a new login to the CATMAID server (default
 \code{FALSE})}
 
-\item{...}{Additional arguments passed to \code{\link{neuprint_login}}}
+\item{...}{Additional arguments passed to \code{\link[neuprintr]{neuprint_login}}}
 }
 \value{
-a \code{\link{neuprint_connection}} object returned by
-  \code{\link{neuprint_login}}
+a \code{\link[neuprintr]{neuprint_connection}} object returned by
+  \code{\link[neuprintr]{neuprint_login}}
 }
 \description{
 Login to male CNS neuprint server

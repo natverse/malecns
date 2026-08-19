@@ -17,7 +17,7 @@ mcns_dvid_annotations(
 \item{ids}{A set of body ids in any form understandable to
 \code{\link[malevnc]{manc_ids}}}
 
-\item{node}{A DVID node as returned by \code{\link{manc_dvid_node}}. The
+\item{node}{A DVID node as returned by \code{\link[malevnc]{manc_dvid_node}}. The
 default is to return the current active (unlocked) node being used through
 neutu.}
 
@@ -30,7 +30,7 @@ suffix. Accepted options are: 'user', 'time', 'all'.}
 
 \item{cache}{Whether to cache the result of this call for 5 minutes.}
 
-\item{...}{Additional arguments passed to \code{pbapply::\link{pblapply}}}
+\item{...}{Additional arguments passed to \code{\link[pbapply]{pblapply}}}
 }
 \value{
 A \code{tibble} containing with columns including \itemize{
@@ -64,7 +64,7 @@ See
 
   Note that the original api call was \code{<rootuuid>:master}, but I have
   now just changed this to \code{<neutu-uuid>} as returned by
-  \code{\link{manc_dvid_node}}. This was because the range query stopped
+  \code{\link[malevnc]{manc_dvid_node}}. This was because the range query stopped
   working 16 May 2021, probably because of a bad node.
 }
 \examples{
@@ -80,9 +80,9 @@ head(mbons)
 }
 }
 \seealso{
-Other annotations: 
-\code{\link{mcns_body_annotations}()},
-\code{\link{mcns_neuprint_meta}()},
-\code{\link{mcns_soma_side}()}
+Other annotations:
+\code{\link[=mcns_body_annotations]{mcns_body_annotations()}},
+\code{\link[=mcns_neuprint_meta]{mcns_neuprint_meta()}},
+\code{\link[=mcns_soma_side]{mcns_soma_side()}}
 }
 \concept{annotations}

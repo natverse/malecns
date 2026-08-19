@@ -6,18 +6,19 @@
 #'
 #'   Note that the original api call was \code{<rootuuid>:master}, but I have
 #'   now just changed this to \code{<neutu-uuid>} as returned by
-#'   \code{\link{manc_dvid_node}}. This was because the range query stopped
+#'   \code{\link[malevnc]{manc_dvid_node}}. This was because the range query stopped
 #'   working 16 May 2021, probably because of a bad node.
 #' @inheritParams malevnc::manc_body_annotations
 #' @param rval Whether to return a fully parsed data.frame (the default) or an R
 #'   list. The data.frame is easier to work with but typically includes NAs for
 #'   many values that would be missing in the list.
-#' @param node A DVID node as returned by \code{\link{manc_dvid_node}}. The
+#' @param node A DVID node as returned by \code{\link[malevnc]{manc_dvid_node}}. The
 #'   default is to return the current active (unlocked) node being used through
 #'   neutu.
 #' @param cache Whether to cache the result of this call for 5 minutes.
 #' @param columns_show Whether to show all columns, or just with '_user', or '_time'
 #' suffix. Accepted options are: 'user', 'time', 'all'.
+#' @param ... Additional arguments passed to \code{\link[pbapply]{pblapply}}
 #'
 #' @return A \code{tibble} containing with columns including \itemize{
 #'
@@ -173,7 +174,7 @@ mcns_set_group <- function(id, group, user) {
 #'   default in groups of 50.
 #'
 #'   A single column called \code{position} or 3 columns names x, y, z or X, Y,
-#'   Z in any form accepted by \code{\link{xyzmatrix}} will be converted to a
+#'   Z in any form accepted by \code{\link[nat]{xyzmatrix}} will be converted to a
 #'   position stored with each record. This is recommended when creating
 #'   records.
 #'
@@ -206,17 +207,17 @@ mcns_set_group <- function(id, group, user) {
 #'   that you use to authenticate to Clio. By default \emph{your} email address
 #'   will be used since this is contained within your clio token. You can also
 #'   specify an alternate user with the \code{designated_user} argument. See the
-#'   \code{\link{manc_annotate_body}} documentation for further details.
+#'   \code{\link[malevnc]{manc_annotate_body}} documentation for further details.
 #'
 #' @param x A data.frame, list or JSON string containing body annotations.
 #'   \bold{End users are strongly recommended to use data.frames.}
 #' @param version Optional clio version to associate with this annotation. The
 #'   default \code{NULL} uses the current version returned by the API.
 #' @param test Whether to use the test clio store. Default \code{FALSE}
-#'   writes to production Clio. See \code{\link{manc_annotate_body}}.
+#'   writes to production Clio. See \code{\link[malevnc]{manc_annotate_body}}.
 #' @param dry_run When \code{TRUE} (the default) no data is written; a preview
 #'   tibble of the POST body is returned. Pass \code{dry_run = FALSE} to
-#'   actually write. See \code{\link{manc_annotate_body}} for full details.
+#'   actually write. See \code{\link[malevnc]{manc_annotate_body}} for full details.
 #' @param protect Vector of fields that will not be overwritten if they already
 #'   have a value in clio store. Set to \code{TRUE} to protect all fields and to
 #'   \code{FALSE} to overwrite all fields for which you provide data. See
@@ -234,7 +235,7 @@ mcns_set_group <- function(id, group, user) {
 #'   Set to \code{Inf} to insist that all records are sent in a single request.
 #'   \bold{NB only applies when \code{x} is a data.frame}.
 #' @param check_types Whether or not it should verify types of columns.
-#' @param ... Additional parameters passed to \code{pbapply::\link{pbsapply}}
+#' @param ... Additional parameters passed to \code{\link[pbapply]{pbsapply}}
 #' @inheritParams malevnc::manc_annotate_body
 #'
 #' @return \code{NULL} invisibly on success. Errors out on failure.
@@ -318,6 +319,7 @@ schema_compare <- function(x) {
 #'   ids.
 #'
 #' @inheritParams malevnc::manc_body_annotations
+#' @param ... Additional arguments passed to \code{\link[pbapply]{pblapply}}
 #' @return A data.frame with metadata
 #' @export
 #' @family annotations

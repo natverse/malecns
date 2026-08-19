@@ -13,12 +13,12 @@
 #'   otherwise be chosen based on the value of \code{options(malecns.dataset)}
 #'   which would normally be changed by using the function
 #'   \code{\link{choose_mcns_dataset}})
-#' @param ... Additional arguments passed to \code{\link{neuprint_login}}
+#' @param ... Additional arguments passed to \code{\link[neuprintr]{neuprint_login}}
 #' @param token Optional neuprint access token (see details and examples if you
 #'   have trouble with multiple tokens).
 #' @inheritParams neuprintr::neuprint_login
-#' @return a \code{\link{neuprint_connection}} object returned by
-#'   \code{\link{neuprint_login}}
+#' @return a \code{\link[neuprintr]{neuprint_connection}} object returned by
+#'   \code{\link[neuprintr]{neuprint_login}}
 #' @export
 #' @family manc-neuprint
 #' @examples
@@ -50,7 +50,7 @@ mcns_neuprint <- function(token=Sys.getenv("neuprint_token"),
 
 #' Connectivity query for CNS neurons
 #'
-#' @param ids A set of body ids (see \code{\link{manc_ids}} for a range of ways
+#' @param ids A set of body ids (see \code{\link[malevnc]{manc_ids}} for a range of ways
 #'   to specify these).
 #' @param moredetails Either a logical (to add all fields when \code{TRUE}) or a
 #'   character vector naming additional fields returned by
@@ -60,6 +60,12 @@ mcns_neuprint <- function(token=Sys.getenv("neuprint_token"),
 #'   query neurons
 #' @inheritParams malevnc::manc_connection_table
 #' @inheritParams neuprintr::neuprint_connection_table
+#' @param conn Optional, a \code{\link[neuprintr]{neuprint_connection}} object,
+#'   which also specifies the neuPrint server. Defaults to
+#'   \code{\link[malevnc]{manc_neuprint}()} to ensure that query is against the
+#'   VNC dataset.
+#' @param ... additional arguments passed to
+#'   \code{\link[neuprintr]{neuprint_connection_table}}
 #'
 #' @return A data.frame
 #' @export
@@ -108,7 +114,7 @@ mcns_connection_table <- function(ids, partners=c("inputs", "outputs"),
 
 #' Fetch neuprint metadata for malecns neurons
 #'
-#' @details in contrast to \code{malevnc::\link{manc_neuprint_meta}} we leave
+#' @details in contrast to \code{\link[malevnc]{manc_neuprint_meta}} we leave
 #'   bodyids as numeric (doubles) since flyem now guarantee them to be less than
 #'   2^53 i.e. within the range in which doubles can exactly represent numeric
 #'   ids.
@@ -117,6 +123,12 @@ mcns_connection_table <- function(ids, partners=c("inputs", "outputs"),
 #'   simple \code{"x,y,z"} format rather than a longer form referencing a schema
 #'   at \code{spatialreference.org}. Defaults to \code{TRUE}.
 #' @inheritParams malevnc::manc_neuprint_meta
+#' @param conn Optional, a \code{\link[neuprintr]{neuprint_connection}} object,
+#'   which also specifies the neuPrint server. Defaults to
+#'   \code{\link[malevnc]{manc_neuprint}()} to ensure that query is against the
+#'   VNC dataset.
+#' @param ... Additional arguments passed to
+#'   \code{\link[neuprintr]{neuprint_get_meta}}
 #' @return A data.frame with one row for each (unique) input id and NAs for all
 #'   columns except bodyid when neuprint holds no metadata.
 #' @export

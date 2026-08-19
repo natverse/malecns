@@ -35,7 +35,7 @@ bearer token)}
 \item{test}{Whether to unset the clio-store test server (default
 \code{FALSE})}
 
-\item{...}{Additional arguments passed to \code{pbapply::\link{pblapply}}}
+\item{...}{Additional arguments passed to \code{\link[pbapply]{pblapply}}}
 }
 \value{
 A data.frame with metadata
@@ -63,9 +63,9 @@ mcns.superclass \%>\%
 }
 }
 \seealso{
-Other annotations: 
-\code{\link{mcns_dvid_annotations}()},
-\code{\link{mcns_neuprint_meta}()},
-\code{\link{mcns_soma_side}()}
+Other annotations:
+\code{\link[=mcns_dvid_annotations]{mcns_dvid_annotations()}},
+\code{\link[=mcns_neuprint_meta]{mcns_neuprint_meta()}},
+\code{\link[=mcns_soma_side]{mcns_soma_side()}}
 }
 \concept{annotations}

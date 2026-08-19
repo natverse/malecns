@@ -33,7 +33,7 @@ implies to \code{'group'}.}
 neurons and returns a single grouping vector (see the \bold{details}
 section).}
 
-\item{labRow}{A string interpolated by \code{\link{glue}} using the dataframe
+\item{labRow}{A string interpolated by \code{\link[glue]{glue}} using the dataframe
 of metadata fetched by \code{\link{mcns_neuprint_meta}}. Alternatively a
 character vector with as many elements as \code{ids} directly specifying
 the rows.}
@@ -55,12 +55,12 @@ with \code{stats::\link{heatmap}}.}
 \item{interactive}{Whether to plot an interactive heatmap (allowing zooming
 and id selection). See details.}
 
-\item{action}{Whether to zero out or drop any NA values in the similarity
-matrix (these may be present when some columns have no entries)}
+\item{action}{Whether to zero out or drop any NA values in the cosine matrix
+(these may be present when some columns have no entries)}
 
 \item{threshold}{An integer threshold (connections >= this will be returned)}
 
-\item{...}{additional arguments passed to \code{\link{neuprint_cosine_plot}}
+\item{...}{additional arguments passed to \code{\link[neuprintr]{neuprint_cosine_plot}}
 and eventually to \code{heatmap}.}
 }
 \value{

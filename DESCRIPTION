@@ -46,7 +46,6 @@ Remotes:
     natverse/nat.h5reg,
     natverse/nat.jrcbrains,
     natverse/coconat
-RoxygenNote: 7.3.3
 URL: https://github.com/natverse/malecns,
     https://natverse.org/malecns/
 BugReports: https://github.com/natverse/malecns/issues
@@ -54,3 +53,4 @@ Depends:
     R (>= 3.5),
     nat (>= 1.10.2.9000)
 Config/testthat/edition: 3
+Config/roxygen2/version: 8.1.0

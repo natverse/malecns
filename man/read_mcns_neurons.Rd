@@ -48,7 +48,7 @@ plot3d(n30102, lwd=2, soma=2000)
 }
 }
 \seealso{
-Other neurons: 
-\code{\link{read_mcns_meshes}()}
+Other neurons:
+\code{\link[=read_mcns_meshes]{read_mcns_meshes()}}
 }
 \concept{neurons}

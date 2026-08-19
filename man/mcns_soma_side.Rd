@@ -81,9 +81,9 @@ plot(sp[,1:2])
 mcns_somapos('LAL042', units='um', as_character=TRUE)
 }
 \seealso{
-Other annotations: 
-\code{\link{mcns_body_annotations}()},
-\code{\link{mcns_dvid_annotations}()},
-\code{\link{mcns_neuprint_meta}()}
+Other annotations:
+\code{\link[=mcns_body_annotations]{mcns_body_annotations()}},
+\code{\link[=mcns_dvid_annotations]{mcns_dvid_annotations()}},
+\code{\link[=mcns_neuprint_meta]{mcns_neuprint_meta()}}
 }
 \concept{annotations}

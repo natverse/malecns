@@ -22,7 +22,7 @@ mcns_annotate_body(
 \bold{End users are strongly recommended to use data.frames.}}
 
 \item{test}{Whether to use the test clio store. Default \code{FALSE}
-writes to production Clio. See \code{\link{manc_annotate_body}}.}
+writes to production Clio. See \code{\link[malevnc]{manc_annotate_body}}.}
 
 \item{version}{Optional clio version to associate with this annotation. The
 default \code{NULL} uses the current version returned by the API.}
@@ -54,9 +54,9 @@ Set to \code{Inf} to insist that all records are sent in a single request.
 
 \item{dry_run}{When \code{TRUE} (the default) no data is written; a preview
 tibble of the POST body is returned. Pass \code{dry_run = FALSE} to
-actually write. See \code{\link{manc_annotate_body}} for full details.}
+actually write. See \code{\link[malevnc]{manc_annotate_body}} for full details.}
 
-\item{...}{Additional parameters passed to \code{pbapply::\link{pbsapply}}}
+\item{...}{Additional parameters passed to \code{\link[pbapply]{pbsapply}}}
 }
 \value{
 \code{NULL} invisibly on success. Errors out on failure.
@@ -76,7 +76,7 @@ Details of Clio body annotation system are provided in
   default in groups of 50.
 
   A single column called \code{position} or 3 columns names x, y, z or X, Y,
-  Z in any form accepted by \code{\link{xyzmatrix}} will be converted to a
+  Z in any form accepted by \code{\link[nat]{xyzmatrix}} will be converted to a
   position stored with each record. This is recommended when creating
   records.
 
@@ -112,7 +112,7 @@ Details of Clio body annotation system are provided in
   that you use to authenticate to Clio. By default \emph{your} email address
   will be used since this is contained within your clio token. You can also
   specify an alternate user with the \code{designated_user} argument. See the
-  \code{\link{manc_annotate_body}} documentation for further details.
+  \code{\link[malevnc]{manc_annotate_body}} documentation for further details.
 }
 
 \examples{

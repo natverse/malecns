@@ -16,9 +16,10 @@ mcns_neuprint_meta(
 \arguments{
 \item{ids}{body ids. When missing all bodies known to DVID are returned.}
 
-\item{conn}{Optional, a \code{\link{neuprint_connection}} object, which also
-specifies the neuPrint server. Defaults to \code{\link[malevnc]{manc_neuprint}()} to
-ensure that query is against the VNC dataset.}
+\item{conn}{Optional, a \code{\link[neuprintr]{neuprint_connection}} object,
+which also specifies the neuPrint server. Defaults to
+\code{\link[malevnc]{manc_neuprint}()} to ensure that query is against the
+VNC dataset.}
 
 \item{roiInfo}{whether to include the \code{roiInfo} field detailing synapse
 numbers in different locations. This is omitted by default as it is
@@ -32,7 +33,8 @@ at \code{spatialreference.org}. Defaults to \code{TRUE}.}
 queries are cached for neuprint snapshot versions (but not production
 datasets). See details.}
 
-\item{...}{Additional arguments passed to \code{\link{neuprint_get_meta}}}
+\item{...}{Additional arguments passed to
+\code{\link[neuprintr]{neuprint_get_meta}}}
 }
 \value{
 A data.frame with one row for each (unique) input id and NAs for all
@@ -42,7 +44,7 @@ A data.frame with one row for each (unique) input id and NAs for all
 Fetch neuprint metadata for malecns neurons
 }
 \details{
-in contrast to \code{malevnc::\link{manc_neuprint_meta}} we leave
+in contrast to \code{\link[malevnc]{manc_neuprint_meta}} we leave
   bodyids as numeric (doubles) since flyem now guarantee them to be less than
   2^53 i.e. within the range in which doubles can exactly represent numeric
   ids.
@@ -72,9 +74,9 @@ mnm.nscprt=mcns_neuprint_meta("where:NOT exists(n.superclass) AND n.statusLabel 
 mnm.nscprt \%>\% count()
 }
 \seealso{
-Other annotations: 
-\code{\link{mcns_body_annotations}()},
-\code{\link{mcns_dvid_annotations}()},
-\code{\link{mcns_soma_side}()}
+Other annotations:
+\code{\link[=mcns_body_annotations]{mcns_body_annotations()}},
+\code{\link[=mcns_dvid_annotations]{mcns_dvid_annotations()}},
+\code{\link[=mcns_soma_side]{mcns_soma_side()}}
 }
 \concept{annotations}

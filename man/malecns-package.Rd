@@ -113,13 +113,18 @@ Useful links:
 }
 
 
-Other malecns-package: 
-\code{\link{choose_mcns_dataset}()},
-\code{\link{dr_malecns}()},
-\code{\link{with_mcns}()}
+Other malecns-package:
+\code{\link[=choose_mcns_dataset]{choose_mcns_dataset()}},
+\code{\link[=dr_malecns]{dr_malecns()}},
+\code{\link[=with_mcns]{with_mcns()}}
 }
 \author{
 \strong{Maintainer}: Gregory Jefferis \email{jefferis@gmail.com} (\href{https://orcid.org/0000-0002-0587-9355}{ORCID})
+
+Authors:
+\itemize{
+  \item Gregory Jefferis \email{jefferis@gmail.com} (\href{https://orcid.org/0000-0002-0587-9355}{ORCID})
+}
 
 }
 \concept{malecns-package}

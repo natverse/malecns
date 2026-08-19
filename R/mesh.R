@@ -18,7 +18,7 @@
 #'   that will be used.
 #' @param ... Additional arguments passed to \code{httr::GET}
 #'
-#' @return A \code{\link{neuronlist}} containing one or more \code{mesh3d}
+#' @return A \code{\link[nat]{neuronlist}} containing one or more \code{mesh3d}
 #'   objects.
 #' @export
 #' @family neurons

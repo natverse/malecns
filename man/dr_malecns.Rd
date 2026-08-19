@@ -10,9 +10,9 @@ dr_malecns()
 Situation report on your malecns package installation
 }
 \seealso{
-Other malecns-package: 
-\code{\link{choose_mcns_dataset}()},
+Other malecns-package:
+\code{\link[=choose_mcns_dataset]{choose_mcns_dataset()}},
 \code{\link{malecns-package}},
-\code{\link{with_mcns}()}
+\code{\link[=with_mcns]{with_mcns()}}
 }
 \concept{malecns-package}

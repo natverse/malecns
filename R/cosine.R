@@ -1,7 +1,7 @@
 #' Cosine plot
 #'
 #' @param ids Bodyids in any form understood by \code{\link{mcns_ids}}
-#' @param labRow A string interpolated by \code{\link{glue}} using the dataframe
+#' @param labRow A string interpolated by \code{\link[glue]{glue}} using the dataframe
 #'   of metadata fetched by \code{\link{mcns_neuprint_meta}}. Alternatively a
 #'   character vector with as many elements as \code{ids} directly specifying
 #'   the rows.
@@ -14,7 +14,7 @@
 #'   details.
 #' @param metadata.source Whether to use neuprint
 #'   (\code{\link{mcns_neuprint_meta}}) and clio ()
-#' @param ... additional arguments passed to \code{\link{neuprint_cosine_plot}}
+#' @param ... additional arguments passed to \code{\link[neuprintr]{neuprint_cosine_plot}}
 #'   and eventually to \code{heatmap}.
 #' @inheritParams neuprintr::neuprint_cosine_plot
 #' @inheritParams neuprintr::neuprint_cosine_matrix

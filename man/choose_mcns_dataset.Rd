@@ -27,9 +27,9 @@ choose_mcns_dataset("CNS")
 }
 }
 \seealso{
-Other malecns-package: 
-\code{\link{dr_malecns}()},
+Other malecns-package:
+\code{\link[=dr_malecns]{dr_malecns()}},
 \code{\link{malecns-package}},
-\code{\link{with_mcns}()}
+\code{\link[=with_mcns]{with_mcns()}}
 }
 \concept{malecns-package}

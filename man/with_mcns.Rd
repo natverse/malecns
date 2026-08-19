@@ -60,9 +60,9 @@ with_mcns(mcns_body_annotations(194965), dataset = "CNS")
 }
 }
 \seealso{
-Other malecns-package: 
-\code{\link{choose_mcns_dataset}()},
-\code{\link{dr_malecns}()},
+Other malecns-package:
+\code{\link[=choose_mcns_dataset]{choose_mcns_dataset()}},
+\code{\link[=dr_malecns]{dr_malecns()}},
 \code{\link{malecns-package}}
 }
 \concept{malecns-package}

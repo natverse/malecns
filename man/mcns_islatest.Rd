@@ -23,7 +23,7 @@ Check if a bodyid still exists in the specified malecns DVID node
 }
 \details{
 For details (and there are some) please see
-  \code{\link{manc_islatest}}
+  \code{\link[malevnc]{manc_islatest}}
 }
 \examples{
 \donttest{

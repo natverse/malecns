@@ -33,7 +33,7 @@ that will be used.}
 \item{...}{Additional arguments passed to \code{httr::GET}}
 }
 \value{
-A \code{\link{neuronlist}} containing one or more \code{mesh3d}
+A \code{\link[nat]{neuronlist}} containing one or more \code{mesh3d}
   objects.
 }
 \description{
@@ -59,7 +59,7 @@ wire3d(ml[[1]])
 }
 }
 \seealso{
-Other neurons: 
-\code{\link{read_mcns_neurons}()}
+Other neurons:
+\code{\link[=read_mcns_neurons]{read_mcns_neurons()}}
 }
 \concept{neurons}
